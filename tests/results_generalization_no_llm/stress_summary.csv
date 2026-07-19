@@ -1,0 +1,13 @@
+scenario,passed,turns,failed_turns,errors
+G01_complete_simple_french_variant,True,1,0,0
+G02_complete_with_mb_average,True,1,0,0
+G03_multiturn_all_short_answers,True,13,0,0
+G04_invalid_ratio_120_then_fix,True,2,0,0
+G05_update_capacity_and_growth,True,2,0,0
+G06_update_access_and_ha,True,2,0,0
+G07_partial_no_hallucination,True,1,0,0
+G08_machine_rooms_and_racks_not_clients,True,2,0,0
+G09_budget_maximum_not_ideal,True,1,0,0
+G10_power_maximum_not_ideal,True,1,0,0
+G11_english_complete_variant,True,1,0,0
+G12_conflicting_budget_then_answer_short,True,2,0,0

@@ -1,0 +1,76 @@
+[
+  {
+    "scenario": "G09_budget_maximum_not_ideal",
+    "turn_index": 1,
+    "passed": false,
+    "user": "Besoin de 220 TiB utiles, 90 clients, fichiers moyens 2 GB, taille max 45 GB, 2 millions de fichiers, ratio 65/35, accès mixte, lecture 30 GB/s, écriture 15 GB/s, sans HA, budget idéal 50000 USD mais maximum 75000 USD, puissance 8 kW, croissance 11%.",
+    "errors": [
+      "status: expected='VALID', actual='NEEDS_CLARIFICATION'",
+      "max_budget_usd: expected=75000, actual=None"
+    ],
+    "expected_status": "VALID",
+    "actual_status": "NEEDS_CLARIFICATION",
+    "expected_stage": null,
+    "actual_stage": "CLARIFICATION",
+    "actual_json": {
+      "requested_usable_capacity_tib": 220,
+      "client_count": 90,
+      "average_file_size_gb": 2,
+      "max_file_size_gb": 45,
+      "total_file_count": 2000000,
+      "read_write_ratio": {
+        "read_percent": 65,
+        "write_percent": 35
+      },
+      "access_type": "mixed",
+      "target_read_gbps": 30,
+      "target_write_gbps": 15,
+      "ha_required": false,
+      "max_budget_usd": null,
+      "max_power_w": 8000,
+      "annual_growth_percent": 11
+    },
+    "actual_questions": [
+      "J'ai trouvé plusieurs valeurs pour max_budget_usd : 50000 USD (evidence: 'budget idéal 50000 USD') / 50000 USD (evidence: '50000 USD') / 75000 USD (evidence: '75000 USD'). Quelle valeur dois-je garder ?"
+    ],
+    "checked_fields": 2,
+    "error_count": 2
+  },
+  {
+    "scenario": "G10_power_maximum_not_ideal",
+    "turn_index": 1,
+    "passed": false,
+    "user": "Besoin de 220 TiB utiles, 90 clients, fichiers moyens 2 GB, taille max 45 GB, 2 millions de fichiers, ratio 65/35, accès mixte, lecture 30 GB/s, écriture 15 GB/s, sans HA, budget 75000 USD, puissance idéale 6 kW mais maximum 9 kW, croissance 11%.",
+    "errors": [
+      "status: expected='VALID', actual='NEEDS_CLARIFICATION'",
+      "max_power_w: expected=9000, actual=None"
+    ],
+    "expected_status": "VALID",
+    "actual_status": "NEEDS_CLARIFICATION",
+    "expected_stage": null,
+    "actual_stage": "CLARIFICATION",
+    "actual_json": {
+      "requested_usable_capacity_tib": 220,
+      "client_count": 90,
+      "average_file_size_gb": 2,
+      "max_file_size_gb": 45,
+      "total_file_count": 2000000,
+      "read_write_ratio": {
+        "read_percent": 65,
+        "write_percent": 35
+      },
+      "access_type": "mixed",
+      "target_read_gbps": 30,
+      "target_write_gbps": 15,
+      "ha_required": false,
+      "max_budget_usd": 75000,
+      "max_power_w": null,
+      "annual_growth_percent": 11
+    },
+    "actual_questions": [
+      "J'ai trouvé plusieurs valeurs pour max_power_w : 6000 W (evidence: 'puissance idéale 6 kW') / 6000 W (evidence: '6 kW') / 9000 W (evidence: '9 kW'). Quelle valeur dois-je garder ?"
+    ],
+    "checked_fields": 2,
+    "error_count": 2
+  }
+]

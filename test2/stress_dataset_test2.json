@@ -1,0 +1,354 @@
+{
+  "metadata": {
+    "name": "test2_harder_stress_dataset",
+    "version": "1.0",
+    "description": "Harder and more diverse stress dataset for Lustre chatbot: multilingual inputs, relational corrections, invalid units, budget multipliers, negative HA, explicit updates, and LLM fallback."
+  },
+  "scenarios": [
+    {
+      "id": "T201_MIXED_LANGUAGE_COMPLETE_VALID",
+      "tags": ["mixed_language", "rule_extraction", "valid"],
+      "description": "French + English complete request with random access and no HA.",
+      "turns": [
+        {
+          "user": "Need 1200 TB usable for 800 Lustre clients, average files 250 MB, max file size 40 GB, 2 million files, read write ratio 80/20, accès random, lecture 60 GB/s, écriture 20 GB/s, sans HA, budget maximum 15000000 USD, power max 300 kW, growth 25%.",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "requested_usable_capacity_tib": 1200,
+              "client_count": 800,
+              "average_file_size_gb": 0.25,
+              "max_file_size_gb": 40,
+              "total_file_count": 2000000,
+              "read_write_ratio": {
+                "read_percent": 80,
+                "write_percent": 20
+              },
+              "access_type": "random",
+              "target_read_gbps": 60,
+              "target_write_gbps": 20,
+              "ha_required": false,
+              "max_budget_usd": 15000000,
+              "max_power_w": 300000,
+              "annual_growth_percent": 25
+            },
+            "calculation": {
+              "ready": true,
+              "growth_factor": 1.25,
+              "planned_usable_capacity_tib": 1875
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T202_MISSING_THROUGHPUT_TWO_STEPS",
+      "tags": ["missing_field", "multi_turn", "throughput"],
+      "description": "Read and write throughput are missing and should be collected over two turns.",
+      "turns": [
+        {
+          "user": "Je veux 700 TiB utiles, 500 clients, fichiers moyens 1 GB, taille max 60 GB, 400000 fichiers, ratio 70/30, accès mixte, HA obligatoire, budget maximum 8000000 USD, puissance max 250 kW, croissance 20%.",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "null_fields": ["target_read_gbps"],
+            "question_contains_any": ["lecture", "read", "gb/s"]
+          }
+        },
+        {
+          "user": "lecture 45 GB/s",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "fields": {
+              "target_read_gbps": 45
+            },
+            "null_fields": ["target_write_gbps"],
+            "question_contains_any": ["écriture", "ecriture", "write", "gb/s"]
+          }
+        },
+        {
+          "user": "écriture 18 GB/s",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "target_read_gbps": 45,
+              "target_write_gbps": 18
+            },
+            "calculation": {
+              "ready": true,
+              "planned_usable_capacity_tib": 1050
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T203_LLM_FALLBACK_TEXTUAL_POWER_AND_CONFIRM",
+      "tags": ["llm_fallback", "ai_plausibility", "textual_number", "power"],
+      "description": "Power is written in English words and must trigger LLM fallback, then AI correction.",
+      "turns": [
+        {
+          "user": "Je veux 900 TiB utiles, 1000 clients, fichiers moyens 200 MB, taille max 90 GB, 1 million de fichiers, ratio 75/25, accès mixte, lecture 90 GB/s, écriture 35 GB/s, HA obligatoire, budget maximum 20000000 USD, croissance 18%. The total power limit is fifty watts.",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "null_fields": ["max_power_w"],
+            "question_contains_any": ["puissance", "w", "kw"],
+            "stdout_contains_any": ["[LLM FALLBACK]", "[AI PLAUSIBILITY]"]
+          }
+        },
+        {
+          "user": "oui",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "max_power_w": 50000
+            },
+            "calculation": {
+              "ready": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T204_RELATIONAL_FIX_AVERAGE_FILE_SIZE",
+      "tags": ["ai_plausibility", "relational_inconsistency", "explicit_update"],
+      "description": "Initial volume is too large; user fixes average file size instead of capacity.",
+      "turns": [
+        {
+          "user": "Je veux 500 TiB utiles, 1200 clients, fichiers moyens 2 GB, taille max 80 GB, 3 millions de fichiers, ratio 70/30, accès mixte, lecture 70 GB/s, écriture 30 GB/s, HA obligatoire, budget maximum 10000000 USD, puissance max 400 kW, croissance 20%.",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "fields": {
+              "requested_usable_capacity_tib": 500,
+              "average_file_size_gb": 2,
+              "total_file_count": 3000000
+            },
+            "question_contains_any": ["capacité", "taille moyenne", "nombre total", "incohérence"]
+          }
+        },
+        {
+          "user": "je corrige la taille moyenne à 150 MB",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "requested_usable_capacity_tib": 500,
+              "average_file_size_gb": 0.15,
+              "total_file_count": 3000000
+            },
+            "calculation": {
+              "ready": true,
+              "planned_usable_capacity_tib": 750
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T205_RELATIONAL_FIX_TOTAL_FILE_COUNT",
+      "tags": ["ai_plausibility", "relational_inconsistency", "file_count_update"],
+      "description": "Initial volume is too large; user fixes total file count.",
+      "turns": [
+        {
+          "user": "Je veux 300 TiB utiles, 400 clients, fichiers moyens 1 GB, taille max 40 GB, 1 million de fichiers, ratio 70/30, accès mixte, lecture 30 GB/s, écriture 12 GB/s, HA obligatoire, budget maximum 5000000 USD, puissance max 200 kW, croissance 15%.",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "question_contains_any": ["capacité", "taille moyenne", "nombre total", "incohérence"]
+          }
+        },
+        {
+          "user": "je corrige le nombre de fichiers à 200000",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "total_file_count": 200000,
+              "average_file_size_gb": 1,
+              "requested_usable_capacity_tib": 300
+            },
+            "calculation": {
+              "ready": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T206_BUDGET_BILLION_MULTIPLIER",
+      "tags": ["budget", "money_multiplier", "ai_plausibility"],
+      "description": "Budget too low, then user answers with milliards dollars.",
+      "turns": [
+        {
+          "user": "Je veux 8000 TiB utiles, 2500 clients, fichiers moyens 1 GB, taille max 100 GB, 5 millions de fichiers, ratio 65/35, accès mixte, lecture 100 GB/s, écriture 50 GB/s, HA obligatoire, budget maximum 60000 USD, puissance max 6000 kW, croissance 20%.",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "fields": {
+              "max_budget_usd": 60000
+            },
+            "question_contains_any": ["budget", "usd"]
+          }
+        },
+        {
+          "user": "2 milliards dollars",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "max_budget_usd": 2000000000
+            },
+            "calculation": {
+              "ready": true,
+              "planned_usable_capacity_tib": 12000
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T207_INVALID_RATIO_AND_BAD_FIX_THEN_GOOD_FIX",
+      "tags": ["invalid_value", "ratio", "multi_turn"],
+      "description": "Invalid ratio, then invalid correction, then valid correction.",
+      "turns": [
+        {
+          "user": "Je veux 250 TiB utiles, 120 clients, fichiers moyens 500 MB, taille max 25 GB, 300000 fichiers, ratio 90/30, accès mixte, lecture 25 GB/s, écriture 10 GB/s, HA obligatoire, budget maximum 2000000 USD, puissance max 150 kW, croissance 10%.",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "question_contains_any": ["ratio", "100", "lecture", "écriture"]
+          }
+        },
+        {
+          "user": "80/40",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "question_contains_any": ["ratio", "100", "lecture", "écriture"]
+          }
+        },
+        {
+          "user": "75/25",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "read_write_ratio": {
+                "read_percent": 75,
+                "write_percent": 25
+              }
+            },
+            "calculation": {
+              "ready": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T208_BAD_CAPACITY_UNIT_THEN_VALID",
+      "tags": ["bad_unit", "missing_field", "state_guard"],
+      "description": "Capacity missing; user gives a wrong unit first, then corrects it.",
+      "turns": [
+        {
+          "user": "Cluster de 300 clients, fichiers moyens 1 GB, taille max 50 GB, 500000 fichiers, ratio 70/30, accès séquentiel, lecture 50 GB/s, écriture 20 GB/s, HA obligatoire, budget maximum 4000000 USD, puissance max 180 kW, croissance 12%.",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "null_fields": ["requested_usable_capacity_tib"],
+            "question_contains_any": ["capacité", "tib"]
+          }
+        },
+        {
+          "user": "500 watts",
+          "expect": {
+            "status": "NEEDS_CLARIFICATION",
+            "stage": "CLARIFICATION",
+            "null_fields": ["requested_usable_capacity_tib"],
+            "question_contains_any": ["capacité", "tib"]
+          }
+        },
+        {
+          "user": "500 TiB",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "requested_usable_capacity_tib": 500
+            },
+            "calculation": {
+              "ready": true,
+              "planned_usable_capacity_tib": 700
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T209_EXPLICIT_UPDATE_AFTER_RECOMMENDATION",
+      "tags": ["explicit_update", "after_valid", "multi_turn"],
+      "description": "Valid request followed by explicit update of throughput, budget and HA.",
+      "turns": [
+        {
+          "user": "Je veux 350 TiB utiles pour 180 clients, fichiers moyens 500 MB, taille max 30 GB, 400000 fichiers, ratio 70/30, accès mixte, lecture 35 GB/s, écriture 15 GB/s, HA obligatoire, budget maximum 3000000 USD, puissance max 160 kW, croissance 10%.",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "calculation": {
+              "ready": true
+            }
+          }
+        },
+        {
+          "user": "finalement je change lecture à 50 GB/s, écriture à 25 GB/s, budget maximum à 5000000 USD et sans HA",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "target_read_gbps": 50,
+              "target_write_gbps": 25,
+              "max_budget_usd": 5000000,
+              "ha_required": false
+            },
+            "calculation": {
+              "ready": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "T210_SMALL_FILES_METADATA_HEAVY_VALID",
+      "tags": ["metadata_heavy", "small_files", "valid"],
+      "description": "Small-file-heavy workload, valid but different from large-file scenarios.",
+      "turns": [
+        {
+          "user": "Je veux 100 TiB utiles, 600 clients, fichiers moyens 10 MB, taille max 2 GB, 50 millions de fichiers, ratio 50/50, accès random, lecture 15 GB/s, écriture 15 GB/s, HA obligatoire, budget maximum 8000000 USD, puissance max 250 kW, croissance 30%.",
+          "expect": {
+            "status": "VALID",
+            "stage": "RECOMMENDATION",
+            "fields": {
+              "requested_usable_capacity_tib": 100,
+              "average_file_size_gb": 0.01,
+              "max_file_size_gb": 2,
+              "total_file_count": 50000000,
+              "access_type": "random"
+            },
+            "calculation": {
+              "ready": true,
+              "growth_factor": 1.3,
+              "planned_usable_capacity_tib": 162.5
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
