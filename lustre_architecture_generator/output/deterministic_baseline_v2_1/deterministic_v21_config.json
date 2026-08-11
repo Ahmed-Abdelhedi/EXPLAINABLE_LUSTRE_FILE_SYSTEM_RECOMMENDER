@@ -1,0 +1,47 @@
+{
+  "algorithm": "Deterministic Baseline V2.1",
+  "training": false,
+  "seed": null,
+  "split": "test",
+  "group_column": "case_id",
+  "evaluation_label": "relevance_grade",
+  "mdt_logic": {
+    "dimensions": [
+      "performance",
+      "latency",
+      "endurance",
+      "reliability",
+      "cost",
+      "power"
+    ],
+    "performance_score": "read/write IOPS headroom, weighted by requested read/write IOPS share",
+    "latency_score": "latency_margin",
+    "endurance_score": "endurance_margin_ratio",
+    "reliability_score": "reliability_margin_ratio",
+    "cost_score": "inverse min-max raw_drive_cost_usd",
+    "power_score": "inverse min-max raw_drive_power_w",
+    "latency_share_rule": {
+      "moderate": 0.2,
+      "low": 0.35,
+      "very_low": 0.5
+    },
+    "endurance_share_rule": {
+      "standard": 0.25,
+      "medium": 0.4,
+      "high": 0.55,
+      "critical": 0.7
+    },
+    "note": "Fixed business rules defined before evaluation; not learned from teacher labels."
+  },
+  "ost_logic": "Unchanged from deterministic V2: performance/reliability/cost/power.",
+  "normalization": "Min-max independently inside each case_id",
+  "forbidden_score_columns": [
+    "is_teacher_top1",
+    "is_teacher_top10",
+    "is_teacher_top3",
+    "is_teacher_top5",
+    "relevance_grade",
+    "teacher_rank",
+    "teacher_score"
+  ]
+}

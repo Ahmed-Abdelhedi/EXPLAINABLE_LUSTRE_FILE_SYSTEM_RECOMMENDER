@@ -1,0 +1,393 @@
+{
+  "summary": {
+    "scenario_count": 150,
+    "turn_count": 175,
+    "technical_errors": 0,
+    "scenario_full_success_rate": 0.9133333333333333,
+    "full_turn_exact_match_rate": 0.9257142857142857,
+    "field_exact_match_rate": 0.9371428571428572,
+    "field_slot_accuracy": 0.9912087912087912,
+    "field_precision": 1.0,
+    "field_recall": 0.9887450759707372,
+    "field_f1": 0.9943406904357669,
+    "field_value_accuracy": 0.9887450759707372,
+    "status_accuracy": 0.9428571428571428,
+    "stage_accuracy": 0.9428571428571428,
+    "clarification_target_accuracy": 0.975609756097561,
+    "hallucination_rate": 0.0,
+    "normalization_accuracy": 1.0,
+    "multi_turn_consistency": 1.0,
+    "calculation_accuracy": 0.9428571428571428,
+    "average_latency_ms": 4256.248228571429,
+    "median_latency_ms": 1.293,
+    "p95_latency_ms": 22015.577499999967,
+    "maximum_latency_ms": 62420.811
+  },
+  "detection_metrics": {
+    "missing_fields": {
+      "precision": 0.9690721649484536,
+      "recall": 1.0,
+      "f1": 0.9842931937172774,
+      "true_positive": 470,
+      "false_positive": 15,
+      "false_negative": 0,
+      "exact_set_accuracy": 0.9371428571428572
+    },
+    "conflicting_fields": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "true_positive": 14,
+      "false_positive": 0,
+      "false_negative": 0,
+      "exact_set_accuracy": 1.0
+    },
+    "invalid_fields": {
+      "precision": 1.0,
+      "recall": 0.9285714285714286,
+      "f1": 0.962962962962963,
+      "true_positive": 13,
+      "false_positive": 0,
+      "false_negative": 1,
+      "exact_set_accuracy": 0.9942857142857143
+    },
+    "unsupported_fields": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "true_positive": 0,
+      "false_positive": 6,
+      "false_negative": 0,
+      "exact_set_accuracy": 0.9828571428571429
+    }
+  },
+  "per_field": {
+    "requested_usable_capacity_tib": {
+      "presence_precision": 1.0,
+      "presence_recall": 1.0,
+      "presence_f1": 1.0,
+      "field_slot_accuracy": 1.0,
+      "value_accuracy_when_expected": 1.0,
+      "expected_non_null_count": 149,
+      "missing_when_expected": 0,
+      "hallucinated_when_not_expected": 0
+    },
+    "client_count": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9795918367346939,
+      "presence_f1": 0.9896907216494846,
+      "field_slot_accuracy": 0.9828571428571429,
+      "value_accuracy_when_expected": 0.9795918367346939,
+      "expected_non_null_count": 147,
+      "missing_when_expected": 3,
+      "hallucinated_when_not_expected": 0
+    },
+    "average_file_size_gb": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9928571428571429,
+      "presence_f1": 0.996415770609319,
+      "field_slot_accuracy": 0.9942857142857143,
+      "value_accuracy_when_expected": 0.9928571428571429,
+      "expected_non_null_count": 140,
+      "missing_when_expected": 1,
+      "hallucinated_when_not_expected": 0
+    },
+    "max_file_size_gb": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9716312056737588,
+      "presence_f1": 0.9856115107913669,
+      "field_slot_accuracy": 0.9771428571428571,
+      "value_accuracy_when_expected": 0.9716312056737588,
+      "expected_non_null_count": 141,
+      "missing_when_expected": 4,
+      "hallucinated_when_not_expected": 0
+    },
+    "total_file_count": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9928571428571429,
+      "presence_f1": 0.996415770609319,
+      "field_slot_accuracy": 0.9942857142857143,
+      "value_accuracy_when_expected": 0.9928571428571429,
+      "expected_non_null_count": 140,
+      "missing_when_expected": 1,
+      "hallucinated_when_not_expected": 0
+    },
+    "read_write_ratio": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9776119402985075,
+      "presence_f1": 0.9886792452830189,
+      "field_slot_accuracy": 0.9828571428571429,
+      "value_accuracy_when_expected": 0.9776119402985075,
+      "expected_non_null_count": 134,
+      "missing_when_expected": 3,
+      "hallucinated_when_not_expected": 0
+    },
+    "access_type": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9926470588235294,
+      "presence_f1": 0.996309963099631,
+      "field_slot_accuracy": 0.9942857142857143,
+      "value_accuracy_when_expected": 0.9926470588235294,
+      "expected_non_null_count": 136,
+      "missing_when_expected": 1,
+      "hallucinated_when_not_expected": 0
+    },
+    "target_read_gbps": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9777777777777777,
+      "presence_f1": 0.9887640449438202,
+      "field_slot_accuracy": 0.9828571428571429,
+      "value_accuracy_when_expected": 0.9777777777777777,
+      "expected_non_null_count": 135,
+      "missing_when_expected": 3,
+      "hallucinated_when_not_expected": 0
+    },
+    "target_write_gbps": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9777777777777777,
+      "presence_f1": 0.9887640449438202,
+      "field_slot_accuracy": 0.9828571428571429,
+      "value_accuracy_when_expected": 0.9777777777777777,
+      "expected_non_null_count": 135,
+      "missing_when_expected": 3,
+      "hallucinated_when_not_expected": 0
+    },
+    "ha_required": {
+      "presence_precision": 1.0,
+      "presence_recall": 0.9924812030075187,
+      "presence_f1": 0.9962264150943396,
+      "field_slot_accuracy": 0.9942857142857143,
+      "value_accuracy_when_expected": 0.9924812030075187,
+      "expected_non_null_count": 133,
+      "missing_when_expected": 1,
+      "hallucinated_when_not_expected": 0
+    },
+    "max_budget_usd": {
+      "presence_precision": 1.0,
+      "presence_recall": 1.0,
+      "presence_f1": 1.0,
+      "field_slot_accuracy": 1.0,
+      "value_accuracy_when_expected": 1.0,
+      "expected_non_null_count": 130,
+      "missing_when_expected": 0,
+      "hallucinated_when_not_expected": 0
+    },
+    "max_power_w": {
+      "presence_precision": 1.0,
+      "presence_recall": 1.0,
+      "presence_f1": 1.0,
+      "field_slot_accuracy": 1.0,
+      "value_accuracy_when_expected": 1.0,
+      "expected_non_null_count": 129,
+      "missing_when_expected": 0,
+      "hallucinated_when_not_expected": 0
+    },
+    "annual_growth_percent": {
+      "presence_precision": 1.0,
+      "presence_recall": 1.0,
+      "presence_f1": 1.0,
+      "field_slot_accuracy": 1.0,
+      "value_accuracy_when_expected": 1.0,
+      "expected_non_null_count": 128,
+      "missing_when_expected": 0,
+      "hallucinated_when_not_expected": 0
+    }
+  },
+  "per_category": {
+    "boundary_invalid": {
+      "turn_count": 10,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    },
+    "complete_valid": {
+      "turn_count": 30,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    },
+    "conflicting_values": {
+      "turn_count": 15,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    },
+    "incomplete_clarification": {
+      "turn_count": 20,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    },
+    "irrelevant_impossible": {
+      "turn_count": 5,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 0.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 0.6,
+      "technical_errors": 0
+    },
+    "multi_turn": {
+      "turn_count": 40,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    },
+    "multilingual_synonyms": {
+      "turn_count": 10,
+      "field_slot_accuracy": 0.9615384615384616,
+      "field_value_accuracy": 0.9615384615384616,
+      "field_exact_match_rate": 0.5,
+      "status_accuracy": 0.5,
+      "stage_accuracy": 0.5,
+      "full_turn_exact_match_rate": 0.5,
+      "technical_errors": 0
+    },
+    "typo_noisy": {
+      "turn_count": 10,
+      "field_slot_accuracy": 0.8923076923076924,
+      "field_value_accuracy": 0.8923076923076924,
+      "field_exact_match_rate": 0.5,
+      "status_accuracy": 0.5,
+      "stage_accuracy": 0.5,
+      "full_turn_exact_match_rate": 0.5,
+      "technical_errors": 0
+    },
+    "unit_normalization": {
+      "turn_count": 20,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    },
+    "vague_informal": {
+      "turn_count": 15,
+      "field_slot_accuracy": 0.9948717948717949,
+      "field_value_accuracy": 0.9230769230769231,
+      "field_exact_match_rate": 0.9333333333333333,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 0.9333333333333333,
+      "technical_errors": 0
+    }
+  },
+  "per_language": {
+    "en": {
+      "turn_count": 6,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    },
+    "fr": {
+      "turn_count": 135,
+      "field_slot_accuracy": 0.9937321937321937,
+      "field_value_accuracy": 0.991466252909232,
+      "field_exact_match_rate": 0.9703703703703703,
+      "status_accuracy": 0.9777777777777777,
+      "stage_accuracy": 0.9777777777777777,
+      "full_turn_exact_match_rate": 0.9555555555555556,
+      "technical_errors": 0
+    },
+    "mixed": {
+      "turn_count": 34,
+      "field_slot_accuracy": 0.9796380090497737,
+      "field_value_accuracy": 0.9780487804878049,
+      "field_exact_match_rate": 0.7941176470588235,
+      "status_accuracy": 0.7941176470588235,
+      "stage_accuracy": 0.7941176470588235,
+      "full_turn_exact_match_rate": 0.7941176470588235,
+      "technical_errors": 0
+    }
+  },
+  "per_difficulty": {
+    "easy": {
+      "turn_count": 10,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    },
+    "hard": {
+      "turn_count": 100,
+      "field_slot_accuracy": 0.9846153846153847,
+      "field_value_accuracy": 0.978494623655914,
+      "field_exact_match_rate": 0.89,
+      "status_accuracy": 0.9,
+      "stage_accuracy": 0.9,
+      "full_turn_exact_match_rate": 0.87,
+      "technical_errors": 0
+    },
+    "medium": {
+      "turn_count": 65,
+      "field_slot_accuracy": 1.0,
+      "field_value_accuracy": 1.0,
+      "field_exact_match_rate": 1.0,
+      "status_accuracy": 1.0,
+      "stage_accuracy": 1.0,
+      "full_turn_exact_match_rate": 1.0,
+      "technical_errors": 0
+    }
+  },
+  "counts": {
+    "field_presence": {
+      "true_positive": 1757,
+      "false_positive": 0,
+      "false_negative": 20
+    },
+    "hallucinations": 0,
+    "hallucination_opportunities": 64,
+    "clarification_expected": 82,
+    "clarification_correct": 80,
+    "calculation_expected": 175,
+    "calculation_correct": 165
+  },
+  "metric_definitions": {
+    "field_precision": "Part des champs produits qui étaient attendus.",
+    "field_recall": "Part des champs attendus effectivement produits.",
+    "field_f1": "Moyenne harmonique de la précision et du rappel des champs.",
+    "field_value_accuracy": "Part des valeurs attendues non nulles extraites avec la valeur exacte après normalisation.",
+    "field_slot_accuracy": "Exactitude sur les 13 positions de champ, y compris les valeurs nulles attendues.",
+    "field_exact_match_rate": "Part des tours où les 13 champs correspondent exactement.",
+    "full_turn_exact_match_rate": "Part des tours où champs, statut, étape, listes de validation, clarification et calcul attendu correspondent.",
+    "scenario_full_success_rate": "Part des scénarios dont tous les tours correspondent complètement.",
+    "normalization_accuracy": "Exactitude des valeurs attendues pour la catégorie unit_normalization.",
+    "multi_turn_consistency": "Exactitude cumulative des valeurs attendues dans les scénarios multi_turn.",
+    "hallucination_rate": "Part des champs must_not_extract qui ont malgré tout été renseignés."
+  },
+  "run": {
+    "mode": "llm_fallback",
+    "input_path": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\requirement_extractor\\validation\\reports\\llm_fallback\\results_llm_fallback.json",
+    "output_path": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\requirement_extractor\\validation\\reports\\llm_fallback\\metrics_llm_fallback.json"
+  }
+}

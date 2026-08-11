@@ -1,0 +1,1216 @@
+{
+  "dataset_name": "lustre_requirement_pipeline_end_to_end_v1",
+  "version": "1.0.0",
+  "scenario_count": 30,
+  "purpose": "Validate integration from raw/multi-turn user requests through requirement extraction, optional LLM fallback, final structured requirements, and AI Plausibility Agent.",
+  "scope": {
+    "single_and_multi_turn": true,
+    "starts_from_raw_user_text": true,
+    "llm_fallback_may_be_used": true,
+    "ai_plausibility_llm_enrichment_enabled": true,
+    "architecture_generation_in_scope": false
+  },
+  "outcome_distribution": {
+    "BLOCKED_PLAUSIBILITY": 5,
+    "READY_COHERENT": 7,
+    "READY_AMBIGUOUS": 8,
+    "CLARIFICATION_REQUIRED": 10
+  },
+  "language_distribution": {
+    "fr": 11,
+    "en": 11,
+    "mixed": 8
+  },
+  "evaluation_contract": {
+    "READY_COHERENT": "Requirements are complete and AI Plausibility must return COHERENT without blocking.",
+    "READY_AMBIGUOUS": "Requirements are complete; architecture-dependent condition must produce WARNING/AMBIGUOUS without blocking.",
+    "BLOCKED_PLAUSIBILITY": "Requirements are extractable but contain direct cross-field contradiction(s) that must block.",
+    "CLARIFICATION_REQUIRED": "Required information is missing; pipeline must clarify and never invent missing values."
+  },
+  "important_notes": [
+    "Do not require an exact LLM fallback call count unless authoritative runtime instrumentation exists.",
+    "Current project contract uses GB/s values in target_read_gbps and target_write_gbps despite legacy field names.",
+    "AI Plausibility LLM enrichment is non-decision-authoritative.",
+    "Missing values must stay null until explicitly supplied by the user.",
+    "E2E_0001 is intentionally BLOCKED_PLAUSIBILITY: its structured requirements imply ~19,531.25 TiB for only 500 TiB requested.",
+    "End-to-End precedence: syntactic/domain-invalid values rejected by StateGuard (for example a read/write ratio whose sum is not 100) lead to CLARIFICATION_REQUIRED before AI Plausibility is invoked."
+  ],
+  "fields": [
+    "requested_usable_capacity_tib",
+    "client_count",
+    "average_file_size_gb",
+    "max_file_size_gb",
+    "total_file_count",
+    "read_write_ratio",
+    "access_type",
+    "target_read_gbps",
+    "target_write_gbps",
+    "ha_required",
+    "max_budget_usd",
+    "max_power_w",
+    "annual_growth_percent"
+  ],
+  "scenarios": [
+    {
+      "id": "E2E_0001",
+      "pipeline_outcome": "BLOCKED_PLAUSIBILITY",
+      "category": "capacity_volume_mismatch",
+      "language": "fr",
+      "difficulty": "easy",
+      "turns": [
+        "Je veux 500 TiB utiles pour 200 clients, fichiers moyens de 2 GB et maximum 100 GB, environ 10 millions de fichiers, ratio lecture/écriture 70/30, accès mixed, 80 GB/s en lecture et 40 GB/s en écriture, HA obligatoire, budget maximum 100000 USD, puissance maximum 15000 W et croissance annuelle 30 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 500,
+        "client_count": 200,
+        "average_file_size_gb": 2,
+        "max_file_size_gb": 100,
+        "total_file_count": 10000000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 80,
+        "target_write_gbps": 40,
+        "ha_required": true,
+        "max_budget_usd": 100000,
+        "max_power_w": 15000,
+        "annual_growth_percent": 30
+      },
+      "expected": {
+        "plausibility_status": "INCOHERENT",
+        "should_block_recommendation": true,
+        "blocking_issue_codes": [
+          "DATASET_VOLUME_EXCEEDS_CAPACITY"
+        ],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": "Oracle corrected after the end-to-end smoke test. 2 GB x 10,000,000 files / 1024 = 19,531.25 TiB, so the request is directly inconsistent with 500 TiB usable."
+    },
+    {
+      "id": "E2E_0002",
+      "pipeline_outcome": "READY_COHERENT",
+      "category": "coherent_clear",
+      "language": "en",
+      "difficulty": "easy",
+      "turns": [
+        "Need 800 TiB usable, 300 clients, average file size 0.5 GB, max file size 20 GB, 600000 files, read/write 60/40, sequential access, 70 GB/s read, 30 GB/s write, HA required, 500000 USD budget, 30000 W max power, 15% annual growth."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 800,
+        "client_count": 300,
+        "average_file_size_gb": 0.5,
+        "max_file_size_gb": 20,
+        "total_file_count": 600000,
+        "read_write_ratio": {
+          "read_percent": 60,
+          "write_percent": 40
+        },
+        "access_type": "sequential",
+        "target_read_gbps": 70,
+        "target_write_gbps": 30,
+        "ha_required": true,
+        "max_budget_usd": 500000,
+        "max_power_w": 30000,
+        "annual_growth_percent": 15
+      },
+      "expected": {
+        "plausibility_status": "COHERENT",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0003",
+      "pipeline_outcome": "READY_COHERENT",
+      "category": "coherent_mixed_language",
+      "language": "mixed",
+      "difficulty": "medium",
+      "turns": [
+        "Je cherche un Lustre storage de 1000 TiB usable pour 450 clients, avg file 1 GB, max 50 GB, 500k files, read/write 75/25, parallel access, target 90 GB/s read et 35 GB/s write, HA yes, budget 700000 USD, power cap 40000 W, growth 20%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 1000,
+        "client_count": 450,
+        "average_file_size_gb": 1,
+        "max_file_size_gb": 50,
+        "total_file_count": 500000,
+        "read_write_ratio": {
+          "read_percent": 75,
+          "write_percent": 25
+        },
+        "access_type": "parallel",
+        "target_read_gbps": 90,
+        "target_write_gbps": 35,
+        "ha_required": true,
+        "max_budget_usd": 700000,
+        "max_power_w": 40000,
+        "annual_growth_percent": 20
+      },
+      "expected": {
+        "plausibility_status": "COHERENT",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0004",
+      "pipeline_outcome": "READY_COHERENT",
+      "category": "coherent_boundary",
+      "language": "fr",
+      "difficulty": "medium",
+      "turns": [
+        "Capacité utile 200 TiB, 64 clients, taille moyenne 0,25 GB, taille max 2 GB, 700000 fichiers, ratio 50/50, accès random, lecture 12 GB/s, écriture 6 GB/s, sans HA, budget 150000 USD, puissance 10000 W, croissance 5 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 200,
+        "client_count": 64,
+        "average_file_size_gb": 0.25,
+        "max_file_size_gb": 2,
+        "total_file_count": 700000,
+        "read_write_ratio": {
+          "read_percent": 50,
+          "write_percent": 50
+        },
+        "access_type": "random",
+        "target_read_gbps": 12,
+        "target_write_gbps": 6,
+        "ha_required": false,
+        "max_budget_usd": 150000,
+        "max_power_w": 10000,
+        "annual_growth_percent": 5
+      },
+      "expected": {
+        "plausibility_status": "COHERENT",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0005",
+      "pipeline_outcome": "READY_COHERENT",
+      "category": "coherent_clear",
+      "language": "en",
+      "difficulty": "medium",
+      "turns": [
+        "Lustre requirement: 1500 TiB usable; 600 clients; avg file 0.1 GB; max 4 GB; 5 million files; 80/20 read/write; mixed access; 120 GB/s read; 45 GB/s write; HA; budget 1200000 USD; power 65000 W; growth 25%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 1500,
+        "client_count": 600,
+        "average_file_size_gb": 0.1,
+        "max_file_size_gb": 4,
+        "total_file_count": 5000000,
+        "read_write_ratio": {
+          "read_percent": 80,
+          "write_percent": 20
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 120,
+        "target_write_gbps": 45,
+        "ha_required": true,
+        "max_budget_usd": 1200000,
+        "max_power_w": 65000,
+        "annual_growth_percent": 25
+      },
+      "expected": {
+        "plausibility_status": "COHERENT",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0006",
+      "pipeline_outcome": "READY_COHERENT",
+      "category": "coherent_multi_turn",
+      "language": "fr",
+      "difficulty": "medium",
+      "turns": [
+        "Je veux 600 TiB utiles pour 240 clients. Taille moyenne 0.5 GB, max 10 GB, 800000 fichiers, lecture/écriture 65/35.",
+        "Accès sequential, 50 GB/s lecture et 20 GB/s écriture, HA obligatoire, budget 450000 USD, puissance 25000 W, croissance 10 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 600,
+        "client_count": 240,
+        "average_file_size_gb": 0.5,
+        "max_file_size_gb": 10,
+        "total_file_count": 800000,
+        "read_write_ratio": {
+          "read_percent": 65,
+          "write_percent": 35
+        },
+        "access_type": "sequential",
+        "target_read_gbps": 50,
+        "target_write_gbps": 20,
+        "ha_required": true,
+        "max_budget_usd": 450000,
+        "max_power_w": 25000,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": "COHERENT",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0007",
+      "pipeline_outcome": "READY_COHERENT",
+      "category": "coherent_multi_turn",
+      "language": "en",
+      "difficulty": "medium",
+      "turns": [
+        "Start with 900 TiB usable, 320 clients, average file size 0.2 GB, maximum 8 GB and 2 million files.",
+        "Use 70/30 read/write, parallel access, 75 GB/s read, 25 GB/s write, no HA, 650000 USD budget, 35000 W power cap and 12% growth."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 900,
+        "client_count": 320,
+        "average_file_size_gb": 0.2,
+        "max_file_size_gb": 8,
+        "total_file_count": 2000000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "parallel",
+        "target_read_gbps": 75,
+        "target_write_gbps": 25,
+        "ha_required": false,
+        "max_budget_usd": 650000,
+        "max_power_w": 35000,
+        "annual_growth_percent": 12
+      },
+      "expected": {
+        "plausibility_status": "COHERENT",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0008",
+      "pipeline_outcome": "READY_COHERENT",
+      "category": "coherent_noisy_but_clear",
+      "language": "mixed",
+      "difficulty": "hard",
+      "turns": [
+        "Need ~1200 TiB usable; 500 clients; avg-file 0.05 GB; max-file 5 GB; 4,000,000 files; reads/writes 55/45; access=mixed; read target 100 GB/s; write target 50 GB/s; HA=true; budget=900000 USD; max power=50000 W; growth=18%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 1200,
+        "client_count": 500,
+        "average_file_size_gb": 0.05,
+        "max_file_size_gb": 5,
+        "total_file_count": 4000000,
+        "read_write_ratio": {
+          "read_percent": 55,
+          "write_percent": 45
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 100,
+        "target_write_gbps": 50,
+        "ha_required": true,
+        "max_budget_usd": 900000,
+        "max_power_w": 50000,
+        "annual_growth_percent": 18
+      },
+      "expected": {
+        "plausibility_status": "COHERENT",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0009",
+      "pipeline_outcome": "READY_AMBIGUOUS",
+      "category": "budget_requires_architecture",
+      "language": "fr",
+      "difficulty": "medium",
+      "turns": [
+        "Je veux 500 TiB utiles, 200 clients, fichiers moyens 0.5 GB max 20 GB, 600000 fichiers, ratio 70/30, accès mixed, 40 GB/s lecture, 15 GB/s écriture, HA, budget maximum 8000 USD, puissance 20000 W, croissance 10 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 500,
+        "client_count": 200,
+        "average_file_size_gb": 0.5,
+        "max_file_size_gb": 20,
+        "total_file_count": 600000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 40,
+        "target_write_gbps": 15,
+        "ha_required": true,
+        "max_budget_usd": 8000,
+        "max_power_w": 20000,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": "AMBIGUOUS",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [
+          "BUDGET_REQUIRES_ARCHITECTURE"
+        ],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0010",
+      "pipeline_outcome": "READY_AMBIGUOUS",
+      "category": "power_requires_architecture",
+      "language": "en",
+      "difficulty": "medium",
+      "turns": [
+        "Need 500 TiB usable, 180 clients, avg file 0.5 GB, max 20 GB, 700000 files, read/write 60/40, sequential access, 35 GB/s read, 15 GB/s write, HA required, 400000 USD budget, max power 800 W, 10% growth."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 500,
+        "client_count": 180,
+        "average_file_size_gb": 0.5,
+        "max_file_size_gb": 20,
+        "total_file_count": 700000,
+        "read_write_ratio": {
+          "read_percent": 60,
+          "write_percent": 40
+        },
+        "access_type": "sequential",
+        "target_read_gbps": 35,
+        "target_write_gbps": 15,
+        "ha_required": true,
+        "max_budget_usd": 400000,
+        "max_power_w": 800,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": "AMBIGUOUS",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [
+          "POWER_REQUIRES_ARCHITECTURE"
+        ],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0011",
+      "pipeline_outcome": "READY_AMBIGUOUS",
+      "category": "throughput_requires_architecture",
+      "language": "mixed",
+      "difficulty": "hard",
+      "turns": [
+        "Je cherche 200 TiB usable, 100 clients, avg 0.2 GB, max 10 GB, 400000 files, ratio 70/30, parallel access, read 50 GB/s + write 20 GB/s, HA yes, budget 300000 USD, power 15000 W, growth 8%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 200,
+        "client_count": 100,
+        "average_file_size_gb": 0.2,
+        "max_file_size_gb": 10,
+        "total_file_count": 400000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "parallel",
+        "target_read_gbps": 50,
+        "target_write_gbps": 20,
+        "ha_required": true,
+        "max_budget_usd": 300000,
+        "max_power_w": 15000,
+        "annual_growth_percent": 8
+      },
+      "expected": {
+        "plausibility_status": "AMBIGUOUS",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [
+          "THROUGHPUT_REQUIRES_ARCHITECTURE"
+        ],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0012",
+      "pipeline_outcome": "READY_AMBIGUOUS",
+      "category": "client_scale_requires_architecture",
+      "language": "fr",
+      "difficulty": "hard",
+      "turns": [
+        "Capacité 100 TiB, 400 clients, taille moyenne 0.1 GB, max 5 GB, 500000 fichiers, ratio 50/50, accès random, lecture 10 GB/s, écriture 5 GB/s, HA, budget 200000 USD, puissance 10000 W, croissance 5 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 100,
+        "client_count": 400,
+        "average_file_size_gb": 0.1,
+        "max_file_size_gb": 5,
+        "total_file_count": 500000,
+        "read_write_ratio": {
+          "read_percent": 50,
+          "write_percent": 50
+        },
+        "access_type": "random",
+        "target_read_gbps": 10,
+        "target_write_gbps": 5,
+        "ha_required": true,
+        "max_budget_usd": 200000,
+        "max_power_w": 10000,
+        "annual_growth_percent": 5
+      },
+      "expected": {
+        "plausibility_status": "AMBIGUOUS",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [
+          "CLIENT_SCALE_REQUIRES_ARCHITECTURE"
+        ],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0013",
+      "pipeline_outcome": "READY_AMBIGUOUS",
+      "category": "budget_requires_architecture",
+      "language": "en",
+      "difficulty": "hard",
+      "turns": [
+        "Lustre: 1000 TiB usable, 350 clients, average 0.25 GB, max 12 GB, 1 million files, 80/20, mixed, read 70 GB/s, write 30 GB/s, HA, budget 20000 USD, max power 45000 W, annual growth 15%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 1000,
+        "client_count": 350,
+        "average_file_size_gb": 0.25,
+        "max_file_size_gb": 12,
+        "total_file_count": 1000000,
+        "read_write_ratio": {
+          "read_percent": 80,
+          "write_percent": 20
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 70,
+        "target_write_gbps": 30,
+        "ha_required": true,
+        "max_budget_usd": 20000,
+        "max_power_w": 45000,
+        "annual_growth_percent": 15
+      },
+      "expected": {
+        "plausibility_status": "AMBIGUOUS",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [
+          "BUDGET_REQUIRES_ARCHITECTURE"
+        ],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0014",
+      "pipeline_outcome": "READY_AMBIGUOUS",
+      "category": "power_requires_architecture",
+      "language": "mixed",
+      "difficulty": "hard",
+      "turns": [
+        "Need 900 TiB utiles for 300 clients, avg file 0.4 GB max 15 GB, 900k files, 65/35, sequential, 60 GB/s read, 25 GB/s write, HA true, budget 700000 USD, power seulement 1200 W, growth 12%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 900,
+        "client_count": 300,
+        "average_file_size_gb": 0.4,
+        "max_file_size_gb": 15,
+        "total_file_count": 900000,
+        "read_write_ratio": {
+          "read_percent": 65,
+          "write_percent": 35
+        },
+        "access_type": "sequential",
+        "target_read_gbps": 60,
+        "target_write_gbps": 25,
+        "ha_required": true,
+        "max_budget_usd": 700000,
+        "max_power_w": 1200,
+        "annual_growth_percent": 12
+      },
+      "expected": {
+        "plausibility_status": "AMBIGUOUS",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [
+          "POWER_REQUIRES_ARCHITECTURE"
+        ],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0015",
+      "pipeline_outcome": "READY_AMBIGUOUS",
+      "category": "throughput_requires_architecture",
+      "language": "fr",
+      "difficulty": "hard",
+      "turns": [
+        "Je pars sur 300 TiB, 120 clients, taille moyenne 0.1 GB, max 4 GB, 500000 fichiers, ratio 70/30.",
+        "Accès parallel, 70 GB/s en lecture et 30 GB/s en écriture, HA, budget 350000 USD, puissance 18000 W, croissance 10 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 300,
+        "client_count": 120,
+        "average_file_size_gb": 0.1,
+        "max_file_size_gb": 4,
+        "total_file_count": 500000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "parallel",
+        "target_read_gbps": 70,
+        "target_write_gbps": 30,
+        "ha_required": true,
+        "max_budget_usd": 350000,
+        "max_power_w": 18000,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": "AMBIGUOUS",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [
+          "THROUGHPUT_REQUIRES_ARCHITECTURE"
+        ],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0016",
+      "pipeline_outcome": "READY_AMBIGUOUS",
+      "category": "client_scale_requires_architecture",
+      "language": "en",
+      "difficulty": "hard",
+      "turns": [
+        "Use 150 TiB usable with 600 clients, avg file 0.05 GB, max file 2 GB, 800000 files.",
+        "Read/write 60/40, random access, 15 GB/s read, 7 GB/s write, HA required, budget 250000 USD, power cap 12000 W, growth 8%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 150,
+        "client_count": 600,
+        "average_file_size_gb": 0.05,
+        "max_file_size_gb": 2,
+        "total_file_count": 800000,
+        "read_write_ratio": {
+          "read_percent": 60,
+          "write_percent": 40
+        },
+        "access_type": "random",
+        "target_read_gbps": 15,
+        "target_write_gbps": 7,
+        "ha_required": true,
+        "max_budget_usd": 250000,
+        "max_power_w": 12000,
+        "annual_growth_percent": 8
+      },
+      "expected": {
+        "plausibility_status": "AMBIGUOUS",
+        "should_block_recommendation": false,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [
+          "CLIENT_SCALE_REQUIRES_ARCHITECTURE"
+        ],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0017",
+      "pipeline_outcome": "BLOCKED_PLAUSIBILITY",
+      "category": "capacity_volume_mismatch",
+      "language": "fr",
+      "difficulty": "medium",
+      "turns": [
+        "Je veux seulement 100 TiB utiles mais j'ai 2 millions de fichiers de taille moyenne 0.2 GB, max 5 GB, 100 clients, ratio 70/30, accès mixed, 20 GB/s lecture, 10 GB/s écriture, HA, budget 200000 USD, puissance 12000 W, croissance 5 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 100,
+        "client_count": 100,
+        "average_file_size_gb": 0.2,
+        "max_file_size_gb": 5,
+        "total_file_count": 2000000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 20,
+        "target_write_gbps": 10,
+        "ha_required": true,
+        "max_budget_usd": 200000,
+        "max_power_w": 12000,
+        "annual_growth_percent": 5
+      },
+      "expected": {
+        "plausibility_status": "INCOHERENT",
+        "should_block_recommendation": true,
+        "blocking_issue_codes": [
+          "DATASET_VOLUME_EXCEEDS_CAPACITY"
+        ],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0018",
+      "pipeline_outcome": "BLOCKED_PLAUSIBILITY",
+      "category": "average_exceeds_maximum",
+      "language": "en",
+      "difficulty": "medium",
+      "turns": [
+        "Need 500 TiB usable, 200 clients, average file size 50 GB but maximum file size 10 GB, 100000 files, 60/40 read/write, sequential, 30 GB/s read, 15 GB/s write, HA, 400000 USD budget, 20000 W power, growth 10%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 500,
+        "client_count": 200,
+        "average_file_size_gb": 50,
+        "max_file_size_gb": 10,
+        "total_file_count": 100000,
+        "read_write_ratio": {
+          "read_percent": 60,
+          "write_percent": 40
+        },
+        "access_type": "sequential",
+        "target_read_gbps": 30,
+        "target_write_gbps": 15,
+        "ha_required": true,
+        "max_budget_usd": 400000,
+        "max_power_w": 20000,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": "INCOHERENT",
+        "should_block_recommendation": true,
+        "blocking_issue_codes": [
+          "AVERAGE_FILE_EXCEEDS_MAXIMUM",
+          "DATASET_VOLUME_EXCEEDS_CAPACITY"
+        ],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": "Oracle completed after full End-to-End run: the supplied average file size and file count also imply a dataset volume above the requested capacity, so both blocking relations are expected."
+    },
+    {
+      "id": "E2E_0019",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "invalid_read_write_ratio",
+      "language": "mixed",
+      "difficulty": "medium",
+      "turns": [
+        "Je cherche 600 TiB, 200 clients, avg 0.5 GB max 10 GB, 500000 files, read/write ratio 80/30, parallel access, read 40 GB/s, write 20 GB/s, HA yes, budget 450000 USD, power 25000 W, growth 10%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 600,
+        "client_count": 200,
+        "average_file_size_gb": 0.5,
+        "max_file_size_gb": 10,
+        "total_file_count": 500000,
+        "read_write_ratio": null,
+        "access_type": "parallel",
+        "target_read_gbps": 40,
+        "target_write_gbps": 20,
+        "ha_required": true,
+        "max_budget_usd": 450000,
+        "max_power_w": 25000,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "read_write_ratio"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": "End-to-End precedence case: StateGuard rejects the read/write ratio before the AI Plausibility Agent is invoked. The accepted structured ratio therefore remains null and the pipeline asks for clarification. Additional cross-field plausibility relations are evaluated only after the invalid ratio is corrected."
+    },
+    {
+      "id": "E2E_0020",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "multiple_hard_conflicts",
+      "language": "fr",
+      "difficulty": "hard",
+      "turns": [
+        "Capacité 100 TiB, 80 clients, taille moyenne 30 GB alors que max 10 GB, 1000000 fichiers, ratio lecture/écriture 75/35, accès mixed, lecture 25 GB/s, écriture 10 GB/s, HA, budget 180000 USD, puissance 10000 W, croissance 5 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 100,
+        "client_count": 80,
+        "average_file_size_gb": 30,
+        "max_file_size_gb": 10,
+        "total_file_count": 1000000,
+        "read_write_ratio": null,
+        "access_type": "mixed",
+        "target_read_gbps": 25,
+        "target_write_gbps": 10,
+        "ha_required": true,
+        "max_budget_usd": 180000,
+        "max_power_w": 10000,
+        "annual_growth_percent": 5
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "read_write_ratio"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": "End-to-End precedence case: StateGuard rejects the read/write ratio before the AI Plausibility Agent is invoked. The accepted structured ratio therefore remains null and the pipeline asks for clarification. Additional cross-field plausibility relations are evaluated only after the invalid ratio is corrected."
+    },
+    {
+      "id": "E2E_0021",
+      "pipeline_outcome": "BLOCKED_PLAUSIBILITY",
+      "category": "capacity_volume_mismatch",
+      "language": "en",
+      "difficulty": "hard",
+      "turns": [
+        "Need 250 TiB usable, 150 clients, average file 1 GB, max 20 GB, 600000 files, ratio 70/30, mixed access, 30 GB/s read, 10 GB/s write, HA, budget 300000 USD, power 18000 W, growth 12%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 250,
+        "client_count": 150,
+        "average_file_size_gb": 1,
+        "max_file_size_gb": 20,
+        "total_file_count": 600000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 30,
+        "target_write_gbps": 10,
+        "ha_required": true,
+        "max_budget_usd": 300000,
+        "max_power_w": 18000,
+        "annual_growth_percent": 12
+      },
+      "expected": {
+        "plausibility_status": "INCOHERENT",
+        "should_block_recommendation": true,
+        "blocking_issue_codes": [
+          "DATASET_VOLUME_EXCEEDS_CAPACITY"
+        ],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0022",
+      "pipeline_outcome": "BLOCKED_PLAUSIBILITY",
+      "category": "average_exceeds_maximum",
+      "language": "mixed",
+      "difficulty": "hard",
+      "turns": [
+        "Je veux 700 TiB usable, 250 clients, avg file size 25 GB, maximum seulement 5 GB, 200000 files, 60/40, random access, 35 GB/s read, 15 GB/s write, HA, budget 500000 USD, power 30000 W, growth 10%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 700,
+        "client_count": 250,
+        "average_file_size_gb": 25,
+        "max_file_size_gb": 5,
+        "total_file_count": 200000,
+        "read_write_ratio": {
+          "read_percent": 60,
+          "write_percent": 40
+        },
+        "access_type": "random",
+        "target_read_gbps": 35,
+        "target_write_gbps": 15,
+        "ha_required": true,
+        "max_budget_usd": 500000,
+        "max_power_w": 30000,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": "INCOHERENT",
+        "should_block_recommendation": true,
+        "blocking_issue_codes": [
+          "AVERAGE_FILE_EXCEEDS_MAXIMUM",
+          "DATASET_VOLUME_EXCEEDS_CAPACITY"
+        ],
+        "warning_issue_codes": [],
+        "clarification_fields": [],
+        "must_not_infer_missing_values": true
+      },
+      "notes": "Oracle completed after full End-to-End run: the supplied average file size and file count also imply a dataset volume above the requested capacity, so both blocking relations are expected."
+    },
+    {
+      "id": "E2E_0023",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "invalid_read_write_ratio",
+      "language": "fr",
+      "difficulty": "hard",
+      "turns": [
+        "Je veux 400 TiB, 160 clients, fichiers moyens 0.2 GB, max 8 GB, 500000 fichiers.",
+        "Ratio lecture/écriture 90/20, accès sequential, lecture 30 GB/s, écriture 12 GB/s, HA, budget 350000 USD, puissance 20000 W, croissance 8 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 400,
+        "client_count": 160,
+        "average_file_size_gb": 0.2,
+        "max_file_size_gb": 8,
+        "total_file_count": 500000,
+        "read_write_ratio": null,
+        "access_type": "sequential",
+        "target_read_gbps": 30,
+        "target_write_gbps": 12,
+        "ha_required": true,
+        "max_budget_usd": 350000,
+        "max_power_w": 20000,
+        "annual_growth_percent": 8
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "read_write_ratio"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": "End-to-End precedence case: StateGuard rejects the read/write ratio before the AI Plausibility Agent is invoked. The accepted structured ratio therefore remains null and the pipeline asks for clarification. Additional cross-field plausibility relations are evaluated only after the invalid ratio is corrected."
+    },
+    {
+      "id": "E2E_0024",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "multiple_hard_conflicts",
+      "language": "en",
+      "difficulty": "hard",
+      "turns": [
+        "Start with 120 TiB usable, 90 clients, average file size 40 GB, max 10 GB and 800000 files.",
+        "Use read/write 70/40, mixed access, read 20 GB/s, write 10 GB/s, HA, budget 200000 USD, 12000 W power cap and 5% growth."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 120,
+        "client_count": 90,
+        "average_file_size_gb": 40,
+        "max_file_size_gb": 10,
+        "total_file_count": 800000,
+        "read_write_ratio": null,
+        "access_type": "mixed",
+        "target_read_gbps": 20,
+        "target_write_gbps": 10,
+        "ha_required": true,
+        "max_budget_usd": 200000,
+        "max_power_w": 12000,
+        "annual_growth_percent": 5
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "read_write_ratio"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": "End-to-End precedence case: StateGuard rejects the read/write ratio before the AI Plausibility Agent is invoked. The accepted structured ratio therefore remains null and the pipeline asks for clarification. Additional cross-field plausibility relations are evaluated only after the invalid ratio is corrected."
+    },
+    {
+      "id": "E2E_0025",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "missing_capacity",
+      "language": "fr",
+      "difficulty": "easy",
+      "turns": [
+        "Je veux un Lustre pour 200 clients, fichiers moyens 1 GB, maximum 20 GB, 500000 fichiers, ratio 70/30, accès mixed, lecture 40 GB/s, écriture 20 GB/s, HA, budget 300000 USD, puissance 20000 W, croissance 10 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": null,
+        "client_count": 200,
+        "average_file_size_gb": 1,
+        "max_file_size_gb": 20,
+        "total_file_count": 500000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 40,
+        "target_write_gbps": 20,
+        "ha_required": true,
+        "max_budget_usd": 300000,
+        "max_power_w": 20000,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "requested_usable_capacity_tib"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0026",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "missing_throughput",
+      "language": "en",
+      "difficulty": "easy",
+      "turns": [
+        "Need 500 TiB usable, 180 clients, avg file 0.2 GB, max 10 GB, 500000 files, 60/40 read/write, sequential access, HA required, budget 400000 USD, max power 25000 W, growth 10%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 500,
+        "client_count": 180,
+        "average_file_size_gb": 0.2,
+        "max_file_size_gb": 10,
+        "total_file_count": 500000,
+        "read_write_ratio": {
+          "read_percent": 60,
+          "write_percent": 40
+        },
+        "access_type": "sequential",
+        "target_read_gbps": null,
+        "target_write_gbps": null,
+        "ha_required": true,
+        "max_budget_usd": 400000,
+        "max_power_w": 25000,
+        "annual_growth_percent": 10
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "target_read_gbps",
+          "target_write_gbps"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0027",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "missing_file_profile",
+      "language": "mixed",
+      "difficulty": "medium",
+      "turns": [
+        "Je cherche 800 TiB usable pour 300 clients, read/write 70/30, parallel access, read 60 GB/s, write 25 GB/s, HA yes, budget 600000 USD, power 35000 W, growth 15%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 800,
+        "client_count": 300,
+        "average_file_size_gb": null,
+        "max_file_size_gb": null,
+        "total_file_count": null,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": "parallel",
+        "target_read_gbps": 60,
+        "target_write_gbps": 25,
+        "ha_required": true,
+        "max_budget_usd": 600000,
+        "max_power_w": 35000,
+        "annual_growth_percent": 15
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "average_file_size_gb",
+          "max_file_size_gb",
+          "total_file_count"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0028",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "missing_budget_power",
+      "language": "fr",
+      "difficulty": "medium",
+      "turns": [
+        "Capacité 600 TiB, 220 clients, taille moyenne 0.5 GB, max 12 GB, 700000 fichiers, ratio 65/35, accès mixed, lecture 50 GB/s, écriture 20 GB/s, HA, croissance 12 %."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 600,
+        "client_count": 220,
+        "average_file_size_gb": 0.5,
+        "max_file_size_gb": 12,
+        "total_file_count": 700000,
+        "read_write_ratio": {
+          "read_percent": 65,
+          "write_percent": 35
+        },
+        "access_type": "mixed",
+        "target_read_gbps": 50,
+        "target_write_gbps": 20,
+        "ha_required": true,
+        "max_budget_usd": null,
+        "max_power_w": null,
+        "annual_growth_percent": 12
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "max_budget_usd",
+          "max_power_w"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0029",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "missing_access_ha",
+      "language": "en",
+      "difficulty": "medium",
+      "turns": [
+        "Use 900 TiB usable, 300 clients, average file 0.25 GB, max 10 GB, 800000 files and read/write 70/30.",
+        "Targets are 70 GB/s read and 30 GB/s write. Budget 700000 USD, power 40000 W, growth 15%."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 900,
+        "client_count": 300,
+        "average_file_size_gb": 0.25,
+        "max_file_size_gb": 10,
+        "total_file_count": 800000,
+        "read_write_ratio": {
+          "read_percent": 70,
+          "write_percent": 30
+        },
+        "access_type": null,
+        "target_read_gbps": 70,
+        "target_write_gbps": 30,
+        "ha_required": null,
+        "max_budget_usd": 700000,
+        "max_power_w": 40000,
+        "annual_growth_percent": 15
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "access_type",
+          "ha_required"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "E2E_0030",
+      "pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "category": "missing_multiple",
+      "language": "mixed",
+      "difficulty": "hard",
+      "turns": [
+        "Need Lustre around 1000 TiB, 400 clients, avg file 1 GB, max 50 GB, HA required, budget 800000 USD. Je n'ai pas encore décidé le reste."
+      ],
+      "expected_final_requirements": {
+        "requested_usable_capacity_tib": 1000,
+        "client_count": 400,
+        "average_file_size_gb": 1,
+        "max_file_size_gb": 50,
+        "total_file_count": null,
+        "read_write_ratio": null,
+        "access_type": null,
+        "target_read_gbps": null,
+        "target_write_gbps": null,
+        "ha_required": true,
+        "max_budget_usd": 800000,
+        "max_power_w": null,
+        "annual_growth_percent": null
+      },
+      "expected": {
+        "plausibility_status": null,
+        "should_block_recommendation": null,
+        "blocking_issue_codes": [],
+        "warning_issue_codes": [],
+        "clarification_fields": [
+          "total_file_count",
+          "read_write_ratio",
+          "access_type",
+          "target_read_gbps",
+          "target_write_gbps",
+          "max_power_w",
+          "annual_growth_percent"
+        ],
+        "must_not_infer_missing_values": true
+      },
+      "notes": ""
+    }
+  ]
+}

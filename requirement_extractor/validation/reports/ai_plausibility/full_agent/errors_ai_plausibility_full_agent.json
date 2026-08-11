@@ -1,0 +1,17 @@
+{
+  "analyzer_version": "1.0.0",
+  "evaluation_scope": "AI Plausibility full-agent benchmark with LLM enrichment enabled",
+  "summary": {
+    "scenario_count": 150,
+    "successful_scenarios": 150,
+    "failed_scenarios": 0,
+    "total_detected_errors": 0,
+    "scenario_success_rate": 1.0
+  },
+  "error_counts_by_type": {},
+  "error_counts_by_category": {},
+  "error_counts_by_language": {},
+  "error_counts_by_difficulty": {},
+  "scenario_error_counts": {},
+  "errors": []
+}

@@ -1,4 +1,26 @@
 venv/
+.venv/
 __pycache__/
 .env
 *.pyc
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+tmp/
+temp/
+
+# Credentials, tokens, and secrets
+credentials
+credentials.*
+credentials/
+tokens
+tokens.*
+tokens/
+secrets
+secrets.*
+secrets/

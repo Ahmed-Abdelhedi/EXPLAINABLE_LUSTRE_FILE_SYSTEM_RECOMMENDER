@@ -1,0 +1,670 @@
+{
+  "metric_version": "1.0.0",
+  "evaluation_scope": "AI Plausibility full-agent benchmark with LLM enrichment enabled",
+  "source_results_file": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\requirement_extractor\\validation\\reports\\ai_plausibility\\full_agent\\results_ai_plausibility_full_agent.json",
+  "dataset_path": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\requirement_extractor\\validation\\datasets\\ai_plausibility_stress_dataset_v1.json",
+  "environment": {
+    "ENABLE_AI_PLAUSIBILITY_AGENT": "true",
+    "ENABLE_LLM_FALLBACK": "false",
+    "PLAUSIBILITY_AGENT_USE_LLM_ENRICHMENT": "true",
+    "OLLAMA_HOST": "http://localhost:11434",
+    "PLAUSIBILITY_AGENT_MODEL": "qwen2.5:3b",
+    "PLAUSIBILITY_AGENT_TEMPERATURE": "0.0",
+    "PLAUSIBILITY_AGENT_DEBUG": "true"
+  },
+  "experiment_metadata": {
+    "name": "AI Plausibility Full Agent Validation",
+    "scope": "All dedicated plausibility labels with LLM enrichment enabled",
+    "architecture": "Deterministic guarded decision layer + controlled LLM warning enrichment",
+    "expected_label_distribution": {
+      "AMBIGUOUS": 50,
+      "COHERENT": 50,
+      "INCOHERENT": 50
+    },
+    "category_distribution": {
+      "average_exceeds_maximum": 10,
+      "budget_requires_architecture": 10,
+      "capacity_volume_mismatch": 10,
+      "client_scale_requires_architecture": 10,
+      "coherent_boundary_valid": 10,
+      "coherent_complete_balanced": 10,
+      "coherent_diverse_valid": 10,
+      "coherent_high_scale": 10,
+      "coherent_low_utilization": 10,
+      "invalid_read_write_ratio": 10,
+      "missing_fields_no_inference": 10,
+      "multiple_hard_conflicts": 10,
+      "nonpositive_values": 10,
+      "power_requires_architecture": 10,
+      "throughput_requires_architecture": 10
+    }
+  },
+  "execution": {
+    "requested_scenarios": 150,
+    "executed_scenarios": 150,
+    "reported_technical_errors": 0,
+    "reported_total_duration_seconds": 305.183
+  },
+  "classification": {
+    "plausibility_status_accuracy": 1.0,
+    "correct": 150,
+    "total": 150,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "per_label": {
+      "COHERENT": {
+        "tp": 50,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 50
+      },
+      "AMBIGUOUS": {
+        "tp": 50,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 50
+      },
+      "INCOHERENT": {
+        "tp": 50,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 50
+      }
+    },
+    "confusion_matrix": {
+      "COHERENT": {
+        "COHERENT": 50,
+        "AMBIGUOUS": 0,
+        "INCOHERENT": 0,
+        "__TECHNICAL_ERROR__": 0,
+        "__OTHER__": 0
+      },
+      "AMBIGUOUS": {
+        "COHERENT": 0,
+        "AMBIGUOUS": 50,
+        "INCOHERENT": 0,
+        "__TECHNICAL_ERROR__": 0,
+        "__OTHER__": 0
+      },
+      "INCOHERENT": {
+        "COHERENT": 0,
+        "AMBIGUOUS": 0,
+        "INCOHERENT": 50,
+        "__TECHNICAL_ERROR__": 0,
+        "__OTHER__": 0
+      }
+    }
+  },
+  "blocking_issues": {
+    "tp": 75,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "scenario_exact_rate": 1.0,
+    "scenario_exact_count": 150,
+    "scenario_total": 150,
+    "per_code": {
+      "AVERAGE_FILE_EXCEEDS_MAXIMUM": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "DATASET_VOLUME_EXCEEDS_CAPACITY": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "NON_POSITIVE_VALUE": {
+        "tp": 15,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "READ_WRITE_RATIO_NOT_100": {
+        "tp": 20,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "warnings": {
+    "tp": 50,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "scenario_exact_rate": 1.0,
+    "scenario_exact_count": 150,
+    "scenario_total": 150,
+    "per_code": {
+      "BUDGET_REQUIRES_ARCHITECTURE": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "CLIENT_SCALE_REQUIRES_ARCHITECTURE": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "INSUFFICIENT_INFORMATION": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "POWER_REQUIRES_ARCHITECTURE": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "THROUGHPUT_REQUIRES_ARCHITECTURE": {
+        "tp": 10,
+        "fp": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    }
+  },
+  "issue_field_references": {
+    "issue_field_reference_accuracy": 1.0,
+    "complete_reference_count": 125,
+    "exact_reference_rate": 0.52,
+    "exact_reference_count": 65,
+    "code_matched_issue_count": 125,
+    "expected_issue_count": 125,
+    "field_micro_precision": 0.746031746031746,
+    "field_micro_recall": 1.0,
+    "field_micro_f1": 0.8545454545454546,
+    "field_tp": 235,
+    "field_fp": 80,
+    "field_fn": 0
+  },
+  "safety": {
+    "should_block_accuracy": 1.0,
+    "false_blocking_rate": 0.0,
+    "false_blocking_count": 0,
+    "expected_non_blocking_count": 100,
+    "input_mutation_rate": 0.0,
+    "input_mutation_count": 0,
+    "no_inference_violation_rate": 1.0,
+    "inference_violation_scenario_count": 0,
+    "inference_violation_count": 0,
+    "technical_error_rate": 0.0,
+    "technical_error_count": 0
+  },
+  "llm_routing": {
+    "routing_accuracy": 1.0,
+    "expected_warning_path_count": 50,
+    "reported_warning_path_count": 50,
+    "observed_llm_output_count": 50,
+    "unexpected_llm_path_count": 0,
+    "unexpected_llm_path_rate": 0.0,
+    "missing_expected_llm_path_count": 0,
+    "missing_expected_llm_path_rate": 0.0,
+    "llm_enrichment_error_count": 0,
+    "llm_enrichment_error_rate": 0.0,
+    "by_label": {
+      "COHERENT": {
+        "scenario_count": 50,
+        "expected_llm_path": 0,
+        "reported_llm_path": 0,
+        "observed_llm_output": 0,
+        "enrichment_errors": 0
+      },
+      "AMBIGUOUS": {
+        "scenario_count": 50,
+        "expected_llm_path": 50,
+        "reported_llm_path": 50,
+        "observed_llm_output": 50,
+        "enrichment_errors": 0
+      },
+      "INCOHERENT": {
+        "scenario_count": 50,
+        "expected_llm_path": 0,
+        "reported_llm_path": 0,
+        "observed_llm_output": 0,
+        "enrichment_errors": 0
+      }
+    },
+    "interpretation_note": "Le compteur observed_llm_output est un indicateur observationnel du runner, pas un compteur réseau exact des appels Ollama."
+  },
+  "latency": {
+    "count": 150,
+    "average_latency_ms": 2034.1818733333334,
+    "median_latency_ms": 0.641,
+    "p95_latency_ms": 6333.65305,
+    "p99_latency_ms": 7214.417059999994,
+    "max_latency_ms": 14303.591,
+    "min_latency_ms": 0.361
+  },
+  "breakdowns": {
+    "by_label": {
+      "AMBIGUOUS": {
+        "count": 50,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 6101.321459999999,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 50
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 50
+        }
+      },
+      "COHERENT": {
+        "count": 50,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.51934,
+        "expected_label_distribution": {
+          "COHERENT": 50
+        },
+        "predicted_label_distribution": {
+          "COHERENT": 50
+        }
+      },
+      "INCOHERENT": {
+        "count": 50,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.70482,
+        "expected_label_distribution": {
+          "INCOHERENT": 50
+        },
+        "predicted_label_distribution": {
+          "INCOHERENT": 50
+        }
+      }
+    },
+    "by_category": {
+      "average_exceeds_maximum": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.6515,
+        "expected_label_distribution": {
+          "INCOHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "INCOHERENT": 10
+        }
+      },
+      "budget_requires_architecture": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 6733.6465,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 10
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 10
+        }
+      },
+      "capacity_volume_mismatch": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.5154,
+        "expected_label_distribution": {
+          "INCOHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "INCOHERENT": 10
+        }
+      },
+      "client_scale_requires_architecture": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 6159.4525,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 10
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 10
+        }
+      },
+      "coherent_boundary_valid": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.5463,
+        "expected_label_distribution": {
+          "COHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "COHERENT": 10
+        }
+      },
+      "coherent_complete_balanced": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.4523,
+        "expected_label_distribution": {
+          "COHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "COHERENT": 10
+        }
+      },
+      "coherent_diverse_valid": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.5128,
+        "expected_label_distribution": {
+          "COHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "COHERENT": 10
+        }
+      },
+      "coherent_high_scale": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.5219,
+        "expected_label_distribution": {
+          "COHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "COHERENT": 10
+        }
+      },
+      "coherent_low_utilization": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.5634,
+        "expected_label_distribution": {
+          "COHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "COHERENT": 10
+        }
+      },
+      "invalid_read_write_ratio": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.6826,
+        "expected_label_distribution": {
+          "INCOHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "INCOHERENT": 10
+        }
+      },
+      "missing_fields_no_inference": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 5270.909,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 10
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 10
+        }
+      },
+      "multiple_hard_conflicts": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.9126,
+        "expected_label_distribution": {
+          "INCOHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "INCOHERENT": 10
+        }
+      },
+      "nonpositive_values": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.762,
+        "expected_label_distribution": {
+          "INCOHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "INCOHERENT": 10
+        }
+      },
+      "power_requires_architecture": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 5927.3114000000005,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 10
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 10
+        }
+      },
+      "throughput_requires_architecture": {
+        "count": 10,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 6415.2879,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 10
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 10
+        }
+      }
+    },
+    "by_language": {
+      "en": {
+        "count": 51,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 1976.554254901961,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 17,
+          "COHERENT": 17,
+          "INCOHERENT": 17
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 17,
+          "COHERENT": 17,
+          "INCOHERENT": 17
+        }
+      },
+      "fr": {
+        "count": 51,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 2150.6370196078433,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 17,
+          "COHERENT": 17,
+          "INCOHERENT": 17
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 17,
+          "COHERENT": 17,
+          "INCOHERENT": 17
+        }
+      },
+      "mixed": {
+        "count": 48,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 1971.677625,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 16,
+          "COHERENT": 16,
+          "INCOHERENT": 16
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 16,
+          "COHERENT": 16,
+          "INCOHERENT": 16
+        }
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "count": 29,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 0.6597241379310346,
+        "expected_label_distribution": {
+          "COHERENT": 4,
+          "INCOHERENT": 25
+        },
+        "predicted_label_distribution": {
+          "COHERENT": 4,
+          "INCOHERENT": 25
+        }
+      },
+      "hard": {
+        "count": 55,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 2286.729309090909,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 20,
+          "COHERENT": 25,
+          "INCOHERENT": 10
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 20,
+          "COHERENT": 25,
+          "INCOHERENT": 10
+        }
+      },
+      "medium": {
+        "count": 66,
+        "accuracy": 1.0,
+        "should_block_accuracy": 1.0,
+        "input_mutation_rate": 0.0,
+        "no_inference_violation_rate": 1.0,
+        "technical_error_count": 0,
+        "average_latency_ms": 2717.242984848485,
+        "expected_label_distribution": {
+          "AMBIGUOUS": 30,
+          "COHERENT": 21,
+          "INCOHERENT": 15
+        },
+        "predicted_label_distribution": {
+          "AMBIGUOUS": 30,
+          "COHERENT": 21,
+          "INCOHERENT": 15
+        }
+      }
+    }
+  }
+}

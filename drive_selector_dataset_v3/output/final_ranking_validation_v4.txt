@@ -1,0 +1,64 @@
+======================================================================
+FINAL RANKING VALIDATION V4
+======================================================================
+Rows : 119650
+Cases : 1200
+
+
+======================================================================
+1) LIFE EXPECTANCY DISTRIBUTION
+======================================================================
+life_expectancy_years
+2      1423
+5    118227
+
+
+======================================================================
+2) HA RELIABILITY TEST
+======================================================================
+Average reliability score label 3:
+0.9995637542066559
+Average life expectancy label 3:
+4.9986912626199675
+
+
+======================================================================
+3) PREFERENCE INFLUENCE
+======================================================================
+
+Performance preference
+Cases: 362
+Average performance_score of top choices:
+0.5542507175431534
+
+Cost preference
+Cases: 422
+Average cost_score of top choices:
+0.9819979126580964
+
+Power preference
+Cases: 354
+Average power_score of top choices:
+0.8842293906810036
+
+Reliability preference
+Cases: 808
+Average reliability_score of top choices:
+1.0
+
+
+======================================================================
+4) TOP RECOMMENDATIONS PROFILE
+======================================================================
+media_type  protocol
+SSD         NVME        10575
+HDD         SATA         8995
+SSD         SATA         1637
+HDD         SAS          1619
+SSD         SAS           634
+
+
+======================================================================
+5) MISSING VALUES
+======================================================================
+PASS : no missing values

@@ -1,0 +1,67 @@
+{
+  "algorithm": "Deterministic V2 dynamic preference-weighted ranking baseline",
+  "training": false,
+  "seed": null,
+  "split": "test",
+  "group_column": "case_id",
+  "evaluation_label": "relevance_grade",
+  "priority_columns": [
+    "performance_priority",
+    "reliability_priority",
+    "cost_priority",
+    "power_priority"
+  ],
+  "priority_rule": "The four numeric user priorities are renormalized to sum to 1 inside each case_id.",
+  "role_blocks": {
+    "mdt": {
+      "performance": [
+        "capacity_headroom_ratio",
+        "read_iops_headroom_ratio",
+        "write_iops_headroom_ratio",
+        "latency_margin"
+      ],
+      "reliability": [
+        "endurance_margin_ratio",
+        "reliability_margin_ratio"
+      ],
+      "cost": [
+        "raw_drive_cost_usd"
+      ],
+      "power": [
+        "raw_drive_power_w"
+      ]
+    },
+    "ost": {
+      "performance": [
+        "capacity_headroom_ratio",
+        "read_bandwidth_headroom_ratio",
+        "write_bandwidth_headroom_ratio"
+      ],
+      "reliability": [
+        "reliability_margin_ratio"
+      ],
+      "cost": [
+        "raw_drive_cost_usd"
+      ],
+      "power": [
+        "raw_drive_power_w"
+      ]
+    }
+  },
+  "block_internal_weights": "Equal weights between features belonging to the same block.",
+  "feature_normalization": "Min-max independently inside each case_id.",
+  "lower_is_better_blocks": [
+    "cost",
+    "power"
+  ],
+  "forbidden_score_columns": [
+    "is_teacher_top1",
+    "is_teacher_top10",
+    "is_teacher_top3",
+    "is_teacher_top5",
+    "relevance_grade",
+    "teacher_rank",
+    "teacher_score"
+  ],
+  "important_note": "teacher_score, teacher_rank and relevance_grade are used only after scoring for evaluation."
+}

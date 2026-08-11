@@ -1,0 +1,3848 @@
+{
+  "summary": {
+    "turn_count": 175,
+    "successful_turns": 162,
+    "failed_turns": 13,
+    "technical_errors": 0,
+    "total_detected_errors": 107,
+    "turn_success_rate": 0.9257142857142857
+  },
+  "error_counts": {
+    "by_type": {
+      "missing_calculation_key": 30,
+      "missing_expected_field": 20,
+      "wrong_question_field": 12,
+      "wrong_missing_fields": 11,
+      "wrong_status": 10,
+      "wrong_stage": 10,
+      "wrong_calculation_value": 10,
+      "wrong_unsupported_fields": 3,
+      "wrong_invalid_fields": 1
+    },
+    "by_field": {
+      "max_file_size_gb": 4,
+      "read_write_ratio": 3,
+      "client_count": 3,
+      "target_read_gbps": 3,
+      "target_write_gbps": 3,
+      "ha_required": 1,
+      "total_file_count": 1,
+      "average_file_size_gb": 1,
+      "access_type": 1
+    },
+    "by_category": {
+      "multilingual_synonyms": 5,
+      "typo_noisy": 5,
+      "irrelevant_impossible": 2,
+      "vague_informal": 1
+    },
+    "by_language": {
+      "mixed": 7,
+      "fr": 6
+    },
+    "by_difficulty": {
+      "hard": 13
+    }
+  },
+  "priority_fields": [
+    {
+      "field": "max_file_size_gb",
+      "error_count": 4
+    },
+    {
+      "field": "read_write_ratio",
+      "error_count": 3
+    },
+    {
+      "field": "client_count",
+      "error_count": 3
+    },
+    {
+      "field": "target_read_gbps",
+      "error_count": 3
+    },
+    {
+      "field": "target_write_gbps",
+      "error_count": 3
+    },
+    {
+      "field": "ha_required",
+      "error_count": 1
+    },
+    {
+      "field": "total_file_count",
+      "error_count": 1
+    },
+    {
+      "field": "average_file_size_gb",
+      "error_count": 1
+    },
+    {
+      "field": "access_type",
+      "error_count": 1
+    }
+  ],
+  "priority_error_types": [
+    {
+      "error_type": "missing_calculation_key",
+      "error_count": 30
+    },
+    {
+      "error_type": "missing_expected_field",
+      "error_count": 20
+    },
+    {
+      "error_type": "wrong_question_field",
+      "error_count": 12
+    },
+    {
+      "error_type": "wrong_missing_fields",
+      "error_count": 11
+    },
+    {
+      "error_type": "wrong_status",
+      "error_count": 10
+    },
+    {
+      "error_type": "wrong_stage",
+      "error_count": 10
+    },
+    {
+      "error_type": "wrong_calculation_value",
+      "error_count": 10
+    },
+    {
+      "error_type": "wrong_unsupported_fields",
+      "error_count": 3
+    },
+    {
+      "error_type": "wrong_invalid_fields",
+      "error_count": 1
+    }
+  ],
+  "worst_turns": [
+    {
+      "scenario_id": "VRQ_0138",
+      "turn_index": 1,
+      "category": "typo_noisy",
+      "language": "fr",
+      "difficulty": "hard",
+      "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+      "error_count": 15,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 200,
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "average_file_size_gb",
+          "expected": 2,
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 70,
+            "write_percent": 30
+          },
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "access_type",
+          "expected": "mixed",
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "client_count"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "access_type",
+            "average_file_size_gb",
+            "client_count",
+            "read_write_ratio"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "access_type",
+            "average_file_size_gb",
+            "client_count",
+            "read_write_ratio"
+          ]
+        },
+        {
+          "scope": "unsupported_fields",
+          "type": "wrong_unsupported_fields",
+          "expected": [],
+          "actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.3,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 812.5,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0139",
+      "turn_index": 1,
+      "category": "typo_noisy",
+      "language": "mixed",
+      "difficulty": "hard",
+      "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+      "error_count": 12,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 200,
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "client_count"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "client_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "client_count"
+          ]
+        },
+        {
+          "scope": "unsupported_fields",
+          "type": "wrong_unsupported_fields",
+          "expected": [],
+          "actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.3,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 812.5,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0136",
+      "turn_index": 1,
+      "category": "typo_noisy",
+      "language": "fr",
+      "difficulty": "hard",
+      "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+      "error_count": 10,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "target_read_gbps"
+        },
+        {
+          "scope": "unsupported_fields",
+          "type": "wrong_unsupported_fields",
+          "expected": [],
+          "actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.3,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 812.5,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0144",
+      "turn_index": 1,
+      "category": "typo_noisy",
+      "language": "fr",
+      "difficulty": "hard",
+      "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+      "error_count": 10,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 100,
+          "actual": null
+        },
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 70,
+            "write_percent": 30
+          },
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "max_file_size_gb"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "max_file_size_gb",
+            "read_write_ratio"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_file_size_gb",
+            "read_write_ratio"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.3,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 812.5,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0129",
+      "turn_index": 1,
+      "category": "multilingual_synonyms",
+      "language": "mixed",
+      "difficulty": "hard",
+      "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+      "error_count": 9,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 75,
+            "write_percent": 25
+          },
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "read_write_ratio"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "read_write_ratio"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "read_write_ratio"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0130",
+      "turn_index": 1,
+      "category": "multilingual_synonyms",
+      "language": "mixed",
+      "difficulty": "hard",
+      "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+      "error_count": 9,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "total_file_count",
+          "expected": 5000000,
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "total_file_count"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "total_file_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "total_file_count"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0132",
+      "turn_index": 1,
+      "category": "multilingual_synonyms",
+      "language": "mixed",
+      "difficulty": "hard",
+      "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+      "error_count": 9,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 300,
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "client_count"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "client_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "client_count"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0134",
+      "turn_index": 1,
+      "category": "multilingual_synonyms",
+      "language": "mixed",
+      "difficulty": "hard",
+      "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+      "error_count": 9,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 50,
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "max_file_size_gb"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "max_file_size_gb"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_file_size_gb"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0135",
+      "turn_index": 1,
+      "category": "multilingual_synonyms",
+      "language": "mixed",
+      "difficulty": "hard",
+      "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+      "error_count": 9,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 50,
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "max_file_size_gb"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "max_file_size_gb"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_file_size_gb"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0143",
+      "turn_index": 1,
+      "category": "typo_noisy",
+      "language": "mixed",
+      "difficulty": "hard",
+      "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+      "error_count": 9,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 100,
+          "actual": null
+        },
+        {
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "max_file_size_gb"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "max_file_size_gb"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_file_size_gb"
+          ]
+        },
+        {
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.3,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 812.5,
+          "actual": null
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0149",
+      "turn_index": 1,
+      "category": "irrelevant_impossible",
+      "language": "fr",
+      "difficulty": "hard",
+      "user_text": "Je veux -500 TiB avec zéro client et un budget négatif.",
+      "error_count": 3,
+      "errors": [
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": "average_file_size_gb",
+          "actual": "requested_usable_capacity_tib"
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [
+            "access_type",
+            "annual_growth_percent",
+            "average_file_size_gb",
+            "ha_required",
+            "max_file_size_gb",
+            "max_power_w",
+            "read_write_ratio",
+            "target_read_gbps",
+            "target_write_gbps",
+            "total_file_count"
+          ],
+          "actual": [
+            "access_type",
+            "annual_growth_percent",
+            "average_file_size_gb",
+            "ha_required",
+            "max_budget_usd",
+            "max_file_size_gb",
+            "max_power_w",
+            "read_write_ratio",
+            "target_read_gbps",
+            "target_write_gbps",
+            "total_file_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_budget_usd"
+          ]
+        },
+        {
+          "scope": "invalid_fields",
+          "type": "wrong_invalid_fields",
+          "expected": [
+            "client_count",
+            "max_budget_usd",
+            "requested_usable_capacity_tib"
+          ],
+          "actual": [
+            "client_count",
+            "requested_usable_capacity_tib"
+          ],
+          "missing_from_actual": [
+            "max_budget_usd"
+          ],
+          "unexpected_in_actual": []
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0106",
+      "turn_index": 1,
+      "category": "vague_informal",
+      "language": "fr",
+      "difficulty": "hard",
+      "user_text": "Je veux un système fiable et robuste.",
+      "error_count": 2,
+      "errors": [
+        {
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "ha_required",
+          "expected": true,
+          "actual": null
+        },
+        {
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [
+            "access_type",
+            "annual_growth_percent",
+            "average_file_size_gb",
+            "client_count",
+            "max_budget_usd",
+            "max_file_size_gb",
+            "max_power_w",
+            "read_write_ratio",
+            "requested_usable_capacity_tib",
+            "target_read_gbps",
+            "target_write_gbps",
+            "total_file_count"
+          ],
+          "actual": [
+            "access_type",
+            "annual_growth_percent",
+            "average_file_size_gb",
+            "client_count",
+            "ha_required",
+            "max_budget_usd",
+            "max_file_size_gb",
+            "max_power_w",
+            "read_write_ratio",
+            "requested_usable_capacity_tib",
+            "target_read_gbps",
+            "target_write_gbps",
+            "total_file_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "ha_required"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "VRQ_0150",
+      "turn_index": 1,
+      "category": "irrelevant_impossible",
+      "language": "fr",
+      "difficulty": "hard",
+      "user_text": "Capacité 500 TiB et 900 TiB, 200 et 400 clients, ratio 90/30, HA oui et non; le reste est inconnu.",
+      "error_count": 1,
+      "errors": [
+        {
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": "average_file_size_gb",
+          "actual": "requested_usable_capacity_tib"
+        }
+      ]
+    }
+  ],
+  "examples": {
+    "by_field": {
+      "ha_required": [
+        {
+          "scenario_id": "VRQ_0106",
+          "turn_index": 1,
+          "category": "vague_informal",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Je veux un système fiable et robuste.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "ha_required",
+          "expected": true,
+          "actual": null
+        }
+      ],
+      "read_write_ratio": [
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 75,
+            "write_percent": 25
+          },
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 70,
+            "write_percent": 30
+          },
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 70,
+            "write_percent": 30
+          },
+          "actual": null
+        }
+      ],
+      "total_file_count": [
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "total_file_count",
+          "expected": 5000000,
+          "actual": null
+        }
+      ],
+      "client_count": [
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 300,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 200,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 200,
+          "actual": null
+        }
+      ],
+      "max_file_size_gb": [
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 50,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 50,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0143",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 100,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 100,
+          "actual": null
+        }
+      ],
+      "target_read_gbps": [
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        }
+      ],
+      "target_write_gbps": [
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        }
+      ],
+      "average_file_size_gb": [
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "average_file_size_gb",
+          "expected": 2,
+          "actual": null
+        }
+      ],
+      "access_type": [
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "access_type",
+          "expected": "mixed",
+          "actual": null
+        }
+      ]
+    },
+    "by_category": {
+      "vague_informal": [
+        {
+          "scenario_id": "VRQ_0106",
+          "turn_index": 1,
+          "category": "vague_informal",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Je veux un système fiable et robuste.",
+          "error_count": 2,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "ha_required",
+              "expected": true,
+              "actual": null
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [
+                "access_type",
+                "annual_growth_percent",
+                "average_file_size_gb",
+                "client_count",
+                "max_budget_usd",
+                "max_file_size_gb",
+                "max_power_w",
+                "read_write_ratio",
+                "requested_usable_capacity_tib",
+                "target_read_gbps",
+                "target_write_gbps",
+                "total_file_count"
+              ],
+              "actual": [
+                "access_type",
+                "annual_growth_percent",
+                "average_file_size_gb",
+                "client_count",
+                "ha_required",
+                "max_budget_usd",
+                "max_file_size_gb",
+                "max_power_w",
+                "read_write_ratio",
+                "requested_usable_capacity_tib",
+                "target_read_gbps",
+                "target_write_gbps",
+                "total_file_count"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "ha_required"
+              ]
+            }
+          ]
+        }
+      ],
+      "multilingual_synonyms": [
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "error_count": 9,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "read_write_ratio",
+              "expected": {
+                "read_percent": 75,
+                "write_percent": 25
+              },
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "read_write_ratio"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "read_write_ratio"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "read_write_ratio"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.2,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 1050.0,
+              "actual": null
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "error_count": 9,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "total_file_count",
+              "expected": 5000000,
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "total_file_count"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "total_file_count"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "total_file_count"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.2,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 1050.0,
+              "actual": null
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "error_count": 9,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "client_count",
+              "expected": 300,
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "client_count"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "client_count"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "client_count"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.2,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 1050.0,
+              "actual": null
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "error_count": 9,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "max_file_size_gb",
+              "expected": 50,
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "max_file_size_gb"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "max_file_size_gb"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "max_file_size_gb"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.2,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 1050.0,
+              "actual": null
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "error_count": 9,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "max_file_size_gb",
+              "expected": 50,
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "max_file_size_gb"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "max_file_size_gb"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "max_file_size_gb"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.2,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 1050.0,
+              "actual": null
+            }
+          ]
+        }
+      ],
+      "typo_noisy": [
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "error_count": 10,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "target_read_gbps",
+              "expected": 80,
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "target_write_gbps",
+              "expected": 40,
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "target_read_gbps"
+            },
+            {
+              "scope": "unsupported_fields",
+              "type": "wrong_unsupported_fields",
+              "expected": [],
+              "actual": [
+                "target_read_gbps",
+                "target_write_gbps"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "target_read_gbps",
+                "target_write_gbps"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.3,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 812.5,
+              "actual": null
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "error_count": 15,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "client_count",
+              "expected": 200,
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "average_file_size_gb",
+              "expected": 2,
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "read_write_ratio",
+              "expected": {
+                "read_percent": 70,
+                "write_percent": 30
+              },
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "access_type",
+              "expected": "mixed",
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "target_read_gbps",
+              "expected": 80,
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "target_write_gbps",
+              "expected": 40,
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "client_count"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "access_type",
+                "average_file_size_gb",
+                "client_count",
+                "read_write_ratio"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "access_type",
+                "average_file_size_gb",
+                "client_count",
+                "read_write_ratio"
+              ]
+            },
+            {
+              "scope": "unsupported_fields",
+              "type": "wrong_unsupported_fields",
+              "expected": [],
+              "actual": [
+                "target_read_gbps",
+                "target_write_gbps"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "target_read_gbps",
+                "target_write_gbps"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.3,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 812.5,
+              "actual": null
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "error_count": 12,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "client_count",
+              "expected": 200,
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "target_read_gbps",
+              "expected": 80,
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "target_write_gbps",
+              "expected": 40,
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "client_count"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "client_count"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "client_count"
+              ]
+            },
+            {
+              "scope": "unsupported_fields",
+              "type": "wrong_unsupported_fields",
+              "expected": [],
+              "actual": [
+                "target_read_gbps",
+                "target_write_gbps"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "target_read_gbps",
+                "target_write_gbps"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.3,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 812.5,
+              "actual": null
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0143",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+          "error_count": 9,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "max_file_size_gb",
+              "expected": 100,
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "max_file_size_gb"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "max_file_size_gb"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "max_file_size_gb"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.3,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 812.5,
+              "actual": null
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "error_count": 10,
+          "errors": [
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "max_file_size_gb",
+              "expected": 100,
+              "actual": null
+            },
+            {
+              "scope": "field",
+              "type": "missing_expected_field",
+              "field": "read_write_ratio",
+              "expected": {
+                "read_percent": 70,
+                "write_percent": 30
+              },
+              "actual": null
+            },
+            {
+              "scope": "status",
+              "type": "wrong_status",
+              "expected": "VALID",
+              "actual": "NEEDS_CLARIFICATION"
+            },
+            {
+              "scope": "stage",
+              "type": "wrong_stage",
+              "expected": "RECOMMENDATION",
+              "actual": "CLARIFICATION"
+            },
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": null,
+              "actual": "max_file_size_gb"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [],
+              "actual": [
+                "max_file_size_gb",
+                "read_write_ratio"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "max_file_size_gb",
+                "read_write_ratio"
+              ]
+            },
+            {
+              "scope": "calculation",
+              "type": "wrong_calculation_value",
+              "key": "ready",
+              "expected": true,
+              "actual": false
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "growth_factor",
+              "expected": 1.3,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "target_fill_ratio",
+              "expected": 0.8,
+              "actual": null
+            },
+            {
+              "scope": "calculation",
+              "type": "missing_calculation_key",
+              "key": "planned_usable_capacity_tib",
+              "expected": 812.5,
+              "actual": null
+            }
+          ]
+        }
+      ],
+      "irrelevant_impossible": [
+        {
+          "scenario_id": "VRQ_0149",
+          "turn_index": 1,
+          "category": "irrelevant_impossible",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Je veux -500 TiB avec zéro client et un budget négatif.",
+          "error_count": 3,
+          "errors": [
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": "average_file_size_gb",
+              "actual": "requested_usable_capacity_tib"
+            },
+            {
+              "scope": "missing_fields",
+              "type": "wrong_missing_fields",
+              "expected": [
+                "access_type",
+                "annual_growth_percent",
+                "average_file_size_gb",
+                "ha_required",
+                "max_file_size_gb",
+                "max_power_w",
+                "read_write_ratio",
+                "target_read_gbps",
+                "target_write_gbps",
+                "total_file_count"
+              ],
+              "actual": [
+                "access_type",
+                "annual_growth_percent",
+                "average_file_size_gb",
+                "ha_required",
+                "max_budget_usd",
+                "max_file_size_gb",
+                "max_power_w",
+                "read_write_ratio",
+                "target_read_gbps",
+                "target_write_gbps",
+                "total_file_count"
+              ],
+              "missing_from_actual": [],
+              "unexpected_in_actual": [
+                "max_budget_usd"
+              ]
+            },
+            {
+              "scope": "invalid_fields",
+              "type": "wrong_invalid_fields",
+              "expected": [
+                "client_count",
+                "max_budget_usd",
+                "requested_usable_capacity_tib"
+              ],
+              "actual": [
+                "client_count",
+                "requested_usable_capacity_tib"
+              ],
+              "missing_from_actual": [
+                "max_budget_usd"
+              ],
+              "unexpected_in_actual": []
+            }
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0150",
+          "turn_index": 1,
+          "category": "irrelevant_impossible",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Capacité 500 TiB et 900 TiB, 200 et 400 clients, ratio 90/30, HA oui et non; le reste est inconnu.",
+          "error_count": 1,
+          "errors": [
+            {
+              "scope": "question_field",
+              "type": "wrong_question_field",
+              "expected": "average_file_size_gb",
+              "actual": "requested_usable_capacity_tib"
+            }
+          ]
+        }
+      ]
+    },
+    "by_error_type": {
+      "missing_expected_field": [
+        {
+          "scenario_id": "VRQ_0106",
+          "turn_index": 1,
+          "category": "vague_informal",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Je veux un système fiable et robuste.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "ha_required",
+          "expected": true,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 75,
+            "write_percent": 25
+          },
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "total_file_count",
+          "expected": 5000000,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 300,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 50,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 50,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 200,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "average_file_size_gb",
+          "expected": 2,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 70,
+            "write_percent": 30
+          },
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "access_type",
+          "expected": "mixed",
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "client_count",
+          "expected": 200,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_read_gbps",
+          "expected": 80,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "target_write_gbps",
+          "expected": 40,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0143",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 100,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "max_file_size_gb",
+          "expected": 100,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "field",
+          "type": "missing_expected_field",
+          "field": "read_write_ratio",
+          "expected": {
+            "read_percent": 70,
+            "write_percent": 30
+          },
+          "actual": null
+        }
+      ],
+      "wrong_missing_fields": [
+        {
+          "scenario_id": "VRQ_0106",
+          "turn_index": 1,
+          "category": "vague_informal",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Je veux un système fiable et robuste.",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [
+            "access_type",
+            "annual_growth_percent",
+            "average_file_size_gb",
+            "client_count",
+            "max_budget_usd",
+            "max_file_size_gb",
+            "max_power_w",
+            "read_write_ratio",
+            "requested_usable_capacity_tib",
+            "target_read_gbps",
+            "target_write_gbps",
+            "total_file_count"
+          ],
+          "actual": [
+            "access_type",
+            "annual_growth_percent",
+            "average_file_size_gb",
+            "client_count",
+            "ha_required",
+            "max_budget_usd",
+            "max_file_size_gb",
+            "max_power_w",
+            "read_write_ratio",
+            "requested_usable_capacity_tib",
+            "target_read_gbps",
+            "target_write_gbps",
+            "total_file_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "ha_required"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "read_write_ratio"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "read_write_ratio"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "total_file_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "total_file_count"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "client_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "client_count"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "max_file_size_gb"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_file_size_gb"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "max_file_size_gb"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_file_size_gb"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "access_type",
+            "average_file_size_gb",
+            "client_count",
+            "read_write_ratio"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "access_type",
+            "average_file_size_gb",
+            "client_count",
+            "read_write_ratio"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "client_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "client_count"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0143",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "max_file_size_gb"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_file_size_gb"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [],
+          "actual": [
+            "max_file_size_gb",
+            "read_write_ratio"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_file_size_gb",
+            "read_write_ratio"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0149",
+          "turn_index": 1,
+          "category": "irrelevant_impossible",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Je veux -500 TiB avec zéro client et un budget négatif.",
+          "scope": "missing_fields",
+          "type": "wrong_missing_fields",
+          "expected": [
+            "access_type",
+            "annual_growth_percent",
+            "average_file_size_gb",
+            "ha_required",
+            "max_file_size_gb",
+            "max_power_w",
+            "read_write_ratio",
+            "target_read_gbps",
+            "target_write_gbps",
+            "total_file_count"
+          ],
+          "actual": [
+            "access_type",
+            "annual_growth_percent",
+            "average_file_size_gb",
+            "ha_required",
+            "max_budget_usd",
+            "max_file_size_gb",
+            "max_power_w",
+            "read_write_ratio",
+            "target_read_gbps",
+            "target_write_gbps",
+            "total_file_count"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "max_budget_usd"
+          ]
+        }
+      ],
+      "wrong_status": [
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0143",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "status",
+          "type": "wrong_status",
+          "expected": "VALID",
+          "actual": "NEEDS_CLARIFICATION"
+        }
+      ],
+      "wrong_stage": [
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0143",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "stage",
+          "type": "wrong_stage",
+          "expected": "RECOMMENDATION",
+          "actual": "CLARIFICATION"
+        }
+      ],
+      "wrong_question_field": [
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "read_write_ratio"
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "total_file_count"
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "client_count"
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "max_file_size_gb"
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "max_file_size_gb"
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "target_read_gbps"
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "client_count"
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "client_count"
+        },
+        {
+          "scenario_id": "VRQ_0143",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "max_file_size_gb"
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": null,
+          "actual": "max_file_size_gb"
+        },
+        {
+          "scenario_id": "VRQ_0149",
+          "turn_index": 1,
+          "category": "irrelevant_impossible",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Je veux -500 TiB avec zéro client et un budget négatif.",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": "average_file_size_gb",
+          "actual": "requested_usable_capacity_tib"
+        },
+        {
+          "scenario_id": "VRQ_0150",
+          "turn_index": 1,
+          "category": "irrelevant_impossible",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Capacité 500 TiB et 900 TiB, 200 et 400 clients, ratio 90/30, HA oui et non; le reste est inconnu.",
+          "scope": "question_field",
+          "type": "wrong_question_field",
+          "expected": "average_file_size_gb",
+          "actual": "requested_usable_capacity_tib"
+        }
+      ],
+      "wrong_calculation_value": [
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0143",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "stocage 500TB, 200 compute, avg 2000MB, largest 100GB, total 10M, 70%r 30%w, rndm, read 80GB/s, write 40GB/s, HA, budget $100000, pwr 15kW, growth 30%",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        },
+        {
+          "scenario_id": "VRQ_0144",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 TiB utile avec 200 clients; fichier moyen deux GB; max cent GB; dix millions de fichiers; ratio soixante-dix/trente; mixed; 80 GB/s read; 40 GB/s write; HA oui; budget cent mille USD; puissance quinze kW; croissance trente pourcent.",
+          "scope": "calculation",
+          "type": "wrong_calculation_value",
+          "key": "ready",
+          "expected": true,
+          "actual": false
+        }
+      ],
+      "missing_calculation_key": [
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0129",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "We need seven hundred TiB, three hundred clients, one GB average files, fifty GB maximum files, five million files, ratio seventy/twenty-five, mixed access, sixty GB/s read, twenty GB/s write, HA yes, budget 250000 USD, power 25 kW, growth 20 percent.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0130",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TiB de capacidad útil, 300 clientes, archivos medios de 1 GB, máximo 50 GB, 5 millones de archivos, ratio 75/25, acceso mixed, lectura 60 GB/s, escritura 20 GB/s, HA sí, presupuesto 250000 USD, potencia 25 kW, crecimiento 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0132",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Capacité utile sept cents TiB, trois cents nœuds, fichiers moyens un GB, maximum cinquante GB, cinq millions, ratio 75/25, séquentiel, lecture 60 GB/s, écriture 20 GB/s, HA oui, budget 250000 USD, puissance 25 kW, croissance 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0134",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "Je vise 700 TiB de storage usable avec 300 compute nodes. Avg files 1 GB, largest 50 GB, total 5M, ratio 75/25, random, 60 GB/s read, 20 GB/s write, high availability, 250000 USD max, 25 kW, 20% growth.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.2,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0135",
+          "turn_index": 1,
+          "category": "multilingual_synonyms",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "700 TB utiles, 300 clients, fichiers moyens 1 GB, plus gros 50 GB, cinq millions de fichiers, 75/25, accès hybride, lecture 60 GB/s, écriture 20 GB/s, redondance obligatoire, budget max 250000 USD, consommation max 25 kW, croissance annuelle 20%.",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 1050.0,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.3,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "planned_usable_capacity_tib",
+          "expected": 812.5,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "growth_factor",
+          "expected": 1.3,
+          "actual": null
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "calculation",
+          "type": "missing_calculation_key",
+          "key": "target_fill_ratio",
+          "expected": 0.8,
+          "actual": null
+        }
+      ],
+      "wrong_unsupported_fields": [
+        {
+          "scenario_id": "VRQ_0136",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "je veu 500 tib utile pr 200 client, fichié moyen 2 gb, max 100 gb, 10 milion fichiers, raito 70/30, acces mixte, lectur 80 gb/s, ecritur 40 gb/s, ha obligatoir, budjet 100000 usd, puissace 15 kw, croissence 30%",
+          "scope": "unsupported_fields",
+          "type": "wrong_unsupported_fields",
+          "expected": [],
+          "actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0138",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "500 tIb utils, 200 cliets, fichiers moy 2g, taille maxi 100g, 10m fichiers, 70 30, aces mix, lire 80 GB/s, ecrire 40 GB/s, haute dispo oui, 100k USD, 15kw, +30%/an",
+          "scope": "unsupported_fields",
+          "type": "wrong_unsupported_fields",
+          "expected": [],
+          "actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ]
+        },
+        {
+          "scenario_id": "VRQ_0139",
+          "turn_index": 1,
+          "category": "typo_noisy",
+          "language": "mixed",
+          "difficulty": "hard",
+          "user_text": "need 500 tib usabl, 200 ndoes, avg files 2 gb, max 100 gb, 10 milion files, rw 70/30, mixd access, 80 gb/s raed, 40 gb/s wirte, ha yes, 100000 usd, 15 kw, 30% groth",
+          "scope": "unsupported_fields",
+          "type": "wrong_unsupported_fields",
+          "expected": [],
+          "actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ],
+          "missing_from_actual": [],
+          "unexpected_in_actual": [
+            "target_read_gbps",
+            "target_write_gbps"
+          ]
+        }
+      ],
+      "wrong_invalid_fields": [
+        {
+          "scenario_id": "VRQ_0149",
+          "turn_index": 1,
+          "category": "irrelevant_impossible",
+          "language": "fr",
+          "difficulty": "hard",
+          "user_text": "Je veux -500 TiB avec zéro client et un budget négatif.",
+          "scope": "invalid_fields",
+          "type": "wrong_invalid_fields",
+          "expected": [
+            "client_count",
+            "max_budget_usd",
+            "requested_usable_capacity_tib"
+          ],
+          "actual": [
+            "client_count",
+            "requested_usable_capacity_tib"
+          ],
+          "missing_from_actual": [
+            "max_budget_usd"
+          ],
+          "unexpected_in_actual": []
+        }
+      ]
+    }
+  },
+  "technical_error_details": [],
+  "run": {
+    "mode": "llm_fallback",
+    "input_path": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\requirement_extractor\\validation\\reports\\llm_fallback\\results_llm_fallback.json",
+    "output_path": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\requirement_extractor\\validation\\reports\\llm_fallback\\errors_llm_fallback.json"
+  }
+}

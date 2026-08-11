@@ -1,0 +1,263 @@
+{
+  "analyzer_version": "1.0.0",
+  "evaluation_scope": "Requirement Pipeline End-to-End Validation v1",
+  "source_results": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\requirement_extractor\\validation\\reports\\end_to_end\\results_end_to_end_v1.json",
+  "summary": {
+    "scenario_count": 30,
+    "successful_scenarios": 30,
+    "failed_scenarios": 0,
+    "scenarios_with_detected_errors": 0,
+    "total_detected_errors": 0,
+    "scenarios_with_non_fatal_observations": 11,
+    "total_non_fatal_observations": 11
+  },
+  "error_type_counts": {},
+  "observation_type_counts": {
+    "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE": 10,
+    "LLM_ENRICHMENT_RAW_JSON_INVALID": 1
+  },
+  "failed_scenarios": [],
+  "non_fatal_observations": [
+    {
+      "id": "E2E_0006",
+      "category": "coherent_multi_turn",
+      "language": "fr",
+      "difficulty": "medium",
+      "expected_pipeline_outcome": "READY_COHERENT",
+      "actual_pipeline_outcome": "READY_COHERENT",
+      "scenario_success": true,
+      "latency_ms": 35632.031,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 2,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 35632.031,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0007",
+      "category": "coherent_multi_turn",
+      "language": "en",
+      "difficulty": "medium",
+      "expected_pipeline_outcome": "READY_COHERENT",
+      "actual_pipeline_outcome": "READY_COHERENT",
+      "scenario_success": true,
+      "latency_ms": 18151.223,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 1,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 18151.223,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0009",
+      "category": "budget_requires_architecture",
+      "language": "fr",
+      "difficulty": "medium",
+      "expected_pipeline_outcome": "READY_AMBIGUOUS",
+      "actual_pipeline_outcome": "READY_AMBIGUOUS",
+      "scenario_success": true,
+      "latency_ms": 19550.089,
+      "errors": [],
+      "observations": [
+        {
+          "type": "LLM_ENRICHMENT_RAW_JSON_INVALID",
+          "details": {
+            "json_error": "Unterminated string starting at: line 4 column 51 (char 72)",
+            "raw_response_length": 969,
+            "note": "Non-fatal because the guarded deterministic plausibility output remains authoritative."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0015",
+      "category": "throughput_requires_architecture",
+      "language": "fr",
+      "difficulty": "hard",
+      "expected_pipeline_outcome": "READY_AMBIGUOUS",
+      "actual_pipeline_outcome": "READY_AMBIGUOUS",
+      "scenario_success": true,
+      "latency_ms": 47989.211,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 2,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 47989.211,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0016",
+      "category": "client_scale_requires_architecture",
+      "language": "en",
+      "difficulty": "hard",
+      "expected_pipeline_outcome": "READY_AMBIGUOUS",
+      "actual_pipeline_outcome": "READY_AMBIGUOUS",
+      "scenario_success": true,
+      "latency_ms": 34482.925,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 1,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 34482.925,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0023",
+      "category": "invalid_read_write_ratio",
+      "language": "fr",
+      "difficulty": "hard",
+      "expected_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "actual_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "scenario_success": true,
+      "latency_ms": 30832.447,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 1,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 30832.447,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0024",
+      "category": "multiple_hard_conflicts",
+      "language": "en",
+      "difficulty": "hard",
+      "expected_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "actual_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "scenario_success": true,
+      "latency_ms": 27024.57,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 1,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 27024.57,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0026",
+      "category": "missing_throughput",
+      "language": "en",
+      "difficulty": "easy",
+      "expected_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "actual_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "scenario_success": true,
+      "latency_ms": 23489.497,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 1,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 23489.497,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0028",
+      "category": "missing_budget_power",
+      "language": "fr",
+      "difficulty": "medium",
+      "expected_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "actual_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "scenario_success": true,
+      "latency_ms": 9479.599,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 1,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 9479.599,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0029",
+      "category": "missing_access_ha",
+      "language": "en",
+      "difficulty": "medium",
+      "expected_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "actual_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "scenario_success": true,
+      "latency_ms": 50597.121,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 2,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 50597.121,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    },
+    {
+      "id": "E2E_0030",
+      "category": "missing_multiple",
+      "language": "mixed",
+      "difficulty": "hard",
+      "expected_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "actual_pipeline_outcome": "CLARIFICATION_REQUIRED",
+      "scenario_success": true,
+      "latency_ms": 8771.312,
+      "errors": [],
+      "observations": [
+        {
+          "type": "FALLBACK_CALL_WITHOUT_FINAL_CANDIDATE",
+          "details": {
+            "fallback_calls": 1,
+            "final_llm_candidate_count": 0,
+            "latency_ms": 8771.312,
+            "note": "Non-fatal routing/performance observation. This is not treated as a correctness error."
+          }
+        }
+      ]
+    }
+  ]
+}

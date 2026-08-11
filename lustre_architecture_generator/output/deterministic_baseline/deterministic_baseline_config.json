@@ -1,0 +1,45 @@
+{
+  "algorithm": "Deterministic weighted ranking baseline",
+  "training": false,
+  "seed": null,
+  "split": "test",
+  "group_column": "case_id",
+  "evaluation_label": "relevance_grade",
+  "weights": "equal weights: 1/6",
+  "normalization": "min-max normalization inside each case_id",
+  "features": {
+    "mdt": {
+      "higher_is_better": [
+        "endurance_margin_ratio",
+        "write_iops_headroom_ratio",
+        "read_iops_headroom_ratio",
+        "reliability_margin_ratio"
+      ],
+      "lower_is_better": [
+        "raw_drive_cost_usd",
+        "raw_drive_power_w"
+      ]
+    },
+    "ost": {
+      "higher_is_better": [
+        "capacity_headroom_ratio",
+        "read_bandwidth_headroom_ratio",
+        "write_bandwidth_headroom_ratio",
+        "reliability_margin_ratio"
+      ],
+      "lower_is_better": [
+        "raw_drive_cost_usd",
+        "raw_drive_power_w"
+      ]
+    }
+  },
+  "forbidden_score_columns": [
+    "is_teacher_top1",
+    "is_teacher_top10",
+    "is_teacher_top3",
+    "is_teacher_top5",
+    "relevance_grade",
+    "teacher_rank",
+    "teacher_score"
+  ]
+}
