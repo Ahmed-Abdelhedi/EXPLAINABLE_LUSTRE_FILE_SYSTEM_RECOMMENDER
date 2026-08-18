@@ -1,0 +1,2 @@
+requirement_extractor_v2/artifacts/*/encoder/*.safetensors filter=lfs diff=lfs merge=lfs -text
+requirement_extractor_v2/artifacts/*/*.pt filter=lfs diff=lfs merge=lfs -text

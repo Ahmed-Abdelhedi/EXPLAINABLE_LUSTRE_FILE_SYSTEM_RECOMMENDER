@@ -1,0 +1,22 @@
+{
+  "model_name": "FacebookAI/xlm-roberta-base",
+  "seed": 42,
+  "max_length": 96,
+  "batch_size": 8,
+  "gradient_accumulation_steps": 2,
+  "effective_batch_size": 16,
+  "max_epochs": 10,
+  "best_epoch": 7,
+  "learning_rate": 2e-05,
+  "weight_decay": 0.01,
+  "warmup_ratio": 0.1,
+  "dropout": 0.1,
+  "amp": true,
+  "gradient_checkpointing": true,
+  "special_tokens": {
+    "additional_special_tokens": [
+      "[Q]",
+      "[/Q]"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "raw_constrained": {
+    "loss": 0.1335733702831101,
+    "field_accuracy": 0.96,
+    "field_macro_f1": 0.9600081699346404,
+    "role_accuracy": 1.0,
+    "role_macro_f1": 1.0,
+    "pair_accuracy": 0.96,
+    "pair_macro_f1": 0.9412587412587413,
+    "unresolved_recall": 1.0
+  },
+  "selective": {
+    "confidence_threshold": 0.966,
+    "margin_threshold": 0.0,
+    "accepted_count": 381,
+    "accepted_precision": 0.979002624671916,
+    "coverage": 0.8466666666666667,
+    "unresolved_recall": 1.0,
+    "final_pair_accuracy": 0.9133333333333333
+  }
+}

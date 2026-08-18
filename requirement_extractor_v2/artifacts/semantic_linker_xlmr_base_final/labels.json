@@ -1,0 +1,28 @@
+{
+  "field_labels": [
+    "requested_usable_capacity_tib",
+    "client_count",
+    "average_file_size_gb",
+    "max_file_size_gb",
+    "total_file_count",
+    "read_write_ratio",
+    "target_read_gbps",
+    "target_write_gbps",
+    "max_budget_usd",
+    "max_power_w",
+    "annual_growth_percent",
+    "__UNRESOLVED__"
+  ],
+  "role_labels": [
+    "maximum_limit",
+    "minimum_limit",
+    "target",
+    "current_value",
+    "expected_value",
+    "average_value",
+    "total_count",
+    "ratio_component",
+    "growth_rate",
+    "unspecified"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "confidence_threshold": 0.966,
+  "margin_threshold": 0.0,
+  "selection_reason": "accepted_precision >= 98.00%, unresolved_recall ~= 100%, then maximum coverage",
+  "target_accepted_precision": 0.98
+}

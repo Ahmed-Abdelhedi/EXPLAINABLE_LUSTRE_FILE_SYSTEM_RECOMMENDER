@@ -1,0 +1,107 @@
+{
+  "allowed_fields_by_dimension": {
+    "capacity": [
+      "__UNRESOLVED__",
+      "requested_usable_capacity_tib"
+    ],
+    "file_size": [
+      "__UNRESOLVED__",
+      "average_file_size_gb",
+      "max_file_size_gb"
+    ],
+    "throughput": [
+      "__UNRESOLVED__",
+      "target_read_gbps",
+      "target_write_gbps"
+    ],
+    "power": [
+      "__UNRESOLVED__",
+      "max_power_w"
+    ],
+    "money": [
+      "__UNRESOLVED__",
+      "max_budget_usd"
+    ],
+    "percent": [
+      "__UNRESOLVED__",
+      "annual_growth_percent",
+      "read_write_ratio"
+    ],
+    "count": [
+      "__UNRESOLVED__",
+      "client_count",
+      "total_file_count"
+    ],
+    "unknown": [
+      "__UNRESOLVED__",
+      "annual_growth_percent",
+      "average_file_size_gb",
+      "client_count",
+      "max_budget_usd",
+      "max_file_size_gb",
+      "max_power_w",
+      "read_write_ratio",
+      "requested_usable_capacity_tib",
+      "target_read_gbps",
+      "target_write_gbps",
+      "total_file_count"
+    ]
+  },
+  "allowed_roles_by_field": {
+    "requested_usable_capacity_tib": [
+      "current_value",
+      "target",
+      "unspecified"
+    ],
+    "client_count": [
+      "total_count",
+      "unspecified"
+    ],
+    "average_file_size_gb": [
+      "average_value",
+      "unspecified"
+    ],
+    "max_file_size_gb": [
+      "maximum_limit",
+      "unspecified"
+    ],
+    "total_file_count": [
+      "total_count",
+      "unspecified"
+    ],
+    "read_write_ratio": [
+      "ratio_component",
+      "unspecified"
+    ],
+    "target_read_gbps": [
+      "current_value",
+      "minimum_limit",
+      "target",
+      "unspecified"
+    ],
+    "target_write_gbps": [
+      "current_value",
+      "minimum_limit",
+      "target",
+      "unspecified"
+    ],
+    "max_budget_usd": [
+      "current_value",
+      "maximum_limit",
+      "unspecified"
+    ],
+    "max_power_w": [
+      "current_value",
+      "expected_value",
+      "maximum_limit",
+      "unspecified"
+    ],
+    "annual_growth_percent": [
+      "growth_rate",
+      "unspecified"
+    ],
+    "__UNRESOLVED__": [
+      "unspecified"
+    ]
+  }
+}
