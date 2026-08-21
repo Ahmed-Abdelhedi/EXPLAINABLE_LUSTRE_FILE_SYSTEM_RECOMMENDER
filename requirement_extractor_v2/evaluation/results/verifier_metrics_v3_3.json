@@ -1,0 +1,651 @@
+{
+  "metrics": {
+    "n_cases": 20,
+    "correct_cases": 20,
+    "accuracy": 1.0,
+    "false_acceptance_count": 0,
+    "status_distribution": {
+      "VERIFIED": 10,
+      "UNRESOLVED": 4,
+      "AMBIGUOUS": 6,
+      "INVALID": 9
+    },
+    "failures": 0
+  },
+  "details": [
+    {
+      "id": "BATCH_001",
+      "category": "single_valid",
+      "expected_statuses": [
+        "VERIFIED"
+      ],
+      "actual_statuses": [
+        "VERIFIED"
+      ],
+      "expected_reason_contains": [],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "VERIFIED",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_002",
+      "category": "single_valid",
+      "expected_statuses": [
+        "VERIFIED"
+      ],
+      "actual_statuses": [
+        "VERIFIED"
+      ],
+      "expected_reason_contains": [],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "VERIFIED",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_003",
+      "category": "missing_link",
+      "expected_statuses": [
+        "UNRESOLVED"
+      ],
+      "actual_statuses": [
+        "UNRESOLVED"
+      ],
+      "expected_reason_contains": [
+        "no_semantic_link"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "UNRESOLVED",
+          "field": null,
+          "role": null,
+          "reasons": [
+            "no_semantic_link"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_004",
+      "category": "duplicate_links",
+      "expected_statuses": [
+        "AMBIGUOUS"
+      ],
+      "actual_statuses": [
+        "AMBIGUOUS"
+      ],
+      "expected_reason_contains": [
+        "multiple_semantic_links_for_same_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "AMBIGUOUS",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "multiple_semantic_links_for_same_quantity"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_005",
+      "category": "duplicate_links",
+      "expected_statuses": [
+        "AMBIGUOUS"
+      ],
+      "actual_statuses": [
+        "AMBIGUOUS"
+      ],
+      "expected_reason_contains": [
+        "multiple_semantic_links_for_same_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "AMBIGUOUS",
+          "field": "total_file_count",
+          "role": "total_count",
+          "reasons": [
+            "multiple_semantic_links_for_same_quantity"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_006",
+      "category": "orphan_link",
+      "expected_statuses": [
+        "INVALID"
+      ],
+      "actual_statuses": [
+        "INVALID"
+      ],
+      "expected_reason_contains": [
+        "semantic_link_references_unknown_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q404",
+          "status": "INVALID",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "semantic_link_references_unknown_quantity"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_007",
+      "category": "mixed_orphan",
+      "expected_statuses": [
+        "VERIFIED",
+        "INVALID"
+      ],
+      "actual_statuses": [
+        "VERIFIED",
+        "INVALID"
+      ],
+      "expected_reason_contains": [
+        "semantic_link_references_unknown_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "VERIFIED",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "quantity_id": "ghost",
+          "status": "INVALID",
+          "field": "total_file_count",
+          "role": "total_count",
+          "reasons": [
+            "semantic_link_references_unknown_quantity"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_008",
+      "category": "mixed_missing",
+      "expected_statuses": [
+        "VERIFIED",
+        "UNRESOLVED"
+      ],
+      "actual_statuses": [
+        "VERIFIED",
+        "UNRESOLVED"
+      ],
+      "expected_reason_contains": [
+        "no_semantic_link"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "VERIFIED",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "quantity_id": "q2",
+          "status": "UNRESOLVED",
+          "field": null,
+          "role": null,
+          "reasons": [
+            "no_semantic_link"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_009",
+      "category": "multi_valid",
+      "expected_statuses": [
+        "VERIFIED",
+        "VERIFIED"
+      ],
+      "actual_statuses": [
+        "VERIFIED",
+        "VERIFIED"
+      ],
+      "expected_reason_contains": [],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "VERIFIED",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "quantity_id": "q2",
+          "status": "VERIFIED",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_010",
+      "category": "duplicate_plus_valid",
+      "expected_statuses": [
+        "AMBIGUOUS",
+        "VERIFIED"
+      ],
+      "actual_statuses": [
+        "AMBIGUOUS",
+        "VERIFIED"
+      ],
+      "expected_reason_contains": [
+        "multiple_semantic_links_for_same_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "AMBIGUOUS",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "multiple_semantic_links_for_same_quantity"
+          ]
+        },
+        {
+          "quantity_id": "q2",
+          "status": "VERIFIED",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_011",
+      "category": "orphan_link",
+      "expected_statuses": [
+        "INVALID",
+        "INVALID"
+      ],
+      "actual_statuses": [
+        "INVALID",
+        "INVALID"
+      ],
+      "expected_reason_contains": [
+        "semantic_link_references_unknown_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "ghost1",
+          "status": "INVALID",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "semantic_link_references_unknown_quantity"
+          ]
+        },
+        {
+          "quantity_id": "ghost2",
+          "status": "INVALID",
+          "field": "total_file_count",
+          "role": "total_count",
+          "reasons": [
+            "semantic_link_references_unknown_quantity"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_012",
+      "category": "missing_plus_orphan",
+      "expected_statuses": [
+        "UNRESOLVED",
+        "INVALID"
+      ],
+      "actual_statuses": [
+        "UNRESOLVED",
+        "INVALID"
+      ],
+      "expected_reason_contains": [
+        "no_semantic_link",
+        "semantic_link_references_unknown_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "UNRESOLVED",
+          "field": null,
+          "role": null,
+          "reasons": [
+            "no_semantic_link"
+          ]
+        },
+        {
+          "quantity_id": "ghost",
+          "status": "INVALID",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "semantic_link_references_unknown_quantity"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_013",
+      "category": "invalid_role",
+      "expected_statuses": [
+        "INVALID"
+      ],
+      "actual_statuses": [
+        "INVALID"
+      ],
+      "expected_reason_contains": [
+        "invalid_field_role_pair"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "INVALID",
+          "field": "client_count",
+          "role": "maximum_limit",
+          "reasons": [
+            "invalid_field_role_pair:client_count+maximum_limit"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_014",
+      "category": "dimension_mismatch",
+      "expected_statuses": [
+        "INVALID"
+      ],
+      "actual_statuses": [
+        "INVALID"
+      ],
+      "expected_reason_contains": [
+        "field_incompatible_with_dimension"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "INVALID",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "reasons": [
+            "field_incompatible_with_dimension:power"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_015",
+      "category": "bad_evidence",
+      "expected_statuses": [
+        "AMBIGUOUS"
+      ],
+      "actual_statuses": [
+        "AMBIGUOUS"
+      ],
+      "expected_reason_contains": [
+        "evidence_not_supported_by_source_text"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "AMBIGUOUS",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "evidence_not_supported_by_source_text"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_016",
+      "category": "invalid_value",
+      "expected_statuses": [
+        "INVALID"
+      ],
+      "actual_statuses": [
+        "INVALID"
+      ],
+      "expected_reason_contains": [
+        "count_value_must_be_integer"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "INVALID",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "count_value_must_be_integer"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_017",
+      "category": "multi_valid_ratio",
+      "expected_statuses": [
+        "VERIFIED",
+        "VERIFIED"
+      ],
+      "actual_statuses": [
+        "VERIFIED",
+        "VERIFIED"
+      ],
+      "expected_reason_contains": [],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "VERIFIED",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "quantity_id": "q2",
+          "status": "VERIFIED",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_018",
+      "category": "duplicate_links",
+      "expected_statuses": [
+        "AMBIGUOUS"
+      ],
+      "actual_statuses": [
+        "AMBIGUOUS"
+      ],
+      "expected_reason_contains": [
+        "multiple_semantic_links_for_same_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "AMBIGUOUS",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "reasons": [
+            "multiple_semantic_links_for_same_quantity"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_019",
+      "category": "duplicate_links",
+      "expected_statuses": [
+        "AMBIGUOUS"
+      ],
+      "actual_statuses": [
+        "AMBIGUOUS"
+      ],
+      "expected_reason_contains": [
+        "multiple_semantic_links_for_same_quantity"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "AMBIGUOUS",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "multiple_semantic_links_for_same_quantity"
+          ]
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "BATCH_020",
+      "category": "mixed_statuses",
+      "expected_statuses": [
+        "VERIFIED",
+        "INVALID",
+        "UNRESOLVED"
+      ],
+      "actual_statuses": [
+        "VERIFIED",
+        "INVALID",
+        "UNRESOLVED"
+      ],
+      "expected_reason_contains": [
+        "invalid_field_role_pair",
+        "no_semantic_link"
+      ],
+      "decisions": [
+        {
+          "quantity_id": "q1",
+          "status": "VERIFIED",
+          "field": "client_count",
+          "role": "total_count",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "quantity_id": "q2",
+          "status": "INVALID",
+          "field": "max_power_w",
+          "role": "total_count",
+          "reasons": [
+            "invalid_field_role_pair:max_power_w+total_count"
+          ]
+        },
+        {
+          "quantity_id": "q3",
+          "status": "UNRESOLVED",
+          "field": null,
+          "role": null,
+          "reasons": [
+            "no_semantic_link"
+          ]
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "benchmark_note": "Adversarial batch benchmark for DeterministicVerifier.verify_many. It specifically tests duplicate semantic links, orphan links, mixed verified/unresolved/invalid batches, evidence failures and conflicting batch inputs."
+}

@@ -1,0 +1,8 @@
+confidence_threshold,margin_threshold,n,accepted_count,accepted_precision,coverage,unresolved_recall,final_field_accuracy,final_field_macro_f1,calibration_group,dimension,validated
+0.0,0.0,1570,1280,1.0,0.8152866242038217,1.0,1.0,1.0,capacity,capacity,True
+0.0,0.0,2560,2560,0.99921875,1.0,,0.99921875,0.9992187495231626,file_size,file_size,True
+0.0,0.0,1479,1280,1.0,0.8654496281271129,1.0,1.0,1.0,money,money,True
+0.0,0.0,2560,2560,1.0,1.0,,1.0,1.0,percent,percent,True
+0.0,0.0,1570,1280,1.0,0.8152866242038217,1.0,1.0,1.0,power,power,True
+0.0,0.0,2838,2560,0.998828125,0.9020436927413672,1.0,0.9989429175475687,0.9992187489271149,throughput,throughput,True
+0.0,0.0,2783,2560,1.0,0.9198706431908013,1.0,1.0,1.0,unknown,unknown,True

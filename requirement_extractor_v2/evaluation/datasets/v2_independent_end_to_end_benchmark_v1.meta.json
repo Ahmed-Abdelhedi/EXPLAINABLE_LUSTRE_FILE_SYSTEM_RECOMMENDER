@@ -1,0 +1,34 @@
+{
+  "name": "V2 Independent End-to-End Benchmark v1",
+  "n_cases": 300,
+  "category_counts": {
+    "normal": 30,
+    "synonym": 30,
+    "spelling_error": 30,
+    "written_number": 25,
+    "typoed_written_number": 25,
+    "unit_variation": 30,
+    "missing_unit": 20,
+    "ambiguity": 20,
+    "broad_signal": 20,
+    "short_conversational_answer": 25,
+    "correction": 20,
+    "out_of_scope": 25
+  },
+  "language_counts": {
+    "en": 238,
+    "fr": 59,
+    "mixed": 3
+  },
+  "scope_counts": {
+    "NEW_REQUIREMENT": 230,
+    "ANSWER_TO_PREVIOUS_QUESTION": 25,
+    "CORRECTION": 20,
+    "OUT_OF_SCOPE": 25
+  },
+  "notes": [
+    "Built after V2 baseline freeze; do not use for training or threshold tuning.",
+    "Robustness categories follow supervisor FGCS gap report.",
+    "Old V1 30-scenario benchmark is not reused as the independent journal benchmark."
+  ]
+}

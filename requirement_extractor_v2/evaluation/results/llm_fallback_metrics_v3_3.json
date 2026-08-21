@@ -1,0 +1,1640 @@
+{
+  "metrics": {
+    "n_cases": 50,
+    "model": "qwen2.5-coder:7b",
+    "host": "http://localhost:11434",
+    "llm_calls": 45,
+    "overall_accuracy": 0.88,
+    "expected_resolve_count": 38,
+    "field_accuracy_on_resolvable": 0.8421052631578947,
+    "role_accuracy_on_resolvable": 0.8421052631578947,
+    "pair_accuracy_on_resolvable": 0.8421052631578947,
+    "unresolved_on_resolvable_count": 6,
+    "expected_abstain_count": 12,
+    "abstention_accuracy": 1.0,
+    "false_resolution_count": 0,
+    "false_resolution_rate_on_abstain_cases": 0.0,
+    "mean_latency_s": 24.342391104004346,
+    "median_latency_s": 25.192435800039675,
+    "p95_latency_s": 34.34950791000155,
+    "max_latency_s": 39.27087060001213,
+    "status_distribution": {
+      "resolved": 32,
+      "llm_abstained": 13,
+      "explicit_ambiguity_abstention": 5
+    },
+    "per_category": {
+      "count_context": {
+        "n": 8,
+        "correct": 8,
+        "expected_resolve": 8,
+        "resolved_correct": 8,
+        "expected_abstain": 0,
+        "correct_abstain": 0,
+        "false_resolution": 0,
+        "accuracy": 1.0,
+        "mean_latency_s": 30.51285883746459,
+        "p95_latency_s": 32.77615663498873
+      },
+      "file_size_semantics": {
+        "n": 8,
+        "correct": 7,
+        "expected_resolve": 8,
+        "resolved_correct": 7,
+        "expected_abstain": 0,
+        "correct_abstain": 0,
+        "false_resolution": 0,
+        "accuracy": 0.875,
+        "mean_latency_s": 23.48542735000956,
+        "p95_latency_s": 24.92211546503822
+      },
+      "throughput_semantics": {
+        "n": 8,
+        "correct": 8,
+        "expected_resolve": 8,
+        "resolved_correct": 8,
+        "expected_abstain": 0,
+        "correct_abstain": 0,
+        "false_resolution": 0,
+        "accuracy": 1.0,
+        "mean_latency_s": 25.375240475026658,
+        "p95_latency_s": 26.72498374499264
+      },
+      "other_fields": {
+        "n": 8,
+        "correct": 8,
+        "expected_resolve": 8,
+        "resolved_correct": 8,
+        "expected_abstain": 0,
+        "correct_abstain": 0,
+        "false_resolution": 0,
+        "accuracy": 1.0,
+        "mean_latency_s": 23.25811472501664,
+        "p95_latency_s": 25.501555855048355
+      },
+      "previous_question": {
+        "n": 6,
+        "correct": 1,
+        "expected_resolve": 6,
+        "resolved_correct": 1,
+        "expected_abstain": 0,
+        "correct_abstain": 0,
+        "false_resolution": 0,
+        "accuracy": 0.16666666666666666,
+        "mean_latency_s": 28.648788116678286,
+        "p95_latency_s": 31.871118924987968
+      },
+      "abstention": {
+        "n": 12,
+        "correct": 12,
+        "expected_resolve": 0,
+        "resolved_correct": 0,
+        "expected_abstain": 12,
+        "correct_abstain": 12,
+        "false_resolution": 0,
+        "accuracy": 1.0,
+        "mean_latency_s": 18.681141283334,
+        "p95_latency_s": 38.16169088003225
+      }
+    },
+    "per_language": {
+      "en": {
+        "n": 27,
+        "correct": 24,
+        "accuracy": 0.8888888888888888
+      },
+      "fr": {
+        "n": 16,
+        "correct": 13,
+        "accuracy": 0.8125
+      },
+      "mixed": {
+        "n": 7,
+        "correct": 7,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "LLM_001",
+      "category": "count_context",
+      "language": "en",
+      "text": "Approximately 320 compute endpoints are expected to mount the shared namespace.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": "client_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 28.793116899905726,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "client_count",
+          "role": "total_count",
+          "evidence": "320 compute endpoints",
+          "reason": "The user text explicitly mentions '320 compute endpoints', which refers to the total number of clients or hosts.",
+          "original_role": "total_count",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_002",
+      "category": "count_context",
+      "language": "en",
+      "text": "The deployment spans roughly 275 application hosts consuming Lustre.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": "client_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 29.22158369992394,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "client_count",
+          "role": "total_count",
+          "evidence": "275 application hosts",
+          "reason": "The text explicitly mentions 'application hosts' consuming Lustre, which refers to the total number of client machines.",
+          "original_role": "total_count",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_003",
+      "category": "count_context",
+      "language": "fr",
+      "text": "Environ 240 machines applicatives accéderont au système de fichiers partagé.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": "client_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 31.685578900040127,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "client_count",
+          "role": "total_count",
+          "evidence": "240 machines applicatives accéderont au système de fichiers partagé.",
+          "reason": "The text explicitly mentions '240 machines applicatives' which refers to the total number of client machines accessing a shared file system.",
+          "original_role": "total_count",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_004",
+      "category": "count_context",
+      "language": "mixed",
+      "text": "We expect 190 hôtes compute to access Lustre concurrently.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": "client_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 28.885340599925257,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "client_count",
+          "role": "total_count",
+          "evidence": "190 hôtes",
+          "reason": "The target quantity refers to the number of clients or hosts that will compute to access Lustre concurrently.",
+          "original_role": "total_count",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_005",
+      "category": "count_context",
+      "language": "en",
+      "text": "The namespace is expected to contain around 12000000 objects.",
+      "expected": "RESOLVE",
+      "expected_field": "total_file_count",
+      "expected_role": "total_count",
+      "predicted_field": "total_file_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 29.776643299963325,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "total_file_count",
+          "role": "total_count",
+          "evidence": "12000000 objects",
+          "reason": "The namespace is expected to contain around 12000000 objects.",
+          "original_role": "target",
+          "role_repaired": true,
+          "repair_reason": "canonical_role_for_field"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_006",
+      "category": "count_context",
+      "language": "en",
+      "text": "Roughly 8500000 inodes will be represented by user files.",
+      "expected": "RESOLVE",
+      "expected_field": "total_file_count",
+      "expected_role": "total_count",
+      "predicted_field": "total_file_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 33.36339079996105,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "total_file_count",
+          "role": "total_count",
+          "evidence": "8500000 inodes",
+          "reason": "The user text explicitly states that 'Roughly [Q]8500000[/Q] inodes will be represented by user files.' This indicates that the target number of inodes is being referred to.",
+          "original_role": "target",
+          "role_repaired": true,
+          "repair_reason": "canonical_role_for_field"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_007",
+      "category": "count_context",
+      "language": "fr",
+      "text": "Le namespace contiendra environ 6000000 fichiers utilisateurs.",
+      "expected": "RESOLVE",
+      "expected_field": "total_file_count",
+      "expected_role": "total_count",
+      "predicted_field": "total_file_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 31.60674930003006,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "total_file_count",
+          "role": "total_count",
+          "evidence": "6000000 fichiers utilisateurs",
+          "reason": "The user mentions that the namespace will contain 'environ' (approximately) 6000000 files.",
+          "original_role": "target",
+          "role_repaired": true,
+          "repair_reason": "canonical_role_for_field"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_008",
+      "category": "count_context",
+      "language": "mixed",
+      "text": "Around 9100000 fichiers are expected in the production namespace.",
+      "expected": "RESOLVE",
+      "expected_field": "total_file_count",
+      "expected_role": "total_count",
+      "predicted_field": "total_file_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 30.770467199967243,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "total_file_count",
+          "role": "total_count",
+          "evidence": "9100000 fichiers",
+          "reason": "The user mentions 'fichiers' (files) and provides a number, which suggests an expected value for the total file count.",
+          "original_role": "expected_value",
+          "role_repaired": true,
+          "repair_reason": "canonical_role_for_field"
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_009",
+      "category": "file_size_semantics",
+      "language": "en",
+      "text": "A representative user file is typically close to 3 GB.",
+      "expected": "RESOLVE",
+      "expected_field": "average_file_size_gb",
+      "expected_role": "average_value",
+      "predicted_field": "average_file_size_gb",
+      "predicted_role": "average_value",
+      "llm_status": "resolved",
+      "latency_s": 23.013167200027965,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "evidence": "3 GB",
+          "reason": "The user text explicitly mentions 'representative' file size, which aligns with the average value role.",
+          "original_role": "average_value",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_010",
+      "category": "file_size_semantics",
+      "language": "en",
+      "text": "Normal objects hover around 1.5 GB each.",
+      "expected": "RESOLVE",
+      "expected_field": "average_file_size_gb",
+      "expected_role": "average_value",
+      "predicted_field": "average_file_size_gb",
+      "predicted_role": "average_value",
+      "llm_status": "resolved",
+      "latency_s": 25.24594390008133,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "evidence": "1.5 GB",
+          "reason": "The target quantity refers to the average file size, as it is described as 'normal objects hover around [Q]1.5 GB[/Q] each.'",
+          "original_role": "average_value",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_011",
+      "category": "file_size_semantics",
+      "language": "fr",
+      "text": "La taille habituelle d'un fichier tourne autour de 2 GB.",
+      "expected": "RESOLVE",
+      "expected_field": "average_file_size_gb",
+      "expected_role": "average_value",
+      "predicted_field": "average_file_size_gb",
+      "predicted_role": "average_value",
+      "llm_status": "resolved",
+      "latency_s": 23.235536099993624,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "evidence": "La taille habituelle d'un fichier tourne autour de 2 GB.",
+          "reason": "The user text explicitly mentions the typical or usual file size.",
+          "original_role": "average_value",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_012",
+      "category": "file_size_semantics",
+      "language": "mixed",
+      "text": "Typical fichier size is approximately 4 GB.",
+      "expected": "RESOLVE",
+      "expected_field": "average_file_size_gb",
+      "expected_role": "average_value",
+      "predicted_field": "average_file_size_gb",
+      "predicted_role": "average_value",
+      "llm_status": "resolved",
+      "latency_s": 24.32071979995817,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "evidence": "4 GB",
+          "reason": "The user text explicitly states 'Typical fichier size is approximately [Q]4 GB[/Q]', indicating this refers to the average file size.",
+          "original_role": "average_value",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_013",
+      "category": "file_size_semantics",
+      "language": "en",
+      "text": "No individual file should ever exceed 90 GB.",
+      "expected": "RESOLVE",
+      "expected_field": "max_file_size_gb",
+      "expected_role": "maximum_limit",
+      "predicted_field": "max_file_size_gb",
+      "predicted_role": "maximum_limit",
+      "llm_status": "resolved",
+      "latency_s": 23.729057100019418,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "evidence": "No individual file should ever exceed 90 GB.",
+          "reason": "The user explicitly states that no single file should not exceed 90 GB, indicating a maximum limit.",
+          "original_role": "maximum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_014",
+      "category": "file_size_semantics",
+      "language": "en",
+      "text": "The largest supported object is capped at 120 GB.",
+      "expected": "RESOLVE",
+      "expected_field": "max_file_size_gb",
+      "expected_role": "maximum_limit",
+      "predicted_field": "max_file_size_gb",
+      "predicted_role": "maximum_limit",
+      "llm_status": "resolved",
+      "latency_s": 22.678542000008747,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "evidence": "120 GB",
+          "reason": "The largest supported object is capped at 120 GB.",
+          "original_role": "maximum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_015",
+      "category": "file_size_semantics",
+      "language": "fr",
+      "text": "Aucun fichier ne devra dépasser 75 GB.",
+      "expected": "RESOLVE",
+      "expected_field": "max_file_size_gb",
+      "expected_role": "maximum_limit",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 23.317028800025582,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The target quantity refers to a maximum file size, but the role is not explicitly specified.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "75 GB",
+            "reason": "The target quantity refers to a maximum file size, but the role is not explicitly specified."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_016",
+      "category": "file_size_semantics",
+      "language": "mixed",
+      "text": "Hard ceiling par fichier: 64 GB.",
+      "expected": "RESOLVE",
+      "expected_field": "max_file_size_gb",
+      "expected_role": "maximum_limit",
+      "predicted_field": "max_file_size_gb",
+      "predicted_role": "maximum_limit",
+      "llm_status": "resolved",
+      "latency_s": 22.343423899961635,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "evidence": "Hard ceiling par fichier: 64 GB.",
+          "reason": "The phrase 'hard ceiling' indicates a maximum limit.",
+          "original_role": "maximum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_017",
+      "category": "throughput_semantics",
+      "language": "en",
+      "text": "During checkpoint restart, the platform should sustain about 85 GB/s from storage to clients.",
+      "expected": "RESOLVE",
+      "expected_field": "target_read_gbps",
+      "expected_role": "target",
+      "predicted_field": "target_read_gbps",
+      "predicted_role": "target",
+      "llm_status": "resolved",
+      "latency_s": 25.36198550008703,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "target_read_gbps",
+          "role": "target",
+          "evidence": "85 GB/s",
+          "reason": "The user text specifies that the platform should sustain about 85 GB/s from storage to clients, indicating a target throughput.",
+          "original_role": "target",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_018",
+      "category": "throughput_semantics",
+      "language": "en",
+      "text": "Data ingestion into Lustre is expected to reach nearly 45 GB/s.",
+      "expected": "RESOLVE",
+      "expected_field": "target_write_gbps",
+      "expected_role": "target",
+      "predicted_field": "target_write_gbps",
+      "predicted_role": "target",
+      "llm_status": "resolved",
+      "latency_s": 27.16265429998748,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "target_write_gbps",
+          "role": "target",
+          "evidence": "45 GB/s",
+          "reason": "The user text states that data ingestion into Lustre is expected to reach nearly 45 GB/s, which indicates a target throughput for writes.",
+          "original_role": "target",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_019",
+      "category": "throughput_semantics",
+      "language": "fr",
+      "text": "Lors des relectures, le stockage doit fournir environ 70 GB/s aux nœuds de calcul.",
+      "expected": "RESOLVE",
+      "expected_field": "target_read_gbps",
+      "expected_role": "target",
+      "predicted_field": "target_read_gbps",
+      "predicted_role": "target",
+      "llm_status": "resolved",
+      "latency_s": 25.912167000002228,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "target_read_gbps",
+          "role": "target",
+          "evidence": "70 GB/s aux nœuds de calcul",
+          "reason": "The throughput is described as the storage delivering data to clients, which corresponds to target_read_gbps.",
+          "original_role": "target",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_020",
+      "category": "throughput_semantics",
+      "language": "fr",
+      "text": "Les checkpoints écrits vers Lustre visent environ 38 GB/s.",
+      "expected": "RESOLVE",
+      "expected_field": "target_write_gbps",
+      "expected_role": "target",
+      "predicted_field": "target_write_gbps",
+      "predicted_role": "target",
+      "llm_status": "resolved",
+      "latency_s": 24.956840300001204,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "target_write_gbps",
+          "role": "target",
+          "evidence": "38 GB/s",
+          "reason": "The target quantity refers to the throughput of checkpoints written to Lustre, which is a write operation.",
+          "original_role": "target",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_021",
+      "category": "throughput_semantics",
+      "language": "mixed",
+      "text": "For restore, Lustre should deliver close to 95 GB/s vers les clients.",
+      "expected": "RESOLVE",
+      "expected_field": "target_read_gbps",
+      "expected_role": "target",
+      "predicted_field": "target_read_gbps",
+      "predicted_role": "target",
+      "llm_status": "resolved",
+      "latency_s": 25.13892769999802,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "target_read_gbps",
+          "role": "target",
+          "evidence": "95 GB/s",
+          "reason": "The user specifies that Lustre should deliver close to 95 GB/s, indicating a target throughput for reads.",
+          "original_role": "target",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_022",
+      "category": "throughput_semantics",
+      "language": "mixed",
+      "text": "Checkpoint writes vers le stockage should sustain 52 GB/s.",
+      "expected": "RESOLVE",
+      "expected_field": "target_write_gbps",
+      "expected_role": "target",
+      "predicted_field": "target_write_gbps",
+      "predicted_role": "target",
+      "llm_status": "resolved",
+      "latency_s": 23.872962100082077,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "target_write_gbps",
+          "role": "target",
+          "evidence": "52 GB/s",
+          "reason": "Checkpoint writes vers le stockage should sustain 52 GB/s.",
+          "original_role": "target",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_023",
+      "category": "throughput_semantics",
+      "language": "en",
+      "text": "The read side must not fall below 60 GB/s.",
+      "expected": "RESOLVE",
+      "expected_field": "target_read_gbps",
+      "expected_role": "minimum_limit",
+      "predicted_field": "target_read_gbps",
+      "predicted_role": "minimum_limit",
+      "llm_status": "resolved",
+      "latency_s": 25.893125500064343,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "target_read_gbps",
+          "role": "minimum_limit",
+          "evidence": "60 GB/s",
+          "reason": "The user specifies that the read side must not fall below 60 GB/s, indicating a minimum limit.",
+          "original_role": "minimum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_024",
+      "category": "throughput_semantics",
+      "language": "en",
+      "text": "The write path must provide at least 35 GB/s.",
+      "expected": "RESOLVE",
+      "expected_field": "target_write_gbps",
+      "expected_role": "minimum_limit",
+      "predicted_field": "target_write_gbps",
+      "predicted_role": "minimum_limit",
+      "llm_status": "resolved",
+      "latency_s": 24.70326139999088,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "target_write_gbps",
+          "role": "minimum_limit",
+          "evidence": "The write path must provide at least 35 GB/s.",
+          "reason": "The phrase 'at least' indicates a minimum requirement.",
+          "original_role": "minimum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_025",
+      "category": "other_fields",
+      "language": "en",
+      "text": "The project is planned around a usable namespace of roughly 620 TiB.",
+      "expected": "RESOLVE",
+      "expected_field": "requested_usable_capacity_tib",
+      "expected_role": "target",
+      "predicted_field": "requested_usable_capacity_tib",
+      "predicted_role": "target",
+      "llm_status": "resolved",
+      "latency_s": 22.627455699956045,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "evidence": "620 TiB",
+          "reason": "The project is planned around a usable namespace of roughly 620 TiB.",
+          "original_role": "target",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_026",
+      "category": "other_fields",
+      "language": "fr",
+      "text": "La capacité exploitable visée tourne autour de 480 TiB.",
+      "expected": "RESOLVE",
+      "expected_field": "requested_usable_capacity_tib",
+      "expected_role": "target",
+      "predicted_field": "requested_usable_capacity_tib",
+      "predicted_role": "target",
+      "llm_status": "resolved",
+      "latency_s": 22.996189899975434,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "evidence": "480 TiB",
+          "reason": "The user text explicitly states that the target capacity is around 480 TiB.",
+          "original_role": "target",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_027",
+      "category": "other_fields",
+      "language": "en",
+      "text": "The storage hardware spend must remain under 95000 USD.",
+      "expected": "RESOLVE",
+      "expected_field": "max_budget_usd",
+      "expected_role": "maximum_limit",
+      "predicted_field": "max_budget_usd",
+      "predicted_role": "maximum_limit",
+      "llm_status": "resolved",
+      "latency_s": 22.369716400047764,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "evidence": "95000 USD",
+          "reason": "The storage hardware spend must remain under 95000 USD.",
+          "original_role": "maximum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_028",
+      "category": "other_fields",
+      "language": "fr",
+      "text": "Le budget matériel ne doit pas dépasser 120000 USD.",
+      "expected": "RESOLVE",
+      "expected_field": "max_budget_usd",
+      "expected_role": "maximum_limit",
+      "predicted_field": "max_budget_usd",
+      "predicted_role": "maximum_limit",
+      "llm_status": "resolved",
+      "latency_s": 22.89693529997021,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "evidence": "120000 USD",
+          "reason": "The budget material should not exceed 120000 USD.",
+          "original_role": "maximum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_029",
+      "category": "other_fields",
+      "language": "en",
+      "text": "The rack-level power envelope is capped at 14 kW.",
+      "expected": "RESOLVE",
+      "expected_field": "max_power_w",
+      "expected_role": "maximum_limit",
+      "predicted_field": "max_power_w",
+      "predicted_role": "maximum_limit",
+      "llm_status": "resolved",
+      "latency_s": 21.602056200033985,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "evidence": "14 kW",
+          "reason": "The rack-level power envelope is capped at 14 kW.",
+          "original_role": "maximum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_030",
+      "category": "other_fields",
+      "language": "fr",
+      "text": "La plateforme devrait consommer environ 11 kW en régime nominal.",
+      "expected": "RESOLVE",
+      "expected_field": "max_power_w",
+      "expected_role": "expected_value",
+      "predicted_field": "max_power_w",
+      "predicted_role": "expected_value",
+      "llm_status": "resolved",
+      "latency_s": 23.20322920009494,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "max_power_w",
+          "role": "expected_value",
+          "evidence": "11 kW",
+          "reason": "The user text specifies that the platform should consume approximately 11 kW in nominal mode, indicating an expected power consumption.",
+          "original_role": "expected_value",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_031",
+      "category": "other_fields",
+      "language": "en",
+      "text": "Capacity planning assumes year-over-year expansion of about 28 percent.",
+      "expected": "RESOLVE",
+      "expected_field": "annual_growth_percent",
+      "expected_role": "growth_rate",
+      "predicted_field": "annual_growth_percent",
+      "predicted_role": "growth_rate",
+      "llm_status": "resolved",
+      "latency_s": 24.128373199957423,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "annual_growth_percent",
+          "role": "growth_rate",
+          "evidence": "year-over-year expansion of about 28 percent",
+          "reason": "The text explicitly mentions year-over-year growth, which corresponds to the annual_growth_percent field with a role of growth_rate.",
+          "original_role": "growth_rate",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_032",
+      "category": "other_fields",
+      "language": "fr",
+      "text": "La croissance annuelle attendue est proche de 22 pourcent.",
+      "expected": "RESOLVE",
+      "expected_field": "annual_growth_percent",
+      "expected_role": "growth_rate",
+      "predicted_field": "annual_growth_percent",
+      "predicted_role": "growth_rate",
+      "llm_status": "resolved",
+      "latency_s": 26.240961900097318,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "annual_growth_percent",
+          "role": "growth_rate",
+          "evidence": "proche de 22 pourcent",
+          "reason": "The user text explicitly mentions 'annual growth percent' and the target quantity is described as 'proche de [Q]22 pourcent[/Q]', which indicates an expected annual growth rate.",
+          "original_role": "growth_rate",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_033",
+      "category": "previous_question",
+      "language": "en",
+      "text": "320",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 30.27322540001478,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The target quantity '320' is not clearly associated with any specific FIELD/ROLE based on the provided context and mapping guide.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "320",
+            "reason": "The target quantity '320' is not clearly associated with any specific FIELD/ROLE based on the provided context and mapping guide."
+          }
+        }
+      ],
+      "notes": "Tests use of previous clarification only as context; evidence must remain the user text."
+    },
+    {
+      "id": "LLM_034",
+      "category": "previous_question",
+      "language": "fr",
+      "text": "250",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 30.72806470002979,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The quantity '250' is not clearly associated with any specific FIELD/ROLE based on the provided context.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "250",
+            "reason": "The quantity '250' is not clearly associated with any specific FIELD/ROLE based on the provided context."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_035",
+      "category": "previous_question",
+      "language": "en",
+      "text": "9000000",
+      "expected": "RESOLVE",
+      "expected_field": "total_file_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 32.25213699997403,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The target quantity is not clearly associated with any specific FIELD/ROLE based on the provided context.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "9000000",
+            "reason": "The target quantity is not clearly associated with any specific FIELD/ROLE based on the provided context."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_036",
+      "category": "previous_question",
+      "language": "en",
+      "text": "18 kW",
+      "expected": "RESOLVE",
+      "expected_field": "max_power_w",
+      "expected_role": "maximum_limit",
+      "predicted_field": "max_power_w",
+      "predicted_role": "maximum_limit",
+      "llm_status": "resolved",
+      "latency_s": 24.82206659996882,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "evidence": "18 kW",
+          "reason": "The user is asking about the maximum allowed power envelope.",
+          "original_role": "maximum_limit",
+          "role_repaired": false,
+          "repair_reason": null
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_037",
+      "category": "previous_question",
+      "language": "fr",
+      "text": "80 GB",
+      "expected": "RESOLVE",
+      "expected_field": "max_file_size_gb",
+      "expected_role": "maximum_limit",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 27.144737900001928,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user did not provide enough context to determine whether the 80 GB refers to a target, maximum limit, or any other role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "80 GB",
+            "reason": "The user did not provide enough context to determine whether the 80 GB refers to a target, maximum limit, or any other role."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_038",
+      "category": "previous_question",
+      "language": "en",
+      "text": "42 GB/s",
+      "expected": "RESOLVE",
+      "expected_field": "target_write_gbps",
+      "expected_role": "target",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 26.672497100080363,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user did not provide enough context to determine whether the throughput is for reads or writes.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "42 GB/s",
+            "reason": "The user did not provide enough context to determine whether the throughput is for reads or writes."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_039",
+      "category": "abstention",
+      "language": "en",
+      "text": "The requirement is around 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 18.07777120009996,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "320",
+            "reason": "The user text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_040",
+      "category": "abstention",
+      "language": "en",
+      "text": "Use approximately 75 for this requirement.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 31.302056799991988,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The target quantity '75' is not clearly associated with any specific FIELD/ROLE pair based on the provided context.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "75",
+            "reason": "The target quantity '75' is not clearly associated with any specific FIELD/ROLE pair based on the provided context."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_041",
+      "category": "abstention",
+      "language": "fr",
+      "text": "La valeur prévue est environ 210.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 37.25418020004872,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether the quantity refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "La valeur prévue est environ 210.",
+            "reason": "The text does not provide enough context to determine whether the quantity refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_042",
+      "category": "abstention",
+      "language": "mixed",
+      "text": "Target value: environ 450.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 39.27087060001213,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether 'environ 450' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "environ 450",
+            "reason": "The user text does not provide enough context to determine whether 'environ 450' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_043",
+      "category": "abstention",
+      "language": "en",
+      "text": "The planning document mentions 600, but does not say what it represents.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 31.179715499980375,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine the specific FIELD/ROLE for the quantity '600'.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "600",
+            "reason": "The user text does not provide enough context to determine the specific FIELD/ROLE for the quantity '600'."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_044",
+      "category": "abstention",
+      "language": "en",
+      "text": "A note lists 95 GB/s without saying whether it is a read or write target.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "explicit_ambiguity_abstention",
+      "latency_s": 4.229997284710407e-05,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "explicit_ambiguity_abstention",
+          "reason": "The current user text explicitly states that the semantic interpretation is ambiguous."
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_045",
+      "category": "abstention",
+      "language": "fr",
+      "text": "Le document indique 55 GB/s sans préciser lecture ou écriture.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "explicit_ambiguity_abstention",
+      "latency_s": 7.069995626807213e-05,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "explicit_ambiguity_abstention",
+          "reason": "The current user text explicitly states that the semantic interpretation is ambiguous."
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_046",
+      "category": "abstention",
+      "language": "en",
+      "text": "A file-size constraint of 40 GB is mentioned, but it is not clear whether it is typical or maximum.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "explicit_ambiguity_abstention",
+      "latency_s": 3.590004052966833e-05,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "explicit_ambiguity_abstention",
+          "reason": "The current user text explicitly states that the semantic interpretation is ambiguous."
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_047",
+      "category": "abstention",
+      "language": "fr",
+      "text": "Une taille de 25 GB est citée sans indiquer s'il s'agit d'une moyenne ou d'un maximum.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "explicit_ambiguity_abstention",
+      "latency_s": 5.6399963796138763e-05,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "explicit_ambiguity_abstention",
+          "reason": "The current user text explicitly states that the semantic interpretation is ambiguous."
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_048",
+      "category": "abstention",
+      "language": "en",
+      "text": "The text records 20 percent but does not say whether this is growth or the read/write mix.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "explicit_ambiguity_abstention",
+      "latency_s": 3.429991193115711e-05,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "explicit_ambiguity_abstention",
+          "reason": "The current user text explicitly states that the semantic interpretation is ambiguous."
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_049",
+      "category": "abstention",
+      "language": "en",
+      "text": "The report contains 300 and separately discusses both clients and files without tying the number to either.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 35.1563310000347,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The number '300' is not tied to any specific FIELD/ROLE in the given context. It could refer to various quantities such as client count, file count, or other unspecified values.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "300",
+            "reason": "The number '300' is not tied to any specific FIELD/ROLE in the given context. It could refer to various quantities such as client count, file count, or other unspecified values."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "LLM_050",
+      "category": "abstention",
+      "language": "fr",
+      "text": "La note contient 700 et parle ailleurs de clients et de fichiers sans relier ce nombre à l'un des deux.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 31.932530499994755,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The number '700' is not clearly associated with any specific FIELD/ROLE in the given context.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "700",
+            "reason": "The number '700' is not clearly associated with any specific FIELD/ROLE in the given context."
+          }
+        }
+      ],
+      "notes": ""
+    }
+  ]
+}

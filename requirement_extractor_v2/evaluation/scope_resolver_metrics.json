@@ -1,0 +1,3961 @@
+{
+  "metrics": {
+    "n_messages": 300,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "NEW_REQUIREMENT": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 230
+      },
+      "ANSWER_TO_PREVIOUS_QUESTION": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 25
+      },
+      "CORRECTION": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 20
+      },
+      "OUT_OF_SCOPE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 25
+      }
+    },
+    "confusion_matrix": {
+      "NEW_REQUIREMENT": {
+        "NEW_REQUIREMENT": 230,
+        "ANSWER_TO_PREVIOUS_QUESTION": 0,
+        "CORRECTION": 0,
+        "OUT_OF_SCOPE": 0
+      },
+      "ANSWER_TO_PREVIOUS_QUESTION": {
+        "NEW_REQUIREMENT": 0,
+        "ANSWER_TO_PREVIOUS_QUESTION": 25,
+        "CORRECTION": 0,
+        "OUT_OF_SCOPE": 0
+      },
+      "CORRECTION": {
+        "NEW_REQUIREMENT": 0,
+        "ANSWER_TO_PREVIOUS_QUESTION": 0,
+        "CORRECTION": 20,
+        "OUT_OF_SCOPE": 0
+      },
+      "OUT_OF_SCOPE": {
+        "NEW_REQUIREMENT": 0,
+        "ANSWER_TO_PREVIOUS_QUESTION": 0,
+        "CORRECTION": 0,
+        "OUT_OF_SCOPE": 25
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "V2E2E_0001",
+      "category": "normal",
+      "text": "We need 64 clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0002",
+      "category": "normal",
+      "text": "Maximum power is 100 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0003",
+      "category": "normal",
+      "text": "Usable capacity should be 128 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0004",
+      "category": "normal",
+      "text": "Average file size is 8 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0005",
+      "category": "normal",
+      "text": "Maximum file size is 16 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0006",
+      "category": "normal",
+      "text": "The system will contain 300 files.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0007",
+      "category": "normal",
+      "text": "Target read throughput is 20 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0008",
+      "category": "normal",
+      "text": "Target write throughput is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0009",
+      "category": "normal",
+      "text": "The maximum budget is 1000 USD.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0010",
+      "category": "normal",
+      "text": "Annual growth is 30%.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0011",
+      "category": "normal",
+      "text": "Nous avons besoin de 5000 clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0012",
+      "category": "normal",
+      "text": "La puissance maximale est de 10000 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0013",
+      "category": "normal",
+      "text": "La capacité utile demandée est de 25000 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0014",
+      "category": "normal",
+      "text": "La taille moyenne des fichiers est de 32 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0015",
+      "category": "normal",
+      "text": "La taille maximale des fichiers est de 64 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0016",
+      "category": "normal",
+      "text": "We need 64 clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0017",
+      "category": "normal",
+      "text": "Maximum power is 100 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0018",
+      "category": "normal",
+      "text": "Usable capacity should be 128 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0019",
+      "category": "normal",
+      "text": "Average file size is 4 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0020",
+      "category": "normal",
+      "text": "Maximum file size is 8 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0021",
+      "category": "normal",
+      "text": "The system will contain 300 files.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0022",
+      "category": "normal",
+      "text": "Target read throughput is 20 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0023",
+      "category": "normal",
+      "text": "Target write throughput is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0024",
+      "category": "normal",
+      "text": "The maximum budget is 1000 USD.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0025",
+      "category": "normal",
+      "text": "Annual growth is 30%.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0026",
+      "category": "normal",
+      "text": "Nous avons besoin de 5000 clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0027",
+      "category": "normal",
+      "text": "La puissance maximale est de 10000 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0028",
+      "category": "normal",
+      "text": "La capacité utile demandée est de 25000 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0029",
+      "category": "normal",
+      "text": "La taille moyenne des fichiers est de 16 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0030",
+      "category": "normal",
+      "text": "La taille maximale des fichiers est de 32 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0031",
+      "category": "synonym",
+      "text": "Around 120 hosts will mount the shared filesystem.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0032",
+      "category": "synonym",
+      "text": "Approximately 180 endpoints will connect to storage.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0033",
+      "category": "synonym",
+      "text": "The platform must serve 200 machines.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0034",
+      "category": "synonym",
+      "text": "Keep the power cap below 240 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0035",
+      "category": "synonym",
+      "text": "The storage footprint target is 1000 TiB usable.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0036",
+      "category": "synonym",
+      "text": "Expect roughly 1000000 objects in the namespace.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0037",
+      "category": "synonym",
+      "text": "Read bandwidth target is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0038",
+      "category": "synonym",
+      "text": "Write bandwidth target is 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0039",
+      "category": "synonym",
+      "text": "Environ 800 hôtes accéderont au système de fichiers.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0040",
+      "category": "synonym",
+      "text": "La limite de puissance est fixée à 1200 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0041",
+      "category": "synonym",
+      "text": "Around 120 hosts will mount the shared filesystem.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0042",
+      "category": "synonym",
+      "text": "Approximately 180 endpoints will connect to storage.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0043",
+      "category": "synonym",
+      "text": "The platform must serve 200 machines.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0044",
+      "category": "synonym",
+      "text": "Keep the power cap below 240 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0045",
+      "category": "synonym",
+      "text": "The storage footprint target is 1000 TiB usable.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0046",
+      "category": "synonym",
+      "text": "Expect roughly 1000000 objects in the namespace.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0047",
+      "category": "synonym",
+      "text": "Read bandwidth target is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0048",
+      "category": "synonym",
+      "text": "Write bandwidth target is 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0049",
+      "category": "synonym",
+      "text": "Environ 800 hôtes accéderont au système de fichiers.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0050",
+      "category": "synonym",
+      "text": "La limite de puissance est fixée à 1200 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0051",
+      "category": "synonym",
+      "text": "Around 120 hosts will mount the shared filesystem.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0052",
+      "category": "synonym",
+      "text": "Approximately 180 endpoints will connect to storage.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0053",
+      "category": "synonym",
+      "text": "The platform must serve 200 machines.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0054",
+      "category": "synonym",
+      "text": "Keep the power cap below 240 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0055",
+      "category": "synonym",
+      "text": "The storage footprint target is 1000 TiB usable.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0056",
+      "category": "synonym",
+      "text": "Expect roughly 1000000 objects in the namespace.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0057",
+      "category": "synonym",
+      "text": "Read bandwidth target is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0058",
+      "category": "synonym",
+      "text": "Write bandwidth target is 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0059",
+      "category": "synonym",
+      "text": "Environ 800 hôtes accéderont au système de fichiers.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0060",
+      "category": "synonym",
+      "text": "La limite de puissance est fixée à 1200 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0061",
+      "category": "spelling_error",
+      "text": "We need 80 clents.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0062",
+      "category": "spelling_error",
+      "text": "Around 120 endponts will connect.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0063",
+      "category": "spelling_error",
+      "text": "Maximum powr is 160 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0064",
+      "category": "spelling_error",
+      "text": "Usable capcity should be 200 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0065",
+      "category": "spelling_error",
+      "text": "Average fle size is 32 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0066",
+      "category": "spelling_error",
+      "text": "Maximum file sze is 2 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0067",
+      "category": "spelling_error",
+      "text": "Target reed throughput is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0068",
+      "category": "spelling_error",
+      "text": "Target wrte throughput is 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0069",
+      "category": "spelling_error",
+      "text": "Nous avons besoin de 1200 clints.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0070",
+      "category": "spelling_error",
+      "text": "La puissnce maximale est de 1500 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0071",
+      "category": "spelling_error",
+      "text": "We need 80 clents.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0072",
+      "category": "spelling_error",
+      "text": "Around 120 endponts will connect.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0073",
+      "category": "spelling_error",
+      "text": "Maximum powr is 160 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0074",
+      "category": "spelling_error",
+      "text": "Usable capcity should be 200 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0075",
+      "category": "spelling_error",
+      "text": "Average fle size is 32 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0076",
+      "category": "spelling_error",
+      "text": "Maximum file sze is 2 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0077",
+      "category": "spelling_error",
+      "text": "Target reed throughput is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0078",
+      "category": "spelling_error",
+      "text": "Target wrte throughput is 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0079",
+      "category": "spelling_error",
+      "text": "Nous avons besoin de 1200 clints.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0080",
+      "category": "spelling_error",
+      "text": "La puissnce maximale est de 1500 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0081",
+      "category": "spelling_error",
+      "text": "We need 80 clents.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0082",
+      "category": "spelling_error",
+      "text": "Around 120 endponts will connect.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0083",
+      "category": "spelling_error",
+      "text": "Maximum powr is 160 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0084",
+      "category": "spelling_error",
+      "text": "Usable capcity should be 200 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0085",
+      "category": "spelling_error",
+      "text": "Average fle size is 32 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0086",
+      "category": "spelling_error",
+      "text": "Maximum file sze is 2 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0087",
+      "category": "spelling_error",
+      "text": "Target reed throughput is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0088",
+      "category": "spelling_error",
+      "text": "Target wrte throughput is 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0089",
+      "category": "spelling_error",
+      "text": "Nous avons besoin de 1200 clints.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0090",
+      "category": "spelling_error",
+      "text": "La puissnce maximale est de 1500 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0091",
+      "category": "written_number",
+      "text": "We expect two hundred clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0092",
+      "category": "written_number",
+      "text": "Maximum power is three hundred watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0093",
+      "category": "written_number",
+      "text": "The usable target is five hundred TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0094",
+      "category": "written_number",
+      "text": "The maximum file size is eight hundred GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0095",
+      "category": "written_number",
+      "text": "The budget ceiling is one thousand dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0096",
+      "category": "written_number",
+      "text": "We expect two hundred clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0097",
+      "category": "written_number",
+      "text": "Maximum power is three hundred watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0098",
+      "category": "written_number",
+      "text": "The usable target is five hundred TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0099",
+      "category": "written_number",
+      "text": "The maximum file size is eight hundred GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0100",
+      "category": "written_number",
+      "text": "The budget ceiling is one thousand dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0101",
+      "category": "written_number",
+      "text": "We expect two hundred clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0102",
+      "category": "written_number",
+      "text": "Maximum power is three hundred watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0103",
+      "category": "written_number",
+      "text": "The usable target is five hundred TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0104",
+      "category": "written_number",
+      "text": "The maximum file size is eight hundred GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0105",
+      "category": "written_number",
+      "text": "The budget ceiling is one thousand dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0106",
+      "category": "written_number",
+      "text": "We expect two hundred clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0107",
+      "category": "written_number",
+      "text": "Maximum power is three hundred watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0108",
+      "category": "written_number",
+      "text": "The usable target is five hundred TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0109",
+      "category": "written_number",
+      "text": "The maximum file size is eight hundred GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0110",
+      "category": "written_number",
+      "text": "The budget ceiling is one thousand dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0111",
+      "category": "written_number",
+      "text": "We expect two hundred clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0112",
+      "category": "written_number",
+      "text": "Maximum power is three hundred watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0113",
+      "category": "written_number",
+      "text": "The usable target is five hundred TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0114",
+      "category": "written_number",
+      "text": "The maximum file size is eight hundred GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0115",
+      "category": "written_number",
+      "text": "The budget ceiling is one thousand dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0116",
+      "category": "typoed_written_number",
+      "text": "We expect two hunderd clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0117",
+      "category": "typoed_written_number",
+      "text": "Maximum power is three hunderd watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0118",
+      "category": "typoed_written_number",
+      "text": "The usable target is five hunderd TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0119",
+      "category": "typoed_written_number",
+      "text": "The maximum file size is eight hunderd GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0120",
+      "category": "typoed_written_number",
+      "text": "The budget ceiling is one thousnd dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0121",
+      "category": "typoed_written_number",
+      "text": "We expect two hunderd clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0122",
+      "category": "typoed_written_number",
+      "text": "Maximum power is three hunderd watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0123",
+      "category": "typoed_written_number",
+      "text": "The usable target is five hunderd TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0124",
+      "category": "typoed_written_number",
+      "text": "The maximum file size is eight hunderd GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0125",
+      "category": "typoed_written_number",
+      "text": "The budget ceiling is one thousnd dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0126",
+      "category": "typoed_written_number",
+      "text": "We expect two hunderd clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0127",
+      "category": "typoed_written_number",
+      "text": "Maximum power is three hunderd watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0128",
+      "category": "typoed_written_number",
+      "text": "The usable target is five hunderd TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0129",
+      "category": "typoed_written_number",
+      "text": "The maximum file size is eight hunderd GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0130",
+      "category": "typoed_written_number",
+      "text": "The budget ceiling is one thousnd dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0131",
+      "category": "typoed_written_number",
+      "text": "We expect two hunderd clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0132",
+      "category": "typoed_written_number",
+      "text": "Maximum power is three hunderd watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0133",
+      "category": "typoed_written_number",
+      "text": "The usable target is five hunderd TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0134",
+      "category": "typoed_written_number",
+      "text": "The maximum file size is eight hunderd GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0135",
+      "category": "typoed_written_number",
+      "text": "The budget ceiling is one thousnd dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0136",
+      "category": "typoed_written_number",
+      "text": "We expect two hunderd clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0137",
+      "category": "typoed_written_number",
+      "text": "Maximum power is three hunderd watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0138",
+      "category": "typoed_written_number",
+      "text": "The usable target is five hunderd TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0139",
+      "category": "typoed_written_number",
+      "text": "The maximum file size is eight hunderd GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0140",
+      "category": "typoed_written_number",
+      "text": "The budget ceiling is one thousnd dollars.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0141",
+      "category": "unit_variation",
+      "text": "Maximum power is 1 watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0142",
+      "category": "unit_variation",
+      "text": "Maximum power is 2 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0143",
+      "category": "unit_variation",
+      "text": "Maximum power is 4 kW.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0144",
+      "category": "unit_variation",
+      "text": "Usable capacity is 8 TB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0145",
+      "category": "unit_variation",
+      "text": "Usable capacity is 10 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0146",
+      "category": "unit_variation",
+      "text": "Read target is 20 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0147",
+      "category": "unit_variation",
+      "text": "Write target is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0148",
+      "category": "unit_variation",
+      "text": "Budget is capped at $80.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0149",
+      "category": "unit_variation",
+      "text": "La puissance maximale est 100 kilowatts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0150",
+      "category": "unit_variation",
+      "text": "Read target: 500 GB/s et puissance max 800 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0151",
+      "category": "unit_variation",
+      "text": "Maximum power is 1 watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0152",
+      "category": "unit_variation",
+      "text": "Maximum power is 2 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0153",
+      "category": "unit_variation",
+      "text": "Maximum power is 4 kW.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0154",
+      "category": "unit_variation",
+      "text": "Usable capacity is 8 TB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0155",
+      "category": "unit_variation",
+      "text": "Usable capacity is 10 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0156",
+      "category": "unit_variation",
+      "text": "Read target is 20 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0157",
+      "category": "unit_variation",
+      "text": "Write target is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0158",
+      "category": "unit_variation",
+      "text": "Budget is capped at $80.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0159",
+      "category": "unit_variation",
+      "text": "La puissance maximale est 100 kilowatts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0160",
+      "category": "unit_variation",
+      "text": "Read target: 500 GB/s et puissance max 800 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0161",
+      "category": "unit_variation",
+      "text": "Maximum power is 1 watts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0162",
+      "category": "unit_variation",
+      "text": "Maximum power is 2 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0163",
+      "category": "unit_variation",
+      "text": "Maximum power is 4 kW.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0164",
+      "category": "unit_variation",
+      "text": "Usable capacity is 8 TB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0165",
+      "category": "unit_variation",
+      "text": "Usable capacity is 10 TiB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0166",
+      "category": "unit_variation",
+      "text": "Read target is 20 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0167",
+      "category": "unit_variation",
+      "text": "Write target is 40 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0168",
+      "category": "unit_variation",
+      "text": "Budget is capped at $80.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0169",
+      "category": "unit_variation",
+      "text": "La puissance maximale est 100 kilowatts.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0170",
+      "category": "unit_variation",
+      "text": "Read target: 500 GB/s et puissance max 800 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0171",
+      "category": "missing_unit",
+      "text": "The limit is 20.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0172",
+      "category": "missing_unit",
+      "text": "Set it to 50.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0173",
+      "category": "missing_unit",
+      "text": "I would use 100.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0174",
+      "category": "missing_unit",
+      "text": "Around 200 should be enough.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0175",
+      "category": "missing_unit",
+      "text": "La limite est 320.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0176",
+      "category": "missing_unit",
+      "text": "The limit is 20.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0177",
+      "category": "missing_unit",
+      "text": "Set it to 50.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0178",
+      "category": "missing_unit",
+      "text": "I would use 100.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0179",
+      "category": "missing_unit",
+      "text": "Around 200 should be enough.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0180",
+      "category": "missing_unit",
+      "text": "La limite est 320.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0181",
+      "category": "missing_unit",
+      "text": "The limit is 20.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0182",
+      "category": "missing_unit",
+      "text": "Set it to 50.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0183",
+      "category": "missing_unit",
+      "text": "I would use 100.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0184",
+      "category": "missing_unit",
+      "text": "Around 200 should be enough.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0185",
+      "category": "missing_unit",
+      "text": "La limite est 320.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0186",
+      "category": "missing_unit",
+      "text": "The limit is 20.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0187",
+      "category": "missing_unit",
+      "text": "Set it to 50.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0188",
+      "category": "missing_unit",
+      "text": "I would use 100.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0189",
+      "category": "missing_unit",
+      "text": "Around 200 should be enough.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0190",
+      "category": "missing_unit",
+      "text": "La limite est 320.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0191",
+      "category": "ambiguity",
+      "text": "Read throughput should be 20 or 30 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0192",
+      "category": "ambiguity",
+      "text": "Maximum file size could be 50 or 100 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0193",
+      "category": "ambiguity",
+      "text": "We may have 200 or 300 clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0194",
+      "category": "ambiguity",
+      "text": "Le débit d'écriture sera de 40 ou 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0195",
+      "category": "ambiguity",
+      "text": "La puissance maximale sera 800 ou 1200 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0196",
+      "category": "ambiguity",
+      "text": "Read throughput should be 20 or 30 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0197",
+      "category": "ambiguity",
+      "text": "Maximum file size could be 50 or 100 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0198",
+      "category": "ambiguity",
+      "text": "We may have 200 or 300 clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0199",
+      "category": "ambiguity",
+      "text": "Le débit d'écriture sera de 40 ou 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0200",
+      "category": "ambiguity",
+      "text": "La puissance maximale sera 800 ou 1200 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0201",
+      "category": "ambiguity",
+      "text": "Read throughput should be 20 or 30 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0202",
+      "category": "ambiguity",
+      "text": "Maximum file size could be 50 or 100 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0203",
+      "category": "ambiguity",
+      "text": "We may have 200 or 300 clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0204",
+      "category": "ambiguity",
+      "text": "Le débit d'écriture sera de 40 ou 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0205",
+      "category": "ambiguity",
+      "text": "La puissance maximale sera 800 ou 1200 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0206",
+      "category": "ambiguity",
+      "text": "Read throughput should be 20 or 30 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0207",
+      "category": "ambiguity",
+      "text": "Maximum file size could be 50 or 100 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0208",
+      "category": "ambiguity",
+      "text": "We may have 200 or 300 clients.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0209",
+      "category": "ambiguity",
+      "text": "Le débit d'écriture sera de 40 ou 60 GB/s.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0210",
+      "category": "ambiguity",
+      "text": "La puissance maximale sera 800 ou 1200 W.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0211",
+      "category": "broad_signal",
+      "text": "Maximum file size: 10 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0212",
+      "category": "broad_signal",
+      "text": "Read-heavy workload, about 70% read.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0213",
+      "category": "broad_signal",
+      "text": "Write intensive, target around 60 GB/s writes.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0214",
+      "category": "broad_signal",
+      "text": "Capacity target: 1000 TiB usable.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0215",
+      "category": "broad_signal",
+      "text": "Charge orientée lecture, environ 60% en lecture.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0216",
+      "category": "broad_signal",
+      "text": "Maximum file size: 25 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0217",
+      "category": "broad_signal",
+      "text": "Read-heavy workload, about 80% read.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0218",
+      "category": "broad_signal",
+      "text": "Write intensive, target around 80 GB/s writes.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0219",
+      "category": "broad_signal",
+      "text": "Capacity target: 250 TiB usable.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0220",
+      "category": "broad_signal",
+      "text": "Charge orientée lecture, environ 70% en lecture.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0221",
+      "category": "broad_signal",
+      "text": "Maximum file size: 50 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0222",
+      "category": "broad_signal",
+      "text": "Read-heavy workload, about 90% read.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0223",
+      "category": "broad_signal",
+      "text": "Write intensive, target around 20 GB/s writes.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0224",
+      "category": "broad_signal",
+      "text": "Capacity target: 500 TiB usable.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0225",
+      "category": "broad_signal",
+      "text": "Charge orientée lecture, environ 80% en lecture.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0226",
+      "category": "broad_signal",
+      "text": "Maximum file size: 100 GB.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0227",
+      "category": "broad_signal",
+      "text": "Read-heavy workload, about 60% read.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0228",
+      "category": "broad_signal",
+      "text": "Write intensive, target around 40 GB/s writes.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0229",
+      "category": "broad_signal",
+      "text": "Capacity target: 750 TiB usable.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0230",
+      "category": "broad_signal",
+      "text": "Charge orientée lecture, environ 90% en lecture.",
+      "gold": "NEW_REQUIREMENT",
+      "predicted": {
+        "intent": "NEW_REQUIREMENT",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "continue_with_requirement_extraction"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0231",
+      "category": "short_conversational_answer",
+      "text": "200",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_power_w",
+        "inherited_unit": "W",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0232",
+      "category": "short_conversational_answer",
+      "text": "275",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "client_count",
+        "inherited_unit": null,
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0233",
+      "category": "short_conversational_answer",
+      "text": "500",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "requested_usable_capacity_tib",
+        "inherited_unit": "TiB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0234",
+      "category": "short_conversational_answer",
+      "text": "100",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_file_size_gb",
+        "inherited_unit": "GB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0235",
+      "category": "short_conversational_answer",
+      "text": "80",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "target_read_gbps",
+        "inherited_unit": "GB/s",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0236",
+      "category": "short_conversational_answer",
+      "text": "200",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_power_w",
+        "inherited_unit": "W",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0237",
+      "category": "short_conversational_answer",
+      "text": "275",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "client_count",
+        "inherited_unit": null,
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0238",
+      "category": "short_conversational_answer",
+      "text": "500",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "requested_usable_capacity_tib",
+        "inherited_unit": "TiB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0239",
+      "category": "short_conversational_answer",
+      "text": "100",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_file_size_gb",
+        "inherited_unit": "GB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0240",
+      "category": "short_conversational_answer",
+      "text": "80",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "target_read_gbps",
+        "inherited_unit": "GB/s",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0241",
+      "category": "short_conversational_answer",
+      "text": "200",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_power_w",
+        "inherited_unit": "W",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0242",
+      "category": "short_conversational_answer",
+      "text": "275",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "client_count",
+        "inherited_unit": null,
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0243",
+      "category": "short_conversational_answer",
+      "text": "500",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "requested_usable_capacity_tib",
+        "inherited_unit": "TiB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0244",
+      "category": "short_conversational_answer",
+      "text": "100",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_file_size_gb",
+        "inherited_unit": "GB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0245",
+      "category": "short_conversational_answer",
+      "text": "80",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "target_read_gbps",
+        "inherited_unit": "GB/s",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0246",
+      "category": "short_conversational_answer",
+      "text": "200",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_power_w",
+        "inherited_unit": "W",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0247",
+      "category": "short_conversational_answer",
+      "text": "275",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "client_count",
+        "inherited_unit": null,
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0248",
+      "category": "short_conversational_answer",
+      "text": "500",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "requested_usable_capacity_tib",
+        "inherited_unit": "TiB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0249",
+      "category": "short_conversational_answer",
+      "text": "100",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_file_size_gb",
+        "inherited_unit": "GB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0250",
+      "category": "short_conversational_answer",
+      "text": "80",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "target_read_gbps",
+        "inherited_unit": "GB/s",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0251",
+      "category": "short_conversational_answer",
+      "text": "200",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_power_w",
+        "inherited_unit": "W",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0252",
+      "category": "short_conversational_answer",
+      "text": "275",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "client_count",
+        "inherited_unit": null,
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0253",
+      "category": "short_conversational_answer",
+      "text": "500",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "requested_usable_capacity_tib",
+        "inherited_unit": "TiB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0254",
+      "category": "short_conversational_answer",
+      "text": "100",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "max_file_size_gb",
+        "inherited_unit": "GB",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0255",
+      "category": "short_conversational_answer",
+      "text": "80",
+      "gold": "ANSWER_TO_PREVIOUS_QUESTION",
+      "predicted": {
+        "intent": "ANSWER_TO_PREVIOUS_QUESTION",
+        "target_field": "target_read_gbps",
+        "inherited_unit": "GB/s",
+        "reason": "short_answer_bound_to_active_question"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0256",
+      "category": "correction",
+      "text": "Actually, change the maximum power to 120 W.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0257",
+      "category": "correction",
+      "text": "Update the client count to 180.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0258",
+      "category": "correction",
+      "text": "Replace the usable capacity with 220 TiB.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0259",
+      "category": "correction",
+      "text": "Finalement, change la puissance maximale à 300 W.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0260",
+      "category": "correction",
+      "text": "Modifie le nombre de clients à 500.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0261",
+      "category": "correction",
+      "text": "Actually, change the maximum power to 800 W.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0262",
+      "category": "correction",
+      "text": "Update the client count to 1000.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0263",
+      "category": "correction",
+      "text": "Replace the usable capacity with 1200 TiB.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0264",
+      "category": "correction",
+      "text": "Finalement, change la puissance maximale à 120 W.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0265",
+      "category": "correction",
+      "text": "Modifie le nombre de clients à 180.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0266",
+      "category": "correction",
+      "text": "Actually, change the maximum power to 220 W.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0267",
+      "category": "correction",
+      "text": "Update the client count to 300.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0268",
+      "category": "correction",
+      "text": "Replace the usable capacity with 500 TiB.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0269",
+      "category": "correction",
+      "text": "Finalement, change la puissance maximale à 800 W.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0270",
+      "category": "correction",
+      "text": "Modifie le nombre de clients à 1000.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0271",
+      "category": "correction",
+      "text": "Actually, change the maximum power to 1200 W.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0272",
+      "category": "correction",
+      "text": "Update the client count to 120.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0273",
+      "category": "correction",
+      "text": "Replace the usable capacity with 180 TiB.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0274",
+      "category": "correction",
+      "text": "Finalement, change la puissance maximale à 220 W.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0275",
+      "category": "correction",
+      "text": "Modifie le nombre de clients à 300.",
+      "gold": "CORRECTION",
+      "predicted": {
+        "intent": "CORRECTION",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "explicit_correction_marker"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0276",
+      "category": "out_of_scope",
+      "text": "What is the weather tomorrow?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0277",
+      "category": "out_of_scope",
+      "text": "Tell me a joke.",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0278",
+      "category": "out_of_scope",
+      "text": "Can you recommend a movie?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0279",
+      "category": "out_of_scope",
+      "text": "Do you have a pasta recipe?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0280",
+      "category": "out_of_scope",
+      "text": "What was the football match score?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0281",
+      "category": "out_of_scope",
+      "text": "Quelle est la météo demain ?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0282",
+      "category": "out_of_scope",
+      "text": "Raconte-moi une blague.",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0283",
+      "category": "out_of_scope",
+      "text": "Peux-tu recommander un film ?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0284",
+      "category": "out_of_scope",
+      "text": "Donne-moi une recette de pâtes.",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0285",
+      "category": "out_of_scope",
+      "text": "Quel est le score du match de football ?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0286",
+      "category": "out_of_scope",
+      "text": "What is the weather tomorrow?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0287",
+      "category": "out_of_scope",
+      "text": "Tell me a joke.",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0288",
+      "category": "out_of_scope",
+      "text": "Can you recommend a movie?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0289",
+      "category": "out_of_scope",
+      "text": "Do you have a pasta recipe?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0290",
+      "category": "out_of_scope",
+      "text": "What was the football match score?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0291",
+      "category": "out_of_scope",
+      "text": "Quelle est la météo demain ?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0292",
+      "category": "out_of_scope",
+      "text": "Raconte-moi une blague.",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0293",
+      "category": "out_of_scope",
+      "text": "Peux-tu recommander un film ?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0294",
+      "category": "out_of_scope",
+      "text": "Donne-moi une recette de pâtes.",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0295",
+      "category": "out_of_scope",
+      "text": "Quel est le score du match de football ?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0296",
+      "category": "out_of_scope",
+      "text": "What is the weather tomorrow?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0297",
+      "category": "out_of_scope",
+      "text": "Tell me a joke.",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0298",
+      "category": "out_of_scope",
+      "text": "Can you recommend a movie?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0299",
+      "category": "out_of_scope",
+      "text": "Do you have a pasta recipe?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    },
+    {
+      "id": "V2E2E_0300",
+      "category": "out_of_scope",
+      "text": "What was the football match score?",
+      "gold": "OUT_OF_SCOPE",
+      "predicted": {
+        "intent": "OUT_OF_SCOPE",
+        "target_field": null,
+        "inherited_unit": null,
+        "reason": "clearly_unrelated_topic"
+      },
+      "correct": true
+    }
+  ]
+}

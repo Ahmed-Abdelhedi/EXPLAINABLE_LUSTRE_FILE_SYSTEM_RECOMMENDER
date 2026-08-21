@@ -1,0 +1,15 @@
+{
+  "train_val": {
+    "train_unique_fingerprints": 97320,
+    "val_unique_fingerprints": 15360,
+    "overlap_unique_fingerprints": 0,
+    "val_fingerprint_overlap_rate": 0.0
+  },
+  "test_after_freeze": {
+    "test_unique_fingerprints": 15360,
+    "train_test_overlap": 0,
+    "val_test_overlap": 0,
+    "train_test_overlap_rate": 0.0,
+    "val_test_overlap_rate": 0.0
+  }
+}

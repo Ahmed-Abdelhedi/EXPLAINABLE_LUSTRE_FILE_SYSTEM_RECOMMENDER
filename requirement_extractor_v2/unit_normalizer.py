@@ -84,6 +84,59 @@ def _normalize_unit(unit: Optional[str]) -> str:
     return aliases.get(normalized, normalized)
 
 
+
+# ================================================================
+# SOURCE-UNIT COMPATIBILITY
+# ================================================================
+
+_ALLOWED_SOURCE_UNITS_BY_FIELD = {
+    ParamName.requested_usable_capacity_tib: {"tb", "tib"},
+    ParamName.average_file_size_gb: {
+        "kb", "kib", "mb", "mib", "gb", "gib", "tb", "tib",
+    },
+    ParamName.max_file_size_gb: {
+        "kb", "kib", "mb", "mib", "gb", "gib", "tb", "tib",
+    },
+    ParamName.target_read_gbps: {"mb/s", "gb/s", "tb/s"},
+    ParamName.target_write_gbps: {"mb/s", "gb/s", "tb/s"},
+    ParamName.max_power_w: {"w", "kw", "mw"},
+    ParamName.max_budget_usd: {"usd", "$", "kusd", "k$", "musd", "m$"},
+    ParamName.annual_growth_percent: {"%"},
+    ParamName.read_write_ratio: {"%"},
+    ParamName.client_count: set(),
+    ParamName.total_file_count: set(),
+}
+
+
+def validate_source_unit_for_field(
+    field: ParamName,
+    unit: Optional[str],
+) -> str:
+    """
+    Validate an explicit source unit before canonical conversion.
+
+    Missing units remain allowed here because conversational context and the
+    verifier's UNKNOWN-dimension policy handle unitless cases separately.
+    """
+    unit_norm = _normalize_unit(unit)
+
+    if not unit_norm:
+        return unit_norm
+
+    allowed = _ALLOWED_SOURCE_UNITS_BY_FIELD.get(field)
+
+    if allowed is None:
+        return unit_norm
+
+    if unit_norm not in allowed:
+        raise ValueError(
+            "incompatible_source_unit:"
+            f"field={field.value},"
+            f"unit={unit}"
+        )
+
+    return unit_norm
+
 def normalize_unit_value(
     field: ParamName,
     value: Any,
@@ -105,10 +158,15 @@ def normalize_unit_value(
     décide ensuite si la valeur est acceptable.
     """
 
+    # Validate explicit source unit before any canonical conversion.
+    unit_norm = validate_source_unit_for_field(
+        field=field,
+        unit=unit,
+    )
+
     if not is_number(value):
         return value, unit
 
-    unit_norm = _normalize_unit(unit)
     numeric_value = _to_decimal(value)
 
     # ================================================================

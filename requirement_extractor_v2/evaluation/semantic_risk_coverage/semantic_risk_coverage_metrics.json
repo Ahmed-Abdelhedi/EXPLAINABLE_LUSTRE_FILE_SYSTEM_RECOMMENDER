@@ -1,0 +1,243 @@
+{
+  "dataset": "requirement_extractor_v2\\evaluation\\datasets\\semantic_linker_test_v1_1.jsonl",
+  "n_samples": 450,
+  "runtime_info": {
+    "artifact_dir": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\requirement_extractor_v2\\artifacts\\semantic_linker_xlmr_base_final",
+    "device": "cpu",
+    "num_fields": 12,
+    "num_roles": 10,
+    "max_length": 96,
+    "confidence_threshold": 0.966,
+    "margin_threshold": 0.0,
+    "unknown_direct_fields": [
+      "client_count",
+      "total_file_count"
+    ],
+    "production_safety_gate": true
+  },
+  "thresholds": [
+    0.6,
+    0.7,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    0.966
+  ],
+  "margin_threshold": 0.0,
+  "raw_constrained": {
+    "n_samples": 450,
+    "field_accuracy": 0.96,
+    "role_accuracy": 1.0,
+    "pair_accuracy": 0.96,
+    "gold_unresolved_count": 38,
+    "raw_unresolved_recall": 1.0
+  },
+  "risk_coverage": [
+    {
+      "threshold": 0.6,
+      "margin_threshold": 0.0,
+      "model_accepted_count": 407,
+      "model_accepted_correct": 389,
+      "model_coverage": 0.9044444444444445,
+      "model_accepted_precision": 0.9557739557739557,
+      "model_risk": 0.04422604422604426,
+      "model_unresolved_recall": 1.0,
+      "model_final_pair_accuracy": 0.9488888888888889,
+      "production_accepted_count": 401,
+      "production_accepted_correct": 383,
+      "production_coverage": 0.8911111111111111,
+      "production_accepted_precision": 0.9551122194513716,
+      "production_risk": 0.04488778054862841,
+      "production_unresolved_recall": 1.0,
+      "production_final_pair_accuracy": 0.9355555555555556
+    },
+    {
+      "threshold": 0.7,
+      "margin_threshold": 0.0,
+      "model_accepted_count": 405,
+      "model_accepted_correct": 389,
+      "model_coverage": 0.9,
+      "model_accepted_precision": 0.9604938271604938,
+      "model_risk": 0.03950617283950619,
+      "model_unresolved_recall": 1.0,
+      "model_final_pair_accuracy": 0.9488888888888889,
+      "production_accepted_count": 399,
+      "production_accepted_correct": 383,
+      "production_coverage": 0.8866666666666667,
+      "production_accepted_precision": 0.9598997493734336,
+      "production_risk": 0.040100250626566414,
+      "production_unresolved_recall": 1.0,
+      "production_final_pair_accuracy": 0.9355555555555556
+    },
+    {
+      "threshold": 0.8,
+      "margin_threshold": 0.0,
+      "model_accepted_count": 400,
+      "model_accepted_correct": 388,
+      "model_coverage": 0.8888888888888888,
+      "model_accepted_precision": 0.97,
+      "model_risk": 0.030000000000000027,
+      "model_unresolved_recall": 1.0,
+      "model_final_pair_accuracy": 0.9466666666666667,
+      "production_accepted_count": 394,
+      "production_accepted_correct": 382,
+      "production_coverage": 0.8755555555555555,
+      "production_accepted_precision": 0.9695431472081218,
+      "production_risk": 0.030456852791878153,
+      "production_unresolved_recall": 1.0,
+      "production_final_pair_accuracy": 0.9333333333333333
+    },
+    {
+      "threshold": 0.85,
+      "margin_threshold": 0.0,
+      "model_accepted_count": 398,
+      "model_accepted_correct": 387,
+      "model_coverage": 0.8844444444444445,
+      "model_accepted_precision": 0.9723618090452262,
+      "model_risk": 0.027638190954773822,
+      "model_unresolved_recall": 1.0,
+      "model_final_pair_accuracy": 0.9444444444444444,
+      "production_accepted_count": 392,
+      "production_accepted_correct": 381,
+      "production_coverage": 0.8711111111111111,
+      "production_accepted_precision": 0.9719387755102041,
+      "production_risk": 0.028061224489795866,
+      "production_unresolved_recall": 1.0,
+      "production_final_pair_accuracy": 0.9311111111111111
+    },
+    {
+      "threshold": 0.9,
+      "margin_threshold": 0.0,
+      "model_accepted_count": 395,
+      "model_accepted_correct": 385,
+      "model_coverage": 0.8777777777777778,
+      "model_accepted_precision": 0.9746835443037974,
+      "model_risk": 0.025316455696202556,
+      "model_unresolved_recall": 1.0,
+      "model_final_pair_accuracy": 0.94,
+      "production_accepted_count": 389,
+      "production_accepted_correct": 379,
+      "production_coverage": 0.8644444444444445,
+      "production_accepted_precision": 0.974293059125964,
+      "production_risk": 0.02570694087403602,
+      "production_unresolved_recall": 1.0,
+      "production_final_pair_accuracy": 0.9266666666666666
+    },
+    {
+      "threshold": 0.95,
+      "margin_threshold": 0.0,
+      "model_accepted_count": 386,
+      "model_accepted_correct": 377,
+      "model_coverage": 0.8577777777777778,
+      "model_accepted_precision": 0.9766839378238342,
+      "model_risk": 0.023316062176165775,
+      "model_unresolved_recall": 1.0,
+      "model_final_pair_accuracy": 0.9222222222222223,
+      "production_accepted_count": 380,
+      "production_accepted_correct": 371,
+      "production_coverage": 0.8444444444444444,
+      "production_accepted_precision": 0.9763157894736842,
+      "production_risk": 0.023684210526315752,
+      "production_unresolved_recall": 1.0,
+      "production_final_pair_accuracy": 0.9088888888888889
+    },
+    {
+      "threshold": 0.966,
+      "margin_threshold": 0.0,
+      "model_accepted_count": 381,
+      "model_accepted_correct": 373,
+      "model_coverage": 0.8466666666666667,
+      "model_accepted_precision": 0.979002624671916,
+      "model_risk": 0.02099737532808399,
+      "model_unresolved_recall": 1.0,
+      "model_final_pair_accuracy": 0.9133333333333333,
+      "production_accepted_count": 375,
+      "production_accepted_correct": 367,
+      "production_coverage": 0.8333333333333334,
+      "production_accepted_precision": 0.9786666666666667,
+      "production_risk": 0.021333333333333315,
+      "production_unresolved_recall": 1.0,
+      "production_final_pair_accuracy": 0.9
+    }
+  ],
+  "historical_test_metrics": {
+    "raw_constrained": {
+      "loss": 0.1335733702831101,
+      "field_accuracy": 0.96,
+      "field_macro_f1": 0.9600081699346404,
+      "role_accuracy": 1.0,
+      "role_macro_f1": 1.0,
+      "pair_accuracy": 0.96,
+      "pair_macro_f1": 0.9412587412587413,
+      "unresolved_recall": 1.0
+    },
+    "selective": {
+      "confidence_threshold": 0.966,
+      "margin_threshold": 0.0,
+      "accepted_count": 381,
+      "accepted_precision": 0.979002624671916,
+      "coverage": 0.8466666666666667,
+      "unresolved_recall": 1.0,
+      "final_pair_accuracy": 0.9133333333333333
+    }
+  },
+  "historical_consistency": {
+    "available": true,
+    "raw": {
+      "field_accuracy": {
+        "observed": 0.96,
+        "historical": 0.96,
+        "absolute_difference": 0.0
+      },
+      "role_accuracy": {
+        "observed": 1.0,
+        "historical": 1.0,
+        "absolute_difference": 0.0
+      },
+      "pair_accuracy": {
+        "observed": 0.96,
+        "historical": 0.96,
+        "absolute_difference": 0.0
+      }
+    },
+    "selective": {
+      "available": true,
+      "historical_threshold": 0.966,
+      "evaluated_threshold": 0.966,
+      "note": "Historical selective metrics are compared against MODEL-ONLY acceptance because the production safety gate was added after the original trained-model evaluation.",
+      "accepted_count": {
+        "observed": 381,
+        "historical": 381,
+        "absolute_difference": 0
+      },
+      "accepted_precision": {
+        "observed": 0.979002624671916,
+        "historical": 0.979002624671916,
+        "absolute_difference": 0.0
+      },
+      "coverage": {
+        "observed": 0.8466666666666667,
+        "historical": 0.8466666666666667,
+        "absolute_difference": 0.0
+      },
+      "unresolved_recall": {
+        "observed": 1.0,
+        "historical": 1.0,
+        "absolute_difference": 0.0
+      },
+      "final_pair_accuracy": {
+        "observed": 0.9133333333333333,
+        "historical": 0.9133333333333333,
+        "absolute_difference": 0.0
+      }
+    }
+  },
+  "production_safety_gate_note": "The model-only columns reproduce selective classification before the later deterministic production safety gate. The production columns add the current runtime safety gate.",
+  "span_warning_count": 0,
+  "span_warnings": [],
+  "plot": {
+    "created": true,
+    "path": "requirement_extractor_v2\\evaluation\\semantic_risk_coverage\\semantic_risk_coverage.png"
+  }
+}

@@ -1,0 +1,4447 @@
+{
+  "metrics": {
+    "benchmark": "quantity_e2e_holdout_v1",
+    "n_messages": 96,
+    "field_tp": 89,
+    "field_fp": 7,
+    "field_fn": 5,
+    "field_precision": 0.9270833333333334,
+    "field_recall": 0.9468085106382979,
+    "field_f1": 0.9368421052631578,
+    "gold_outputs": 94,
+    "exact_output_correct": 87,
+    "exact_output_recall": 0.925531914893617,
+    "exact_value_accuracy_on_correct_field": 0.9775280898876404,
+    "unit_accuracy_on_correct_field": 1.0,
+    "complete_message_success": 0.9166666666666666,
+    "scope_accuracy": 1.0,
+    "ambiguity_cases": 8,
+    "correct_ambiguity_detection": 0.625,
+    "out_of_scope_cases": 8,
+    "correct_out_of_scope_detection": 1.0,
+    "safety_negative_cases": 16,
+    "false_automatic_acceptance_count": 3,
+    "false_automatic_acceptance_rate": 0.1875,
+    "total_llm_calls": 3,
+    "average_llm_calls_per_message": 0.03125,
+    "mean_latency_s": 1.0052809937478742,
+    "median_latency_s": 0.0016573499888181686,
+    "p95_latency_s": 0.15877149993320927,
+    "max_latency_s": 36.36503509990871,
+    "route_counts": {
+      "explicit_pattern": 60,
+      "semantic_linker_xlmr": 21,
+      "conversation_scope": 18,
+      "unresolved": 3
+    },
+    "per_category": {
+      "clean_explicit": {
+        "n": 16,
+        "complete_message_success": 1.0,
+        "exact_output_recall": 1.0,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.19573183749162126,
+        "p95_latency_s": 0.7820813749858644
+      },
+      "semantic_synonym": {
+        "n": 16,
+        "complete_message_success": 1.0,
+        "exact_output_recall": 1.0,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.06969440622924594,
+        "p95_latency_s": 0.12333714991109446
+      },
+      "robust_noisy": {
+        "n": 16,
+        "complete_message_success": 0.75,
+        "exact_output_recall": 0.7058823529411765,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.009197412495268509,
+        "p95_latency_s": 0.057585449976613745
+      },
+      "contextual_answer": {
+        "n": 16,
+        "complete_message_success": 1.0,
+        "exact_output_recall": 1.0,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.000840675005747471,
+        "p95_latency_s": 0.0012856499815825373
+      },
+      "multi_requirement": {
+        "n": 8,
+        "complete_message_success": 0.875,
+        "exact_output_recall": 0.8888888888888888,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.030489899989333935,
+        "p95_latency_s": 0.11956908996799026
+      },
+      "correction": {
+        "n": 8,
+        "complete_message_success": 1.0,
+        "exact_output_recall": 1.0,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.0010978124919347465,
+        "p95_latency_s": 0.0013669199775904416
+      },
+      "ambiguity_missing_context": {
+        "n": 8,
+        "complete_message_success": 0.625,
+        "exact_output_recall": null,
+        "average_llm_calls_per_message": 0.375,
+        "mean_latency_s": 11.48076065001078,
+        "p95_latency_s": 36.25625842494192
+      },
+      "out_of_scope": {
+        "n": 8,
+        "complete_message_success": 1.0,
+        "exact_output_recall": null,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 9.490003867540509e-05,
+        "p95_latency_s": 0.00014624003088101742
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "QE2E_001",
+      "category": "clean_explicit",
+      "language": "en",
+      "text": "Maximum power is 12 kW.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 12000,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 12000,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 12000,
+          "unit": "W",
+          "evidence": "Maximum power is 12 kW.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 3.089062999933958,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_002",
+      "category": "clean_explicit",
+      "language": "fr",
+      "text": "La puissance maximale est de 8500 W.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 8500,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 8500,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 8500,
+          "unit": "W",
+          "evidence": "La puissance maximale est de 8500 W.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.00255430000834167,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_003",
+      "category": "clean_explicit",
+      "language": "en",
+      "text": "Maximum budget is 90000 USD.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 90000,
+          "unit": "USD"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 90000,
+          "unit": "USD",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "value": 90000,
+          "unit": "USD",
+          "evidence": "Maximum budget is 90000 USD.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.002484699944034219,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_004",
+      "category": "clean_explicit",
+      "language": "fr",
+      "text": "Le budget maximal est 105000 USD.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 105000,
+          "unit": "USD"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 105000,
+          "unit": "USD",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "value": 105000,
+          "unit": "USD",
+          "evidence": "Le budget maximal est 105000 USD.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0025951999705284834,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_005",
+      "category": "clean_explicit",
+      "language": "en",
+      "text": "Usable capacity is 500 TiB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 500,
+          "unit": "TiB",
+          "evidence": "Usable capacity is 500 TiB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0022265000734478235,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_006",
+      "category": "clean_explicit",
+      "language": "fr",
+      "text": "La capacité utile est de 640 TiB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 640,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 640,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 640,
+          "unit": "TiB",
+          "evidence": "La capacité utile est de 640 TiB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.002483899937942624,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_007",
+      "category": "clean_explicit",
+      "language": "en",
+      "text": "Average file size is 2 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 2,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 2,
+          "unit": "GB",
+          "role": "average_value"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "value": 2,
+          "unit": "GB",
+          "evidence": "Average file size is 2 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0012698000064119697,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_008",
+      "category": "clean_explicit",
+      "language": "fr",
+      "text": "La taille moyenne des fichiers est 3.5 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 3.5,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 3.5,
+          "unit": "GB",
+          "role": "average_value"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "value": 3.5,
+          "unit": "GB",
+          "evidence": "La taille moyenne des fichiers est 3.5 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0016499999910593033,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_009",
+      "category": "clean_explicit",
+      "language": "en",
+      "text": "Maximum file size is 80 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 80,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 80,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 80,
+          "unit": "GB",
+          "evidence": "Maximum file size is 80 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0020916000939905643,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_010",
+      "category": "clean_explicit",
+      "language": "fr",
+      "text": "La taille maximale du fichier est 120 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 120,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 120,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 120,
+          "unit": "GB",
+          "evidence": "La taille maximale du fichier est 120 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.001664699986577034,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_011",
+      "category": "clean_explicit",
+      "language": "en",
+      "text": "There will be 240 clients.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 240,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 240,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 240,
+          "unit": null,
+          "evidence": "There will be 240 clients.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.004950599977746606,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_012",
+      "category": "clean_explicit",
+      "language": "fr",
+      "text": "Le nombre de clients est 320.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 320,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 320,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 320,
+          "unit": null,
+          "evidence": "Le nombre de clients est 320.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0012172999558970332,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_013",
+      "category": "clean_explicit",
+      "language": "en",
+      "text": "The namespace contains 9000000 files.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 9000000,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 9000000,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "total_file_count",
+          "role": "total_count",
+          "value": 9000000,
+          "unit": null,
+          "evidence": "The namespace contains 9000000 files.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.013087500003166497,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_014",
+      "category": "clean_explicit",
+      "language": "en",
+      "text": "Read throughput target is 75 GB/s.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 75,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 75,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_read_gbps",
+          "role": "target",
+          "value": 75,
+          "unit": "GB/s",
+          "evidence": "Read throughput target is 75 GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0012380999978631735,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_015",
+      "category": "clean_explicit",
+      "language": "fr",
+      "text": "Le débit d'écriture est 51 GB/s.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 51,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 51,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 51,
+          "unit": "GB/s",
+          "evidence": "Le débit d'écriture est 51 GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.001155999954789877,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_016",
+      "category": "clean_explicit",
+      "language": "mixed",
+      "text": "Workload is 70% read and 30% écriture.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "read_write_ratio",
+          "value": 70,
+          "unit": "%"
+        },
+        {
+          "field": "read_write_ratio",
+          "value": 30,
+          "unit": "%"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "read_write_ratio",
+          "value": 70,
+          "unit": "%",
+          "role": "ratio_component"
+        },
+        {
+          "field": "read_write_ratio",
+          "value": 30,
+          "unit": "%",
+          "role": "ratio_component"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "value": 70,
+          "unit": "%",
+          "evidence": "Workload is 70% read and 30% écriture.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "value": 30,
+          "unit": "%",
+          "evidence": "Workload is 70% read and 30% écriture.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0019762000301852822,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_017",
+      "category": "semantic_synonym",
+      "language": "en",
+      "text": "Around 275 endpoints will mount the shared filesystem.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 275,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 275,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 275,
+          "unit": null,
+          "evidence": "Around 275 endpoints will mount the shared filesystem.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.21287619997747242,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_018",
+      "category": "semantic_synonym",
+      "language": "en",
+      "text": "Roughly 310 compute hosts will access Lustre.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 310,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 310,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 310,
+          "unit": null,
+          "evidence": "Roughly 310 compute hosts will access Lustre.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.07368350005708635,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_019",
+      "category": "semantic_synonym",
+      "language": "fr",
+      "text": "Environ 290 machines de calcul accéderont au stockage partagé.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 290,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 290,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 290,
+          "unit": null,
+          "evidence": "Environ 290 machines de calcul accéderont au stockage partagé.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.09349079988896847,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_020",
+      "category": "semantic_synonym",
+      "language": "mixed",
+      "text": "Approximately 260 noeuds compute will mount Lustre.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 260,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 260,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 260,
+          "unit": null,
+          "evidence": "Approximately 260 noeuds compute will mount Lustre.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.08558690000791103,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_021",
+      "category": "semantic_synonym",
+      "language": "en",
+      "text": "The namespace is expected to contain around 11000000 objects.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 11000000,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 11000000,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "total_file_count",
+          "role": "total_count",
+          "value": 11000000,
+          "unit": null,
+          "evidence": "The namespace is expected to contain around 11000000 objects.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.08310939988587052,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_022",
+      "category": "semantic_synonym",
+      "language": "fr",
+      "text": "Le namespace devrait contenir environ 8500000 objets.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 8500000,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 8500000,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "total_file_count",
+          "role": "total_count",
+          "value": 8500000,
+          "unit": null,
+          "evidence": "Le namespace devrait contenir environ 8500000 objets.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.06677899998612702,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_023",
+      "category": "semantic_synonym",
+      "language": "en",
+      "text": "A representative user file is about 4 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 4,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 4,
+          "unit": "GB",
+          "role": "average_value"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "value": 4,
+          "unit": "GB",
+          "evidence": "A representative user file is about 4 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.06528480001725256,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_024",
+      "category": "semantic_synonym",
+      "language": "fr",
+      "text": "Un fichier utilisateur typique fait environ 6 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 6,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 6,
+          "unit": "GB",
+          "role": "average_value"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "value": 6,
+          "unit": "GB",
+          "evidence": "Un fichier utilisateur typique fait environ 6 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.07478389993775636,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_025",
+      "category": "semantic_synonym",
+      "language": "en",
+      "text": "Individual files can reach up to 95 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 95,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 95,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 95,
+          "unit": "GB",
+          "evidence": "Individual files can reach up to 95 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.05904029996600002,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_026",
+      "category": "semantic_synonym",
+      "language": "fr",
+      "text": "Les plus gros fichiers peuvent atteindre 110 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 110,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 110,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 110,
+          "unit": "GB",
+          "evidence": "Les plus gros fichiers peuvent atteindre 110 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0637617000611499,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_027",
+      "category": "semantic_synonym",
+      "language": "en",
+      "text": "The platform should sustain about 88 GB/s for reads.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 88,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 88,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_read_gbps",
+          "role": "target",
+          "value": 88,
+          "unit": "GB/s",
+          "evidence": "The platform should sustain about 88 GB/s for reads.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.07433749991469085,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_028",
+      "category": "semantic_synonym",
+      "language": "fr",
+      "text": "Il faut environ 46 GB/s côté écriture.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 46,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 46,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 46,
+          "unit": "GB/s",
+          "evidence": "Il faut environ 46 GB/s côté écriture.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.001462399959564209,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_029",
+      "category": "semantic_synonym",
+      "language": "en",
+      "text": "The storage footprint we are targeting is roughly 720 TiB usable.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 720,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 720,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 720,
+          "unit": "TiB",
+          "evidence": "The storage footprint we are targeting is roughly 720 TiB usable.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.08409010001923889,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_030",
+      "category": "semantic_synonym",
+      "language": "fr",
+      "text": "On vise environ 680 TiB de stockage utile.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 680,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 680,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 680,
+          "unit": "TiB",
+          "evidence": "On vise environ 680 TiB de stockage utile.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0733482000650838,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_031",
+      "category": "semantic_synonym",
+      "language": "en",
+      "text": "The platform is expected to consume about 11 kW.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 11000,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 11000,
+          "unit": "W",
+          "role": "expected_value"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "expected_value",
+          "value": 11000,
+          "unit": "W",
+          "evidence": "The platform is expected to consume about 11 kW.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0012396000092849135,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_032",
+      "category": "semantic_synonym",
+      "language": "mixed",
+      "text": "Budget ceiling around 115000 USD pour ce système.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 115000,
+          "unit": "USD"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 115000,
+          "unit": "USD",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "value": 115000,
+          "unit": "USD",
+          "evidence": "Budget ceiling around 115000 USD pour ce système.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0022361999144777656,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_033",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "We need two hundred clients.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 200,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 200,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 200,
+          "unit": null,
+          "evidence": "We need two hundred clients.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.004308299976401031,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_034",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "We need two hunderd clients.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 200,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 200,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 200,
+          "unit": null,
+          "evidence": "We need two hunderd clients.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.003925099968910217,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_035",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Maximum power is eight hundred watts.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 800,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 800,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 800,
+          "unit": "W",
+          "evidence": "Maximum power is eight hundred watts.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0016382000176236033,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_036",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Maximum power is eight hunderd watts.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 800,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 800,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 800,
+          "unit": "W",
+          "evidence": "Maximum power is eight hunderd watts.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.004269400029443204,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_037",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Maximum power is 800 wats.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 800,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [],
+      "decisions": [
+        {
+          "status": "AMBIGUOUS",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 800,
+          "unit": null,
+          "evidence": "Maximum power is 800 wats.",
+          "reasons": [
+            "unknown_dimension_requires_explicit_unit_or_context"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0017417999915778637,
+      "complete_success": false,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_038",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Maximum file size is forty GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 40,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 40,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 40,
+          "unit": "GB",
+          "evidence": "Maximum file size is forty GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0010925999376922846,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_039",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Maximum file size is fourty GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 40,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 0.0004040999338030815,
+      "complete_success": false,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_040",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Usable capacity target is five hundred TiB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 500,
+          "unit": "TiB",
+          "evidence": "Usable capacity target is five hundred TiB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0012123000342398882,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_041",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Usable capacity target is five hunderd TiB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 500,
+          "unit": "TiB",
+          "evidence": "Usable capacity target is five hunderd TiB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.00403439998626709,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_042",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Read throughput should be eighty GB/s.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 80,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 80,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_read_gbps",
+          "role": "target",
+          "value": 80,
+          "unit": "GB/s",
+          "evidence": "Read throughput should be eighty GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.001078799949027598,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_043",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Write throughput should be fourty GB/s.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 40,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 0.0005270000547170639,
+      "complete_success": false,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_044",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "There are 200 clents.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 200,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 200,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 200,
+          "unit": null,
+          "evidence": "There are 200 clents.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.056015899986959994,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_045",
+      "category": "robust_noisy",
+      "language": "fr",
+      "text": "Il y aura 250 clints sur le système.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 250,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 250,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 250,
+          "unit": null,
+          "evidence": "Il y aura 250 clints sur le système.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.062294099945575,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_046",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "The namespace will hold ten million files.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 10000000,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 10000000,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "total_file_count",
+          "role": "total_count",
+          "value": 10000000,
+          "unit": null,
+          "evidence": "The namespace will hold ten million files.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.002120800083503127,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_047",
+      "category": "robust_noisy",
+      "language": "en",
+      "text": "Annual growth is thirty percent.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "annual_growth_percent",
+          "value": 30,
+          "unit": "%"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "annual_growth_percent",
+          "value": 30,
+          "unit": "%",
+          "role": "growth_rate"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "annual_growth_percent",
+          "role": "growth_rate",
+          "value": 30,
+          "unit": "%",
+          "evidence": "Annual growth is thirty percent.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0009512000251561403,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_048",
+      "category": "robust_noisy",
+      "language": "mixed",
+      "text": "Read target: seventy GB/s et write target: thirty five GB/s.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 70,
+          "unit": "GB/s"
+        },
+        {
+          "field": "target_write_gbps",
+          "value": 35,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 70,
+          "unit": "GB/s",
+          "role": "target"
+        },
+        {
+          "field": "target_write_gbps",
+          "value": 35,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 70,
+          "unit": "GB/s",
+          "evidence": "Read target: seventy GB/s et write target: thirty five GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 35,
+          "unit": "GB/s",
+          "evidence": "Read target: seventy GB/s et write target: thirty five GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0015446000033989549,
+      "complete_success": false,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_049",
+      "category": "contextual_answer",
+      "language": "en",
+      "text": "320",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 320,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 320,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 320,
+          "unit": null,
+          "evidence": "320",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0006423000013455749,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_050",
+      "category": "contextual_answer",
+      "language": "fr",
+      "text": "250",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 250,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 250,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 250,
+          "unit": null,
+          "evidence": "250",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.000788399949669838,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_051",
+      "category": "contextual_answer",
+      "language": "en",
+      "text": "9000000",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 9000000,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 9000000,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "total_file_count",
+          "role": "total_count",
+          "value": 9000000,
+          "unit": null,
+          "evidence": "9000000",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0010330999502912164,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_052",
+      "category": "contextual_answer",
+      "language": "fr",
+      "text": "12000000",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 12000000,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "total_file_count",
+          "value": 12000000,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "total_file_count",
+          "role": "total_count",
+          "value": 12000000,
+          "unit": null,
+          "evidence": "12000000",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0011436999775469303,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_053",
+      "category": "contextual_answer",
+      "language": "en",
+      "text": "80 GB",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 80,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 80,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 80,
+          "unit": "GB",
+          "evidence": "80 GB",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0008515000808984041,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_054",
+      "category": "contextual_answer",
+      "language": "fr",
+      "text": "4 GB",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 4,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 4,
+          "unit": "GB",
+          "role": "average_value"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "average_file_size_gb",
+          "role": "average_value",
+          "value": 4,
+          "unit": "GB",
+          "evidence": "4 GB",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.00100320007186383,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_055",
+      "category": "contextual_answer",
+      "language": "en",
+      "text": "42 GB/s",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 42,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 42,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 42,
+          "unit": "GB/s",
+          "evidence": "42 GB/s",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.000797600019723177,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_056",
+      "category": "contextual_answer",
+      "language": "fr",
+      "text": "75 GB/s",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 75,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 75,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_read_gbps",
+          "role": "target",
+          "value": 75,
+          "unit": "GB/s",
+          "evidence": "75 GB/s",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0005278999451547861,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_057",
+      "category": "contextual_answer",
+      "language": "en",
+      "text": "500",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 500,
+          "unit": "TiB",
+          "evidence": "500",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0006438998971134424,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_058",
+      "category": "contextual_answer",
+      "language": "fr",
+      "text": "650",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 650,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 650,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 650,
+          "unit": "TiB",
+          "evidence": "650",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0005489001050591469,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_059",
+      "category": "contextual_answer",
+      "language": "en",
+      "text": "15 kW",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 15000,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 15000,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 15000,
+          "unit": "W",
+          "evidence": "15 kW",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0005670000100508332,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_060",
+      "category": "contextual_answer",
+      "language": "fr",
+      "text": "12000",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 12000,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 12000,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 12000,
+          "unit": "W",
+          "evidence": "12000",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0006401001010090113,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_061",
+      "category": "contextual_answer",
+      "language": "en",
+      "text": "95000",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 95000,
+          "unit": "USD"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 95000,
+          "unit": "USD",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "value": 95000,
+          "unit": "USD",
+          "evidence": "95000",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0017114999936893582,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_062",
+      "category": "contextual_answer",
+      "language": "fr",
+      "text": "30%",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "annual_growth_percent",
+          "value": 30,
+          "unit": "%"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "annual_growth_percent",
+          "value": 30,
+          "unit": "%",
+          "role": "growth_rate"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "annual_growth_percent",
+          "role": "growth_rate",
+          "value": 30,
+          "unit": "%",
+          "evidence": "30%",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0009313999908044934,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_063",
+      "category": "contextual_answer",
+      "language": "en",
+      "text": "70/30",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "read_write_ratio",
+          "value": 70,
+          "unit": "%"
+        },
+        {
+          "field": "read_write_ratio",
+          "value": 30,
+          "unit": "%"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "read_write_ratio",
+          "value": 70,
+          "unit": "%",
+          "role": "ratio_component"
+        },
+        {
+          "field": "read_write_ratio",
+          "value": 30,
+          "unit": "%",
+          "role": "ratio_component"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "value": 70,
+          "unit": "%",
+          "evidence": "70",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "value": 30,
+          "unit": "%",
+          "evidence": "30",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0006955999415367842,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_064",
+      "category": "contextual_answer",
+      "language": "fr",
+      "text": "60/40",
+      "expected_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "actual_scope": "ANSWER_TO_PREVIOUS_QUESTION",
+      "gold_outputs": [
+        {
+          "field": "read_write_ratio",
+          "value": 60,
+          "unit": "%"
+        },
+        {
+          "field": "read_write_ratio",
+          "value": 40,
+          "unit": "%"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "read_write_ratio",
+          "value": 60,
+          "unit": "%",
+          "role": "ratio_component"
+        },
+        {
+          "field": "read_write_ratio",
+          "value": 40,
+          "unit": "%",
+          "role": "ratio_component"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "value": 60,
+          "unit": "%",
+          "evidence": "60",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "value": 40,
+          "unit": "%",
+          "evidence": "40",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0009247000562027097,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_065",
+      "category": "multi_requirement",
+      "language": "en",
+      "text": "Need 500 TiB usable capacity for 200 clients.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB"
+        },
+        {
+          "field": "client_count",
+          "value": 200,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 500,
+          "unit": "TiB",
+          "role": "target"
+        },
+        {
+          "field": "client_count",
+          "value": 200,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 500,
+          "unit": "TiB",
+          "evidence": "Need 500 TiB usable capacity for 200 clients.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 200,
+          "unit": null,
+          "evidence": "Need 500 TiB usable capacity for 200 clients.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.006292799953371286,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_066",
+      "category": "multi_requirement",
+      "language": "fr",
+      "text": "Capacité utile 600 TiB et 250 clients.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 600,
+          "unit": "TiB"
+        },
+        {
+          "field": "client_count",
+          "value": 250,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 600,
+          "unit": "TiB",
+          "role": "target"
+        },
+        {
+          "field": "client_count",
+          "value": 250,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 600,
+          "unit": "TiB",
+          "evidence": "Capacité utile 600 TiB et 250 clients.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 250,
+          "unit": null,
+          "evidence": "Capacité utile 600 TiB et 250 clients.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0052322999108582735,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_067",
+      "category": "multi_requirement",
+      "language": "en",
+      "text": "Maximum power is 10 kW and maximum budget is 100000 USD.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 10000,
+          "unit": "W"
+        },
+        {
+          "field": "max_budget_usd",
+          "value": 100000,
+          "unit": "USD"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 10000,
+          "unit": "W",
+          "role": "maximum_limit"
+        },
+        {
+          "field": "max_budget_usd",
+          "value": 100000,
+          "unit": "USD",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 10000,
+          "unit": "W",
+          "evidence": "Maximum power is 10 kW and maximum budget is 100000 USD.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "value": 100000,
+          "unit": "USD",
+          "evidence": "Maximum power is 10 kW and maximum budget is 100000 USD.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.002649500034749508,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_068",
+      "category": "multi_requirement",
+      "language": "fr",
+      "text": "Taille moyenne 3 GB et taille maximale 90 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "average_file_size_gb",
+          "value": 3,
+          "unit": "GB"
+        },
+        {
+          "field": "max_file_size_gb",
+          "value": 90,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 3,
+          "unit": "GB",
+          "role": "maximum_limit"
+        },
+        {
+          "field": "max_file_size_gb",
+          "value": 90,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 3,
+          "unit": "GB",
+          "evidence": "Taille moyenne 3 GB et taille maximale 90 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 90,
+          "unit": "GB",
+          "evidence": "Taille moyenne 3 GB et taille maximale 90 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.14073659991845489,
+      "complete_success": false,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_069",
+      "category": "multi_requirement",
+      "language": "en",
+      "text": "Target read 80 GB/s and write 45 GB/s.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 80,
+          "unit": "GB/s"
+        },
+        {
+          "field": "target_write_gbps",
+          "value": 45,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 80,
+          "unit": "GB/s",
+          "role": "target"
+        },
+        {
+          "field": "target_write_gbps",
+          "value": 45,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_read_gbps",
+          "role": "target",
+          "value": 80,
+          "unit": "GB/s",
+          "evidence": "Target read 80 GB/s and write 45 GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 45,
+          "unit": "GB/s",
+          "evidence": "Target read 80 GB/s and write 45 GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.001735700061544776,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_070",
+      "category": "multi_requirement",
+      "language": "fr",
+      "text": "Lecture 70 GB/s, écriture 40 GB/s, croissance annuelle 20%.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 70,
+          "unit": "GB/s"
+        },
+        {
+          "field": "target_write_gbps",
+          "value": 40,
+          "unit": "GB/s"
+        },
+        {
+          "field": "annual_growth_percent",
+          "value": 20,
+          "unit": "%"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 70,
+          "unit": "GB/s",
+          "role": "target"
+        },
+        {
+          "field": "target_write_gbps",
+          "value": 40,
+          "unit": "GB/s",
+          "role": "target"
+        },
+        {
+          "field": "annual_growth_percent",
+          "value": 20,
+          "unit": "%",
+          "role": "growth_rate"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_read_gbps",
+          "role": "target",
+          "value": 70,
+          "unit": "GB/s",
+          "evidence": "Lecture 70 GB/s, écriture 40 GB/s, croissance annuelle 20%.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 40,
+          "unit": "GB/s",
+          "evidence": "Lecture 70 GB/s, écriture 40 GB/s, croissance annuelle 20%.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q3",
+          "field": "annual_growth_percent",
+          "role": "growth_rate",
+          "value": 20,
+          "unit": "%",
+          "evidence": "Lecture 70 GB/s, écriture 40 GB/s, croissance annuelle 20%.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0017991999629884958,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_071",
+      "category": "multi_requirement",
+      "language": "en",
+      "text": "There will be 300 clients and 10000000 files.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 300,
+          "unit": null
+        },
+        {
+          "field": "total_file_count",
+          "value": 10000000,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 300,
+          "unit": null,
+          "role": "total_count"
+        },
+        {
+          "field": "total_file_count",
+          "value": 10000000,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 300,
+          "unit": null,
+          "evidence": "There will be 300 clients and 10000000 files.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "total_file_count",
+          "role": "total_count",
+          "value": 10000000,
+          "unit": null,
+          "evidence": "There will be 300 clients and 10000000 files.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.005215100012719631,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_072",
+      "category": "multi_requirement",
+      "language": "mixed",
+      "text": "Need 700 TiB, budget maximum 120000 USD et power max 14 kW.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 700,
+          "unit": "TiB"
+        },
+        {
+          "field": "max_budget_usd",
+          "value": 120000,
+          "unit": "USD"
+        },
+        {
+          "field": "max_power_w",
+          "value": 14000,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 700,
+          "unit": "TiB",
+          "role": "target"
+        },
+        {
+          "field": "max_budget_usd",
+          "value": 120000,
+          "unit": "USD",
+          "role": "maximum_limit"
+        },
+        {
+          "field": "max_power_w",
+          "value": 14000,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 700,
+          "unit": "TiB",
+          "evidence": "Need 700 TiB, budget maximum 120000 USD et power max 14 kW.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "value": 120000,
+          "unit": "USD",
+          "evidence": "Need 700 TiB, budget maximum 120000 USD et power max 14 kW.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q3",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 14000,
+          "unit": "W",
+          "evidence": "Need 700 TiB, budget maximum 120000 USD et power max 14 kW.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.08025800005998462,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_073",
+      "category": "correction",
+      "language": "en",
+      "text": "Actually, change the maximum power to 12 kW.",
+      "expected_scope": "CORRECTION",
+      "actual_scope": "CORRECTION",
+      "gold_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 12000,
+          "unit": "W"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 12000,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 12000,
+          "unit": "W",
+          "evidence": "Actually, change the maximum power to 12 kW.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0011653000256046653,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_074",
+      "category": "correction",
+      "language": "fr",
+      "text": "Finalement, mets la capacité utile à 620 TiB.",
+      "expected_scope": "CORRECTION",
+      "actual_scope": "CORRECTION",
+      "gold_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 620,
+          "unit": "TiB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "requested_usable_capacity_tib",
+          "value": 620,
+          "unit": "TiB",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "requested_usable_capacity_tib",
+          "role": "target",
+          "value": 620,
+          "unit": "TiB",
+          "evidence": "Finalement, mets la capacité utile à 620 TiB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0010478999465703964,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_075",
+      "category": "correction",
+      "language": "en",
+      "text": "Replace the maximum budget with 98000 USD.",
+      "expected_scope": "CORRECTION",
+      "actual_scope": "CORRECTION",
+      "gold_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 98000,
+          "unit": "USD"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_budget_usd",
+          "value": 98000,
+          "unit": "USD",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_budget_usd",
+          "role": "maximum_limit",
+          "value": 98000,
+          "unit": "USD",
+          "evidence": "Replace the maximum budget with 98000 USD.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.001079399953596294,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_076",
+      "category": "correction",
+      "language": "fr",
+      "text": "Modifie la taille maximale des fichiers à 85 GB.",
+      "expected_scope": "CORRECTION",
+      "actual_scope": "CORRECTION",
+      "gold_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 85,
+          "unit": "GB"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 85,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 85,
+          "unit": "GB",
+          "evidence": "Modifie la taille maximale des fichiers à 85 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.000776599976234138,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_077",
+      "category": "correction",
+      "language": "en",
+      "text": "Change the write throughput to 48 GB/s.",
+      "expected_scope": "CORRECTION",
+      "actual_scope": "CORRECTION",
+      "gold_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 48,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 48,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 48,
+          "unit": "GB/s",
+          "evidence": "Change the write throughput to 48 GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.001332600018940866,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_078",
+      "category": "correction",
+      "language": "fr",
+      "text": "Corrige le débit de lecture à 76 GB/s.",
+      "expected_scope": "CORRECTION",
+      "actual_scope": "CORRECTION",
+      "gold_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 76,
+          "unit": "GB/s"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_read_gbps",
+          "value": 76,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_read_gbps",
+          "role": "target",
+          "value": 76,
+          "unit": "GB/s",
+          "evidence": "Corrige le débit de lecture à 76 GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0009133000858128071,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_079",
+      "category": "correction",
+      "language": "en",
+      "text": "Update the client count to 280.",
+      "expected_scope": "CORRECTION",
+      "actual_scope": "CORRECTION",
+      "gold_outputs": [
+        {
+          "field": "client_count",
+          "value": 280,
+          "unit": null
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "client_count",
+          "value": 280,
+          "unit": null,
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 280,
+          "unit": null,
+          "evidence": "Update the client count to 280.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0010819999733939767,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_080",
+      "category": "correction",
+      "language": "fr",
+      "text": "Finalement, croissance annuelle 22%.",
+      "expected_scope": "CORRECTION",
+      "actual_scope": "CORRECTION",
+      "gold_outputs": [
+        {
+          "field": "annual_growth_percent",
+          "value": 22,
+          "unit": "%"
+        }
+      ],
+      "predicted_verified_outputs": [
+        {
+          "field": "annual_growth_percent",
+          "value": 22,
+          "unit": "%",
+          "role": "growth_rate"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "annual_growth_percent",
+          "role": "growth_rate",
+          "value": 22,
+          "unit": "%",
+          "evidence": "Finalement, croissance annuelle 22%.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0013853999553248286,
+      "complete_success": true,
+      "safety": "normal"
+    },
+    {
+      "id": "QE2E_081",
+      "category": "ambiguity_missing_context",
+      "language": "en",
+      "text": "The requirement is around 320.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [
+        {
+          "status": "UNRESOLVED",
+          "quantity_id": "q1",
+          "field": null,
+          "role": null,
+          "value": 320,
+          "unit": null,
+          "evidence": "",
+          "reasons": [
+            "no_semantic_link"
+          ]
+        }
+      ],
+      "llm_calls": 1,
+      "latency_s": 19.2608475999441,
+      "complete_success": true,
+      "safety": "ambiguity"
+    },
+    {
+      "id": "QE2E_082",
+      "category": "ambiguity_missing_context",
+      "language": "fr",
+      "text": "La valeur demandée est environ 400.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [
+        {
+          "status": "UNRESOLVED",
+          "quantity_id": "q1",
+          "field": null,
+          "role": null,
+          "value": 400,
+          "unit": null,
+          "evidence": "",
+          "reasons": [
+            "no_semantic_link"
+          ]
+        }
+      ],
+      "llm_calls": 1,
+      "latency_s": 36.054244600003585,
+      "complete_success": true,
+      "safety": "ambiguity"
+    },
+    {
+      "id": "QE2E_083",
+      "category": "ambiguity_missing_context",
+      "language": "en",
+      "text": "Maximum power is 200.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [
+        {
+          "status": "AMBIGUOUS",
+          "quantity_id": "q1",
+          "field": "max_power_w",
+          "role": "maximum_limit",
+          "value": 200,
+          "unit": null,
+          "evidence": "Maximum power is 200.",
+          "reasons": [
+            "unknown_dimension_requires_explicit_unit_or_context"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.000937800039537251,
+      "complete_success": true,
+      "safety": "ambiguity"
+    },
+    {
+      "id": "QE2E_084",
+      "category": "ambiguity_missing_context",
+      "language": "fr",
+      "text": "La taille maximale des fichiers est 80.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [
+        {
+          "status": "AMBIGUOUS",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 80,
+          "unit": null,
+          "evidence": "La taille maximale des fichiers est 80.",
+          "reasons": [
+            "unknown_dimension_requires_explicit_unit_or_context"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.0009668000275269151,
+      "complete_success": true,
+      "safety": "ambiguity"
+    },
+    {
+      "id": "QE2E_085",
+      "category": "ambiguity_missing_context",
+      "language": "en",
+      "text": "Write throughput could be 20 or 30 GB/s.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 20,
+          "unit": "GB/s",
+          "role": "target"
+        },
+        {
+          "field": "target_write_gbps",
+          "value": 30,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 20,
+          "unit": "GB/s",
+          "evidence": "Write throughput could be 20 or 30 GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 30,
+          "unit": "GB/s",
+          "evidence": "Write throughput could be 20 or 30 GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.001978200045414269,
+      "complete_success": false,
+      "safety": "ambiguity"
+    },
+    {
+      "id": "QE2E_086",
+      "category": "ambiguity_missing_context",
+      "language": "fr",
+      "text": "La taille maximale peut être 40 ou 60 GB.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 40,
+          "unit": "GB",
+          "role": "maximum_limit"
+        },
+        {
+          "field": "max_file_size_gb",
+          "value": 60,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 40,
+          "unit": "GB",
+          "evidence": "La taille maximale peut être 40 ou 60 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        },
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q2",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 60,
+          "unit": "GB",
+          "evidence": "La taille maximale peut être 40 ou 60 GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.11020420002751052,
+      "complete_success": false,
+      "safety": "ambiguity"
+    },
+    {
+      "id": "QE2E_087",
+      "category": "ambiguity_missing_context",
+      "language": "en",
+      "text": "The workload is 70% read.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [
+        {
+          "field": "read_write_ratio",
+          "value": 70,
+          "unit": "%",
+          "role": "ratio_component"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "read_write_ratio",
+          "role": "ratio_component",
+          "value": 70,
+          "unit": "%",
+          "evidence": "The workload is 70% read.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
+      "llm_calls": 0,
+      "latency_s": 0.05187090008985251,
+      "complete_success": false,
+      "safety": "ambiguity"
+    },
+    {
+      "id": "QE2E_088",
+      "category": "ambiguity_missing_context",
+      "language": "en",
+      "text": "The limit is 200.",
+      "expected_scope": "NEW_REQUIREMENT",
+      "actual_scope": "NEW_REQUIREMENT",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [
+        {
+          "status": "UNRESOLVED",
+          "quantity_id": "q1",
+          "field": null,
+          "role": null,
+          "value": 200,
+          "unit": null,
+          "evidence": "",
+          "reasons": [
+            "no_semantic_link"
+          ]
+        }
+      ],
+      "llm_calls": 1,
+      "latency_s": 36.36503509990871,
+      "complete_success": true,
+      "safety": "ambiguity"
+    },
+    {
+      "id": "QE2E_089",
+      "category": "out_of_scope",
+      "language": "en",
+      "text": "What is the weather today?",
+      "expected_scope": "OUT_OF_SCOPE",
+      "actual_scope": "OUT_OF_SCOPE",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 0.00015310000162571669,
+      "complete_success": true,
+      "safety": "out_of_scope"
+    },
+    {
+      "id": "QE2E_090",
+      "category": "out_of_scope",
+      "language": "fr",
+      "text": "Quelle est la météo aujourd'hui ?",
+      "expected_scope": "OUT_OF_SCOPE",
+      "actual_scope": "OUT_OF_SCOPE",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 9.740004315972328e-05,
+      "complete_success": true,
+      "safety": "out_of_scope"
+    },
+    {
+      "id": "QE2E_091",
+      "category": "out_of_scope",
+      "language": "en",
+      "text": "What was the football score?",
+      "expected_scope": "OUT_OF_SCOPE",
+      "actual_scope": "OUT_OF_SCOPE",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 0.00010220007970929146,
+      "complete_success": true,
+      "safety": "out_of_scope"
+    },
+    {
+      "id": "QE2E_092",
+      "category": "out_of_scope",
+      "language": "fr",
+      "text": "Quel est le score du match de football ?",
+      "expected_scope": "OUT_OF_SCOPE",
+      "actual_scope": "OUT_OF_SCOPE",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 0.0001335000852122903,
+      "complete_success": true,
+      "safety": "out_of_scope"
+    },
+    {
+      "id": "QE2E_093",
+      "category": "out_of_scope",
+      "language": "en",
+      "text": "Give me a cooking recipe.",
+      "expected_scope": "OUT_OF_SCOPE",
+      "actual_scope": "OUT_OF_SCOPE",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 6.940006278455257e-05,
+      "complete_success": true,
+      "safety": "out_of_scope"
+    },
+    {
+      "id": "QE2E_094",
+      "category": "out_of_scope",
+      "language": "fr",
+      "text": "Donne-moi une recette pour cuisiner.",
+      "expected_scope": "OUT_OF_SCOPE",
+      "actual_scope": "OUT_OF_SCOPE",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 7.00000673532486e-05,
+      "complete_success": true,
+      "safety": "out_of_scope"
+    },
+    {
+      "id": "QE2E_095",
+      "category": "out_of_scope",
+      "language": "en",
+      "text": "Tell me a joke.",
+      "expected_scope": "OUT_OF_SCOPE",
+      "actual_scope": "OUT_OF_SCOPE",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 5.580007564276457e-05,
+      "complete_success": true,
+      "safety": "out_of_scope"
+    },
+    {
+      "id": "QE2E_096",
+      "category": "out_of_scope",
+      "language": "fr",
+      "text": "Raconte-moi une blague.",
+      "expected_scope": "OUT_OF_SCOPE",
+      "actual_scope": "OUT_OF_SCOPE",
+      "gold_outputs": [],
+      "predicted_verified_outputs": [],
+      "decisions": [],
+      "llm_calls": 0,
+      "latency_s": 7.779989391565323e-05,
+      "complete_success": true,
+      "safety": "out_of_scope"
+    }
+  ],
+  "benchmark_note": "First-run quantity-only end-to-end holdout. Preserve the first result unchanged. If implementation is modified after seeing these failures, later runs are regression results."
+}

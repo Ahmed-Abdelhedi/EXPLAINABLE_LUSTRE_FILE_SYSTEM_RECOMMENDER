@@ -13,7 +13,10 @@ from .models import (
     VerificationStatus,
 )
 
-from .unit_normalizer import normalize_unit_value
+from .unit_normalizer import (
+    normalize_unit_value,
+    validate_source_unit_for_field,
+)
 
 from .semantic_linker.compatibility import (
     is_field_allowed_for_dimension,
@@ -637,7 +640,27 @@ class DeterministicVerifier:
             )
 
         # -------------------------------------------------------------
-        # 5. UNKNOWN-dimension final guard
+        # 5. Explicit source-unit compatibility
+        # -------------------------------------------------------------
+
+        try:
+            validate_source_unit_for_field(
+                field=link.field,
+                unit=quantity.unit,
+            )
+
+        except ValueError as exc:
+            return self._decision(
+                status=VerificationStatus.INVALID,
+                quantity=quantity,
+                link=link,
+                value=quantity.value,
+                unit=quantity.unit,
+                reasons=[str(exc)],
+            )
+
+        # -------------------------------------------------------------
+        # 6. UNKNOWN-dimension final guard
         # -------------------------------------------------------------
 
         unknown_reason = (
@@ -662,7 +685,7 @@ class DeterministicVerifier:
             )
 
         # -------------------------------------------------------------
-        # 6. Evidence
+        # 7. Evidence
         # -------------------------------------------------------------
 
         evidence_reasons = (
@@ -686,7 +709,7 @@ class DeterministicVerifier:
             )
 
         # -------------------------------------------------------------
-        # 7. Normalize value + unit
+        # 8. Normalize value + unit
         # -------------------------------------------------------------
 
         try:
@@ -715,7 +738,7 @@ class DeterministicVerifier:
             )
 
         # -------------------------------------------------------------
-        # 8. Value business validation
+        # 9. Value business validation
         # -------------------------------------------------------------
 
         value_error = (
@@ -740,7 +763,7 @@ class DeterministicVerifier:
             )
 
         # -------------------------------------------------------------
-        # 9. Canonical unit contract
+        # 10. Canonical unit contract
         # -------------------------------------------------------------
 
         unit_error = (
@@ -765,7 +788,7 @@ class DeterministicVerifier:
             )
 
         # -------------------------------------------------------------
-        # 10. VERIFIED
+        # 11. VERIFIED
         # -------------------------------------------------------------
 
         return self._decision(

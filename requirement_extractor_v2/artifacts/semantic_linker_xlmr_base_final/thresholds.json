@@ -1,6 +1,150 @@
 {
-  "confidence_threshold": 0.966,
-  "margin_threshold": 0.0,
-  "selection_reason": "accepted_precision >= 98.00%, unresolved_recall ~= 100%, then maximum coverage",
-  "target_accepted_precision": 0.98
+  "policy_version": "semantic_linker_v3_2_hierarchical",
+  "decoder": "FIELD_then_ROLE",
+  "field_thresholds_by_dimension": {
+    "capacity": {
+      "confidence_threshold": 0.0,
+      "margin_threshold": 0.0,
+      "validated": true,
+      "n": 1570
+    },
+    "file_size": {
+      "confidence_threshold": 0.0,
+      "margin_threshold": 0.0,
+      "validated": true,
+      "n": 2560
+    },
+    "money": {
+      "confidence_threshold": 0.0,
+      "margin_threshold": 0.0,
+      "validated": true,
+      "n": 1479
+    },
+    "percent": {
+      "confidence_threshold": 0.0,
+      "margin_threshold": 0.0,
+      "validated": true,
+      "n": 2560
+    },
+    "power": {
+      "confidence_threshold": 0.0,
+      "margin_threshold": 0.0,
+      "validated": true,
+      "n": 1570
+    },
+    "throughput": {
+      "confidence_threshold": 0.0,
+      "margin_threshold": 0.0,
+      "validated": true,
+      "n": 2838
+    },
+    "unknown": {
+      "confidence_threshold": 0.0,
+      "margin_threshold": 0.0,
+      "validated": true,
+      "n": 2783
+    }
+  },
+  "role_thresholds_by_field": {
+    "requested_usable_capacity_tib": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1280
+    },
+    "client_count": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1280
+    },
+    "average_file_size_gb": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1282
+    },
+    "max_file_size_gb": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1278
+    },
+    "total_file_count": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1280
+    },
+    "read_write_ratio": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1280
+    },
+    "target_read_gbps": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1277
+    },
+    "target_write_gbps": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1283
+    },
+    "max_budget_usd": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1280
+    },
+    "max_power_w": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1280
+    },
+    "annual_growth_percent": {
+      "confidence_threshold": 0.48,
+      "margin_threshold": 0.05,
+      "validated": true,
+      "n": 1280
+    },
+    "__UNRESOLVED__": {
+      "confidence_threshold": 0.999999,
+      "margin_threshold": 0.999999,
+      "validated": true,
+      "n": 0
+    }
+  },
+  "targets": {
+    "field_accepted_precision": 0.995,
+    "minimum_unresolved_field_recall": 0.995,
+    "specified_role_precision": 0.98,
+    "minimum_unspecified_role_recall": 0.9
+  },
+  "semantics": {
+    "field_rejection": "final_field=__UNRESOLVED__, final_role=unspecified",
+    "role_rejection": "keep final_field, final_role=unspecified, role_abstained=true",
+    "legitimate_unspecified": "role_abstained=false when raw predicted role is unspecified"
+  },
+  "calibration_revision": "v3_3_role_balanced_global_val_macro_f1",
+  "calibration_selection": {
+    "source": "validation_role_threshold_grid.csv",
+    "test_used_for_selection": false,
+    "scope": "__GLOBAL__",
+    "objective": "maximize final_role_macro_f1 on VALIDATION",
+    "selected_confidence_threshold": 0.48,
+    "selected_margin_threshold": 0.05,
+    "validation_metrics_at_selected_threshold": {
+      "specified_precision": 0.8802479155906442,
+      "specified_coverage": 0.9625710227272727,
+      "unspecified_recall": 0.018691588785046728,
+      "final_role_accuracy": 0.8492897727272727,
+      "final_role_macro_f1": 0.8265672157230416
+    },
+    "note": "This revision intentionally removes the former per-field 98% specified-role precision + 90% unspecified-recall constraint, which caused excessive abstention. FIELD thresholds and model weights are unchanged."
+  }
 }

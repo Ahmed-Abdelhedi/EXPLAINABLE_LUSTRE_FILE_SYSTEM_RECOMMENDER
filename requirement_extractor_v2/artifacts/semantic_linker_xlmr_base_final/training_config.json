@@ -1,22 +1,55 @@
 {
-  "model_name": "FacebookAI/xlm-roberta-base",
+  "model_source": "FacebookAI/xlm-roberta-base",
+  "dataset_version": "semantic_linker_v3_global_stress",
+  "semantic_linker_version": "3.2",
+  "train_file": "semantic_linker_train_v3_combined.jsonl",
+  "val_file": "semantic_linker_val_v3_global_stress.jsonl",
+  "test_file": "semantic_linker_test_v3_global_stress.jsonl",
+  "train_size": 98100,
+  "val_size": 15360,
+  "expected_test_size": 15360,
+  "test_opened_at_export_time": true,
   "seed": 42,
-  "max_length": 96,
-  "batch_size": 8,
+  "max_length": 144,
+  "max_length_selected_from": [
+    "train",
+    "val"
+  ],
+  "gpu_count_detected": 2,
+  "training_parallelism": "torch.nn.DataParallel",
+  "per_gpu_batch_size": 8,
+  "batch_size_total": 16,
   "gradient_accumulation_steps": 2,
-  "effective_batch_size": 16,
-  "max_epochs": 10,
-  "best_epoch": 7,
-  "learning_rate": 2e-05,
+  "effective_batch_size": 32,
+  "max_epochs": 5,
+  "best_epoch": 1,
+  "encoder_lr": 1.5e-05,
+  "head_lr": 5e-05,
   "weight_decay": 0.01,
-  "warmup_ratio": 0.1,
+  "warmup_ratio": 0.06,
   "dropout": 0.1,
   "amp": true,
   "gradient_checkpointing": true,
+  "role_class_weights_enabled": false,
+  "role_label_smoothing": 0.0,
+  "role_class_weights": {
+    "maximum_limit": 1.0,
+    "minimum_limit": 1.0,
+    "target": 1.0,
+    "current_value": 1.0,
+    "expected_value": 1.0,
+    "average_value": 1.0,
+    "total_count": 1.0,
+    "ratio_component": 1.0,
+    "growth_rate": 1.0,
+    "unspecified": 1.0
+  },
   "special_tokens": {
     "additional_special_tokens": [
       "[Q]",
       "[/Q]"
     ]
-  }
+  },
+  "test_size": 15360,
+  "final_reporting_completed": true
 }

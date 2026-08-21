@@ -1,0 +1,132 @@
+[
+  {
+    "path": "alternative_pair_metrics.json",
+    "size_bytes": 309,
+    "sha256": "b49ce5d18781c08f47faa5b9e56bab1670f8c956d46d618a4d0937a2dce86912"
+  },
+  {
+    "path": "classifier_heads.pt",
+    "size_bytes": 70263,
+    "sha256": "712f6ccfd8cb1882518885996425dbe955a83cc4cf72cb10c4e01acad1f2206b"
+  },
+  {
+    "path": "compatibility.json",
+    "size_bytes": 2106,
+    "sha256": "a5049db6fbd9d4424e91b313f67524fb6cf6d4fb5095de56a24725cef20bffa1"
+  },
+  {
+    "path": "diagnostic_probes.json",
+    "size_bytes": 2998,
+    "sha256": "15700b6f32810bafdc999c9ed104456e594cf184ee2530efd6736fdd57ff015a"
+  },
+  {
+    "path": "encoder/config.json",
+    "size_bytes": 742,
+    "sha256": "47e8a5470b952b8af665d2e091f62769ba16b0d5cb99495e390e8f268c683f94"
+  },
+  {
+    "path": "encoder/model.safetensors",
+    "size_bytes": 1112203208,
+    "sha256": "5c4f8f9a982a1b3b6fb07881f0a1a72a8d51bf2d86b4a74a734fe4c6f8070ea1"
+  },
+  {
+    "path": "labels.json",
+    "size_bytes": 547,
+    "sha256": "714bc60838876ee9d18184e983f9713da6094bba73216dca14914403e655d08b"
+  },
+  {
+    "path": "summary.json",
+    "size_bytes": 1282,
+    "sha256": "e4fc2a560b02e36648587a025c4c672b101bafa7f81a3ca2d0a5f4f3d923ef22"
+  },
+  {
+    "path": "template_overlap_report.json",
+    "size_bytes": 374,
+    "sha256": "1eff560f86cfcb5c226116a7555cffb6abef3b0629fbb7bf197d2be56fc1718b"
+  },
+  {
+    "path": "test_metrics.json",
+    "size_bytes": 951,
+    "sha256": "8f3ce87d45f70d2dcd6661ac38a49f6815fe97fd50f93a9326b4603f338e05e3"
+  },
+  {
+    "path": "test_metrics_by_dimension.csv",
+    "size_bytes": 1419,
+    "sha256": "78b86610b21564c46537bc20e85c5dc369afb6ead12a7a75ffc7d92935843b92"
+  },
+  {
+    "path": "test_metrics_by_language.csv",
+    "size_bytes": 797,
+    "sha256": "28660b182a7d89bc1b2c43dc6f683d0e52a6254ced73131941b2f874446a3b2d"
+  },
+  {
+    "path": "test_metrics_by_stress_family.csv",
+    "size_bytes": 2953,
+    "sha256": "75e4685d54f0d14b22e3243cf039921da7c4ed38da67f52f2ebc9453746d2433"
+  },
+  {
+    "path": "test_predictions.jsonl",
+    "size_bytes": 7663334,
+    "sha256": "ba3d75ada3ed2859b592a93c34e028d6face2ef65b92ab50180f686ba9b5f472"
+  },
+  {
+    "path": "thresholds.json",
+    "size_bytes": 4157,
+    "sha256": "d442c00bb59b3ef136bbfb878e2d4c4f43f762c1854f6d2dd3cdcb66d581d066"
+  },
+  {
+    "path": "tokenizer/tokenizer.json",
+    "size_bytes": 16781945,
+    "sha256": "a4f264732279d182a79635da6f7878ec0b69883430456daf5904595284b4044c"
+  },
+  {
+    "path": "tokenizer/tokenizer_config.json",
+    "size_bytes": 369,
+    "sha256": "916f4d8074beeaf6378ce8a064e525036599a1d9df47fced956172e5e739973e"
+  },
+  {
+    "path": "training_config.json",
+    "size_bytes": 1431,
+    "sha256": "8249342ee5529ac25dccfff051f4e4f5c86a79bf0ab6be0e9916d2339d8766b2"
+  },
+  {
+    "path": "training_history.json",
+    "size_bytes": 1865,
+    "sha256": "14edbcbef31a963934cd1afbcc70aef77baac2d07f8f3cb8d49701f203a3a130"
+  },
+  {
+    "path": "validation_field_calibration.png",
+    "size_bytes": 62965,
+    "sha256": "9f6adb447d04119cfbc1a3f71018818b4a057573141adc4732abc4be016dc542"
+  },
+  {
+    "path": "validation_field_threshold_grid.csv",
+    "size_bytes": 3059764,
+    "sha256": "328dc6b6576538bb0404afe986551d909c31e7d26a660aa02c152ea37ef3d42d"
+  },
+  {
+    "path": "validation_field_thresholds_selected.csv",
+    "size_bytes": 734,
+    "sha256": "66d504baaa2859dbb320b6b88ee262892f52d7cbdd4b9ac7d424c5684db597df"
+  },
+  {
+    "path": "validation_metrics.json",
+    "size_bytes": 1028,
+    "sha256": "2b261eaa22b4054212323ebc965ede11c4210bb4ff4597ef99c6ca66617a9035"
+  },
+  {
+    "path": "validation_role_calibration.png",
+    "size_bytes": 75383,
+    "sha256": "cc588d79133a03d94f14829a4f589070da52d7397bf48947dfecfaff3222a5ee"
+  },
+  {
+    "path": "validation_role_threshold_grid.csv",
+    "size_bytes": 6024288,
+    "sha256": "8cf4d567fbddf9f4fa45ab460df11aeb189440609f710ce9e51fa1d280ad6278"
+  },
+  {
+    "path": "validation_role_thresholds_selected.csv",
+    "size_bytes": 1638,
+    "sha256": "272afb67799a6e478d85f715718ec2dc1ab53cd107534578d44989b078eba428"
+  }
+]

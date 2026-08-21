@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from decimal import Decimal, InvalidOperation
 from typing import List, Optional, Tuple
 
@@ -460,6 +460,36 @@ _BARE_NUMBER_RE = re.compile(
     rf"(?P<number>{_NUMBER_PATTERN})"
     rf"(?:\s*(?P<scale>{_SCALE_PATTERN}))?"
     rf"(?!\w)",
+    re.IGNORECASE,
+)
+
+
+# =====================================================================
+# STRUCTURAL UNIT RECOVERY
+# =====================================================================
+
+
+# Match only a known domain unit immediately after an already detected
+# expression. This is used for fuzzy written-number recovery such as:
+#
+#     "five hunderd TiB"
+#     "eight hunderd GB"
+#
+# where the corrected number group can stop before the symbolic unit.
+_TRAILING_UNIT_RE = re.compile(
+    rf"\s*(?P<unit>{_SUFFIX_UNIT_PATTERN})(?![\w/])",
+    re.IGNORECASE,
+)
+
+
+# Deliberately narrow connector for shared-unit alternatives:
+#
+#     20 or 30 GB/s
+#     800 ou 1200 W
+#
+# We do not propagate across "and", commas, arbitrary words, etc.
+_ALTERNATIVE_CONNECTOR_RE = re.compile(
+    r"^\s*(?:or|ou)\s*$",
     re.IGNORECASE,
 )
 
@@ -1151,11 +1181,207 @@ def _build_fuzzy_candidate_groups(
     return output
 
 
+
+def _recover_trailing_unit_after_fuzzy_expression(
+    text: str,
+    original_start: int,
+    original_end: int,
+    raw: str,
+    normalized: str,
+    canonical_unit: Optional[str],
+    dimension: QuantityDimension,
+) -> Tuple[
+    int,
+    str,
+    str,
+    Optional[str],
+    QuantityDimension,
+]:
+    """
+    Recover an explicit unit written immediately after a fuzzy-corrected
+    number expression.
+
+    Example
+    -------
+    Original:
+        "five hunderd TiB"
+
+    Fuzzy number group:
+        raw        = "five hunderd"
+        normalized = "five hundred"
+
+    The numerical value can be correctly recovered as 500 while the local
+    fuzzy group stops before the symbolic unit "TiB". This helper safely
+    extends the detected surface to include that explicit trailing unit.
+
+    Result:
+        raw        = "five hunderd TiB"
+        normalized = "five hundred TiB"
+        unit       = "TiB"
+        dimension  = CAPACITY
+
+    Safety
+    ------
+    - no unit is invented;
+    - only an explicitly present, known domain unit is attached;
+    - if quantulum3 already returned a unit, nothing is changed.
+    """
+
+    if canonical_unit is not None:
+        return (
+            original_end,
+            raw,
+            normalized,
+            canonical_unit,
+            dimension,
+        )
+
+    suffix = text[original_end:]
+
+    match = _TRAILING_UNIT_RE.match(suffix)
+
+    if match is None:
+        return (
+            original_end,
+            raw,
+            normalized,
+            canonical_unit,
+            dimension,
+        )
+
+    raw_unit = match.group("unit")
+
+    recovered_unit, recovered_dimension = _classify_unit(raw_unit)
+
+    if recovered_dimension == QuantityDimension.UNKNOWN:
+        return (
+            original_end,
+            raw,
+            normalized,
+            canonical_unit,
+            dimension,
+        )
+
+    final_end = original_end + match.end()
+
+    final_raw = text[original_start:final_end]
+
+    # Preserve the corrected number words while appending the exact source
+    # suffix (spacing + unit spelling) after them.
+    final_normalized = normalized + suffix[:match.end()]
+
+    return (
+        final_end,
+        final_raw,
+        final_normalized,
+        recovered_unit,
+        recovered_dimension,
+    )
+
+
+def _propagate_shared_unit_to_alternatives(
+    text: str,
+    detected: List[_DetectedQuantity],
+) -> List[_DetectedQuantity]:
+    """
+    Propagate a trailing explicit unit across a narrow alternative syntax.
+
+    Examples
+    --------
+    "20 or 30 GB/s"
+
+        before:
+            20, unit=None
+            30, unit=GB/s
+
+        after:
+            20, unit=GB/s
+            30, unit=GB/s
+
+    "800 ou 1200 W"
+
+        before:
+            800, unit=None
+            1200, unit=W
+
+        after:
+            800, unit=W
+            1200, unit=W
+
+    Safety
+    ------
+    Propagation occurs only when:
+    - quantities are adjacent in source order;
+    - the left quantity is unitless and UNKNOWN-dimension;
+    - the right quantity has a known unit/dimension;
+    - the text between them is only "or" or "ou".
+
+    This does not resolve the ambiguity and does not choose one value.
+    It only preserves the syntactically shared unit.
+    """
+
+    if len(detected) < 2:
+        return detected
+
+    output = list(detected)
+
+    # Right-to-left also supports chains such as:
+    #     20 or 30 or 40 GB/s
+    for index in range(len(output) - 2, -1, -1):
+        left = output[index]
+        right = output[index + 1]
+
+        if left.unit is not None:
+            continue
+
+        if left.dimension != QuantityDimension.UNKNOWN:
+            continue
+
+        if right.unit is None:
+            continue
+
+        if right.dimension == QuantityDimension.UNKNOWN:
+            continue
+
+        between = text[left.end:right.start]
+
+        if not _ALTERNATIVE_CONNECTOR_RE.fullmatch(between):
+            continue
+
+        output[index] = replace(
+            left,
+            unit=right.unit,
+            dimension=right.dimension,
+        )
+
+    return output
+
+
 def _detect_fuzzy_quantities(
     text: str,
     occupied: List[Tuple[int, int]],
     symspell: SymSpell,
 ) -> List[_DetectedQuantity]:
+    """
+    Detect numerical expressions requiring controlled typo recovery.
+
+    Flow
+    ----
+    original text
+        -> controlled SymSpell replacements
+        -> minimal fuzzy numerical groups
+        -> quantulum3 numerical parsing
+        -> explicit trailing-unit recovery
+        -> _DetectedQuantity
+
+    Example:
+        "five hunderd TiB"
+
+        hunderd -> hundred
+        five hundred -> 500
+        trailing TiB -> unit=TiB, dimension=CAPACITY
+    """
+
     replacements = _find_controlled_replacements(
         text,
         symspell,
@@ -1179,6 +1405,9 @@ def _detect_fuzzy_quantities(
         ):
             continue
 
+        # -------------------------------------------------------------
+        # 1. Parse the corrected local numerical expression
+        # -------------------------------------------------------------
         try:
             parsed_items = quantulum_parser.parse(normalized)
         except Exception:
@@ -1188,8 +1417,7 @@ def _detect_fuzzy_quantities(
             continue
 
         # Candidate groups are deliberately minimal. If quantulum3 returns
-        # more than one parse, keep the parse that explains the largest
-        # surface span.
+        # more than one parse, keep the parse explaining the largest span.
         parsed = max(
             parsed_items,
             key=lambda item: (
@@ -1199,11 +1427,17 @@ def _detect_fuzzy_quantities(
             ),
         )
 
+        # -------------------------------------------------------------
+        # 2. Numerical value
+        # -------------------------------------------------------------
         try:
             value = _to_python_number(parsed.value)
         except (TypeError, ValueError, InvalidOperation):
             continue
 
+        # -------------------------------------------------------------
+        # 3. Unit detected directly by quantulum3
+        # -------------------------------------------------------------
         unit_name = getattr(
             getattr(parsed, "unit", None),
             "name",
@@ -1214,6 +1448,39 @@ def _detect_fuzzy_quantities(
             unit_name
         )
 
+        # -------------------------------------------------------------
+        # 4. Recover an explicit symbolic unit immediately following
+        #    the fuzzy number group.
+        #
+        #    Examples:
+        #       five hunderd TiB
+        #       eight hunderd GB
+        # -------------------------------------------------------------
+        (
+            final_end,
+            final_raw,
+            final_normalized,
+            canonical_unit,
+            dimension,
+        ) = _recover_trailing_unit_after_fuzzy_expression(
+            text=text,
+            original_start=original_start,
+            original_end=original_end,
+            raw=raw,
+            normalized=normalized,
+            canonical_unit=canonical_unit,
+            dimension=dimension,
+        )
+
+        # The recovered unit can extend the original fuzzy span, therefore
+        # validate overlap again using the complete final surface.
+        if _overlaps(
+            original_start,
+            final_end,
+            occupied,
+        ):
+            continue
+
         detection = (
             QuantityDetection.FUZZY_NUMBER_WORDS
             if canonical_unit is None
@@ -1222,13 +1489,13 @@ def _detect_fuzzy_quantities(
 
         output.append(
             _DetectedQuantity(
-                raw=raw,
-                normalized=normalized,
+                raw=final_raw,
+                normalized=final_normalized,
                 value=value,
                 unit=canonical_unit,
                 dimension=dimension,
                 start=original_start,
-                end=original_end,
+                end=final_end,
                 detection=detection,
                 corrected=True,
             )
@@ -1465,9 +1732,33 @@ class QuantityScanner:
             )
             occupied.append((start, end))
 
-        # Preserve source order, then assign stable q1/q2/... identifiers.
-        detected.sort(key=lambda item: (item.start, item.end))
+        # -------------------------------------------------------------
+        # 6. Preserve source order
+        # -------------------------------------------------------------
+        detected.sort(
+            key=lambda item: (
+                item.start,
+                item.end,
+            )
+        )
 
+        # -------------------------------------------------------------
+        # 7. Propagate an explicitly shared trailing unit across narrow
+        #    alternatives such as:
+        #
+        #       20 or 30 GB/s
+        #       800 ou 1200 W
+        #
+        #    Both values remain present; the scanner does not choose one.
+        # -------------------------------------------------------------
+        detected = _propagate_shared_unit_to_alternatives(
+            text,
+            detected,
+        )
+
+        # -------------------------------------------------------------
+        # 8. Public Quantity objects with stable q1/q2/... identifiers
+        # -------------------------------------------------------------
         return [
             Quantity(
                 id=f"q{index}",

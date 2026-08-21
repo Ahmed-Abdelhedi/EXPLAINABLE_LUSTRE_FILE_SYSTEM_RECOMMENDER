@@ -1,0 +1,3099 @@
+{
+  "metrics": {
+    "n_cases": 100,
+    "gold_links": 86,
+    "predicted_links": 86,
+    "tp": 86,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "positive_quantities": 86,
+    "coverage_on_clear_quantities": 1.0,
+    "field_accuracy_on_gold_quantities": 1.0,
+    "role_accuracy_on_gold_quantities": 1.0,
+    "wrong_mapping_count": 0,
+    "negative_quantities": 20,
+    "false_resolved_negative_quantities": 0,
+    "false_resolution_rate_on_should_unresolved": 0.0,
+    "case_exact_accuracy": 1.0,
+    "mean_latency_ms": 0.022064998047426343,
+    "median_latency_ms": 0.014600023860111833,
+    "p95_latency_ms": 0.06341001717373729,
+    "max_latency_ms": 0.07189996540546417,
+    "per_category": {
+      "power_max": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "power_current": {
+        "n_cases": 4,
+        "exact_cases": 4,
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 4,
+        "covered_positive_quantities": 4,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "power_expected": {
+        "n_cases": 4,
+        "exact_cases": 4,
+        "tp": 4,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 4,
+        "covered_positive_quantities": 4,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "budget_max": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "budget_current": {
+        "n_cases": 3,
+        "exact_cases": 3,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 3,
+        "covered_positive_quantities": 3,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "capacity_target": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "capacity_current": {
+        "n_cases": 3,
+        "exact_cases": 3,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 3,
+        "covered_positive_quantities": 3,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "file_size_average": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "file_size_max": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "client_count": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "file_count": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "read_throughput": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "write_throughput": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "annual_growth": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 6,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 6,
+        "covered_positive_quantities": 6,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "read_write_ratio": {
+        "n_cases": 6,
+        "exact_cases": 6,
+        "tp": 12,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 12,
+        "covered_positive_quantities": 12,
+        "negative_quantities": 0,
+        "false_resolved_negative_quantities": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "coverage": 1.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "semantic_only_count": {
+        "n_cases": 3,
+        "exact_cases": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 3,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "vague_power": {
+        "n_cases": 2,
+        "exact_cases": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 2,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "vague_budget": {
+        "n_cases": 2,
+        "exact_cases": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 2,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "vague_capacity": {
+        "n_cases": 2,
+        "exact_cases": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 2,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "ambiguous_file_size": {
+        "n_cases": 2,
+        "exact_cases": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 2,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "ambiguous_throughput": {
+        "n_cases": 2,
+        "exact_cases": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 2,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "lone_ratio": {
+        "n_cases": 2,
+        "exact_cases": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 2,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "bare_number": {
+        "n_cases": 2,
+        "exact_cases": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 2,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      },
+      "explicit_ambiguity": {
+        "n_cases": 3,
+        "exact_cases": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "gold_positive_quantities": 0,
+        "covered_positive_quantities": 0,
+        "negative_quantities": 3,
+        "false_resolved_negative_quantities": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "coverage": 0.0,
+        "false_resolution_rate": 0.0,
+        "case_exact_accuracy": 1.0
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "EXP_001",
+      "category": "power_max",
+      "language": "en",
+      "text": "Maximum power is 12 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.047200010158121586,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_002",
+      "category": "power_max",
+      "language": "en",
+      "text": "The power ceiling is 14 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.02340000355616212,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_003",
+      "category": "power_max",
+      "language": "en",
+      "text": "Power must not exceed 16 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.03029999788850546,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_004",
+      "category": "power_max",
+      "language": "fr",
+      "text": "La puissance maximale est de 11 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.020199979189783335,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_005",
+      "category": "power_max",
+      "language": "fr",
+      "text": "La limite de puissance est 13 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.02039998071268201,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_006",
+      "category": "power_max",
+      "language": "fr",
+      "text": "La puissance ne doit pas dépasser 15 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.02239999594166875,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_007",
+      "category": "power_current",
+      "language": "en",
+      "text": "The platform currently consumes 9 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01999997766688466,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_008",
+      "category": "power_current",
+      "language": "en",
+      "text": "Current power consumption is 8 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.018400023691356182,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_009",
+      "category": "power_current",
+      "language": "fr",
+      "text": "La plateforme consomme actuellement 7 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01899997005239129,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_010",
+      "category": "power_current",
+      "language": "fr",
+      "text": "La consommation actuelle est de 6 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.019000028260052204,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_011",
+      "category": "power_expected",
+      "language": "en",
+      "text": "Expected power consumption is 10 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "expected_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "expected_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01969997538253665,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_012",
+      "category": "power_expected",
+      "language": "en",
+      "text": "The system is expected to consume 11 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "expected_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "expected_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.019200029782950878,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_013",
+      "category": "power_expected",
+      "language": "fr",
+      "text": "La consommation prévue est de 12 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "expected_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "expected_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.018499966245144606,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_014",
+      "category": "power_expected",
+      "language": "fr",
+      "text": "La plateforme devrait consommer 13 kW.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_power_w",
+          "expected_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_power_w",
+          "expected_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.018199963960796595,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_015",
+      "category": "budget_max",
+      "language": "en",
+      "text": "Maximum budget is 90000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.013800046872347593,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_016",
+      "category": "budget_max",
+      "language": "en",
+      "text": "The budget limit is 100000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01379998866468668,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_017",
+      "category": "budget_max",
+      "language": "en",
+      "text": "Budget must not exceed 110000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.012299977242946625,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_018",
+      "category": "budget_max",
+      "language": "fr",
+      "text": "Le budget maximal est 95000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.013399985618889332,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_019",
+      "category": "budget_max",
+      "language": "fr",
+      "text": "Le budget maximum est de 105000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.014399993233382702,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_020",
+      "category": "budget_max",
+      "language": "fr",
+      "text": "La limite du budget est 115000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.013199984095990658,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_021",
+      "category": "budget_current",
+      "language": "en",
+      "text": "Current spending is 72000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.011700030881911516,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_022",
+      "category": "budget_current",
+      "language": "en",
+      "text": "We are currently spending 68000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.012599979527294636,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_023",
+      "category": "budget_current",
+      "language": "fr",
+      "text": "Nous dépensons actuellement 75000 USD.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_budget_usd",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.012599979527294636,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_024",
+      "category": "capacity_target",
+      "language": "en",
+      "text": "Usable capacity must be 500 TiB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.021200045011937618,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_025",
+      "category": "capacity_target",
+      "language": "en",
+      "text": "Requested capacity is 620 TiB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.017099955584853888,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_026",
+      "category": "capacity_target",
+      "language": "en",
+      "text": "We need 700 TiB for the filesystem.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.019900035113096237,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_027",
+      "category": "capacity_target",
+      "language": "fr",
+      "text": "La capacité utile est de 480 TiB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.018400023691356182,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_028",
+      "category": "capacity_target",
+      "language": "fr",
+      "text": "La capacité requise est 550 TiB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.017599959392100573,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_029",
+      "category": "capacity_target",
+      "language": "fr",
+      "text": "Nous avons besoin de 640 TiB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.018199963960796595,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_030",
+      "category": "capacity_current",
+      "language": "en",
+      "text": "Current capacity is 300 TiB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01650000922381878,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_031",
+      "category": "capacity_current",
+      "language": "en",
+      "text": "We currently have 350 TiB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.015700003132224083,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_032",
+      "category": "capacity_current",
+      "language": "fr",
+      "text": "La capacité actuelle est de 320 TiB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "current_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "requested_usable_capacity_tib",
+          "current_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01799996243789792,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_033",
+      "category": "file_size_average",
+      "language": "en",
+      "text": "Average file size is 2 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.012300035450607538,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_034",
+      "category": "file_size_average",
+      "language": "en",
+      "text": "Avg. file size is 3 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.012299977242946625,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_035",
+      "category": "file_size_average",
+      "language": "en",
+      "text": "Mean file size is 4 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.010299962013959885,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_036",
+      "category": "file_size_average",
+      "language": "fr",
+      "text": "La taille moyenne des fichiers est 2.5 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.014199991710484028,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_037",
+      "category": "file_size_average",
+      "language": "fr",
+      "text": "La taille moyenne du fichier est 1.5 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01279998105019331,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_038",
+      "category": "file_size_average",
+      "language": "fr",
+      "text": "Les fichiers font 5 GB en moyenne.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "average_file_size_gb",
+          "average_value"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.013000040780752897,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_039",
+      "category": "file_size_max",
+      "language": "en",
+      "text": "Maximum file size is 80 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.012899981811642647,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_040",
+      "category": "file_size_max",
+      "language": "en",
+      "text": "Max file size: 90 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.009400013368576765,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_041",
+      "category": "file_size_max",
+      "language": "en",
+      "text": "The file size limit is 100 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.011000025551766157,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_042",
+      "category": "file_size_max",
+      "language": "fr",
+      "text": "La taille maximale des fichiers est 70 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.013699987903237343,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_043",
+      "category": "file_size_max",
+      "language": "fr",
+      "text": "La taille maximum du fichier est 75 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.013400043826550245,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_044",
+      "category": "file_size_max",
+      "language": "fr",
+      "text": "Taille maximale fichier: 85 GB.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "max_file_size_gb",
+          "maximum_limit"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.011899974197149277,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_045",
+      "category": "client_count",
+      "language": "en",
+      "text": "There will be 200 clients.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.057399971410632133,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_046",
+      "category": "client_count",
+      "language": "en",
+      "text": "Client count is 240.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.0475000124424696,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_047",
+      "category": "client_count",
+      "language": "en",
+      "text": "The number of clients is 280.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.05989999044686556,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_048",
+      "category": "client_count",
+      "language": "fr",
+      "text": "Nous aurons 220 clients.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.05339999916031957,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_049",
+      "category": "client_count",
+      "language": "fr",
+      "text": "Le nombre de clients est 260.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.059999991208314896,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_050",
+      "category": "client_count",
+      "language": "fr",
+      "text": "300 clients monteront Lustre.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "client_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.0591999851167202,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_051",
+      "category": "file_count",
+      "language": "en",
+      "text": "The namespace contains 8000000 files.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.06700004450976849,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_052",
+      "category": "file_count",
+      "language": "en",
+      "text": "File count is 9000000.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.051099981646984816,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_053",
+      "category": "file_count",
+      "language": "en",
+      "text": "The number of files is 10000000.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.06360001862049103,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_054",
+      "category": "file_count",
+      "language": "fr",
+      "text": "Le namespace contient 7000000 fichiers.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.07090001599863172,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_055",
+      "category": "file_count",
+      "language": "fr",
+      "text": "Le nombre de fichiers est 6000000.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.06629998097196221,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_056",
+      "category": "file_count",
+      "language": "fr",
+      "text": "Nous prévoyons 11000000 fichiers.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "total_file_count",
+          "total_count"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.06340001709759235,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_057",
+      "category": "read_throughput",
+      "language": "en",
+      "text": "Read throughput target is 80 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01479999627918005,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_058",
+      "category": "read_throughput",
+      "language": "en",
+      "text": "Read bandwidth must reach 70 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.014400051441043615,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_059",
+      "category": "read_throughput",
+      "language": "en",
+      "text": "Target read is 90 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01079996582120657,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_060",
+      "category": "read_throughput",
+      "language": "fr",
+      "text": "Le débit de lecture visé est 60 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.013300043065100908,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_061",
+      "category": "read_throughput",
+      "language": "fr",
+      "text": "La lecture doit atteindre 75 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.011699972674250603,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_062",
+      "category": "read_throughput",
+      "language": "fr",
+      "text": "Débit de lecture: 85 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_read_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.011299969628453255,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_063",
+      "category": "write_throughput",
+      "language": "en",
+      "text": "Write throughput target is 45 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.012400036212056875,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_064",
+      "category": "write_throughput",
+      "language": "en",
+      "text": "Write bandwidth must reach 50 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.012499978765845299,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_065",
+      "category": "write_throughput",
+      "language": "en",
+      "text": "Target write is 55 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.010600022505968809,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_066",
+      "category": "write_throughput",
+      "language": "fr",
+      "text": "Le débit d'écriture visé est 40 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01309998333454132,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_067",
+      "category": "write_throughput",
+      "language": "fr",
+      "text": "L'écriture doit atteindre 48 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.011599971912801266,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_068",
+      "category": "write_throughput",
+      "language": "fr",
+      "text": "Débit d’écriture: 52 GB/s.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "target_write_gbps",
+          "target"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.013100041542202234,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_069",
+      "category": "annual_growth",
+      "language": "en",
+      "text": "Annual growth is 20%.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.006499991286545992,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_070",
+      "category": "annual_growth",
+      "language": "en",
+      "text": "Yearly growth is 25%.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.007099995855242014,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_071",
+      "category": "annual_growth",
+      "language": "en",
+      "text": "Growth per year is 30%.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.006300047971308231,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_072",
+      "category": "annual_growth",
+      "language": "fr",
+      "text": "La croissance annuelle est de 18%.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.00689999433234334,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_073",
+      "category": "annual_growth",
+      "language": "fr",
+      "text": "L'augmentation annuelle est 22%.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.00689999433234334,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_074",
+      "category": "annual_growth",
+      "language": "fr",
+      "text": "Croissance annuelle: 28%.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "annual_growth_percent",
+          "growth_rate"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.006399990525096655,
+      "exact": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_075",
+      "category": "read_write_ratio",
+      "language": "en",
+      "text": "Workload mix is 70% read and 30% write.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.02400000812485814,
+      "exact": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_076",
+      "category": "read_write_ratio",
+      "language": "en",
+      "text": "Traffic is 80% reads and 20% writes.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.018099963199347258,
+      "exact": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_077",
+      "category": "read_write_ratio",
+      "language": "en",
+      "text": "The workload has 60% read, 40% write.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01680001150816679,
+      "exact": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_078",
+      "category": "read_write_ratio",
+      "language": "fr",
+      "text": "Le mix est 75% lecture et 25% écriture.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01650000922381878,
+      "exact": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_079",
+      "category": "read_write_ratio",
+      "language": "fr",
+      "text": "Charge: 65% lecture, 35% écriture.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.016300007700920105,
+      "exact": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_080",
+      "category": "read_write_ratio",
+      "language": "mixed",
+      "text": "Workload: 55% read et 45% écriture.",
+      "expected_behavior": "RESOLVE",
+      "gold_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "predicted_links": [
+        [
+          "q1",
+          "read_write_ratio",
+          "ratio_component"
+        ],
+        [
+          "q2",
+          "read_write_ratio",
+          "ratio_component"
+        ]
+      ],
+      "unresolved_quantity_ids": [],
+      "latency_ms": 0.01580000389367342,
+      "exact": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "notes": ""
+    },
+    {
+      "id": "EXP_081",
+      "category": "semantic_only_count",
+      "language": "en",
+      "text": "Around 240 compute hosts will mount the filesystem.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.07189996540546417,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_082",
+      "category": "semantic_only_count",
+      "language": "fr",
+      "text": "Environ 260 machines accéderont à Lustre.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.057999975979328156,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_083",
+      "category": "semantic_only_count",
+      "language": "en",
+      "text": "Roughly 180 endpoints connect concurrently.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.058800040278583765,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_084",
+      "category": "vague_power",
+      "language": "en",
+      "text": "The system is around 9 kW.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.010800024028867483,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_085",
+      "category": "vague_power",
+      "language": "fr",
+      "text": "La plateforme est autour de 10 kW.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.012699980288743973,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_086",
+      "category": "vague_budget",
+      "language": "en",
+      "text": "We are considering 95000 USD.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.008000002708286047,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_087",
+      "category": "vague_budget",
+      "language": "fr",
+      "text": "On parle de 100000 USD.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.007099995855242014,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_088",
+      "category": "vague_capacity",
+      "language": "en",
+      "text": "The storage figure is 500 TiB.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.011899974197149277,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_089",
+      "category": "vague_capacity",
+      "language": "fr",
+      "text": "Le chiffre de stockage est 550 TiB.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.013699987903237343,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_090",
+      "category": "ambiguous_file_size",
+      "language": "en",
+      "text": "A file size of 40 GB is mentioned.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.009300012607127428,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_091",
+      "category": "ambiguous_file_size",
+      "language": "fr",
+      "text": "Une taille de fichier de 50 GB est mentionnée.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.01190003240481019,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_092",
+      "category": "ambiguous_throughput",
+      "language": "en",
+      "text": "Required throughput is 65 GB/s.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.009400013368576765,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_093",
+      "category": "ambiguous_throughput",
+      "language": "fr",
+      "text": "Le débit requis est 70 GB/s.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.009300012607127428,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_094",
+      "category": "lone_ratio",
+      "language": "en",
+      "text": "The workload is 70% read.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.004799978341907263,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_095",
+      "category": "lone_ratio",
+      "language": "fr",
+      "text": "La charge est 60% lecture.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.004800036549568176,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_096",
+      "category": "bare_number",
+      "language": "en",
+      "text": "The requirement is around 320.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.044899992644786835,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_097",
+      "category": "bare_number",
+      "language": "fr",
+      "text": "La valeur cible est environ 400.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.048099958803504705,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_098",
+      "category": "explicit_ambiguity",
+      "language": "en",
+      "text": "Read and write are both discussed; the throughput value is 75 GB/s.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.018199963960796595,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_099",
+      "category": "explicit_ambiguity",
+      "language": "fr",
+      "text": "Lecture et écriture sont toutes deux discutées; la valeur est 68 GB/s.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.01769996015354991,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    },
+    {
+      "id": "EXP_100",
+      "category": "explicit_ambiguity",
+      "language": "en",
+      "text": "The file may be average or maximum; the only number given is 35 GB.",
+      "expected_behavior": "UNRESOLVED",
+      "gold_links": [],
+      "predicted_links": [],
+      "unresolved_quantity_ids": [
+        "q1"
+      ],
+      "latency_ms": 0.01479999627918005,
+      "exact": true,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "notes": "Should remain unresolved by the explicit resolver."
+    }
+  ],
+  "benchmark_note": "Diagnostic/component benchmark. Gold quantities are injected to isolate ExplicitPatternResolver. Because this set is now being used to inspect/fix the resolver, preserve it as a development/regression benchmark rather than claiming it as the final untouched end-to-end test."
+}

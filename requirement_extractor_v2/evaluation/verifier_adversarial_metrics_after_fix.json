@@ -1,0 +1,1538 @@
+{
+  "metrics": {
+    "n_cases": 50,
+    "correct": 50,
+    "accuracy": 1.0,
+    "expected_nonverified_cases": 33,
+    "false_acceptance_count": 0,
+    "false_acceptance_rate_among_expected_nonverified": 0.0,
+    "per_category": {
+      "valid_control": {
+        "n": 10,
+        "correct": 10,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "wrong_field_dimension": {
+        "n": 6,
+        "correct": 6,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "invalid_role": {
+        "n": 5,
+        "correct": 5,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "bad_evidence": {
+        "n": 4,
+        "correct": 4,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "invalid_value": {
+        "n": 8,
+        "correct": 8,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "unknown_dimension": {
+        "n": 4,
+        "correct": 4,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "identity": {
+        "n": 1,
+        "correct": 1,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "unresolved": {
+        "n": 1,
+        "correct": 1,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "wrong_unit_same_dimension": {
+        "n": 6,
+        "correct": 6,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      },
+      "boundary": {
+        "n": 5,
+        "correct": 5,
+        "false_acceptance": 0,
+        "accuracy": 1.0,
+        "false_acceptance_rate": 0.0
+      }
+    },
+    "status_confusion": {
+      "VERIFIED": {
+        "VERIFIED": 17
+      },
+      "INVALID": {
+        "INVALID": 26
+      },
+      "AMBIGUOUS": {
+        "AMBIGUOUS": 6
+      },
+      "UNRESOLVED": {
+        "UNRESOLVED": 1
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "VER_001",
+      "category": "valid_control",
+      "source_text": "Maximum power is 1.5 kW.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 1500,
+        "unit": "W",
+        "evidence": "Maximum power is 1.5 kW.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": "Valid normalization control."
+    },
+    {
+      "id": "VER_002",
+      "category": "valid_control",
+      "source_text": "Usable capacity target is 500 TiB.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "requested_usable_capacity_tib",
+        "role": "target",
+        "value": 500,
+        "unit": "TiB",
+        "evidence": "Usable capacity target is 500 TiB.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_003",
+      "category": "valid_control",
+      "source_text": "Average file size is 2 GB.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "average_file_size_gb",
+        "role": "average_value",
+        "value": 2,
+        "unit": "GB",
+        "evidence": "Average file size is 2 GB.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_004",
+      "category": "valid_control",
+      "source_text": "Maximum file size is 80 GB.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "max_file_size_gb",
+        "role": "maximum_limit",
+        "value": 80,
+        "unit": "GB",
+        "evidence": "Maximum file size is 80 GB.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_005",
+      "category": "valid_control",
+      "source_text": "Around 275 clients will mount it.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "client_count",
+        "role": "total_count",
+        "value": 275,
+        "unit": null,
+        "evidence": "Around 275 clients will mount it.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_006",
+      "category": "valid_control",
+      "source_text": "There will be 10000000 files.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "total_file_count",
+        "role": "total_count",
+        "value": 10000000,
+        "unit": null,
+        "evidence": "There will be 10000000 files.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_007",
+      "category": "valid_control",
+      "source_text": "Read target is 70 GB/s.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "target_read_gbps",
+        "role": "target",
+        "value": 70,
+        "unit": "GB/s",
+        "evidence": "Read target is 70 GB/s.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_008",
+      "category": "valid_control",
+      "source_text": "Write target is 40 GB/s.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "target_write_gbps",
+        "role": "target",
+        "value": 40,
+        "unit": "GB/s",
+        "evidence": "Write target is 40 GB/s.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_009",
+      "category": "valid_control",
+      "source_text": "Budget must stay below 100000 USD.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "max_budget_usd",
+        "role": "maximum_limit",
+        "value": 100000,
+        "unit": "USD",
+        "evidence": "Budget must stay below 100000 USD.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_010",
+      "category": "valid_control",
+      "source_text": "Annual growth is 30 percent.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "annual_growth_percent",
+        "role": "growth_rate",
+        "value": 30,
+        "unit": "%",
+        "evidence": "Annual growth is 30 percent.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_011",
+      "category": "wrong_field_dimension",
+      "source_text": "Maximum power is 800 W.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "field_incompatible_with_dimension",
+      "observed_reasons": [
+        "field_incompatible_with_dimension:power"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_budget_usd",
+        "role": "maximum_limit",
+        "value": 800,
+        "unit": "W",
+        "evidence": "Maximum power is 800 W.",
+        "reasons": [
+          "field_incompatible_with_dimension:power"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_012",
+      "category": "wrong_field_dimension",
+      "source_text": "Read target is 70 GB/s.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "field_incompatible_with_dimension",
+      "observed_reasons": [
+        "field_incompatible_with_dimension:throughput"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 70,
+        "unit": "GB/s",
+        "evidence": "Read target is 70 GB/s.",
+        "reasons": [
+          "field_incompatible_with_dimension:throughput"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_013",
+      "category": "wrong_field_dimension",
+      "source_text": "Usable capacity is 500 TiB.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "field_incompatible_with_dimension",
+      "observed_reasons": [
+        "field_incompatible_with_dimension:capacity"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_file_size_gb",
+        "role": "maximum_limit",
+        "value": 500,
+        "unit": "TiB",
+        "evidence": "Usable capacity is 500 TiB.",
+        "reasons": [
+          "field_incompatible_with_dimension:capacity"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_014",
+      "category": "wrong_field_dimension",
+      "source_text": "Maximum file size is 50 GB.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "field_incompatible_with_dimension",
+      "observed_reasons": [
+        "field_incompatible_with_dimension:file_size"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "requested_usable_capacity_tib",
+        "role": "target",
+        "value": 50,
+        "unit": "GB",
+        "evidence": "Maximum file size is 50 GB.",
+        "reasons": [
+          "field_incompatible_with_dimension:file_size"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_015",
+      "category": "wrong_field_dimension",
+      "source_text": "Budget is 80000 USD.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "field_incompatible_with_dimension",
+      "observed_reasons": [
+        "field_incompatible_with_dimension:money"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "target_read_gbps",
+        "role": "target",
+        "value": 80000,
+        "unit": "USD",
+        "evidence": "Budget is 80000 USD.",
+        "reasons": [
+          "field_incompatible_with_dimension:money"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_016",
+      "category": "wrong_field_dimension",
+      "source_text": "Growth is 20 percent.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "field_incompatible_with_dimension",
+      "observed_reasons": [
+        "field_incompatible_with_dimension:percent"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "client_count",
+        "role": "total_count",
+        "value": 20,
+        "unit": "%",
+        "evidence": "Growth is 20 percent.",
+        "reasons": [
+          "field_incompatible_with_dimension:percent"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_017",
+      "category": "invalid_role",
+      "source_text": "Maximum power is 800 W.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "invalid_field_role_pair",
+      "observed_reasons": [
+        "invalid_field_role_pair:max_power_w+average_value"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "average_value",
+        "value": 800,
+        "unit": "W",
+        "evidence": "Maximum power is 800 W.",
+        "reasons": [
+          "invalid_field_role_pair:max_power_w+average_value"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_018",
+      "category": "invalid_role",
+      "source_text": "Client count is 200.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "invalid_field_role_pair",
+      "observed_reasons": [
+        "invalid_field_role_pair:client_count+maximum_limit"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "client_count",
+        "role": "maximum_limit",
+        "value": 200,
+        "unit": null,
+        "evidence": "Client count is 200.",
+        "reasons": [
+          "invalid_field_role_pair:client_count+maximum_limit"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_019",
+      "category": "invalid_role",
+      "source_text": "Average file size is 2 GB.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "invalid_field_role_pair",
+      "observed_reasons": [
+        "invalid_field_role_pair:average_file_size_gb+target"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "average_file_size_gb",
+        "role": "target",
+        "value": 2,
+        "unit": "GB",
+        "evidence": "Average file size is 2 GB.",
+        "reasons": [
+          "invalid_field_role_pair:average_file_size_gb+target"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_020",
+      "category": "invalid_role",
+      "source_text": "Budget is 100000 USD.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "invalid_field_role_pair",
+      "observed_reasons": [
+        "invalid_field_role_pair:max_budget_usd+growth_rate"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_budget_usd",
+        "role": "growth_rate",
+        "value": 100000,
+        "unit": "USD",
+        "evidence": "Budget is 100000 USD.",
+        "reasons": [
+          "invalid_field_role_pair:max_budget_usd+growth_rate"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_021",
+      "category": "invalid_role",
+      "source_text": "Annual growth is 30 percent.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "invalid_field_role_pair",
+      "observed_reasons": [
+        "invalid_field_role_pair:annual_growth_percent+maximum_limit"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "annual_growth_percent",
+        "role": "maximum_limit",
+        "value": 30,
+        "unit": "%",
+        "evidence": "Annual growth is 30 percent.",
+        "reasons": [
+          "invalid_field_role_pair:annual_growth_percent+maximum_limit"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_022",
+      "category": "bad_evidence",
+      "source_text": "Maximum power is 800 W.",
+      "expected_status": "AMBIGUOUS",
+      "observed_status": "AMBIGUOUS",
+      "expected_reason_contains": "missing_evidence",
+      "observed_reasons": [
+        "missing_evidence"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "AMBIGUOUS",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 800,
+        "unit": "W",
+        "evidence": "",
+        "reasons": [
+          "missing_evidence"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_023",
+      "category": "bad_evidence",
+      "source_text": "Maximum power is 800 W.",
+      "expected_status": "AMBIGUOUS",
+      "observed_status": "AMBIGUOUS",
+      "expected_reason_contains": "evidence_not_supported_by_source_text",
+      "observed_reasons": [
+        "evidence_not_supported_by_source_text",
+        "evidence_does_not_contain_target_quantity"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "AMBIGUOUS",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 800,
+        "unit": "W",
+        "evidence": "Maximum power is 900 W.",
+        "reasons": [
+          "evidence_not_supported_by_source_text",
+          "evidence_does_not_contain_target_quantity"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_024",
+      "category": "bad_evidence",
+      "source_text": "Maximum power is 800 W and budget is 100000 USD.",
+      "expected_status": "AMBIGUOUS",
+      "observed_status": "AMBIGUOUS",
+      "expected_reason_contains": "evidence_does_not_contain_target_quantity",
+      "observed_reasons": [
+        "evidence_does_not_contain_target_quantity"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "AMBIGUOUS",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 800,
+        "unit": "W",
+        "evidence": "budget is 100000 USD",
+        "reasons": [
+          "evidence_does_not_contain_target_quantity"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_025",
+      "category": "bad_evidence",
+      "source_text": "Read target is 70 GB/s.",
+      "expected_status": "AMBIGUOUS",
+      "observed_status": "AMBIGUOUS",
+      "expected_reason_contains": "evidence_not_supported_by_source_text",
+      "observed_reasons": [
+        "evidence_not_supported_by_source_text",
+        "evidence_does_not_contain_target_quantity"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "AMBIGUOUS",
+        "quantity_id": "q1",
+        "field": "target_read_gbps",
+        "role": "target",
+        "value": 70,
+        "unit": "GB/s",
+        "evidence": "Read target is seventy GB/s.",
+        "reasons": [
+          "evidence_not_supported_by_source_text",
+          "evidence_does_not_contain_target_quantity"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_026",
+      "category": "invalid_value",
+      "source_text": "Client count is 0.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "value_must_be_strictly_positive",
+      "observed_reasons": [
+        "value_must_be_strictly_positive"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "client_count",
+        "role": "total_count",
+        "value": 0,
+        "unit": null,
+        "evidence": "Client count is 0.",
+        "reasons": [
+          "value_must_be_strictly_positive"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_027",
+      "category": "invalid_value",
+      "source_text": "Client count is 12.5.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "count_value_must_be_integer",
+      "observed_reasons": [
+        "count_value_must_be_integer"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "client_count",
+        "role": "total_count",
+        "value": 12.5,
+        "unit": null,
+        "evidence": "Client count is 12.5.",
+        "reasons": [
+          "count_value_must_be_integer"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_028",
+      "category": "invalid_value",
+      "source_text": "Maximum power is -5 W.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "value_must_be_strictly_positive",
+      "observed_reasons": [
+        "value_must_be_strictly_positive"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": -5,
+        "unit": "W",
+        "evidence": "Maximum power is -5 W.",
+        "reasons": [
+          "value_must_be_strictly_positive"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_029",
+      "category": "invalid_value",
+      "source_text": "Capacity is 0 TiB.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "value_must_be_strictly_positive",
+      "observed_reasons": [
+        "value_must_be_strictly_positive"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "requested_usable_capacity_tib",
+        "role": "target",
+        "value": 0,
+        "unit": "TiB",
+        "evidence": "Capacity is 0 TiB.",
+        "reasons": [
+          "value_must_be_strictly_positive"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_030",
+      "category": "invalid_value",
+      "source_text": "Growth is -10 percent.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "annual_growth_cannot_be_negative",
+      "observed_reasons": [
+        "annual_growth_cannot_be_negative"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "annual_growth_percent",
+        "role": "growth_rate",
+        "value": -10,
+        "unit": "%",
+        "evidence": "Growth is -10 percent.",
+        "reasons": [
+          "annual_growth_cannot_be_negative"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_031",
+      "category": "invalid_value",
+      "source_text": "Read ratio is 120 percent.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "ratio_component_must_be_between_0_and_100",
+      "observed_reasons": [
+        "ratio_component_must_be_between_0_and_100"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "read_write_ratio",
+        "role": "ratio_component",
+        "value": 120,
+        "unit": "%",
+        "evidence": "Read ratio is 120 percent.",
+        "reasons": [
+          "ratio_component_must_be_between_0_and_100"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_032",
+      "category": "invalid_value",
+      "source_text": "Read ratio is -1 percent.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "ratio_component_must_be_between_0_and_100",
+      "observed_reasons": [
+        "ratio_component_must_be_between_0_and_100"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "read_write_ratio",
+        "role": "ratio_component",
+        "value": -1,
+        "unit": "%",
+        "evidence": "Read ratio is -1 percent.",
+        "reasons": [
+          "ratio_component_must_be_between_0_and_100"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_033",
+      "category": "invalid_value",
+      "source_text": "Maximum power is unknown W.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "value_must_be_finite_numeric",
+      "observed_reasons": [
+        "value_must_be_finite_numeric"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": "not-a-number",
+        "unit": "W",
+        "evidence": "Maximum power is unknown W.",
+        "reasons": [
+          "value_must_be_finite_numeric"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_034",
+      "category": "unknown_dimension",
+      "source_text": "The requirement is around 320.",
+      "expected_status": "AMBIGUOUS",
+      "observed_status": "AMBIGUOUS",
+      "expected_reason_contains": "unknown_dimension_requires_explicit_unit_or_context",
+      "observed_reasons": [
+        "unknown_dimension_requires_explicit_unit_or_context"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "AMBIGUOUS",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 320,
+        "unit": null,
+        "evidence": "The requirement is around 320.",
+        "reasons": [
+          "unknown_dimension_requires_explicit_unit_or_context"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_035",
+      "category": "unknown_dimension",
+      "source_text": "The requirement is around 320.",
+      "expected_status": "AMBIGUOUS",
+      "observed_status": "AMBIGUOUS",
+      "expected_reason_contains": "unknown_dimension_requires_explicit_unit_or_context",
+      "observed_reasons": [
+        "unknown_dimension_requires_explicit_unit_or_context"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "AMBIGUOUS",
+        "quantity_id": "q1",
+        "field": "target_read_gbps",
+        "role": "target",
+        "value": 320,
+        "unit": null,
+        "evidence": "The requirement is around 320.",
+        "reasons": [
+          "unknown_dimension_requires_explicit_unit_or_context"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_036",
+      "category": "unknown_dimension",
+      "source_text": "Around 320 clients.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "client_count",
+        "role": "total_count",
+        "value": 320,
+        "unit": null,
+        "evidence": "Around 320 clients.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": "Count-like UNKNOWN is allowed."
+    },
+    {
+      "id": "VER_037",
+      "category": "unknown_dimension",
+      "source_text": "About 9000000 files.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "total_file_count",
+        "role": "total_count",
+        "value": 9000000,
+        "unit": null,
+        "evidence": "About 9000000 files.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_038",
+      "category": "identity",
+      "source_text": "Maximum power is 800 W.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "quantity_id_mismatch",
+      "observed_reasons": [
+        "quantity_id_mismatch:quantity=q1,link=q2"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 800,
+        "unit": "W",
+        "evidence": "Maximum power is 800 W.",
+        "reasons": [
+          "quantity_id_mismatch:quantity=q1,link=q2"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_039",
+      "category": "unresolved",
+      "source_text": "The requirement is 320.",
+      "expected_status": "UNRESOLVED",
+      "observed_status": "UNRESOLVED",
+      "expected_reason_contains": "no_semantic_link",
+      "observed_reasons": [
+        "no_semantic_link"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "UNRESOLVED",
+        "quantity_id": "q1",
+        "field": null,
+        "role": null,
+        "value": 320,
+        "unit": null,
+        "evidence": "",
+        "reasons": [
+          "no_semantic_link"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_040",
+      "category": "wrong_unit_same_dimension",
+      "source_text": "Maximum power is 800 GB.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "unit",
+      "observed_reasons": [
+        "incompatible_source_unit:field=max_power_w,unit=GB"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 800,
+        "unit": "GB",
+        "evidence": "Maximum power is 800 GB.",
+        "reasons": [
+          "incompatible_source_unit:field=max_power_w,unit=GB"
+        ]
+      },
+      "notes": "Key false-acceptance probe."
+    },
+    {
+      "id": "VER_041",
+      "category": "wrong_unit_same_dimension",
+      "source_text": "Read throughput is 70 W.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "unit",
+      "observed_reasons": [
+        "incompatible_source_unit:field=target_read_gbps,unit=W"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "target_read_gbps",
+        "role": "target",
+        "value": 70,
+        "unit": "W",
+        "evidence": "Read throughput is 70 W.",
+        "reasons": [
+          "incompatible_source_unit:field=target_read_gbps,unit=W"
+        ]
+      },
+      "notes": "Key false-acceptance probe."
+    },
+    {
+      "id": "VER_042",
+      "category": "wrong_unit_same_dimension",
+      "source_text": "Usable capacity is 500 USD.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "unit",
+      "observed_reasons": [
+        "incompatible_source_unit:field=requested_usable_capacity_tib,unit=USD"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "requested_usable_capacity_tib",
+        "role": "target",
+        "value": 500,
+        "unit": "USD",
+        "evidence": "Usable capacity is 500 USD.",
+        "reasons": [
+          "incompatible_source_unit:field=requested_usable_capacity_tib,unit=USD"
+        ]
+      },
+      "notes": "Key false-acceptance probe."
+    },
+    {
+      "id": "VER_043",
+      "category": "wrong_unit_same_dimension",
+      "source_text": "Maximum file size is 50 W.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "unit",
+      "observed_reasons": [
+        "incompatible_source_unit:field=max_file_size_gb,unit=W"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_file_size_gb",
+        "role": "maximum_limit",
+        "value": 50,
+        "unit": "W",
+        "evidence": "Maximum file size is 50 W.",
+        "reasons": [
+          "incompatible_source_unit:field=max_file_size_gb,unit=W"
+        ]
+      },
+      "notes": "Key false-acceptance probe."
+    },
+    {
+      "id": "VER_044",
+      "category": "wrong_unit_same_dimension",
+      "source_text": "Budget is 100000 GB.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "unit",
+      "observed_reasons": [
+        "incompatible_source_unit:field=max_budget_usd,unit=GB"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "max_budget_usd",
+        "role": "maximum_limit",
+        "value": 100000,
+        "unit": "GB",
+        "evidence": "Budget is 100000 GB.",
+        "reasons": [
+          "incompatible_source_unit:field=max_budget_usd,unit=GB"
+        ]
+      },
+      "notes": "Key false-acceptance probe."
+    },
+    {
+      "id": "VER_045",
+      "category": "wrong_unit_same_dimension",
+      "source_text": "Annual growth is 30 W.",
+      "expected_status": "INVALID",
+      "observed_status": "INVALID",
+      "expected_reason_contains": "unit",
+      "observed_reasons": [
+        "incompatible_source_unit:field=annual_growth_percent,unit=W"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "INVALID",
+        "quantity_id": "q1",
+        "field": "annual_growth_percent",
+        "role": "growth_rate",
+        "value": 30,
+        "unit": "W",
+        "evidence": "Annual growth is 30 W.",
+        "reasons": [
+          "incompatible_source_unit:field=annual_growth_percent,unit=W"
+        ]
+      },
+      "notes": "Key false-acceptance probe."
+    },
+    {
+      "id": "VER_046",
+      "category": "boundary",
+      "source_text": "Annual growth is 0 percent.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "annual_growth_percent",
+        "role": "growth_rate",
+        "value": 0,
+        "unit": "%",
+        "evidence": "Annual growth is 0 percent.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_047",
+      "category": "boundary",
+      "source_text": "Read ratio is 0 percent.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "read_write_ratio",
+        "role": "ratio_component",
+        "value": 0,
+        "unit": "%",
+        "evidence": "Read ratio is 0 percent.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_048",
+      "category": "boundary",
+      "source_text": "Read ratio is 100 percent.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "read_write_ratio",
+        "role": "ratio_component",
+        "value": 100,
+        "unit": "%",
+        "evidence": "Read ratio is 100 percent.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_049",
+      "category": "boundary",
+      "source_text": "Maximum power is 0.001 kW.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "max_power_w",
+        "role": "maximum_limit",
+        "value": 1,
+        "unit": "W",
+        "evidence": "Maximum power is 0.001 kW.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "VER_050",
+      "category": "boundary",
+      "source_text": "There is 1 client.",
+      "expected_status": "VERIFIED",
+      "observed_status": "VERIFIED",
+      "expected_reason_contains": null,
+      "observed_reasons": [
+        "field_dimension_valid",
+        "field_role_valid",
+        "evidence_supported",
+        "value_valid",
+        "unit_normalized"
+      ],
+      "correct": true,
+      "false_acceptance": false,
+      "decision": {
+        "status": "VERIFIED",
+        "quantity_id": "q1",
+        "field": "client_count",
+        "role": "total_count",
+        "value": 1,
+        "unit": null,
+        "evidence": "There is 1 client.",
+        "reasons": [
+          "field_dimension_valid",
+          "field_role_valid",
+          "evidence_supported",
+          "value_valid",
+          "unit_normalized"
+        ]
+      },
+      "notes": ""
+    }
+  ]
+}

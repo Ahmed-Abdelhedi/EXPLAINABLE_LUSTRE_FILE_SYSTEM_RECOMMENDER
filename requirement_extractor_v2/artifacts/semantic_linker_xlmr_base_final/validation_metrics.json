@@ -1,21 +1,28 @@
 {
-  "raw_constrained": {
-    "loss": 0.14144230150339895,
-    "field_accuracy": 0.9688888888888889,
-    "field_macro_f1": 0.9684785510894401,
-    "role_accuracy": 0.9888888888888889,
-    "role_macro_f1": 0.9890856442811004,
-    "pair_accuracy": 0.9577777777777777,
-    "pair_macro_f1": 0.8951905401659096,
-    "unresolved_recall": 1.0
-  },
-  "selective": {
-    "confidence_threshold": 0.966,
-    "margin_threshold": 0.0,
-    "accepted_count": 382,
-    "accepted_precision": 0.981675392670157,
-    "coverage": 0.8488888888888889,
+  "raw_hierarchical_decode": {
+    "loss": 0.3452789958255986,
+    "field_accuracy": 0.9996744791666666,
+    "field_macro_f1": 0.9996744788189725,
+    "role_accuracy": 0.8720052083333333,
+    "role_macro_f1": 0.8838568988588369,
+    "pair_accuracy": 0.871875,
+    "pair_macro_f1": 0.5876737613066585,
     "unresolved_recall": 1.0,
-    "final_pair_accuracy": 0.9155555555555556
+    "unspecified_role_recall": 0.4611231101511879
+  },
+  "final_hierarchical_policy": {
+    "field_accepted_count": 14080,
+    "field_accepted_precision": 0.9996448863636364,
+    "field_coverage": 0.9166666666666666,
+    "unresolved_field_recall": 1.0,
+    "final_field_accuracy": 0.9996744791666666,
+    "final_field_macro_f1": 0.9996744788189725,
+    "role_non_abstained_coverage": 0.302734375,
+    "specified_role_precision": 0.9952380952380953,
+    "unspecified_role_recall": 0.9920806335493161,
+    "final_role_accuracy": 0.47877604166666665,
+    "final_role_macro_f1": 0.48931965498389074,
+    "final_pair_accuracy": 0.47858072916666666,
+    "final_pair_macro_f1": 0.4718899906980689
   }
 }
