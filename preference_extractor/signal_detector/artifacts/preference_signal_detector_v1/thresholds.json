@@ -1,0 +1,5 @@
+{
+  "preference_signal_probability_threshold": 0.49999999999999994,
+  "calibration_policy": "max_precision_subject_to_recall>=0.985",
+  "target_positive_recall": 0.985
+}

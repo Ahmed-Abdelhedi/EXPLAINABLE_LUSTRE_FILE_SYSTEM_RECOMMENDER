@@ -1,0 +1,13 @@
+{
+  "model_name": "distilbert-base-multilingual-cased",
+  "seed": 20260820,
+  "max_length": 128,
+  "batch_size": 16,
+  "grad_accum_steps": 2,
+  "learning_rate": 2e-05,
+  "max_epochs": 5,
+  "best_epoch": 1,
+  "train_size": 20000,
+  "validation_size": 4000,
+  "test_size": 4000
+}
