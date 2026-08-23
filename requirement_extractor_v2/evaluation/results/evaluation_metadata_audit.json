@@ -1,0 +1,347 @@
+{
+  "protocol": {
+    "300_message_dataset": "v2_independent_end_to_end_benchmark_v1.jsonl",
+    "300_message_role": "broad_ablation_benchmark",
+    "96_message_dataset": "quantity_e2e_holdout_v1.jsonl",
+    "96_message_role": "quantity_e2e_holdout",
+    "96_first_run_rule": "Only the preserved first run is called independent; later runs after observed-failure fixes are regression."
+  },
+  "datasets": [
+    {
+      "dataset": "v2_independent_end_to_end_benchmark_v1.jsonl",
+      "status": "OK",
+      "expected_count": 300,
+      "actual_count": 300,
+      "evaluation_role": "broad_ablation_benchmark"
+    },
+    {
+      "dataset": "quantity_e2e_holdout_v1.jsonl",
+      "status": "OK",
+      "expected_count": 96,
+      "actual_count": 96,
+      "evaluation_role": "quantity_e2e_holdout"
+    },
+    {
+      "dataset": "actual_fallback_subset_v1.jsonl",
+      "status": "OK",
+      "expected_count": 23,
+      "actual_count": 23,
+      "evaluation_role": "actual_llm_fallback_subset"
+    }
+  ],
+  "result_files_scanned": 33,
+  "review_count": 0,
+  "review_items": [],
+  "all_result_items": [
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_A.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [
+        300
+      ],
+      "dataset_mentions": [
+        "v2_independent_end_to_end_benchmark_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_B.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [
+        300
+      ],
+      "dataset_mentions": [
+        "v2_independent_end_to_end_benchmark_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_C_semantic_v3_3.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [
+        300
+      ],
+      "dataset_mentions": [
+        "v2_independent_end_to_end_benchmark_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_D.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [
+        300
+      ],
+      "dataset_mentions": [
+        "v2_independent_end_to_end_benchmark_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_E_full_system.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [
+        300
+      ],
+      "dataset_mentions": [
+        "v2_independent_end_to_end_benchmark_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\actual_fallback_qwen2_5_3b.json",
+      "status": "OK",
+      "n": 23,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\actual_fallback_qwen2_5_3b_prompt_v3.json",
+      "status": "OK",
+      "n": 23,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\actual_fallback_qwen2_5_coder_7b.json",
+      "status": "OK",
+      "n": 23,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\actual_fallback_qwen2_5_coder_7b_prompt_v3.json",
+      "status": "OK",
+      "n": 23,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\actual_fallback_subset_v1_metadata.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [],
+      "dataset_mentions": [
+        "v2_independent_end_to_end_benchmark_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\evaluation_metadata_audit.json",
+      "status": "OK",
+      "n": null,
+      "count_claims": [],
+      "dataset_mentions": [
+        "actual_fallback_subset_v1.jsonl",
+        "quantity_e2e_holdout_v1.jsonl",
+        "v2_independent_end_to_end_benchmark_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\explicit_resolver_metrics_v3_3.json",
+      "status": "OK",
+      "n": 100,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\llm_fallback_metrics_v3_3.json",
+      "status": "OK",
+      "n": 50,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_llm_prompt_v3.json",
+      "status": "OK",
+      "n": 96,
+      "count_claims": [
+        96
+      ],
+      "dataset_mentions": [
+        "quantity_e2e_holdout_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_relation_fix.json",
+      "status": "OK",
+      "n": 96,
+      "count_claims": [
+        96
+      ],
+      "dataset_mentions": [
+        "quantity_e2e_holdout_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_relation_safety_fix.json",
+      "status": "OK",
+      "n": 96,
+      "count_claims": [
+        96
+      ],
+      "dataset_mentions": [
+        "quantity_e2e_holdout_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_robustness_fix.json",
+      "status": "OK",
+      "n": 96,
+      "count_claims": [
+        96
+      ],
+      "dataset_mentions": [
+        "quantity_e2e_holdout_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_metrics_v3_3.json",
+      "status": "OK",
+      "n": 96,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_scanner_metrics_v3_3.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\scope_resolver_metrics_v3_3.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\step1_6_metadata_finalization_report.json",
+      "status": "OK",
+      "n": null,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\step1_6_metadata_finalization_report_v2.json",
+      "status": "OK",
+      "n": null,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\verifier_adversarial_metrics_v3_3.json",
+      "status": "OK",
+      "n": 50,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\verifier_metrics_v3_3.json",
+      "status": "OK",
+      "n": 20,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\deterministic_verifier_verify_many_metrics.json",
+      "status": "OK",
+      "n": 20,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\explicit_resolver_metrics_after_fix.json",
+      "status": "OK",
+      "n": 100,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\llm_fallback_metrics_prompt_v2_1_final_regression.json",
+      "status": "OK",
+      "n": 50,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\quantity_e2e_holdout_v1_FIRST_RUN.json",
+      "status": "OK",
+      "n": 96,
+      "count_claims": [
+        96
+      ],
+      "dataset_mentions": [
+        "quantity_e2e_holdout_v1.jsonl"
+      ],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\quantity_scanner_metrics.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\quantity_scanner_metrics_final.json",
+      "status": "OK",
+      "n": 340,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\scope_resolver_metrics.json",
+      "status": "OK",
+      "n": 300,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\scope_resolver_metrics_final.json",
+      "status": "OK",
+      "n": 340,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\verifier_adversarial_metrics_after_fix.json",
+      "status": "OK",
+      "n": 50,
+      "count_claims": [],
+      "dataset_mentions": [],
+      "issues": []
+    }
+  ]
+}

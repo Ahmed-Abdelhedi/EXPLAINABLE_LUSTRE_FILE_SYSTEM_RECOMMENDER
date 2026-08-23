@@ -2,38 +2,37 @@
   "metrics": {
     "benchmark": "quantity_e2e_holdout_v1",
     "n_messages": 96,
-    "field_tp": 87,
-    "field_fp": 5,
-    "field_fn": 7,
-    "field_precision": 0.9456521739130435,
-    "field_recall": 0.925531914893617,
-    "field_f1": 0.935483870967742,
+    "field_tp": 94,
+    "field_fp": 0,
+    "field_fn": 0,
+    "field_precision": 1.0,
+    "field_recall": 1.0,
+    "field_f1": 1.0,
     "gold_outputs": 94,
-    "exact_output_correct": 86,
-    "exact_output_recall": 0.9148936170212766,
-    "exact_value_accuracy_on_correct_field": 0.9885057471264368,
+    "exact_output_correct": 94,
+    "exact_output_recall": 1.0,
+    "exact_value_accuracy_on_correct_field": 1.0,
     "unit_accuracy_on_correct_field": 1.0,
-    "complete_message_success": 0.90625,
+    "complete_message_success": 1.0,
     "scope_accuracy": 1.0,
     "ambiguity_cases": 8,
-    "correct_ambiguity_detection": 0.75,
+    "correct_ambiguity_detection": 1.0,
     "out_of_scope_cases": 8,
     "correct_out_of_scope_detection": 1.0,
     "safety_negative_cases": 16,
-    "false_automatic_acceptance_count": 2,
-    "false_automatic_acceptance_rate": 0.125,
-    "total_llm_calls": 10,
-    "average_llm_calls_per_message": 0.10416666666666667,
-    "mean_latency_s": 3.124925523957548,
-    "median_latency_s": 0.0009122999908868223,
-    "p95_latency_s": 30.76144769998791,
-    "max_latency_s": 38.65959480003221,
+    "false_automatic_acceptance_count": 0,
+    "false_automatic_acceptance_rate": 0.0,
+    "total_llm_calls": 3,
+    "average_llm_calls_per_message": 0.03125,
+    "mean_latency_s": 0.892217417708404,
+    "median_latency_s": 0.004221000010147691,
+    "p95_latency_s": 0.4409333500370849,
+    "max_latency_s": 25.546792200068012,
     "route_counts": {
-      "explicit_pattern": 60,
-      "semantic_linker_xlmr": 14,
-      "unresolved": 7,
-      "llm_fallback": 3,
-      "conversation_scope": 18
+      "explicit_pattern": 66,
+      "semantic_linker_xlmr": 17,
+      "conversation_scope": 18,
+      "unresolved": 3
     },
     "per_category": {
       "clean_explicit": {
@@ -41,64 +40,64 @@
         "complete_message_success": 1.0,
         "exact_output_recall": 1.0,
         "average_llm_calls_per_message": 0.0,
-        "mean_latency_s": 0.10231922499224311,
-        "p95_latency_s": 0.40721400000620633
+        "mean_latency_s": 0.4215652249986306,
+        "p95_latency_s": 1.6785719499748666
       },
       "semantic_synonym": {
         "n": 16,
-        "complete_message_success": 0.9375,
-        "exact_output_recall": 0.9375,
-        "average_llm_calls_per_message": 0.1875,
-        "mean_latency_s": 5.500710499993147,
-        "p95_latency_s": 28.02790012501646
+        "complete_message_success": 1.0,
+        "exact_output_recall": 1.0,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.20276755624217913,
+        "p95_latency_s": 0.41368960004183464
       },
       "robust_noisy": {
         "n": 16,
-        "complete_message_success": 0.625,
-        "exact_output_recall": 0.5882352941176471,
-        "average_llm_calls_per_message": 0.125,
-        "mean_latency_s": 4.003593075001845,
-        "p95_latency_s": 30.97499477499514
+        "complete_message_success": 1.0,
+        "exact_output_recall": 1.0,
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.030276712503109593,
+        "p95_latency_s": 0.16013507504248992
       },
       "contextual_answer": {
         "n": 16,
         "complete_message_success": 1.0,
         "exact_output_recall": 1.0,
         "average_llm_calls_per_message": 0.0,
-        "mean_latency_s": 0.0005645375131280161,
-        "p95_latency_s": 0.0008626000199001282
+        "mean_latency_s": 0.002544175004004501,
+        "p95_latency_s": 0.0031365999893750995
       },
       "multi_requirement": {
         "n": 8,
         "complete_message_success": 1.0,
         "exact_output_recall": 1.0,
-        "average_llm_calls_per_message": 0.125,
-        "mean_latency_s": 2.8576660375038045,
-        "p95_latency_s": 14.830218684987619
+        "average_llm_calls_per_message": 0.0,
+        "mean_latency_s": 0.036618637503124774,
+        "p95_latency_s": 0.13999853998539027
       },
       "correction": {
         "n": 8,
         "complete_message_success": 1.0,
         "exact_output_recall": 1.0,
         "average_llm_calls_per_message": 0.0,
-        "mean_latency_s": 0.0008043250054470263,
-        "p95_latency_s": 0.0009153899882221594
+        "mean_latency_s": 0.003735249993042089,
+        "p95_latency_s": 0.004276790021685883
       },
       "ambiguity_missing_context": {
         "n": 8,
-        "complete_message_success": 0.75,
+        "complete_message_success": 1.0,
         "exact_output_recall": null,
-        "average_llm_calls_per_message": 0.5,
-        "mean_latency_s": 15.426182662486099,
-        "p95_latency_s": 33.527395634973075
+        "average_llm_calls_per_message": 0.375,
+        "mean_latency_s": 9.35179998750391,
+        "p95_latency_s": 25.361950585059823
       },
       "out_of_scope": {
         "n": 8,
         "complete_message_success": 1.0,
         "exact_output_recall": null,
         "average_llm_calls_per_message": 0.0,
-        "mean_latency_s": 7.858749449951574e-05,
-        "p95_latency_s": 0.000137384986737743
+        "mean_latency_s": 0.0001478000049246475,
+        "p95_latency_s": 0.00028776499093510207
       }
     }
   },
@@ -144,7 +143,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 1.6212611999944784,
+      "latency_s": 6.676099000032991,
       "complete_success": true,
       "safety": "normal"
     },
@@ -189,7 +188,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0007450999692082405,
+      "latency_s": 0.0036691001150757074,
       "complete_success": true,
       "safety": "normal"
     },
@@ -234,7 +233,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006556999869644642,
+      "latency_s": 0.003539699944667518,
       "complete_success": true,
       "safety": "normal"
     },
@@ -279,7 +278,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006648999988101423,
+      "latency_s": 0.0036588999209925532,
       "complete_success": true,
       "safety": "normal"
     },
@@ -324,7 +323,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0005046000005677342,
+      "latency_s": 0.003019500058144331,
       "complete_success": true,
       "safety": "normal"
     },
@@ -369,7 +368,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0025316000101156533,
+      "latency_s": 0.004551599966362119,
       "complete_success": true,
       "safety": "normal"
     },
@@ -414,7 +413,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006107999943196774,
+      "latency_s": 0.003383200033567846,
       "complete_success": true,
       "safety": "normal"
     },
@@ -459,7 +458,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006904999609105289,
+      "latency_s": 0.0031543999211862683,
       "complete_success": true,
       "safety": "normal"
     },
@@ -504,7 +503,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0005770999705418944,
+      "latency_s": 0.0027767999563366175,
       "complete_success": true,
       "safety": "normal"
     },
@@ -549,7 +548,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006633999873884022,
+      "latency_s": 0.004370499984361231,
       "complete_success": true,
       "safety": "normal"
     },
@@ -594,7 +593,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0020201000152155757,
+      "latency_s": 0.012729599955491722,
       "complete_success": true,
       "safety": "normal"
     },
@@ -639,7 +638,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0007485999958589673,
+      "latency_s": 0.004191900021396577,
       "complete_success": true,
       "safety": "normal"
     },
@@ -684,7 +683,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.002171600004658103,
+      "latency_s": 0.008359100087545812,
       "complete_success": true,
       "safety": "normal"
     },
@@ -729,7 +728,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0010449999826960266,
+      "latency_s": 0.0033810000168159604,
       "complete_success": true,
       "safety": "normal"
     },
@@ -774,7 +773,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0011260000173933804,
+      "latency_s": 0.0019459999166429043,
       "complete_success": true,
       "safety": "normal"
     },
@@ -846,7 +845,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0010913999867625535,
+      "latency_s": 0.0062133000465109944,
       "complete_success": true,
       "safety": "normal"
     },
@@ -891,7 +890,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.10776240000268444,
+      "latency_s": 0.9769233999541029,
       "complete_success": true,
       "safety": "normal"
     },
@@ -936,7 +935,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.05707280000206083,
+      "latency_s": 0.19776999996975064,
       "complete_success": true,
       "safety": "normal"
     },
@@ -981,7 +980,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.055898799968417734,
+      "latency_s": 0.22594500007107854,
       "complete_success": true,
       "safety": "normal"
     },
@@ -999,24 +998,35 @@
           "unit": null
         }
       ],
-      "predicted_verified_outputs": [],
-      "decisions": [
+      "predicted_verified_outputs": [
         {
-          "status": "UNRESOLVED",
-          "quantity_id": "q1",
-          "field": null,
-          "role": null,
+          "field": "client_count",
           "value": 260,
           "unit": null,
-          "evidence": "",
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 260,
+          "unit": null,
+          "evidence": "Approximately 260 noeuds compute will mount Lustre.",
           "reasons": [
-            "no_semantic_link"
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
           ]
         }
       ],
-      "llm_calls": 1,
-      "latency_s": 38.65959480003221,
-      "complete_success": false,
+      "llm_calls": 0,
+      "latency_s": 0.21353549999184906,
+      "complete_success": true,
       "safety": "normal"
     },
     {
@@ -1060,7 +1070,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.06609669997124001,
+      "latency_s": 0.19963950000237674,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1105,7 +1115,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.12296690000221133,
+      "latency_s": 0.12832650006748736,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1150,7 +1160,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.05101439997088164,
+      "latency_s": 0.13819329999387264,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1195,7 +1205,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.050933899998199195,
+      "latency_s": 0.19893780001439154,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1240,7 +1250,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.047118799993768334,
+      "latency_s": 0.12501839990727603,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1285,7 +1295,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.05296760000055656,
+      "latency_s": 0.19776719994843006,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1319,7 +1329,7 @@
           "role": "target",
           "value": 88,
           "unit": "GB/s",
-          "evidence": "88 GB/s for reads",
+          "evidence": "The platform should sustain about 88 GB/s for reads.",
           "reasons": [
             "field_dimension_valid",
             "field_role_valid",
@@ -1329,8 +1339,8 @@
           ]
         }
       ],
-      "llm_calls": 1,
-      "latency_s": 24.484001900011208,
+      "llm_calls": 0,
+      "latency_s": 0.2008218999253586,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1375,7 +1385,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0011115000233985484,
+      "latency_s": 0.005392000079154968,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1420,7 +1430,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.05804779997561127,
+      "latency_s": 0.21997239999473095,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1454,7 +1464,7 @@
           "role": "target",
           "value": 680,
           "unit": "TiB",
-          "evidence": "680 TiB",
+          "evidence": "On vise environ 680 TiB de stockage utile.",
           "reasons": [
             "field_dimension_valid",
             "field_role_valid",
@@ -1464,8 +1474,8 @@
           ]
         }
       ],
-      "llm_calls": 1,
-      "latency_s": 24.19476379995467,
+      "llm_calls": 0,
+      "latency_s": 0.2050746000604704,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1510,7 +1520,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.000782799965236336,
+      "latency_s": 0.003906999947503209,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1555,7 +1565,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0012331000179983675,
+      "latency_s": 0.007056399947032332,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1600,7 +1610,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.002004200010560453,
+      "latency_s": 0.01285880000796169,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1645,7 +1655,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0017678000149317086,
+      "latency_s": 0.013171400059945881,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1690,7 +1700,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006684999680146575,
+      "latency_s": 0.004247500095516443,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1735,7 +1745,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0026615000097081065,
+      "latency_s": 0.012192299938760698,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1753,24 +1763,35 @@
           "unit": "W"
         }
       ],
-      "predicted_verified_outputs": [],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_power_w",
+          "value": 800,
+          "unit": "W",
+          "role": "maximum_limit"
+        }
+      ],
       "decisions": [
         {
-          "status": "AMBIGUOUS",
+          "status": "VERIFIED",
           "quantity_id": "q1",
           "field": "max_power_w",
           "role": "maximum_limit",
           "value": 800,
-          "unit": null,
+          "unit": "W",
           "evidence": "Maximum power is 800 wats.",
           "reasons": [
-            "unknown_dimension_requires_explicit_unit_or_context"
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
           ]
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0008889000164344907,
-      "complete_success": false,
+      "latency_s": 0.004861599998548627,
+      "complete_success": true,
       "safety": "normal"
     },
     {
@@ -1814,7 +1835,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0008163999882526696,
+      "latency_s": 0.0030961999436840415,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1832,11 +1853,35 @@
           "unit": "GB"
         }
       ],
-      "predicted_verified_outputs": [],
-      "decisions": [],
+      "predicted_verified_outputs": [
+        {
+          "field": "max_file_size_gb",
+          "value": 40,
+          "unit": "GB",
+          "role": "maximum_limit"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "max_file_size_gb",
+          "role": "maximum_limit",
+          "value": 40,
+          "unit": "GB",
+          "evidence": "Maximum file size is fourty GB.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
       "llm_calls": 0,
-      "latency_s": 0.000367900007404387,
-      "complete_success": false,
+      "latency_s": 0.004040999920107424,
+      "complete_success": true,
       "safety": "normal"
     },
     {
@@ -1880,7 +1925,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0011143999872729182,
+      "latency_s": 0.004628999973647296,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1925,7 +1970,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0026843000086955726,
+      "latency_s": 0.011436900007538497,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1970,7 +2015,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0009346000151708722,
+      "latency_s": 0.004265299998223782,
       "complete_success": true,
       "safety": "normal"
     },
@@ -1988,11 +2033,35 @@
           "unit": "GB/s"
         }
       ],
-      "predicted_verified_outputs": [],
-      "decisions": [],
+      "predicted_verified_outputs": [
+        {
+          "field": "target_write_gbps",
+          "value": 40,
+          "unit": "GB/s",
+          "role": "target"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "target_write_gbps",
+          "role": "target",
+          "value": 40,
+          "unit": "GB/s",
+          "evidence": "Write throughput should be fourty GB/s.",
+          "reasons": [
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
+          ]
+        }
+      ],
       "llm_calls": 0,
-      "latency_s": 0.000443600001744926,
-      "complete_success": false,
+      "latency_s": 0.004284400027245283,
+      "complete_success": true,
       "safety": "normal"
     },
     {
@@ -2009,24 +2078,35 @@
           "unit": null
         }
       ],
-      "predicted_verified_outputs": [],
-      "decisions": [
+      "predicted_verified_outputs": [
         {
-          "status": "UNRESOLVED",
-          "quantity_id": "q1",
-          "field": null,
-          "role": null,
+          "field": "client_count",
           "value": 200,
           "unit": null,
-          "evidence": "",
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 200,
+          "unit": null,
+          "evidence": "There are 200 clents.",
           "reasons": [
-            "no_semantic_link"
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
           ]
         }
       ],
-      "llm_calls": 1,
-      "latency_s": 29.930298099992797,
-      "complete_success": false,
+      "llm_calls": 0,
+      "latency_s": 0.26227000006474555,
+      "complete_success": true,
       "safety": "normal"
     },
     {
@@ -2043,24 +2123,35 @@
           "unit": null
         }
       ],
-      "predicted_verified_outputs": [],
-      "decisions": [
+      "predicted_verified_outputs": [
         {
-          "status": "UNRESOLVED",
-          "quantity_id": "q1",
-          "field": null,
-          "role": null,
+          "field": "client_count",
           "value": 250,
           "unit": null,
-          "evidence": "",
+          "role": "total_count"
+        }
+      ],
+      "decisions": [
+        {
+          "status": "VERIFIED",
+          "quantity_id": "q1",
+          "field": "client_count",
+          "role": "total_count",
+          "value": 250,
+          "unit": null,
+          "evidence": "Il y aura 250 clints sur le système.",
           "reasons": [
-            "no_semantic_link"
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized"
           ]
         }
       ],
-      "llm_calls": 1,
-      "latency_s": 34.109084800002165,
-      "complete_success": false,
+      "llm_calls": 0,
+      "latency_s": 0.12609010003507137,
+      "complete_success": true,
       "safety": "normal"
     },
     {
@@ -2104,7 +2195,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.001887399994302541,
+      "latency_s": 0.006789000006392598,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2149,7 +2240,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006722999969497323,
+      "latency_s": 0.0032706999918445945,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2174,7 +2265,7 @@
       ],
       "predicted_verified_outputs": [
         {
-          "field": "target_write_gbps",
+          "field": "target_read_gbps",
           "value": 70,
           "unit": "GB/s",
           "role": "target"
@@ -2190,11 +2281,11 @@
         {
           "status": "VERIFIED",
           "quantity_id": "q1",
-          "field": "target_write_gbps",
+          "field": "target_read_gbps",
           "role": "target",
           "value": 70,
           "unit": "GB/s",
-          "evidence": "Read target: seventy GB/s et write target: thirty five GB/s.",
+          "evidence": "Read target: seventy GB/s",
           "reasons": [
             "field_dimension_valid",
             "field_role_valid",
@@ -2221,8 +2312,8 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.001194500015117228,
-      "complete_success": false,
+      "latency_s": 0.006923199980519712,
+      "complete_success": true,
       "safety": "normal"
     },
     {
@@ -2266,7 +2357,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0003323000273667276,
+      "latency_s": 0.0021470999345183372,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2311,7 +2402,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.00031540001509711146,
+      "latency_s": 0.001678299973718822,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2356,7 +2447,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006294000195339322,
+      "latency_s": 0.0031024999916553497,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2401,7 +2492,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0007795999990776181,
+      "latency_s": 0.003238899982534349,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2446,7 +2537,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0004545999690890312,
+      "latency_s": 0.0027610999532043934,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2491,7 +2582,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.00045440002577379346,
+      "latency_s": 0.0025796000845730305,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2536,7 +2627,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006202999502420425,
+      "latency_s": 0.00263290002476424,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2581,7 +2672,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0004314000252634287,
+      "latency_s": 0.0030314000323414803,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2626,7 +2717,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.000354000017978251,
+      "latency_s": 0.002010099939070642,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2671,7 +2762,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.00039550004294142127,
+      "latency_s": 0.002347300061956048,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2716,7 +2807,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0004706000327132642,
+      "latency_s": 0.002636800054460764,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2761,7 +2852,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0005908000166527927,
+      "latency_s": 0.0022905999794602394,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2806,7 +2897,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0006885000038892031,
+      "latency_s": 0.0024770000018179417,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2851,7 +2942,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0010810000239871442,
+      "latency_s": 0.002700399956665933,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2923,7 +3014,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0007898000185377896,
+      "latency_s": 0.002496900036931038,
       "complete_success": true,
       "safety": "normal"
     },
@@ -2995,7 +3086,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.000645000021904707,
+      "latency_s": 0.002575900056399405,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3067,7 +3158,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.004379299993161112,
+      "latency_s": 0.01943849993404001,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3139,7 +3230,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0042097000405192375,
+      "latency_s": 0.017206399934366345,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3211,7 +3302,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0021851000492461026,
+      "latency_s": 0.0077541000209748745,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3272,7 +3363,7 @@
           "role": "maximum_limit",
           "value": 90,
           "unit": "GB",
-          "evidence": "Taille moyenne 3 GB et taille maximale 90 GB.",
+          "evidence": "taille maximale 90 GB.",
           "reasons": [
             "field_dimension_valid",
             "field_role_valid",
@@ -3282,8 +3373,8 @@
           ]
         }
       ],
-      "llm_calls": 1,
-      "latency_s": 22.783703699999023,
+      "llm_calls": 0,
+      "latency_s": 0.006277000065892935,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3355,7 +3446,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0016106999828480184,
+      "latency_s": 0.007591400062665343,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3454,7 +3545,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0015614000149071217,
+      "latency_s": 0.009496300015598536,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3526,7 +3617,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.004217599984258413,
+      "latency_s": 0.021239900030195713,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3625,7 +3716,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.05946079996647313,
+      "latency_s": 0.20394549996126443,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3670,7 +3761,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0009225999820046127,
+      "latency_s": 0.0040414000395685434,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3715,7 +3806,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0008435000199824572,
+      "latency_s": 0.0034796999534592032,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3760,7 +3851,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0008265000069513917,
+      "latency_s": 0.004321100073866546,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3805,7 +3896,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.000901999999769032,
+      "latency_s": 0.003107299911789596,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3850,7 +3941,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0008011000463739038,
+      "latency_s": 0.004194499924778938,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3895,7 +3986,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0007402999908663332,
+      "latency_s": 0.0039010000182315707,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3940,7 +4031,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0007174999918788671,
+      "latency_s": 0.0035662000300362706,
       "complete_success": true,
       "safety": "normal"
     },
@@ -3985,7 +4076,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.000681100005749613,
+      "latency_s": 0.003270799992606044,
       "complete_success": true,
       "safety": "normal"
     },
@@ -4013,7 +4104,7 @@
         }
       ],
       "llm_calls": 1,
-      "latency_s": 33.58332489995519,
+      "latency_s": 25.546792200068012,
       "complete_success": true,
       "safety": "ambiguity"
     },
@@ -4041,7 +4132,7 @@
         }
       ],
       "llm_calls": 1,
-      "latency_s": 33.254896499973256,
+      "latency_s": 25.01867330004461,
       "complete_success": true,
       "safety": "ambiguity"
     },
@@ -4069,7 +4160,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0008345000096596777,
+      "latency_s": 0.0015535999555140734,
       "complete_success": true,
       "safety": "ambiguity"
     },
@@ -4097,7 +4188,7 @@
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0007068999693728983,
+      "latency_s": 0.0017946000443771482,
       "complete_success": true,
       "safety": "ambiguity"
     },
@@ -4109,23 +4200,10 @@
       "expected_scope": "NEW_REQUIREMENT",
       "actual_scope": "NEW_REQUIREMENT",
       "gold_outputs": [],
-      "predicted_verified_outputs": [
-        {
-          "field": "target_write_gbps",
-          "value": 20,
-          "unit": "GB/s",
-          "role": "target"
-        },
-        {
-          "field": "target_write_gbps",
-          "value": 30,
-          "unit": "GB/s",
-          "role": "target"
-        }
-      ],
+      "predicted_verified_outputs": [],
       "decisions": [
         {
-          "status": "VERIFIED",
+          "status": "AMBIGUOUS",
           "quantity_id": "q1",
           "field": "target_write_gbps",
           "role": "target",
@@ -4137,11 +4215,14 @@
             "field_role_valid",
             "evidence_supported",
             "value_valid",
-            "unit_normalized"
+            "unit_normalized",
+            "automatic_acceptance_blocked_by_candidate_relation",
+            "candidate_relation:ALTERNATIVE",
+            "alternative_values_require_user_choice"
           ]
         },
         {
-          "status": "VERIFIED",
+          "status": "AMBIGUOUS",
           "quantity_id": "q2",
           "field": "target_write_gbps",
           "role": "target",
@@ -4153,13 +4234,16 @@
             "field_role_valid",
             "evidence_supported",
             "value_valid",
-            "unit_normalized"
+            "unit_normalized",
+            "automatic_acceptance_blocked_by_candidate_relation",
+            "candidate_relation:ALTERNATIVE",
+            "alternative_values_require_user_choice"
           ]
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.0017037999932654202,
-      "complete_success": false,
+      "latency_s": 0.004748600069433451,
+      "complete_success": true,
       "safety": "ambiguity"
     },
     {
@@ -4170,23 +4254,10 @@
       "expected_scope": "NEW_REQUIREMENT",
       "actual_scope": "NEW_REQUIREMENT",
       "gold_outputs": [],
-      "predicted_verified_outputs": [
-        {
-          "field": "max_file_size_gb",
-          "value": 40,
-          "unit": "GB",
-          "role": "maximum_limit"
-        },
-        {
-          "field": "max_file_size_gb",
-          "value": 60,
-          "unit": "GB",
-          "role": "maximum_limit"
-        }
-      ],
+      "predicted_verified_outputs": [],
       "decisions": [
         {
-          "status": "VERIFIED",
+          "status": "AMBIGUOUS",
           "quantity_id": "q1",
           "field": "max_file_size_gb",
           "role": "maximum_limit",
@@ -4198,11 +4269,14 @@
             "field_role_valid",
             "evidence_supported",
             "value_valid",
-            "unit_normalized"
+            "unit_normalized",
+            "automatic_acceptance_blocked_by_candidate_relation",
+            "candidate_relation:ALTERNATIVE",
+            "alternative_values_require_user_choice"
           ]
         },
         {
-          "status": "VERIFIED",
+          "status": "AMBIGUOUS",
           "quantity_id": "q2",
           "field": "max_file_size_gb",
           "role": "maximum_limit",
@@ -4214,13 +4288,16 @@
             "field_role_valid",
             "evidence_supported",
             "value_valid",
-            "unit_normalized"
+            "unit_normalized",
+            "automatic_acceptance_blocked_by_candidate_relation",
+            "candidate_relation:ALTERNATIVE",
+            "alternative_values_require_user_choice"
           ]
         }
       ],
       "llm_calls": 0,
-      "latency_s": 0.08948530000634491,
-      "complete_success": false,
+      "latency_s": 0.0038237000117078424,
+      "complete_success": true,
       "safety": "ambiguity"
     },
     {
@@ -4234,20 +4311,25 @@
       "predicted_verified_outputs": [],
       "decisions": [
         {
-          "status": "UNRESOLVED",
+          "status": "AMBIGUOUS",
           "quantity_id": "q1",
-          "field": null,
-          "role": null,
+          "field": "read_write_ratio",
+          "role": "ratio_component",
           "value": 70,
           "unit": "%",
-          "evidence": "",
+          "evidence": "The workload is 70% read.",
           "reasons": [
-            "no_semantic_link"
+            "field_dimension_valid",
+            "field_role_valid",
+            "evidence_supported",
+            "value_valid",
+            "unit_normalized",
+            "incomplete_read_write_ratio_requires_both_components"
           ]
         }
       ],
-      "llm_calls": 1,
-      "latency_s": 23.054982399975415,
+      "llm_calls": 0,
+      "latency_s": 0.0920302999438718,
       "complete_success": true,
       "safety": "ambiguity"
     },
@@ -4275,7 +4357,7 @@
         }
       ],
       "llm_calls": 1,
-      "latency_s": 33.42352700000629,
+      "latency_s": 24.14498359989375,
       "complete_success": true,
       "safety": "ambiguity"
     },
@@ -4290,7 +4372,7 @@
       "predicted_verified_outputs": [],
       "decisions": [],
       "llm_calls": 0,
-      "latency_s": 0.000159399991389364,
+      "latency_s": 0.000317899975925684,
       "complete_success": true,
       "safety": "out_of_scope"
     },
@@ -4305,7 +4387,7 @@
       "predicted_verified_outputs": [],
       "decisions": [],
       "llm_calls": 0,
-      "latency_s": 8.049997268244624e-05,
+      "latency_s": 0.00014619994908571243,
       "complete_success": true,
       "safety": "out_of_scope"
     },
@@ -4320,7 +4402,7 @@
       "predicted_verified_outputs": [],
       "decisions": [],
       "llm_calls": 0,
-      "latency_s": 7.589999586343765e-05,
+      "latency_s": 9.96000599116087e-05,
       "complete_success": true,
       "safety": "out_of_scope"
     },
@@ -4335,7 +4417,7 @@
       "predicted_verified_outputs": [],
       "decisions": [],
       "llm_calls": 0,
-      "latency_s": 9.649997809901834e-05,
+      "latency_s": 8.719996549189091e-05,
       "complete_success": true,
       "safety": "out_of_scope"
     },
@@ -4350,7 +4432,7 @@
       "predicted_verified_outputs": [],
       "decisions": [],
       "llm_calls": 0,
-      "latency_s": 4.989997250959277e-05,
+      "latency_s": 0.00010790000669658184,
       "complete_success": true,
       "safety": "out_of_scope"
     },
@@ -4365,7 +4447,7 @@
       "predicted_verified_outputs": [],
       "decisions": [],
       "llm_calls": 0,
-      "latency_s": 6.150000263005495e-05,
+      "latency_s": 0.00010629999451339245,
       "complete_success": true,
       "safety": "out_of_scope"
     },
@@ -4380,7 +4462,7 @@
       "predicted_verified_outputs": [],
       "decisions": [],
       "llm_calls": 0,
-      "latency_s": 4.67000063508749e-05,
+      "latency_s": 8.5500068962574e-05,
       "complete_success": true,
       "safety": "out_of_scope"
     },
@@ -4395,20 +4477,20 @@
       "predicted_verified_outputs": [],
       "decisions": [],
       "llm_calls": 0,
-      "latency_s": 5.830003647133708e-05,
+      "latency_s": 0.00023180001880973577,
       "complete_success": true,
       "safety": "out_of_scope"
     }
   ],
-  "benchmark_note": "Preserved first execution of the 96-message quantity-only end-to-end holdout. This is the independent_first_run result. Later runs on the same 96 messages after inspecting failures must be reported as regression runs.",
+  "benchmark_note": "Regression execution on the preserved 96-message quantity-only E2E holdout after implementation changes informed by earlier holdout failures. This run must be reported as regression_after_holdout_inspection, not as a new independent holdout. Metrics and predictions are unchanged by this metadata finalization.",
   "evaluation_metadata": {
     "dataset_path": "requirement_extractor_v2/evaluation/datasets/quantity_e2e_holdout_v1.jsonl",
     "dataset_name": "quantity_e2e_holdout_v1.jsonl",
     "n_messages": 96,
     "evaluation_role": "quantity_e2e_holdout",
-    "run_kind": "independent_first_run",
-    "independent_holdout_claim": true,
-    "metadata_revision": "step1_6_v2_holdout_first_run_label",
+    "run_kind": "regression_after_holdout_inspection",
+    "independent_holdout_claim": false,
+    "metadata_revision": "step1_6_v2_holdout_regression_label",
     "metrics_recomputed": false
   }
 }

@@ -3,63 +3,94 @@ from __future__ import annotations
 import json
 import os
 import re
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 from dotenv import load_dotenv
 
 from .models import (
     ParamName,
     Quantity,
+    QuantityDimension,
     SemanticLink,
     SemanticRole,
 )
-
 from .semantic_linker.compatibility import (
     allowed_fields_for_dimension,
     allowed_roles_for_field,
     is_valid_field_role_pair,
 )
-
 from .semantic_linker.labels import SemanticField
 
 
 class LLMFallbackExtractor:
     """
-    Fallback LLM sélectif de Requirement Extractor V2.
+    Guarded selective LLM fallback for Requirement Extractor V2.
 
-    V2.1 strategy
-    -------------
-    This version keeps the successful Prompt V2 semantic guide, while adding
-    only targeted deterministic protections/corrections discovered during the
-    regression benchmark:
+    Step 1.5 design
+    ----------------
+    The QuantityScanner has already detected the quantity. The LLM is NEVER
+    responsible for extracting, correcting, replacing, converting or inventing
+    the numerical value.
 
-    - explicit ambiguity guard before the LLM call;
-    - deterministic role canonicalization for fields that have one concrete
-      business role;
-    - conservative power-role repair from explicit lexical cues;
-    - previous-question support remains semantic context only;
-    - evidence must always come from the current user message.
+    The LLM has only two possible actions:
 
-    Responsibility
-    --------------
-    QuantityScanner has already detected the quantity and its value.
+        RESOLVE -> classify the already-detected quantity as FIELD + ROLE
+        ABSTAIN -> return no semantic link
 
-    The LLM MUST NOT:
-    - extract another value;
-    - change the detected value;
-    - convert the unit;
-    - invent a Requirement field;
-    - bypass compatibility rules;
-    - make the final business decision.
+    The deterministic pipeline remains authoritative:
+    - the LLM cannot change Quantity.value;
+    - the LLM cannot change Quantity.unit;
+    - FIELD must be compatible with Quantity.dimension;
+    - ROLE must be compatible with FIELD;
+    - evidence must be an exact substring of the current user message;
+    - evidence must contain the already-detected quantity;
+    - explicit ambiguity forces abstention;
+    - malformed or unsupported model output forces abstention.
 
-    The LLM ONLY proposes:
-
-        Quantity
-            ↓
-        FIELD + ROLE
-
-    The DeterministicVerifier remains the final authority.
+    The prompt is intentionally robust to noisy language. A spelling error in
+    the semantic noun (for example "endponts" for "endpoints") may still be
+    interpreted when the surrounding sentence strongly identifies one field.
+    In contrast, vague unitless statements such as "The limit is 20" must
+    remain unresolved.
     """
+
+    _EXPLICIT_AMBIGUITY_PATTERNS = (
+        r"\bnot clear whether\b",
+        r"\bunclear whether\b",
+        r"\bwithout saying whether\b",
+        r"\bwithout specifying whether\b",
+        r"\bwithout indicating whether\b",
+        r"\bdoes not say whether\b",
+        r"\bdoes not specify whether\b",
+        r"\bdoes not indicate whether\b",
+        r"\bwithout saying if\b",
+        r"\bsans préciser\b",
+        r"\bsans indiquer\b",
+        r"\bsans dire\b",
+        r"\bne précise pas si\b",
+        r"\bne précise pas s'il\b",
+        r"\bne précise pas s’elle\b",
+        r"\bne précise pas s'elle\b",
+        r"\bpas clair si\b",
+    )
+
+    # Once these fields are correct, the concrete business role is fixed by
+    # the current Requirement Contract. The LLM therefore does not need to
+    # invent or debate a role for them.
+    _CANONICAL_ROLE_BY_FIELD = {
+        SemanticField.CLIENT_COUNT:
+            SemanticRole.TOTAL_COUNT,
+        SemanticField.TOTAL_FILE_COUNT:
+            SemanticRole.TOTAL_COUNT,
+        SemanticField.AVERAGE_FILE_SIZE_GB:
+            SemanticRole.AVERAGE_VALUE,
+        SemanticField.MAX_FILE_SIZE_GB:
+            SemanticRole.MAXIMUM_LIMIT,
+        SemanticField.READ_WRITE_RATIO:
+            SemanticRole.RATIO_COMPONENT,
+        SemanticField.ANNUAL_GROWTH_PERCENT:
+            SemanticRole.GROWTH_RATE,
+    }
 
     def __init__(
         self,
@@ -67,7 +98,6 @@ class LLMFallbackExtractor:
         host: Optional[str] = None,
         model: Optional[str] = None,
     ) -> None:
-
         load_dotenv()
 
         env_enabled = (
@@ -103,44 +133,75 @@ class LLMFallbackExtractor:
         )
 
         self.call_count = 0
-        self.call_log = []
+        self.call_log: List[Dict[str, Any]] = []
 
-    # ================================================================
-    # TEXT / EVIDENCE SAFETY
-    # ================================================================
+    # ==================================================================
+    # Generic helpers
+    # ==================================================================
 
     @staticmethod
     def _normalize_spaces(
         text: str,
     ) -> str:
         return " ".join(
-            (text or "").strip().split()
+            (text or "")
+            .strip()
+            .split()
         )
 
     @staticmethod
     def _clean_evidence(
         evidence: str,
     ) -> str:
-        """
-        Remove internal [Q] markers before validating evidence.
-        """
-
         return (
             (evidence or "")
-            .replace("[Q]", "")
-            .replace("[/Q]", "")
+            .replace(
+                "[Q]",
+                "",
+            )
+            .replace(
+                "[/Q]",
+                "",
+            )
             .strip()
         )
+
+    @staticmethod
+    def _record_payload_copy(
+        data: Dict[str, Any],
+    ) -> Dict[str, Any]:
+        """
+        Keep logs JSON-serializable and detached from mutable model output.
+        """
+        try:
+            return json.loads(
+                json.dumps(
+                    data,
+                    ensure_ascii=False,
+                )
+            )
+        except Exception:
+            return {
+                "raw": str(data),
+            }
+
+    def _record(
+        self,
+        **data: Any,
+    ) -> None:
+        self.call_log.append(
+            data
+        )
+
+    # ==================================================================
+    # Evidence safety
+    # ==================================================================
 
     def _evidence_is_supported(
         self,
         evidence: str,
         user_text: str,
     ) -> bool:
-        """
-        Evidence must really come from the current user text.
-        """
-
         if not evidence:
             return False
 
@@ -160,6 +221,8 @@ class LLMFallbackExtractor:
         )
 
         return (
+            bool(evidence_norm)
+            and
             evidence_norm
             in text_norm
         )
@@ -169,14 +232,13 @@ class LLMFallbackExtractor:
         evidence: str,
         quantity: Quantity,
     ) -> bool:
-        """
-        Evidence must contain the target Quantity raw span.
-        """
-
         if not evidence:
             return False
 
-        raw = quantity.raw.strip()
+        raw = (
+            quantity.raw
+            or ""
+        ).strip()
 
         if not raw:
             return False
@@ -185,38 +247,47 @@ class LLMFallbackExtractor:
             return True
 
         return (
-            self._normalize_spaces(raw)
-            in self._normalize_spaces(
+            self._normalize_spaces(
+                raw
+            )
+            in
+            self._normalize_spaces(
                 evidence
             )
         )
 
-    # ================================================================
-    # TARGET MARKING
-    # ================================================================
+    # ==================================================================
+    # Quantity marking
+    # ==================================================================
 
     @staticmethod
     def _mark_target_quantity(
         user_text: str,
         quantity: Quantity,
     ) -> str:
-        """
-        Mark only the target quantity with [Q] ... [/Q].
-        """
-
-        start = quantity.start
-        end = quantity.end
+        start = int(
+            quantity.start
+        )
+        end = int(
+            quantity.end
+        )
 
         if (
-            0 <= start < end <= len(user_text)
+            0 <= start < end <= len(
+                user_text
+            )
             and
-            user_text[start:end]
+            user_text[
+                start:end
+            ]
             == quantity.raw
         ):
             return (
                 user_text[:start]
                 + "[Q]"
-                + user_text[start:end]
+                + user_text[
+                    start:end
+                ]
                 + "[/Q]"
                 + user_text[end:]
             )
@@ -228,7 +299,9 @@ class LLMFallbackExtractor:
         if index >= 0:
             end_index = (
                 index
-                + len(quantity.raw)
+                + len(
+                    quantity.raw
+                )
             )
 
             return (
@@ -238,109 +311,25 @@ class LLMFallbackExtractor:
                     index:end_index
                 ]
                 + "[/Q]"
-                + user_text[end_index:]
+                + user_text[
+                    end_index:
+                ]
             )
 
         return user_text
 
-    # ================================================================
-    # COMPATIBILITY
-    # ================================================================
-
-    @staticmethod
-    def _build_allowed_pairs(
-        quantity: Quantity,
-    ) -> list[Dict[str, str]]:
-        """
-        Build exactly the FIELD/ROLE pairs allowed by the deterministic
-        compatibility rules used by the Semantic Linker.
-        """
-
-        pairs: list[
-            Dict[str, str]
-        ] = []
-
-        allowed_fields = (
-            allowed_fields_for_dimension(
-                quantity.dimension
-            )
-        )
-
-        for field in allowed_fields:
-
-            roles = (
-                allowed_roles_for_field(
-                    field
-                )
-            )
-
-            for role in roles:
-                pairs.append(
-                    {
-                        "field": field.value,
-                        "role": role.value,
-                    }
-                )
-
-        return pairs
-
-    # ================================================================
-    # V2.1 TARGETED SAFETY / ROLE REPAIR
-    # ================================================================
-
-    _EXPLICIT_AMBIGUITY_PATTERNS = (
-        r"\bnot clear whether\b",
-        r"\bunclear whether\b",
-        r"\bwithout saying whether\b",
-        r"\bwithout specifying whether\b",
-        r"\bwithout indicating whether\b",
-        r"\bdoes not say whether\b",
-        r"\bdoes not specify whether\b",
-        r"\bdoes not indicate whether\b",
-        r"\bwithout saying if\b",
-        r"\bsans préciser\b",
-        r"\bsans indiquer\b",
-        r"\bsans dire\b",
-        r"\bne précise pas si\b",
-        r"\bne précise pas s'il\b",
-        r"\bne précise pas s’elle\b",
-        r"\bne précise pas s'elle\b",
-        r"\bpas clair si\b",
-    )
-
-    # Fields for which the concrete business role is deterministic once
-    # the FIELD is correct.
-    _CANONICAL_ROLE_BY_FIELD = {
-        SemanticField.CLIENT_COUNT:
-            SemanticRole.TOTAL_COUNT,
-
-        SemanticField.TOTAL_FILE_COUNT:
-            SemanticRole.TOTAL_COUNT,
-
-        SemanticField.AVERAGE_FILE_SIZE_GB:
-            SemanticRole.AVERAGE_VALUE,
-
-        SemanticField.MAX_FILE_SIZE_GB:
-            SemanticRole.MAXIMUM_LIMIT,
-
-        SemanticField.READ_WRITE_RATIO:
-            SemanticRole.RATIO_COMPONENT,
-
-        SemanticField.ANNUAL_GROWTH_PERCENT:
-            SemanticRole.GROWTH_RATE,
-    }
+    # ==================================================================
+    # Deterministic ambiguity guard
+    # ==================================================================
 
     @classmethod
     def _has_explicit_ambiguity(
         cls,
         text: str,
     ) -> bool:
-        """
-        Explicit user-stated ambiguity must always win over LLM guessing.
-        """
-
         normalized = (
-            cls._normalize_spaces(
+            cls
+            ._normalize_spaces(
                 text
             )
             .casefold()
@@ -357,36 +346,115 @@ class LLMFallbackExtractor:
             in cls._EXPLICIT_AMBIGUITY_PATTERNS
         )
 
+    # ==================================================================
+    # Compatibility helpers
+    # ==================================================================
+
     @classmethod
     def _canonical_role_for_field(
         cls,
         field: SemanticField,
-    ) -> Optional[SemanticRole]:
-        """
-        Return a deterministic role only when the selected FIELD has one
-        concrete business role in the current contract.
-        """
-
+    ) -> Optional[
+        SemanticRole
+    ]:
         return (
             cls
             ._CANONICAL_ROLE_BY_FIELD
-            .get(field)
+            .get(
+                field
+            )
         )
+
+    @classmethod
+    def _build_prompt_pairs(
+        cls,
+        quantity: Quantity,
+    ) -> List[
+        Dict[str, str]
+    ]:
+        """
+        Build a compact candidate space for the LLM.
+
+        Important differences from the old prompt:
+        - __UNRESOLVED__ is NOT mixed with normal fields. Abstention is a
+          separate decision.
+        - UNSPECIFIED is omitted when a concrete business role is available.
+          If the role is truly unclear, the model should ABSTAIN instead of
+          returning a vague role.
+        - canonical single-role fields expose only their canonical role.
+
+        This reduces prompt noise, especially for QuantityDimension.UNKNOWN,
+        where every quantitative field is otherwise technically available.
+        """
+        pairs: List[
+            Dict[str, str]
+        ] = []
+
+        for field in (
+            allowed_fields_for_dimension(
+                quantity.dimension
+            )
+        ):
+            if (
+                field
+                is SemanticField.UNRESOLVED
+            ):
+                continue
+
+            canonical = (
+                cls
+                ._canonical_role_for_field(
+                    field
+                )
+            )
+
+            if canonical is not None:
+                pairs.append(
+                    {
+                        "field":
+                            field.value,
+                        "role":
+                            canonical.value,
+                    }
+                )
+                continue
+
+            concrete_roles = [
+                role
+                for role
+                in allowed_roles_for_field(
+                    field
+                )
+                if (
+                    role
+                    is not
+                    SemanticRole.UNSPECIFIED
+                )
+            ]
+
+            for role in concrete_roles:
+                pairs.append(
+                    {
+                        "field":
+                            field.value,
+                        "role":
+                            role.value,
+                    }
+                )
+
+        return pairs
 
     @staticmethod
     def _repair_power_role_from_text(
         user_text: str,
         field: SemanticField,
-    ) -> Optional[SemanticRole]:
-        """
-        Conservative lexical repair for max_power_w only.
-
-        We repair only when the current user text contains an explicit cue.
-        """
-
+    ) -> Optional[
+        SemanticRole
+    ]:
         if (
             field
-            is not SemanticField.MAX_POWER_W
+            is not
+            SemanticField.MAX_POWER_W
         ):
             return None
 
@@ -412,6 +480,7 @@ class LLMFallbackExtractor:
             r"\bne doit pas dépasser\b",
             r"\bplafond\b",
             r"\bmaximale\b",
+            r"\bmaximum\b",
         )
 
         current_patterns = (
@@ -447,7 +516,8 @@ class LLMFallbackExtractor:
             in maximum_patterns
         ):
             return (
-                SemanticRole.MAXIMUM_LIMIT
+                SemanticRole
+                .MAXIMUM_LIMIT
             )
 
         if any(
@@ -460,7 +530,8 @@ class LLMFallbackExtractor:
             in current_patterns
         ):
             return (
-                SemanticRole.CURRENT_VALUE
+                SemanticRole
+                .CURRENT_VALUE
             )
 
         if any(
@@ -473,298 +544,651 @@ class LLMFallbackExtractor:
             in expected_patterns
         ):
             return (
-                SemanticRole.EXPECTED_VALUE
+                SemanticRole
+                .EXPECTED_VALUE
             )
 
         return None
 
-    # ================================================================
-    # LOGGING
-    # ================================================================
+    # ==================================================================
+    # Prompt construction
+    # ==================================================================
 
-    def _record(
-        self,
-        **data: Any,
-    ) -> None:
-        self.call_log.append(
-            data
-        )
+    @staticmethod
+    def _system_prompt() -> str:
+        return """
+You are the final SEMANTIC CLASSIFIER in a guarded Lustre requirement
+extraction pipeline.
 
-    # ================================================================
-    # MAIN V2 API
-    # ================================================================
+A deterministic scanner has ALREADY detected the target quantity.
+You are NOT a quantity extractor.
 
-    def resolve_quantity(
+You have exactly two actions:
+1. RESOLVE: identify the FIELD and ROLE of the marked quantity.
+2. ABSTAIN: use when the message does not provide enough semantic evidence.
+
+STRICT SAFETY CONTRACT
+----------------------
+- NEVER invent a number.
+- NEVER extract a different number.
+- NEVER change the detected number.
+- NEVER infer, repair, add, convert or replace a unit.
+- NEVER output a numerical value or unit.
+- NEVER use world knowledge to create a missing requirement.
+- Classify ONLY the quantity marked [Q]...[/Q].
+- Evidence must be copied exactly from the CURRENT user text.
+- Evidence must contain the target quantity.
+- A previous question may help understand a short answer, but it is never
+  evidence.
+
+ROBUST LANGUAGE RULE
+--------------------
+The user may make spelling mistakes in ordinary semantic words.
+A small, obvious typo in a semantic noun may still identify a field when the
+whole sentence strongly supports ONE interpretation.
+
+Examples:
+- "endponts" can clearly be a misspelling of "endpoints".
+- "clents" can clearly be a misspelling of "clients".
+- "objcts" can clearly be a misspelling of "objects".
+
+Do NOT correct the user's text in evidence. Quote the original typo exactly.
+
+CRITICAL DISTINCTION
+--------------------
+UNKNOWN quantity dimension does NOT automatically mean ABSTAIN.
+Many legitimate counts have no unit.
+
+Example:
+"About [Q]120[/Q] endponts will connect."
+The noun "endponts" strongly identifies a client/end-point count, so resolve it.
+
+But a bare quantity with generic wording has no field evidence:
+"The limit is [Q]20[/Q]."
+"Set it to [Q]50[/Q]."
+"Around [Q]200[/Q] should be enough."
+These MUST be ABSTAIN.
+
+If two or more fields remain genuinely plausible, ABSTAIN.
+
+Return valid JSON only.
+""".strip()
+
+    @staticmethod
+    def _semantic_guide() -> str:
+        return """
+FIELD GUIDE
+-----------
+requested_usable_capacity_tib
+  usable/requested/target storage capacity or storage footprint.
+
+client_count
+  clients, hosts, endpoints, compute nodes, machines or nodes connecting to,
+  mounting or accessing Lustre.
+
+average_file_size_gb
+  average, typical, representative, usual file/object size.
+
+max_file_size_gb
+  maximum/largest file size, file-size cap or ceiling.
+
+total_file_count
+  number of files, objects, inodes or namespace objects.
+
+read_write_ratio
+  read/write mix or one explicit component of that mix.
+
+target_read_gbps
+  read/re-read/restore/restart bandwidth; data delivered FROM storage TO
+  clients/jobs.
+
+target_write_gbps
+  write/checkpoint/ingest bandwidth; data sent FROM clients/jobs INTO storage.
+
+max_budget_usd
+  budget, spending/cost ceiling or maximum allowed cost.
+
+max_power_w
+  power envelope/consumption/limit.
+
+annual_growth_percent
+  annual/year-over-year storage growth.
+
+ROLE GUIDE
+----------
+total_count
+  number of clients/hosts/endpoints/files/objects.
+
+average_value
+  average/typical/representative value.
+
+maximum_limit
+  maximum/cap/ceiling/must-not-exceed.
+
+minimum_limit
+  minimum/at-least/must-provide-at-least.
+
+target
+  target/planned/sustain/should-deliver requirement.
+
+current_value
+  current/observed/measured value.
+
+expected_value
+  expected/projected/nominal value.
+
+growth_rate
+  annual/year-over-year growth.
+
+ratio_component
+  one component of the read/write mix.
+""".strip()
+
+    @staticmethod
+    def _few_shot_messages() -> List[
+        Dict[str, str]
+    ]:
+        """
+        Deliberately tiny set of contrasted examples.
+
+        The first example is the exact failure mode observed in Step 1.4:
+        a misspelled semantic noun with a safe unitless count.
+
+        The second and third examples teach abstention on vague unitless
+        numbers, preventing the model from inventing a field.
+        """
+        return [
+            {
+                "role": "user",
+                "content": (
+                    "EXAMPLE INPUT\n"
+                    "Target metadata: "
+                    '{"raw":"120","value":120,"unit":null,'
+                    '"dimension":"unknown"}\n'
+                    "User text: Around [Q]120[/Q] endponts will connect.\n"
+                    "Allowed candidates include "
+                    '{"field":"client_count","role":"total_count"}.\n'
+                    "Classify the marked quantity."
+                ),
+            },
+            {
+                "role": "assistant",
+                "content": json.dumps(
+                    {
+                        "decision":
+                            "RESOLVE",
+                        "field":
+                            "client_count",
+                        "role":
+                            "total_count",
+                        "evidence":
+                            "120 endponts",
+                        "reason":
+                            (
+                                "The misspelled noun "
+                                "'endponts' clearly denotes "
+                                "endpoints/clients in context."
+                            ),
+                    },
+                    ensure_ascii=False,
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    "EXAMPLE INPUT\n"
+                    "Target metadata: "
+                    '{"raw":"20","value":20,"unit":null,'
+                    '"dimension":"unknown"}\n'
+                    "User text: The limit is [Q]20[/Q].\n"
+                    "Classify the marked quantity."
+                ),
+            },
+            {
+                "role": "assistant",
+                "content": json.dumps(
+                    {
+                        "decision":
+                            "ABSTAIN",
+                        "field":
+                            None,
+                        "role":
+                            None,
+                        "evidence":
+                            "",
+                        "reason":
+                            (
+                                "The message contains no semantic "
+                                "noun identifying what 20 represents."
+                            ),
+                    },
+                    ensure_ascii=False,
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    "EXAMPLE INPUT\n"
+                    "Target metadata: "
+                    '{"raw":"200","value":200,"unit":null,'
+                    '"dimension":"unknown"}\n'
+                    "User text: Around [Q]200[/Q] should be enough.\n"
+                    "Classify the marked quantity."
+                ),
+            },
+            {
+                "role": "assistant",
+                "content": json.dumps(
+                    {
+                        "decision":
+                            "ABSTAIN",
+                        "field":
+                            None,
+                        "role":
+                            None,
+                        "evidence":
+                            "",
+                        "reason":
+                            (
+                                "The quantity is present but its "
+                                "business meaning is unspecified."
+                            ),
+                    },
+                    ensure_ascii=False,
+                ),
+            },
+        ]
+
+    def _build_user_prompt(
         self,
         user_text: str,
         quantity: Quantity,
-        previous_question: Optional[str] = None,
-    ) -> Optional[SemanticLink]:
-        """
-        Resolve one already-detected Quantity into FIELD + ROLE.
-
-        Returns:
-            SemanticLink if the LLM proposes a safe compatible mapping.
-
-            None if disabled, uncertain, invalid, hallucinated,
-            incompatible, explicitly ambiguous or if the LLM fails.
-        """
-
-        # ------------------------------------------------------------
-        # 1. Fallback disabled
-        # ------------------------------------------------------------
-
-        if not self.enabled:
-
-            self._record(
-                quantity_id=quantity.id,
-                status="disabled",
-            )
-
-            return None
-
-        # ------------------------------------------------------------
-        # 2. Explicit ambiguity deterministic guard
-        # ------------------------------------------------------------
-
-        if self._has_explicit_ambiguity(
-            user_text
-        ):
-
-            self._record(
-                quantity_id=quantity.id,
-                status=(
-                    "explicit_ambiguity_abstention"
-                ),
-                reason=(
-                    "The current user text explicitly states that "
-                    "the semantic interpretation is ambiguous."
-                ),
-            )
-
-            return None
-
-        # ------------------------------------------------------------
-        # 3. Ollama dependency
-        # ------------------------------------------------------------
-
-        try:
-            from ollama import Client
-
-        except Exception as exc:
-
-            self._record(
-                quantity_id=quantity.id,
-                status="ollama_import_error",
-                error=str(exc),
-            )
-
-            return None
-
-        # ------------------------------------------------------------
-        # 4. Compatibility space
-        # ------------------------------------------------------------
-
-        allowed_fields = (
-            allowed_fields_for_dimension(
-                quantity.dimension
-            )
-        )
-
-        allowed_pairs = (
-            self._build_allowed_pairs(
-                quantity
-            )
-        )
-
+        previous_question: Optional[
+            str
+        ],
+        prompt_pairs: List[
+            Dict[str, str]
+        ],
+    ) -> str:
         marked_text = (
-            self._mark_target_quantity(
+            self
+            ._mark_target_quantity(
                 user_text=user_text,
                 quantity=quantity,
             )
         )
 
-        # ------------------------------------------------------------
-        # 5. Prompt metadata/context
-        # ------------------------------------------------------------
-
         quantity_info = {
-            "id": quantity.id,
-            "raw": quantity.raw,
-            "normalized":
-                quantity.normalized,
-            "value": quantity.value,
-            "unit": quantity.unit,
+            "id":
+                quantity.id,
+            "raw":
+                quantity.raw,
+            "value":
+                quantity.value,
+            "unit":
+                quantity.unit,
             "dimension":
                 quantity.dimension.value,
             "corrected":
-                quantity.corrected,
+                bool(
+                    quantity.corrected
+                ),
         }
 
-        previous_context = ""
-
-        if previous_question:
-            previous_context = (
-                "\nPrevious clarification question "
-                "(semantic context only; it MAY determine FIELD/ROLE "
-                "for a short answer, but NEVER use it as evidence):\n"
-                f"{previous_question}\n"
-            )
-
-        # ------------------------------------------------------------
-        # 6. Successful Prompt V2 semantic guide — preserved
-        # ------------------------------------------------------------
-
-        semantic_guide = """
-Semantic mapping guide
-----------------------
-Map natural language to the internal labels. The user does NOT need to
-literally say the FIELD or ROLE name.
-
-FIELD cues:
-- client_count:
-  clients, hosts, endpoints, compute nodes, machines mounting/accessing Lustre.
-- total_file_count:
-  files, objects, inodes, namespace object count.
-- average_file_size_gb:
-  average, typical, usual, representative, normal file/object size.
-- max_file_size_gb:
-  maximum, largest, capped, ceiling, must not exceed, no file above.
-- target_read_gbps:
-  reads, restore/restart, re-reading, storage delivering data to clients,
-  data flowing FROM storage TO clients.
-- target_write_gbps:
-  writes, checkpoints written to Lustre, ingestion into Lustre,
-  data flowing FROM clients/jobs TO storage.
-- requested_usable_capacity_tib:
-  usable/visible/requested/target storage capacity or namespace capacity.
-- max_budget_usd:
-  budget, spend, cost ceiling, must remain under.
-- max_power_w:
-  power envelope, power consumption, watts/kW/MW.
-- annual_growth_percent:
-  annual/year-over-year growth or expansion.
-- read_write_ratio:
-  read/write mix or a read/write percentage component.
-
-ROLE cues:
-- total_count:
-  number/count of clients, hosts, files, objects or inodes.
-- average_value:
-  typical, usual, representative, average.
-- maximum_limit:
-  maximum, cap, ceiling, under, no more than, must not exceed.
-- minimum_limit:
-  minimum, at least, not below, must provide at least.
-- target:
-  target, aim, should sustain/reach/deliver, planned requirement.
-- current_value:
-  current/currently observed or available value.
-- expected_value:
-  expected/projected/nominal value, especially expected power consumption.
-- growth_rate:
-  annual/year-over-year growth.
-- ratio_component:
-  component of the read/write mix.
-- unspecified:
-  use only when FIELD is clear but ROLE truly cannot be determined.
-
-Direction rules for throughput:
-- FROM storage TO clients / restore / restart / read/re-read
-  => target_read_gbps.
-- INTO Lustre / checkpoint writes / ingestion / writes
-  => target_write_gbps.
-
-Power role rules:
-- capped / maximum / ceiling / must not exceed
-  => maximum_limit.
-- current / observed
-  => current_value.
-- expected / projected / nominal / should consume approximately
-  => expected_value.
-- Do NOT use role "target" for max_power_w.
-
-Context rule:
-A previous clarification question MAY determine FIELD/ROLE for a short answer
-such as "320", "18 kW", or "42 GB/s". It is semantic context only.
-Evidence must still be copied ONLY from the current user text.
-
-Abstention rule:
-Choose __UNRESOLVED__ only when the text plus optional previous question
-still leaves two or more allowed interpretations genuinely plausible.
-Do NOT abstain merely because the user did not literally use an internal
-FIELD or ROLE label.
-
-Exact-label rule:
-FIELD and ROLE strings must be copied exactly from the allowed FIELD/ROLE
-pairs. Never invent labels such as "representative_value".
-""".strip()
-
-        # ------------------------------------------------------------
-        # 7. User prompt
-        # ------------------------------------------------------------
-
-        user_prompt = (
-            "You are the LAST semantic fallback of a guarded "
-            "requirement extraction pipeline.\n\n"
-
-            "A deterministic QuantityScanner has ALREADY extracted "
-            "the target quantity.\n"
-            "DO NOT extract another number.\n"
-            "DO NOT modify its value.\n"
-            "DO NOT convert its unit.\n"
-            "DO NOT invent information.\n\n"
-
-            "Your ONLY task is to decide which FIELD and semantic ROLE "
-            "the marked target quantity refers to.\n\n"
-
-            "The target quantity is marked with [Q] and [/Q].\n\n"
-
-            f"Target quantity metadata:\n"
-            f"{json.dumps(quantity_info, ensure_ascii=False)}\n\n"
-
-            f"User text:\n"
-            f"{marked_text}\n"
-
-            f"{previous_context}\n"
-
-            f"{semantic_guide}\n\n"
-
-            "You MUST choose exactly one of the following allowed "
-            "FIELD/ROLE pairs:\n"
-            f"{json.dumps(allowed_pairs, ensure_ascii=False)}\n\n"
-
-            "Safety rules:\n"
-            "1. Choose ONLY one allowed FIELD/ROLE pair.\n"
-            "2. FIELD and ROLE strings MUST be copied exactly from "
-            "the allowed pairs.\n"
-            "3. First apply the semantic mapping guide to natural-language "
-            "cues.\n"
-            "4. Choose __UNRESOLVED__ only when multiple allowed "
-            "interpretations remain genuinely plausible.\n"
-            "5. If the user explicitly says the meaning is unclear or "
-            "ambiguous, choose __UNRESOLVED__.\n"
-            "6. Evidence must be copied from the ORIGINAL USER TEXT only.\n"
-            "7. Evidence must contain the target quantity itself.\n"
-            "8. NEVER include [Q] or [/Q] markers in evidence.\n"
-            "9. The previous clarification question may be used only as "
-            "semantic context and never as evidence.\n"
-            "10. Do not return a value or unit; they already exist.\n"
-            "11. Return JSON only.\n\n"
-
-            "Required JSON format:\n"
-            "{\n"
-            '  "field": "client_count",\n'
-            '  "role": "total_count",\n'
-            '  "evidence": "200 hosts",\n'
-            '  "reason": "short explanation"\n'
-            "}\n"
+        previous_context = (
+            previous_question
+            if previous_question
+            else None
         )
 
-        # ------------------------------------------------------------
-        # 8. Actual LLM call
-        # ------------------------------------------------------------
+        return (
+            "REAL INPUT\n"
+            "==========\n"
+            "Already-detected target metadata:\n"
+            f"{json.dumps(quantity_info, ensure_ascii=False)}\n\n"
 
+            "Current user text:\n"
+            f"{marked_text}\n\n"
+
+            "Previous clarification question "
+            "(semantic context only, never evidence):\n"
+            f"{json.dumps(previous_context, ensure_ascii=False)}\n\n"
+
+            f"{self._semantic_guide()}\n\n"
+
+            "ALLOWED RESOLUTION CANDIDATES\n"
+            "-----------------------------\n"
+            f"{json.dumps(prompt_pairs, ensure_ascii=False)}\n\n"
+
+            "DECISION PROCEDURE\n"
+            "------------------\n"
+            "1. Ignore the numerical magnitude when deciding FIELD. "
+            "Use the surrounding words and sentence relation.\n"
+            "2. Check whether one candidate is clearly supported by a "
+            "semantic noun/phrase, including an obvious spelling error.\n"
+            "3. If exactly one candidate is strongly supported, RESOLVE.\n"
+            "4. If no field-specific semantic cue exists, ABSTAIN.\n"
+            "5. If more than one field remains plausible, ABSTAIN.\n"
+            "6. Never create or infer a missing value or unit.\n"
+            "7. For RESOLVE, evidence must be the shortest exact substring "
+            "of CURRENT user text that contains both the target quantity "
+            "and the semantic cue.\n"
+            "8. Do not copy [Q] or [/Q] into evidence.\n\n"
+
+            "OUTPUT JSON\n"
+            "-----------\n"
+            "For RESOLVE:\n"
+            "{\n"
+            '  "decision": "RESOLVE",\n'
+            '  "field": "<exact allowed field>",\n'
+            '  "role": "<exact allowed role>",\n'
+            '  "evidence": "<exact substring of current user text>",\n'
+            '  "reason": "<brief semantic reason>"\n'
+            "}\n\n"
+
+            "For ABSTAIN:\n"
+            "{\n"
+            '  "decision": "ABSTAIN",\n'
+            '  "field": null,\n'
+            '  "role": null,\n'
+            '  "evidence": "",\n'
+            '  "reason": "<brief reason why the field is not unique>"\n'
+            "}\n\n"
+
+            "IMPORTANT: do not output keys named value, normalized_value, "
+            "unit, inferred_unit, corrected_value or confidence.\n"
+        )
+
+    # ==================================================================
+    # Ollama response helpers
+    # ==================================================================
+
+    @staticmethod
+    def _response_content(
+        response: Any,
+    ) -> str:
+        """
+        Support both dict-like and object-like Ollama Python clients.
+        """
+        if isinstance(
+            response,
+            dict,
+        ):
+            message = response.get(
+                "message",
+                {},
+            )
+
+            if isinstance(
+                message,
+                dict,
+            ):
+                return str(
+                    message.get(
+                        "content",
+                        "",
+                    )
+                )
+
+        message = getattr(
+            response,
+            "message",
+            None,
+        )
+
+        if message is not None:
+            content = getattr(
+                message,
+                "content",
+                None,
+            )
+
+            if content is not None:
+                return str(
+                    content
+                )
+
+        return ""
+
+    @staticmethod
+    def _parse_json_object(
+        raw: str,
+    ) -> Optional[
+        Dict[str, Any]
+    ]:
+        """
+        Ollama is requested to return JSON. This helper remains conservative:
+        it first parses the full response and, only if necessary, tries one
+        outer {...} object. It never executes model text.
+        """
+        if not raw:
+            return None
+
+        try:
+            data = json.loads(
+                raw
+            )
+
+            if isinstance(
+                data,
+                dict,
+            ):
+                return data
+
+        except json.JSONDecodeError:
+            pass
+
+        match = re.search(
+            r"\{.*\}",
+            raw,
+            flags=re.DOTALL,
+        )
+
+        if match is None:
+            return None
+
+        try:
+            data = json.loads(
+                match.group(0)
+            )
+
+        except json.JSONDecodeError:
+            return None
+
+        return (
+            data
+            if isinstance(
+                data,
+                dict,
+            )
+            else None
+        )
+
+    @staticmethod
+    def _normalize_decision(
+        data: Dict[str, Any],
+    ) -> str:
+        decision = str(
+            data.get(
+                "decision",
+                "",
+            )
+        ).strip().upper()
+
+        if decision in {
+            "RESOLVE",
+            "ABSTAIN",
+        }:
+            return decision
+
+        # Backward-compatible interpretation for older model behavior.
+        field_raw = data.get(
+            "field"
+        )
+
+        if (
+            field_raw is None
+            or str(
+                field_raw
+            ).strip()
+            in {
+                "",
+                "__UNRESOLVED__",
+                "UNRESOLVED",
+                "null",
+                "None",
+            }
+        ):
+            return "ABSTAIN"
+
+        return "RESOLVE"
+
+    # ==================================================================
+    # Main API
+    # ==================================================================
+
+    def resolve_quantity(
+        self,
+        user_text: str,
+        quantity: Quantity,
+        previous_question: Optional[
+            str
+        ] = None,
+    ) -> Optional[
+        SemanticLink
+    ]:
+        """
+        Resolve one already-detected Quantity into FIELD + ROLE.
+
+        Returns:
+            SemanticLink:
+                only when the LLM proposes one safe compatible mapping.
+
+            None:
+                when disabled, ambiguous, unresolved, malformed,
+                hallucinated, incompatible or unsupported.
+        """
+
+        # --------------------------------------------------------------
+        # 1. Disabled
+        # --------------------------------------------------------------
+        if not self.enabled:
+            self._record(
+                quantity_id=
+                    quantity.id,
+                status=
+                    "disabled",
+            )
+            return None
+
+        # --------------------------------------------------------------
+        # 2. Explicit ambiguity guard
+        # --------------------------------------------------------------
+        if self._has_explicit_ambiguity(
+            user_text
+        ):
+            self._record(
+                quantity_id=
+                    quantity.id,
+                status=
+                    "explicit_ambiguity_abstention",
+                reason=(
+                    "Current user text explicitly states semantic ambiguity."
+                ),
+            )
+            return None
+
+        # --------------------------------------------------------------
+        # 3. Ollama dependency
+        # --------------------------------------------------------------
+        try:
+            from ollama import Client
+
+        except Exception as exc:
+            self._record(
+                quantity_id=
+                    quantity.id,
+                status=
+                    "ollama_import_error",
+                error=
+                    str(exc),
+            )
+            return None
+
+        # --------------------------------------------------------------
+        # 4. Candidate space
+        # --------------------------------------------------------------
+        allowed_fields = tuple(
+            field
+            for field
+            in allowed_fields_for_dimension(
+                quantity.dimension
+            )
+            if (
+                field
+                is not
+                SemanticField.UNRESOLVED
+            )
+        )
+
+        prompt_pairs = (
+            self
+            ._build_prompt_pairs(
+                quantity
+            )
+        )
+
+        if not prompt_pairs:
+            self._record(
+                quantity_id=
+                    quantity.id,
+                status=
+                    "no_allowed_pairs",
+                dimension=
+                    quantity.dimension.value,
+            )
+            return None
+
+        # --------------------------------------------------------------
+        # 5. Prompt
+        # --------------------------------------------------------------
+        user_prompt = (
+            self
+            ._build_user_prompt(
+                user_text=
+                    user_text,
+                quantity=
+                    quantity,
+                previous_question=
+                    previous_question,
+                prompt_pairs=
+                    prompt_pairs,
+            )
+        )
+
+        messages: List[
+            Dict[str, str]
+        ] = [
+            {
+                "role":
+                    "system",
+                "content":
+                    self
+                    ._system_prompt(),
+            },
+            *self
+            ._few_shot_messages(),
+            {
+                "role":
+                    "user",
+                "content":
+                    user_prompt,
+            },
+        ]
+
+        # --------------------------------------------------------------
+        # 6. LLM call
+        # --------------------------------------------------------------
         self.call_count += 1
 
         print(
@@ -780,85 +1204,69 @@ pairs. Never invent labels such as "representative_value".
         try:
             response = client.chat(
                 model=self.model,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": (
-                            "You are a strict semantic classification "
-                            "fallback. You never extract or invent values. "
-                            "You classify only the marked quantity using "
-                            "the provided allowed FIELD/ROLE pairs. "
-                            "Map ordinary natural-language cues to the "
-                            "internal FIELD/ROLE labels using the supplied "
-                            "semantic guide. "
-                            "A previous clarification question may "
-                            "disambiguate a short answer, but it may never "
-                            "be used as evidence. "
-                            "Abstain only when multiple allowed "
-                            "interpretations remain genuinely plausible. "
-                            "Return valid JSON only."
-                        ),
-                    },
-                    {
-                        "role": "user",
-                        "content": user_prompt,
-                    },
-                ],
+                messages=messages,
                 format="json",
                 options={
-                    "temperature": 0,
-                    "num_predict": 250,
-                    "num_ctx": 4096,
+                    "temperature":
+                        0,
+                    "num_predict":
+                        180,
+                    "num_ctx":
+                        4096,
                 },
                 stream=False,
             )
 
             raw = (
-                response["message"][
-                    "content"
-                ]
+                self
+                ._response_content(
+                    response
+                )
             )
 
-            data = json.loads(
-                raw
+            data = (
+                self
+                ._parse_json_object(
+                    raw
+                )
             )
+
+            if data is None:
+                self._record(
+                    quantity_id=
+                        quantity.id,
+                    status=
+                        "invalid_json",
+                    raw_response=
+                        raw,
+                )
+                return None
 
         except Exception as exc:
-
             self._record(
-                quantity_id=quantity.id,
-                status="llm_error",
-                error=str(exc),
+                quantity_id=
+                    quantity.id,
+                status=
+                    "llm_error",
+                error=
+                    str(exc),
             )
-
             return None
 
-        # ------------------------------------------------------------
-        # 9. Read FIELD / ROLE / evidence
-        # ------------------------------------------------------------
-
-        field_raw = str(
-            data.get(
-                "field",
-                "",
+        raw_response = (
+            self
+            ._record_payload_copy(
+                data
             )
-        ).strip()
+        )
 
-        role_raw = str(
-            data.get(
-                "role",
-                "",
-            )
-        ).strip()
-
-        evidence = (
-            self._clean_evidence(
-                str(
-                    data.get(
-                        "evidence",
-                        "",
-                    )
-                )
+        # --------------------------------------------------------------
+        # 7. Decision
+        # --------------------------------------------------------------
+        decision = (
+            self
+            ._normalize_decision(
+                data
             )
         )
 
@@ -869,70 +1277,97 @@ pairs. Never invent labels such as "representative_value".
             )
         ).strip()
 
+        if decision == "ABSTAIN":
+            self._record(
+                quantity_id=
+                    quantity.id,
+                status=
+                    "llm_abstained",
+                reason=
+                    reason,
+                raw_response=
+                    raw_response,
+            )
+            return None
+
+        # --------------------------------------------------------------
+        # 8. FIELD
+        # --------------------------------------------------------------
+        field_raw = str(
+            data.get(
+                "field",
+                "",
+            )
+        ).strip()
+
         try:
             field = SemanticField(
                 field_raw
             )
 
         except ValueError:
-
             self._record(
-                quantity_id=quantity.id,
-                status="invalid_field",
-                raw_response=data,
+                quantity_id=
+                    quantity.id,
+                status=
+                    "invalid_field",
+                raw_response=
+                    raw_response,
             )
-
             return None
-
-        # ------------------------------------------------------------
-        # 10. Explicit LLM abstention
-        # ------------------------------------------------------------
 
         if (
             field
             is SemanticField.UNRESOLVED
         ):
-
             self._record(
-                quantity_id=quantity.id,
-                status="llm_abstained",
-                reason=reason,
-                raw_response=data,
+                quantity_id=
+                    quantity.id,
+                status=
+                    "llm_abstained",
+                reason=
+                    reason,
+                raw_response=
+                    raw_response,
             )
-
             return None
-
-        # ------------------------------------------------------------
-        # 11. FIELD must be compatible with QuantityDimension
-        # ------------------------------------------------------------
 
         if field not in allowed_fields:
-
             self._record(
-                quantity_id=quantity.id,
-                status="field_dimension_rejected",
-                field=field.value,
-                dimension=quantity.dimension.value,
-                raw_response=data,
+                quantity_id=
+                    quantity.id,
+                status=
+                    "field_dimension_rejected",
+                field=
+                    field.value,
+                dimension=
+                    quantity.dimension.value,
+                raw_response=
+                    raw_response,
             )
-
             return None
 
-        # ------------------------------------------------------------
-        # 12. ROLE validation / targeted deterministic repair
-        # ------------------------------------------------------------
+        # --------------------------------------------------------------
+        # 9. ROLE
+        # --------------------------------------------------------------
+        role_raw = str(
+            data.get(
+                "role",
+                "",
+            )
+        ).strip()
 
         role_repaired = False
         repair_reason = None
 
         canonical_role = (
-            self._canonical_role_for_field(
+            self
+            ._canonical_role_for_field(
                 field
             )
         )
 
         if canonical_role is not None:
-            # Safe because these FIELDs imply one concrete role.
             role = canonical_role
 
             if (
@@ -945,33 +1380,34 @@ pairs. Never invent labels such as "representative_value".
                 )
 
         else:
-            # Multi-role fields remain LLM-controlled unless there is an
-            # explicit, conservative lexical repair.
             try:
                 role = SemanticRole(
                     role_raw
                 )
 
             except ValueError:
-
-                repaired_role = (
+                repaired = (
                     self
                     ._repair_power_role_from_text(
-                        user_text=user_text,
-                        field=field,
+                        user_text=
+                            user_text,
+                        field=
+                            field,
                     )
                 )
 
-                if repaired_role is None:
+                if repaired is None:
                     self._record(
-                        quantity_id=quantity.id,
-                        status="invalid_role",
-                        raw_response=data,
+                        quantity_id=
+                            quantity.id,
+                        status=
+                            "invalid_role",
+                        raw_response=
+                            raw_response,
                     )
-
                     return None
 
-                role = repaired_role
+                role = repaired
                 role_repaired = True
                 repair_reason = (
                     "explicit_power_role_cue"
@@ -981,138 +1417,200 @@ pairs. Never invent labels such as "representative_value".
                 field,
                 role,
             ):
-
-                repaired_role = (
+                repaired = (
                     self
                     ._repair_power_role_from_text(
-                        user_text=user_text,
-                        field=field,
+                        user_text=
+                            user_text,
+                        field=
+                            field,
                     )
                 )
 
-                if repaired_role is None:
+                if repaired is None:
                     self._record(
-                        quantity_id=quantity.id,
-                        status=(
-                            "invalid_field_role_pair"
-                        ),
-                        field=field.value,
-                        role=role.value,
-                        raw_response=data,
+                        quantity_id=
+                            quantity.id,
+                        status=
+                            "invalid_field_role_pair",
+                        field=
+                            field.value,
+                        role=
+                            role.value,
+                        raw_response=
+                            raw_response,
                     )
-
                     return None
 
-                role = repaired_role
+                role = repaired
                 role_repaired = True
                 repair_reason = (
                     "explicit_power_role_cue"
                 )
 
-        # Defensive final check.
         if not is_valid_field_role_pair(
             field,
             role,
         ):
-
             self._record(
-                quantity_id=quantity.id,
-                status=(
-                    "invalid_field_role_pair_after_repair"
-                ),
-                field=field.value,
-                role=role.value,
-                raw_response=data,
+                quantity_id=
+                    quantity.id,
+                status=
+                    "invalid_field_role_pair_after_repair",
+                field=
+                    field.value,
+                role=
+                    role.value,
+                raw_response=
+                    raw_response,
             )
-
             return None
 
-        # ------------------------------------------------------------
-        # 13. Evidence validation
-        # ------------------------------------------------------------
+        # --------------------------------------------------------------
+        # 10. Evidence
+        # --------------------------------------------------------------
+        evidence = (
+            self
+            ._clean_evidence(
+                str(
+                    data.get(
+                        "evidence",
+                        "",
+                    )
+                )
+            )
+        )
 
         if not self._evidence_is_supported(
-            evidence=evidence,
-            user_text=user_text,
+            evidence=
+                evidence,
+            user_text=
+                user_text,
         ):
-
             self._record(
-                quantity_id=quantity.id,
-                status="unsupported_evidence",
-                evidence=evidence,
-                raw_response=data,
+                quantity_id=
+                    quantity.id,
+                status=
+                    "unsupported_evidence",
+                evidence=
+                    evidence,
+                raw_response=
+                    raw_response,
             )
-
             return None
 
         if not self._evidence_targets_quantity(
-            evidence=evidence,
-            quantity=quantity,
+            evidence=
+                evidence,
+            quantity=
+                quantity,
         ):
-
             self._record(
-                quantity_id=quantity.id,
-                status="wrong_quantity_evidence",
-                evidence=evidence,
-                raw_response=data,
+                quantity_id=
+                    quantity.id,
+                status=
+                    "wrong_quantity_evidence",
+                evidence=
+                    evidence,
+                raw_response=
+                    raw_response,
             )
-
             return None
 
-        # ------------------------------------------------------------
-        # 14. Convert SemanticField -> official ParamName
-        # ------------------------------------------------------------
-
+        # --------------------------------------------------------------
+        # 11. Convert to official ParamName
+        # --------------------------------------------------------------
         try:
             param_name = ParamName(
                 field.value
             )
 
         except ValueError:
-
             self._record(
-                quantity_id=quantity.id,
-                status="unknown_param_name",
-                field=field.value,
-                raw_response=data,
+                quantity_id=
+                    quantity.id,
+                status=
+                    "unknown_param_name",
+                field=
+                    field.value,
+                raw_response=
+                    raw_response,
             )
-
             return None
 
-        # ------------------------------------------------------------
-        # 15. Safe result
-        # ------------------------------------------------------------
-
+        # --------------------------------------------------------------
+        # 12. Safe semantic link
+        # --------------------------------------------------------------
         link = SemanticLink(
-            quantity_id=quantity.id,
-            field=param_name,
-            role=role,
-            evidence=evidence,
-            resolver="llm_fallback",
+            quantity_id=
+                quantity.id,
+            field=
+                param_name,
+            role=
+                role,
+            evidence=
+                evidence,
+            resolver=
+                "llm_fallback",
         )
 
+        ignored_generated_keys = [
+            key
+            for key
+            in (
+                "value",
+                "normalized_value",
+                "unit",
+                "inferred_unit",
+                "corrected_value",
+                "confidence",
+            )
+            if key in data
+        ]
+
         self._record(
-            quantity_id=quantity.id,
-            status="resolved",
-            field=param_name.value,
-            role=role.value,
-            evidence=evidence,
-            reason=reason,
-            original_role=role_raw,
-            role_repaired=role_repaired,
-            repair_reason=repair_reason,
+            quantity_id=
+                quantity.id,
+            status=
+                "resolved",
+            field=
+                param_name.value,
+            role=
+                role.value,
+            evidence=
+                evidence,
+            reason=
+                reason,
+            original_role=
+                role_raw,
+            role_repaired=
+                role_repaired,
+            repair_reason=
+                repair_reason,
+            ignored_generated_keys=
+                ignored_generated_keys,
+            raw_response=
+                raw_response,
         )
 
         return link
 
-    # ================================================================
-    # DEBUG / INFORMATION
-    # ================================================================
+    # ==================================================================
+    # Debug / information
+    # ==================================================================
 
-    def info(self) -> Dict[str, Any]:
+    def info(
+        self,
+    ) -> Dict[str, Any]:
         return {
-            "enabled": self.enabled,
-            "host": self.host,
-            "model": self.model,
-            "call_count": self.call_count,
+            "enabled":
+                self.enabled,
+            "host":
+                self.host,
+            "model":
+                self.model,
+            "call_count":
+                self.call_count,
+            "strategy":
+                "guarded_semantic_resolve_or_abstain_v3",
         }

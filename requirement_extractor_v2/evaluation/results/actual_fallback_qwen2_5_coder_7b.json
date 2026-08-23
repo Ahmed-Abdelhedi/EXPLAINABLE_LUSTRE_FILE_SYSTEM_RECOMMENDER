@@ -1,0 +1,778 @@
+{
+  "metrics": {
+    "n_cases": 23,
+    "model": "qwen2.5-coder:7b",
+    "host": "http://localhost:11434",
+    "llm_calls": 23,
+    "overall_accuracy": 0.8695652173913043,
+    "expected_resolve_count": 3,
+    "field_accuracy_on_resolvable": 0.0,
+    "role_accuracy_on_resolvable": 0.0,
+    "pair_accuracy_on_resolvable": 0.0,
+    "unresolved_on_resolvable_count": 3,
+    "expected_abstain_count": 20,
+    "abstention_accuracy": 1.0,
+    "false_resolution_count": 0,
+    "false_resolution_rate_on_abstain_cases": 0.0,
+    "mean_latency_s": 17.836418791304585,
+    "median_latency_s": 14.992807800066657,
+    "p95_latency_s": 33.1120342000504,
+    "max_latency_s": 33.36517040000763,
+    "status_distribution": {
+      "llm_abstained": 23
+    },
+    "per_category": {
+      "spelling_error": {
+        "n": 3,
+        "correct": 0,
+        "expected_resolve": 3,
+        "resolved_correct": 0,
+        "expected_abstain": 0,
+        "correct_abstain": 0,
+        "false_resolution": 0,
+        "accuracy": 0.0,
+        "mean_latency_s": 18.55026213331924,
+        "p95_latency_s": 28.844439640012567
+      },
+      "missing_unit": {
+        "n": 20,
+        "correct": 20,
+        "expected_resolve": 0,
+        "resolved_correct": 0,
+        "expected_abstain": 20,
+        "correct_abstain": 20,
+        "false_resolution": 0,
+        "accuracy": 1.0,
+        "mean_latency_s": 17.729342290002386,
+        "p95_latency_s": 33.18488681004965
+      }
+    },
+    "per_language": {
+      "en": {
+        "n": 19,
+        "correct": 16,
+        "accuracy": 0.8421052631578947
+      },
+      "fr": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "V2E2E_0062__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 30.64635980001185,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether 'endpoints' refers to a client count, total file count, or another quantity.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "120 endpoints will connect.",
+            "reason": "The text does not provide enough context to determine whether 'endpoints' refers to a client count, total file count, or another quantity."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0072__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 12.62715820001904,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether '120' refers to a client count, total file count, or another quantity.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "120 endpoints will connect.",
+            "reason": "The text does not provide enough context to determine whether '120' refers to a client count, total file count, or another quantity."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0082__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 12.377268399926834,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether '120' refers to a client count, total file count, or another quantity.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "120 endpoints will connect.",
+            "reason": "The text does not provide enough context to determine whether '120' refers to a client count, total file count, or another quantity."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0171__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 15.051833299919963,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether '20' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other quantity.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "The limit is 20.",
+            "reason": "The text does not provide enough context to determine whether '20' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other quantity."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0172__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 29.181860200013034,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The target quantity '50' is not clearly associated with any specific FIELD/ROLE based on the provided context.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "50",
+            "reason": "The target quantity '50' is not clearly associated with any specific FIELD/ROLE based on the provided context."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0173__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 32.54175820003729,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user did not provide enough context to determine the specific FIELD/ROLE for the quantity '100'. It could potentially refer to various fields such as client_count, total_file_count, or target_read_gbps, among others.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "100",
+            "reason": "The user did not provide enough context to determine the specific FIELD/ROLE for the quantity '100'. It could potentially refer to various fields such as client_count, total_file_count, or target_read_gbps, among others."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0174__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 33.36517040000763,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether '200' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "200",
+            "reason": "The user text does not provide enough context to determine whether '200' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0175__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 33.17539820005186,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "320",
+            "reason": "The text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0176__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 15.057552799931727,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether '20' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other quantity.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "The limit is 20.",
+            "reason": "The text does not provide enough context to determine whether '20' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other quantity."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0177__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.194301199982874,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The target quantity '50' is not clearly associated with any specific FIELD/ROLE based on the provided context.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "50",
+            "reason": "The target quantity '50' is not clearly associated with any specific FIELD/ROLE based on the provided context."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0178__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 14.024104799958877,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user did not provide enough context to determine the specific FIELD/ROLE for the quantity '100'. It could refer to various quantities such as client count, total file count, or any other unspecified value.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "100",
+            "reason": "The user did not provide enough context to determine the specific FIELD/ROLE for the quantity '100'. It could refer to various quantities such as client count, total file count, or any other unspecified value."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0179__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 14.858782100025564,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether '200' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "200",
+            "reason": "The user text does not provide enough context to determine whether '200' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0180__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 15.135302799986675,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "320",
+            "reason": "The user text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0181__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 15.040327599970624,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether '20' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other quantity.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "The limit is 20.",
+            "reason": "The text does not provide enough context to determine whether '20' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other quantity."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0182__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.751259700045921,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The target quantity '50' is not clearly associated with any specific FIELD/ROLE based on the provided context.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "50",
+            "reason": "The target quantity '50' is not clearly associated with any specific FIELD/ROLE based on the provided context."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0183__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 14.214693800080568,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user did not provide enough context to determine the specific FIELD/ROLE for the quantity '100'. It could refer to various quantities such as client count, total file count, or any other unspecified value.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "100",
+            "reason": "The user did not provide enough context to determine the specific FIELD/ROLE for the quantity '100'. It could refer to various quantities such as client count, total file count, or any other unspecified value."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0184__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 15.388679699972272,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether '200' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "200",
+            "reason": "The user text does not provide enough context to determine whether '200' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0185__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 15.670790900010616,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "320",
+            "reason": "The user text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0186__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 14.97977799992077,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text does not provide enough context to determine whether '20' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other quantity.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "The limit is 20.",
+            "reason": "The text does not provide enough context to determine whether '20' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other quantity."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0187__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.785279600066133,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The target quantity '50' is not clearly associated with any specific FIELD/ROLE based on the provided context.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "50",
+            "reason": "The target quantity '50' is not clearly associated with any specific FIELD/ROLE based on the provided context."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0188__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 14.41958819993306,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user did not provide enough context to determine the specific FIELD/ROLE for the quantity '100'. It could refer to various quantities such as client count, total file count, or any other unspecified value.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "100",
+            "reason": "The user did not provide enough context to determine the specific FIELD/ROLE for the quantity '100'. It could refer to various quantities such as client count, total file count, or any other unspecified value."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0189__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 14.992807800066657,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether '200' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "200",
+            "reason": "The user text does not provide enough context to determine whether '200' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0190__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 14.757576500065625,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role.",
+          "raw_response": {
+            "field": "__UNRESOLVED__",
+            "role": "unspecified",
+            "evidence": "320",
+            "reason": "The user text does not provide enough context to determine whether '320' refers to a client count, total file count, average file size, maximum file size, target read/write throughput, budget, power consumption, or any other field/role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    }
+  ]
+}

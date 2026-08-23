@@ -8990,5 +8990,14 @@
       "safety": "normal"
     }
   ],
-  "methodology_note": "Ablation uses the fixed 96-message quantity-only E2E benchmark without modifying implementation after the first E2E run. ConversationScopeResolver and QuantityScanner are held constant because the current LLM fallback API consumes already-detected Quantity objects. Configurations A-D expose accepted candidate links after canonical unit normalization but without final DeterministicVerifier rejection. Configuration E uses the real VerifiedRequirementPipeline and exposes only VERIFIED outputs."
+  "methodology_note": "Ablation A-E uses the same fixed 300-message broad evaluation benchmark (v2_independent_end_to_end_benchmark_v1.jsonl) for all configurations. ConversationScopeResolver and QuantityScanner are held constant in the historical ablation design. Configurations A-D expose accepted candidate links after canonical unit normalization but without final DeterministicVerifier rejection. Configuration E uses the real VerifiedRequirementPipeline and exposes only VERIFIED outputs. This is a metadata-only clarification; stored metrics and per-message details are unchanged.",
+  "evaluation_metadata": {
+    "dataset_path": "requirement_extractor_v2/evaluation/datasets/v2_independent_end_to_end_benchmark_v1.jsonl",
+    "dataset_name": "v2_independent_end_to_end_benchmark_v1.jsonl",
+    "n_messages": 300,
+    "evaluation_role": "broad_ablation_benchmark",
+    "run_kind": "evaluation",
+    "metadata_revision": "step1_6_v2_clean_300_message_ablation_metadata",
+    "metrics_recomputed": false
+  }
 }

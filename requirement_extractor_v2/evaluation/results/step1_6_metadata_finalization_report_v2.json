@@ -1,0 +1,164 @@
+{
+  "operation": "step1_6_metadata_finalization_v2",
+  "metadata_only": true,
+  "metrics_recomputed": false,
+  "changed_files": 10,
+  "missing_optional_or_expected_files": [],
+  "changes": [
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_A.json",
+      "kind": "ablation_300_metadata_fix_v2",
+      "count": 300,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\ablation_A.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "2204c25f47877230375a95278c7f32c836e2566299dff73422063bdf78dbb6d1",
+        "details_sha256": "cacfd93f688ef4c9b0cc11e72fb5ae2970799a292fac166f49f0dc7005fcbf13"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "2204c25f47877230375a95278c7f32c836e2566299dff73422063bdf78dbb6d1",
+        "details_sha256": "cacfd93f688ef4c9b0cc11e72fb5ae2970799a292fac166f49f0dc7005fcbf13"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_B.json",
+      "kind": "ablation_300_metadata_fix_v2",
+      "count": 300,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\ablation_B.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "683c2688ee6af1459f47b5a00e9b9e16b4c2764dca5b189050ca6869827f64e4",
+        "details_sha256": "b43693b296ce144a4450a19a242583ba02519ab4770200d031275c273b8cc4e8"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "683c2688ee6af1459f47b5a00e9b9e16b4c2764dca5b189050ca6869827f64e4",
+        "details_sha256": "b43693b296ce144a4450a19a242583ba02519ab4770200d031275c273b8cc4e8"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_C_semantic_v3_3.json",
+      "kind": "ablation_300_metadata_fix_v2",
+      "count": 300,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\ablation_C_semantic_v3_3.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "ed6dc53f75e18aaa187d7130e640d5a3ee53ffb60dd47f38586097a140d07eba",
+        "details_sha256": "58760e8c49e8d38d5fd8edc01c7d0e3e98f252678b7ad7c431198706c6c6835f"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "ed6dc53f75e18aaa187d7130e640d5a3ee53ffb60dd47f38586097a140d07eba",
+        "details_sha256": "58760e8c49e8d38d5fd8edc01c7d0e3e98f252678b7ad7c431198706c6c6835f"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_D.json",
+      "kind": "ablation_300_metadata_fix_v2",
+      "count": 300,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\ablation_D.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "dd5c724adf3a041492715052fb6d894cad3705cb7c2af93d6b892ffbf382986f",
+        "details_sha256": "1b7ea0741a48c4ad4cab84b976cc50b221911bcbd9e6c81d94c79abb519e3c5c"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "dd5c724adf3a041492715052fb6d894cad3705cb7c2af93d6b892ffbf382986f",
+        "details_sha256": "1b7ea0741a48c4ad4cab84b976cc50b221911bcbd9e6c81d94c79abb519e3c5c"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\ablation_E_full_system.json",
+      "kind": "ablation_300_metadata_fix_v2",
+      "count": 300,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\ablation_E_full_system.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "d58b623b2c519b97bd4fab45677884f01b74752bedeccf454e987792223d66c6",
+        "details_sha256": "bed685c4f5c18e17aed496177c41548186276aa8322ce095d681750202945fd1"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "d58b623b2c519b97bd4fab45677884f01b74752bedeccf454e987792223d66c6",
+        "details_sha256": "bed685c4f5c18e17aed496177c41548186276aa8322ce095d681750202945fd1"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_relation_fix.json",
+      "kind": "holdout_regression_label_fix_v2",
+      "count": 96,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_relation_fix.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "c76637df0e301efe3366ff8012c547b9181b47c72dffac36000bee3ab0f07c55",
+        "details_sha256": "c61fc1154e868b8d71aade22ebefbda339d1381f8fc4e452f42255eeaaa4a09b"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "c76637df0e301efe3366ff8012c547b9181b47c72dffac36000bee3ab0f07c55",
+        "details_sha256": "c61fc1154e868b8d71aade22ebefbda339d1381f8fc4e452f42255eeaaa4a09b"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_relation_safety_fix.json",
+      "kind": "holdout_regression_label_fix_v2",
+      "count": 96,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_relation_safety_fix.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "7dfa23e0acaf7bda9a03134ebf1dcb9470e841767123628ffb62dd120c1581ad",
+        "details_sha256": "3533768fb2d5fb5b538912f87b756640215c64dbcbed97a82702a7f3fb807cf6"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "7dfa23e0acaf7bda9a03134ebf1dcb9470e841767123628ffb62dd120c1581ad",
+        "details_sha256": "3533768fb2d5fb5b538912f87b756640215c64dbcbed97a82702a7f3fb807cf6"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_robustness_fix.json",
+      "kind": "holdout_regression_label_fix_v2",
+      "count": 96,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_robustness_fix.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "e6384458de7ce1e6e3c426892eb53c3086af0ff7e537647548c66903ea4078cf",
+        "details_sha256": "aafff446594b7b0faaf6f68147549e351bbdfec2534925ad4474dd4b99045286"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "e6384458de7ce1e6e3c426892eb53c3086af0ff7e537647548c66903ea4078cf",
+        "details_sha256": "aafff446594b7b0faaf6f68147549e351bbdfec2534925ad4474dd4b99045286"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_llm_prompt_v3.json",
+      "kind": "holdout_regression_label_fix_v2",
+      "count": 96,
+      "backup_created": "requirement_extractor_v2\\evaluation\\results\\quantity_e2e_holdout_after_llm_prompt_v3.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "c585715d61a6cf3693bb7b222443c096fc9dddbf9f88a95f06db23451f8a1db2",
+        "details_sha256": "9d527309de9869c824fa095d9b9550f187be34a6ce62d4f36f7c598625c1ca2e"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "c585715d61a6cf3693bb7b222443c096fc9dddbf9f88a95f06db23451f8a1db2",
+        "details_sha256": "9d527309de9869c824fa095d9b9550f187be34a6ce62d4f36f7c598625c1ca2e"
+      },
+      "metrics_and_details_unchanged": true
+    },
+    {
+      "file": "requirement_extractor_v2\\evaluation\\quantity_e2e_holdout_v1_FIRST_RUN.json",
+      "kind": "preserved_first_holdout_label_v2",
+      "count": 96,
+      "backup_created": "requirement_extractor_v2\\evaluation\\quantity_e2e_holdout_v1_FIRST_RUN.json.pre_step1_6_v2.bak",
+      "payload_hashes_before": {
+        "metrics_sha256": "53ec3e85d4f1eeaf1ec3f0cbdbcc988f69f01138fdfc09ef5e9642f6629aeb2b",
+        "details_sha256": "a5f9b5d7b4b7f35c0d861e67b90f8f44a2f4315b34dc60c255e7a35dbaebf0bc"
+      },
+      "payload_hashes_after": {
+        "metrics_sha256": "53ec3e85d4f1eeaf1ec3f0cbdbcc988f69f01138fdfc09ef5e9642f6629aeb2b",
+        "details_sha256": "a5f9b5d7b4b7f35c0d861e67b90f8f44a2f4315b34dc60c255e7a35dbaebf0bc"
+      },
+      "metrics_and_details_unchanged": true
+    }
+  ],
+  "scientific_reporting_rule": {
+    "300_message_ablation": "broad_ablation_benchmark",
+    "96_message_preserved_first_run": "independent_first_run",
+    "96_message_post_inspection_runs": "regression_after_holdout_inspection"
+  }
+}

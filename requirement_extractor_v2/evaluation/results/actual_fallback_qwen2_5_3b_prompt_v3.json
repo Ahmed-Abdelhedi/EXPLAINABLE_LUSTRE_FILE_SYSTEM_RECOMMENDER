@@ -1,0 +1,801 @@
+{
+  "metrics": {
+    "n_cases": 23,
+    "model": "qwen2.5:3b",
+    "host": "http://localhost:11434",
+    "llm_calls": 23,
+    "overall_accuracy": 0.8695652173913043,
+    "expected_resolve_count": 3,
+    "field_accuracy_on_resolvable": 0.0,
+    "role_accuracy_on_resolvable": 0.0,
+    "pair_accuracy_on_resolvable": 0.0,
+    "unresolved_on_resolvable_count": 3,
+    "expected_abstain_count": 20,
+    "abstention_accuracy": 1.0,
+    "false_resolution_count": 0,
+    "false_resolution_rate_on_abstain_cases": 0.0,
+    "mean_latency_s": 7.382354160892251,
+    "median_latency_s": 5.004258599947207,
+    "p95_latency_s": 10.440745849977247,
+    "max_latency_s": 10.564457600004971,
+    "status_distribution": {
+      "llm_abstained": 23
+    },
+    "per_category": {
+      "spelling_error": {
+        "n": 3,
+        "correct": 0,
+        "expected_resolve": 3,
+        "resolved_correct": 0,
+        "expected_abstain": 0,
+        "correct_abstain": 0,
+        "false_resolution": 0,
+        "accuracy": 0.0,
+        "mean_latency_s": 6.726211133413017,
+        "p95_latency_s": 9.838000620063394
+      },
+      "missing_unit": {
+        "n": 20,
+        "correct": 20,
+        "expected_resolve": 0,
+        "resolved_correct": 0,
+        "expected_abstain": 20,
+        "correct_abstain": 20,
+        "false_resolution": 0,
+        "accuracy": 1.0,
+        "mean_latency_s": 7.480775615014136,
+        "p95_latency_s": 10.449000299972248
+      }
+    },
+    "per_language": {
+      "en": {
+        "n": 19,
+        "correct": 16,
+        "accuracy": 0.8421052631578947
+      },
+      "fr": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "V2E2E_0062__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.385419400059618,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text 'Around [Q]120[/Q] endponts will connect.' does not provide a clear semantic cue for any of the allowed candidates.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The text 'Around [Q]120[/Q] endponts will connect.' does not provide a clear semantic cue for any of the allowed candidates."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0072__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.911231600097381,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text 'Around [Q]120[/Q] endponts will connect.' does not provide a clear semantic cue for any of the allowed fields.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The text 'Around [Q]120[/Q] endponts will connect.' does not provide a clear semantic cue for any of the allowed fields."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0082__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.881982400082052,
+      "correct": false,
+      "field_correct": false,
+      "role_correct": false,
+      "pair_correct": false,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The text 'Around [Q]120[/Q] endponts will connect.' does not provide a clear semantic cue for any of the allowed fields.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The text 'Around [Q]120[/Q] endponts will connect.' does not provide a clear semantic cue for any of the allowed fields."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0171__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.503698299988173,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 20 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 20 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0172__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 9.916486900066957,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 50 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 50 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0173__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.442923599970527,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'I would use [Q]100[/Q].' does not contain a clear semantic cue for any of the allowed fields.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'I would use [Q]100[/Q].' does not contain a clear semantic cue for any of the allowed fields."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0174__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.33398820005823,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'Around [Q]200[/Q] should be enough.' does not contain a clear semantic cue that uniquely identifies the field and role.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'Around [Q]200[/Q] should be enough.' does not contain a clear semantic cue that uniquely identifies the field and role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0175__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.392761299968697,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'La limite est [Q]320[/Q].' does not contain a clear semantic cue for any of the allowed fields and roles.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'La limite est [Q]320[/Q].' does not contain a clear semantic cue for any of the allowed fields and roles."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0176__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 9.922145599965006,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 20 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 20 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0177__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.575473199947737,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 50 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 50 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0178__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.821636600070633,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'I would use [Q]100[/Q].' does not contain a clear semantic cue for any of the allowed fields.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'I would use [Q]100[/Q].' does not contain a clear semantic cue for any of the allowed fields."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0179__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.421146100037731,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'Around [Q]200[/Q] should be enough.' does not contain a clear semantic cue that uniquely identifies the field and role.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'Around [Q]200[/Q] should be enough.' does not contain a clear semantic cue that uniquely identifies the field and role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0180__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 5.004258599947207,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'La limite est [Q]320[/Q].' does not contain a clear semantic cue that uniquely identifies the field and role of the quantity.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'La limite est [Q]320[/Q].' does not contain a clear semantic cue that uniquely identifies the field and role of the quantity."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0181__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 9.996392800007015,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 20 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 20 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0182__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.3745777000440285,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 50 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 50 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0183__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.787845200044103,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'I would use [Q]100[/Q].' does not contain a clear semantic cue for any of the allowed fields.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'I would use [Q]100[/Q].' does not contain a clear semantic cue for any of the allowed fields."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0184__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.564457600004971,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'Around [Q]200[/Q] should be enough.' does not contain a clear semantic cue that uniquely identifies the field and role.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'Around [Q]200[/Q] should be enough.' does not contain a clear semantic cue that uniquely identifies the field and role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0185__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.918563200044446,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'La limite est [Q]320[/Q].' does not contain a clear semantic cue that uniquely identifies the field and role of the quantity.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'La limite est [Q]320[/Q].' does not contain a clear semantic cue that uniquely identifies the field and role of the quantity."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0186__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.060799900093116,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 20 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 20 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0187__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.348757000057958,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 50 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 50 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0188__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.822399199940264,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'I would use [Q]100[/Q].' does not contain a clear semantic cue for any of the allowed fields.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'I would use [Q]100[/Q].' does not contain a clear semantic cue for any of the allowed fields."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0189__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 10.413331300020218,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'Around [Q]200[/Q] should be enough.' does not contain a clear semantic cue that uniquely identifies the field and role.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'Around [Q]200[/Q] should be enough.' does not contain a clear semantic cue that uniquely identifies the field and role."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0190__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 4.9938700000057,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The user text 'La limite est [Q]320[/Q].' does not contain a clear semantic cue that uniquely identifies the field and role of the quantity.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The user text 'La limite est [Q]320[/Q].' does not contain a clear semantic cue that uniquely identifies the field and role of the quantity."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    }
+  ]
+}

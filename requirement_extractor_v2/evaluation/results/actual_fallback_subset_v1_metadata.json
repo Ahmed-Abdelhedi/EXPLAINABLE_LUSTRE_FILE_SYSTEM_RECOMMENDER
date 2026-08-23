@@ -1,0 +1,24 @@
+{
+  "source_dataset": "requirement_extractor_v2\\evaluation\\datasets\\v2_independent_end_to_end_benchmark_v1.jsonl",
+  "source_messages": 300,
+  "robust_scanner_active": true,
+  "robust_explicit_active": true,
+  "scope_counts": {
+    "NEW_REQUIREMENT": 230,
+    "ANSWER_TO_PREVIOUS_QUESTION": 25,
+    "CORRECTION": 20,
+    "OUT_OF_SCOPE": 25
+  },
+  "skipped_out_of_scope_messages": 25,
+  "skipped_contextual_answer_messages": 25,
+  "scanned_quantity_count": 273,
+  "explicit_unresolved_quantity_count": 99,
+  "semantic_abstention_quantity_count": 23,
+  "fallback_subset_quantity_cases": 23,
+  "fallback_subset_source_messages": 23,
+  "expected_resolve_count": 3,
+  "expected_abstain_count": 20,
+  "fallback_rate_per_source_message": 0.07666666666666666,
+  "labeling_warnings": [],
+  "methodology": "Actual fallback subset generated from the current execution path. OUT_OF_SCOPE turns and short contextual answers are excluded because they do not reach Semantic Linker/LLM in production. For remaining turns, only quantities unresolved by Explicit Resolver and then abstained/rejected by Semantic Linker are emitted."
+}

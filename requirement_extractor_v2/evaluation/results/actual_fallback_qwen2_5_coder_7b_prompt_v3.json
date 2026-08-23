@@ -1,0 +1,823 @@
+{
+  "metrics": {
+    "n_cases": 23,
+    "model": "qwen2.5-coder:7b",
+    "host": "http://localhost:11434",
+    "llm_calls": 23,
+    "overall_accuracy": 1.0,
+    "expected_resolve_count": 3,
+    "field_accuracy_on_resolvable": 1.0,
+    "role_accuracy_on_resolvable": 1.0,
+    "pair_accuracy_on_resolvable": 1.0,
+    "unresolved_on_resolvable_count": 0,
+    "expected_abstain_count": 20,
+    "abstention_accuracy": 1.0,
+    "false_resolution_count": 0,
+    "false_resolution_rate_on_abstain_cases": 0.0,
+    "mean_latency_s": 17.972673200005058,
+    "median_latency_s": 14.545829699956812,
+    "p95_latency_s": 24.783458640007304,
+    "max_latency_s": 27.38613640004769,
+    "status_distribution": {
+      "resolved": 3,
+      "llm_abstained": 20
+    },
+    "per_category": {
+      "spelling_error": {
+        "n": 3,
+        "correct": 3,
+        "expected_resolve": 3,
+        "resolved_correct": 3,
+        "expected_abstain": 0,
+        "correct_abstain": 0,
+        "false_resolution": 0,
+        "accuracy": 1.0,
+        "mean_latency_s": 18.726898666665267,
+        "p95_latency_s": 26.102105730038602
+      },
+      "missing_unit": {
+        "n": 20,
+        "correct": 20,
+        "expected_resolve": 0,
+        "resolved_correct": 0,
+        "expected_abstain": 20,
+        "correct_abstain": 20,
+        "false_resolution": 0,
+        "accuracy": 1.0,
+        "mean_latency_s": 17.859539380006026,
+        "p95_latency_s": 24.70774863001425
+      }
+    },
+    "per_language": {
+      "en": {
+        "n": 19,
+        "correct": 19,
+        "accuracy": 1.0
+      },
+      "fr": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      }
+    }
+  },
+  "details": [
+    {
+      "id": "V2E2E_0062__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": "client_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 27.38613640004769,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "client_count",
+          "role": "total_count",
+          "evidence": "120 endponts",
+          "reason": "The misspelled noun 'endponts' clearly denotes endpoints/clients in context.",
+          "original_role": "total_count",
+          "role_repaired": false,
+          "repair_reason": null,
+          "ignored_generated_keys": [],
+          "raw_response": {
+            "decision": "RESOLVE",
+            "field": "client_count",
+            "role": "total_count",
+            "evidence": "120 endponts",
+            "reason": "The misspelled noun 'endponts' clearly denotes endpoints/clients in context."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0072__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": "client_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 14.545829699956812,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "client_count",
+          "role": "total_count",
+          "evidence": "120 endponts",
+          "reason": "The misspelled noun 'endponts' clearly denotes endpoints/clients in context.",
+          "original_role": "total_count",
+          "role_repaired": false,
+          "repair_reason": null,
+          "ignored_generated_keys": [],
+          "raw_response": {
+            "decision": "RESOLVE",
+            "field": "client_count",
+            "role": "total_count",
+            "evidence": "120 endponts",
+            "reason": "The misspelled noun 'endponts' clearly denotes endpoints/clients in context."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0082__q1",
+      "category": "spelling_error",
+      "language": "en",
+      "text": "Around 120 endponts will connect.",
+      "expected": "RESOLVE",
+      "expected_field": "client_count",
+      "expected_role": "total_count",
+      "predicted_field": "client_count",
+      "predicted_role": "total_count",
+      "llm_status": "resolved",
+      "latency_s": 14.248729899991304,
+      "correct": true,
+      "field_correct": true,
+      "role_correct": true,
+      "pair_correct": true,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "resolved",
+          "field": "client_count",
+          "role": "total_count",
+          "evidence": "120 endponts",
+          "reason": "The misspelled noun 'endponts' clearly denotes endpoints/clients in context.",
+          "original_role": "total_count",
+          "role_repaired": false,
+          "repair_reason": null,
+          "ignored_generated_keys": [],
+          "raw_response": {
+            "decision": "RESOLVE",
+            "field": "client_count",
+            "role": "total_count",
+            "evidence": "120 endponts",
+            "reason": "The misspelled noun 'endponts' clearly denotes endpoints/clients in context."
+          }
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "V2E2E_0171__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.237095799995586,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 20 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 20 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0172__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.18459330010228,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 50 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 50 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0173__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.213642799993977,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 100 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 100 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0174__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.31904490001034,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 200 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 200 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0175__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.35746410000138,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 320 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 320 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0176__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.32905679999385,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 20 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 20 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0177__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.08657220005989,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 50 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 50 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0178__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.34914690000005,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 100 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 100 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0179__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.291196499951184,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 200 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 200 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0180__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.231365500018,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 320 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 320 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0181__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 23.95281500008423,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 20 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 20 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0182__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.206096700043418,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 50 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 50 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0183__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.310262199956924,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 100 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 100 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0184__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.335502499947324,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 200 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 200 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0185__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.40554169996176,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 320 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 320 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0186__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "The limit is 20.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.703295100014657,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 20 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 20 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0187__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Set it to 50.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.518767100060359,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 50 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 50 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0188__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "I would use 100.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.679016200010665,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 100 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 100 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0189__q1",
+      "category": "missing_unit",
+      "language": "en",
+      "text": "Around 200 should be enough.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 24.792365700006485,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 200 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 200 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    },
+    {
+      "id": "V2E2E_0190__q1",
+      "category": "missing_unit",
+      "language": "fr",
+      "text": "La limite est 320.",
+      "expected": "ABSTAIN",
+      "expected_field": null,
+      "expected_role": null,
+      "predicted_field": null,
+      "predicted_role": null,
+      "llm_status": "llm_abstained",
+      "latency_s": 11.687946599908173,
+      "correct": true,
+      "field_correct": null,
+      "role_correct": null,
+      "pair_correct": null,
+      "call_log": [
+        {
+          "quantity_id": "q1",
+          "status": "llm_abstained",
+          "reason": "The message contains no semantic noun identifying what 320 represents.",
+          "raw_response": {
+            "decision": "ABSTAIN",
+            "field": null,
+            "role": null,
+            "evidence": "",
+            "reason": "The message contains no semantic noun identifying what 320 represents."
+          }
+        }
+      ],
+      "notes": "Detect quantity but do not guess field."
+    }
+  ]
+}
