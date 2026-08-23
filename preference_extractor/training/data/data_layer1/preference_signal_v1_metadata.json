@@ -1,0 +1,57 @@
+{
+  "task": "binary preference-signal detection",
+  "labels": {
+    "0": "NO_PREFERENCE_SIGNAL",
+    "1": "PREFERENCE_SIGNAL"
+  },
+  "dimensions": [
+    "cost",
+    "power",
+    "performance",
+    "reliability"
+  ],
+  "sizes": {
+    "train": 20000,
+    "val": 4000,
+    "test": 4000
+  },
+  "languages": {
+    "en": 0.4,
+    "fr": 0.4,
+    "mixed": 0.2
+  },
+  "class_balance": {
+    "NO_PREFERENCE_SIGNAL": 0.5,
+    "PREFERENCE_SIGNAL": 0.5
+  },
+  "positive_families": [
+    "positive_explicit",
+    "positive_implicit",
+    "negative_preference",
+    "comparative",
+    "tradeoff",
+    "multi_preference",
+    "mixed_requirement_preference",
+    "short_telegraphic",
+    "long_context_positive",
+    "typo_semantic_positive"
+  ],
+  "negative_families": [
+    "quantitative_only",
+    "concept_mention_only",
+    "hpc_hard_negative",
+    "out_of_scope",
+    "descriptive_system_fact",
+    "historical_observation",
+    "question_without_preference",
+    "multi_quantity_no_preference",
+    "long_context_negative",
+    "typo_semantic_negative"
+  ],
+  "recommended_model": "distilbert-base-multilingual-cased",
+  "training_fields": {
+    "input": "text",
+    "target": "label_id"
+  },
+  "note": "signal_dimensions is analysis metadata only and must not be fed to Layer 1."
+}
