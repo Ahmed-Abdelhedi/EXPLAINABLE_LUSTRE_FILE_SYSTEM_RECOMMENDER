@@ -47,6 +47,12 @@ _CONTEXTUAL_ROLE_BY_FIELD = {
     ParamName.max_budget_usd: SemanticRole.MAXIMUM_LIMIT,
     ParamName.max_power_w: SemanticRole.MAXIMUM_LIMIT,
     ParamName.annual_growth_percent: SemanticRole.GROWTH_RATE,
+
+    # Step 2.1:
+    # The field name already encodes the canonical time unit (years), so a
+    # short answer such as "3" can be safely bound only when the active
+    # clarification explicitly targets planning_horizon_years.
+    ParamName.planning_horizon_years: SemanticRole.TARGET,
 }
 
 _CONTEXTUAL_DIMENSION_BY_FIELD = {
@@ -61,6 +67,12 @@ _CONTEXTUAL_DIMENSION_BY_FIELD = {
     ParamName.max_budget_usd: QuantityDimension.MONEY,
     ParamName.max_power_w: QuantityDimension.POWER,
     ParamName.annual_growth_percent: QuantityDimension.PERCENT,
+
+    # Do not add a new QuantityDimension in Step 2.1 because the existing
+    # Semantic Linker compatibility tables and trained Transformer do not know
+    # a duration class. The relation-aware verifier has a dedicated guarded
+    # contract for this field.
+    ParamName.planning_horizon_years: QuantityDimension.UNKNOWN,
 }
 
 
@@ -70,6 +82,7 @@ class VerifiedPipelineResult:
     Result of the complete quantitative Requirement Extractor V2 pipeline.
 
     Final routing:
+
         ConversationScopeResolver
                 ↓
         QuantityScanner / contextual binding
@@ -129,17 +142,24 @@ class VerifiedPipelineResult:
     def needs_clarification(self) -> bool:
         if self.ambiguous:
             return True
+
         if self.relation_resolution is None:
             return False
+
         return self.relation_resolution.has_blocking_relation
 
     def verified_values(self) -> Dict[str, object]:
         """Return only fields that passed all deterministic safety gates."""
         values: Dict[str, object] = {}
+
         for decision in self.verified:
             if decision.field is None:
                 continue
-            values[decision.field.value] = decision.value
+
+            values[
+                decision.field.value
+            ] = decision.value
+
         return values
 
     def relation_clarifications(self) -> List[str]:
@@ -148,36 +168,49 @@ class VerifiedPipelineResult:
             return []
 
         questions: List[str] = []
+
         for relation in self.relation_resolution.relations:
             if not relation.blocks_automatic_acceptance:
                 continue
 
-            fields = ", ".join(field.value for field in relation.fields) or "the requirement"
+            fields = (
+                ", ".join(
+                    field.value
+                    for field in relation.fields
+                )
+                or "the requirement"
+            )
 
             if relation.relation == CandidateRelationType.ALTERNATIVE:
                 question = (
                     f"Several alternative values were provided for {fields}. "
                     "Which value should be used?"
                 )
+
             elif relation.relation == CandidateRelationType.RANGE:
                 question = (
-                    f"A range was provided for {fields}, but the current requirement "
-                    "contract expects one scalar value. Which value should be used?"
+                    f"A range was provided for {fields}, but the current "
+                    "requirement contract expects one scalar value. "
+                    "Which value should be used?"
                 )
+
             elif relation.relation == CandidateRelationType.COMPARISON:
                 question = (
                     f"The message compares several values for {fields}. "
                     "Which value is the actual requirement?"
                 )
+
             elif relation.relation == CandidateRelationType.CONFLICT:
                 question = (
                     f"Conflicting values were detected for {fields}. "
                     "Please provide the authoritative value."
                 )
+
             else:
                 question = (
                     f"The relationship between candidate values for {fields} "
-                    "could not be resolved safely. Please clarify the intended value."
+                    "could not be resolved safely. "
+                    "Please clarify the intended value."
                 )
 
             if question not in questions:
@@ -188,14 +221,21 @@ class VerifiedPipelineResult:
     def to_dict(self) -> dict:
         return {
             "text": self.text,
-            "scope": None if self.scope is None else self.scope.to_dict(),
+            "scope": (
+                None
+                if self.scope is None
+                else self.scope.to_dict()
+            ),
             "cascade": self.cascade.to_dict(),
             "relation_resolution": (
                 None
                 if self.relation_resolution is None
                 else self.relation_resolution.to_dict()
             ),
-            "decisions": [decision.to_dict() for decision in self.decisions],
+            "decisions": [
+                decision.to_dict()
+                for decision in self.decisions
+            ],
             "verified_values": self.verified_values(),
             "needs_clarification": self.needs_clarification,
             "relation_clarifications": self.relation_clarifications(),
@@ -212,8 +252,9 @@ class VerifiedRequirementPipeline:
     """
     Quantitative Requirement Extractor V2 with relation-aware safety.
 
-    access_type and ha_required remain intentionally outside this quantitative
-    pipeline. They will be implemented in the separate categorical layer.
+    ``planning_horizon_years`` is now part of this quantitative pipeline.
+    ``access_type`` and ``ha_required`` remain intentionally outside it and
+    will be implemented in the separate categorical layer.
     """
 
     def __init__(
@@ -225,28 +266,59 @@ class VerifiedRequirementPipeline:
     ) -> None:
         self.cascade = cascade or SelectiveCascade()
 
-        # Step 1 robustness adapters.  They preserve the public SelectiveCascade
+        # Step 1 robustness adapters. They preserve the public SelectiveCascade
         # contract while strengthening only the deterministic scanner/resolver
-        # stages.  If a caller injects custom components, those components are
+        # stages. If a caller injects custom components, those components are
         # wrapped rather than discarded.
-        scanner = getattr(self.cascade, "scanner", None)
-        if scanner is not None and not isinstance(scanner, RobustQuantityScanner):
+        scanner = getattr(
+            self.cascade,
+            "scanner",
+            None,
+        )
+
+        if (
+            scanner is not None
+            and not isinstance(
+                scanner,
+                RobustQuantityScanner,
+            )
+        ):
             self.cascade.scanner = RobustQuantityScanner(
                 base_scanner=scanner,
             )
-        explicit_resolver = getattr(self.cascade, "explicit_resolver", None)
-        if explicit_resolver is not None and not isinstance(
-            explicit_resolver,
-            RobustExplicitPatternResolver,
+
+        explicit_resolver = getattr(
+            self.cascade,
+            "explicit_resolver",
+            None,
+        )
+
+        if (
+            explicit_resolver is not None
+            and not isinstance(
+                explicit_resolver,
+                RobustExplicitPatternResolver,
+            )
         ):
             self.cascade.explicit_resolver = RobustExplicitPatternResolver(
                 base_resolver=explicit_resolver,
             )
 
-        self.scope_resolver = scope_resolver or ConversationScopeResolver()
-        self.relation_resolver = relation_resolver or CandidateRelationResolver()
+        self.scope_resolver = (
+            scope_resolver
+            or ConversationScopeResolver()
+        )
 
-        self.base_verifier = verifier or DeterministicVerifier()
+        self.relation_resolver = (
+            relation_resolver
+            or CandidateRelationResolver()
+        )
+
+        self.base_verifier = (
+            verifier
+            or DeterministicVerifier()
+        )
+
         self.verifier = RelationAwareDeterministicVerifier(
             base_verifier=self.base_verifier,
             relation_resolver=self.relation_resolver,
@@ -255,8 +327,11 @@ class VerifiedRequirementPipeline:
     # =================================================================
     # EMPTY / STOP RESULT
     # =================================================================
+
     @staticmethod
-    def _empty_cascade(text: str) -> SelectiveCascadeResult:
+    def _empty_cascade(
+        text: str,
+    ) -> SelectiveCascadeResult:
         return SelectiveCascadeResult(
             text=text,
             quantities=[],
@@ -265,7 +340,10 @@ class VerifiedRequirementPipeline:
             traces={},
         )
 
-    def _empty_relation_resolution(self, text: str) -> CandidateRelationResolution:
+    def _empty_relation_resolution(
+        self,
+        text: str,
+    ) -> CandidateRelationResolution:
         return self.relation_resolver.resolve(
             text=text,
             quantities=[],
@@ -275,19 +353,29 @@ class VerifiedRequirementPipeline:
     # =================================================================
     # CONTEXTUAL SHORT-ANSWER HELPERS
     # =================================================================
+
     @staticmethod
     def _apply_inherited_unit(
         quantities: List[Quantity],
         scope: ScopeResolution,
     ) -> List[Quantity]:
-        if scope.target_field is None or scope.inherited_unit is None:
+        if (
+            scope.target_field is None
+            or scope.inherited_unit is None
+        ):
             return quantities
 
-        expected_dimension = _CONTEXTUAL_DIMENSION_BY_FIELD.get(scope.target_field)
+        expected_dimension = (
+            _CONTEXTUAL_DIMENSION_BY_FIELD.get(
+                scope.target_field
+            )
+        )
+
         if expected_dimension is None:
             return quantities
 
         updated: List[Quantity] = []
+
         for quantity in quantities:
             if quantity.unit is not None:
                 updated.append(quantity)
@@ -309,28 +397,51 @@ class VerifiedRequirementPipeline:
         quantities: List[Quantity],
         target_field: ParamName,
     ) -> List[SemanticLink]:
-        role = _CONTEXTUAL_ROLE_BY_FIELD.get(target_field)
+        role = _CONTEXTUAL_ROLE_BY_FIELD.get(
+            target_field
+        )
+
         if role is None:
             return []
 
-        return [
-            SemanticLink(
-                quantity_id=quantity.id,
-                field=target_field,
-                role=role,
-                evidence=quantity.raw,
-                resolver="conversation_scope",
+        links: List[SemanticLink] = []
+
+        for quantity in quantities:
+            # For a planning-horizon clarification, preserve the whole short
+            # reply as evidence. The base QuantityScanner may represent
+            # "3 years" as raw="3" because duration is intentionally not a
+            # storage/power/throughput QuantityDimension. The conversation
+            # scope already proves which field is being answered, and the
+            # full reply preserves the explicit "years/ans" wording when it
+            # is present.
+            evidence = (
+                text.strip()
+                if target_field == ParamName.planning_horizon_years
+                else quantity.raw
             )
-            for quantity in quantities
-        ]
+
+            links.append(
+                SemanticLink(
+                    quantity_id=quantity.id,
+                    field=target_field,
+                    role=role,
+                    evidence=evidence,
+                    resolver="conversation_scope",
+                )
+            )
+
+        return links
 
     @staticmethod
     def _contextual_traces(
         quantities: List[Quantity],
     ) -> Dict[str, QuantityRouteTrace]:
         traces: Dict[str, QuantityRouteTrace] = {}
+
         for quantity in quantities:
-            traces[quantity.id] = QuantityRouteTrace(
+            traces[
+                quantity.id
+            ] = QuantityRouteTrace(
                 quantity_id=quantity.id,
                 explicit_attempted=False,
                 explicit_resolved=False,
@@ -341,6 +452,7 @@ class VerifiedRequirementPipeline:
                 final_resolver="conversation_scope",
                 final_status="resolved",
             )
+
         return traces
 
     def _process_contextual_answer(
@@ -352,16 +464,26 @@ class VerifiedRequirementPipeline:
 
         # access_type / ha_required are non-quantitative and intentionally
         # remain outside this quantitative pipeline.
-        if target_field is None or target_field not in _CONTEXTUAL_ROLE_BY_FIELD:
+        if (
+            target_field is None
+            or target_field not in _CONTEXTUAL_ROLE_BY_FIELD
+        ):
             return VerifiedPipelineResult(
                 text=text,
                 scope=scope,
                 cascade=self._empty_cascade(text),
                 decisions=[],
-                relation_resolution=self._empty_relation_resolution(text),
+                relation_resolution=(
+                    self._empty_relation_resolution(
+                        text
+                    )
+                ),
             )
 
-        quantities = self.cascade.scanner.scan(text)
+        quantities = self.cascade.scanner.scan(
+            text
+        )
+
         quantities = self._apply_inherited_unit(
             quantities=quantities,
             scope=scope,
@@ -373,7 +495,11 @@ class VerifiedRequirementPipeline:
                 scope=scope,
                 cascade=self._empty_cascade(text),
                 decisions=[],
-                relation_resolution=self._empty_relation_resolution(text),
+                relation_resolution=(
+                    self._empty_relation_resolution(
+                        text
+                    )
+                ),
             )
 
         links = self._contextual_links(
@@ -381,7 +507,11 @@ class VerifiedRequirementPipeline:
             quantities=quantities,
             target_field=target_field,
         )
-        link_ids = {link.quantity_id for link in links}
+
+        link_ids = {
+            link.quantity_id
+            for link in links
+        }
 
         cascade_result = SelectiveCascadeResult(
             text=text,
@@ -392,13 +522,17 @@ class VerifiedRequirementPipeline:
                 for quantity in quantities
                 if quantity.id not in link_ids
             ],
-            traces=self._contextual_traces(quantities),
+            traces=self._contextual_traces(
+                quantities
+            ),
         )
 
-        relation_resolution = self.relation_resolver.resolve(
-            text=text,
-            quantities=quantities,
-            links=links,
+        relation_resolution = (
+            self.relation_resolver.resolve(
+                text=text,
+                quantities=quantities,
+                links=links,
+            )
         )
 
         decisions = self.verifier.verify_many(
@@ -419,6 +553,7 @@ class VerifiedRequirementPipeline:
     # =================================================================
     # PUBLIC API
     # =================================================================
+
     def process(
         self,
         text: str,
@@ -441,11 +576,18 @@ class VerifiedRequirementPipeline:
                 scope=scope,
                 cascade=self._empty_cascade(text),
                 decisions=[],
-                relation_resolution=self._empty_relation_resolution(text),
+                relation_resolution=(
+                    self._empty_relation_resolution(
+                        text
+                    )
+                ),
             )
 
         # 3. Short answer to an active clarification question.
-        if scope.intent == ScopeIntent.ANSWER_TO_PREVIOUS_QUESTION:
+        if (
+            scope.intent
+            == ScopeIntent.ANSWER_TO_PREVIOUS_QUESTION
+        ):
             return self._process_contextual_answer(
                 text=text,
                 scope=scope,
@@ -460,10 +602,12 @@ class VerifiedRequirementPipeline:
         )
 
         # 5. Resolve cross-candidate relations before final acceptance.
-        relation_resolution = self.relation_resolver.resolve(
-            text=text,
-            quantities=cascade_result.quantities,
-            links=cascade_result.links,
+        relation_resolution = (
+            self.relation_resolver.resolve(
+                text=text,
+                quantities=cascade_result.quantities,
+                links=cascade_result.links,
+            )
         )
 
         # 6. Whole-interpretation deterministic verification.
@@ -492,4 +636,6 @@ class VerifiedRequirementPipeline:
             "candidate_relation_resolver_integrated": True,
             "robust_quantity_scanner": self.cascade.scanner.info(),
             "robust_explicit_resolver": self.cascade.explicit_resolver.info(),
+            "planning_horizon_years_integrated": True,
+            "planning_horizon_transformer_label_added": False,
         }

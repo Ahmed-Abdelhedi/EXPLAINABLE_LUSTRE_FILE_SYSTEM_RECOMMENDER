@@ -26,6 +26,7 @@ class ParamName(str, Enum):
     max_budget_usd = "max_budget_usd"
     max_power_w = "max_power_w"
     annual_growth_percent = "annual_growth_percent"
+    planning_horizon_years = "planning_horizon_years"
 
 
 # ============================================================
@@ -54,8 +55,6 @@ class QuantityDimension(str, Enum):
     PERCENT = "percent"
     COUNT = "count"
     UNKNOWN = "unknown"
-
-
 
 
 class QuantityDetection(str, Enum):
@@ -228,7 +227,6 @@ class CandidateSource(str, Enum):
     NORMALIZER = "NORMALIZER"
     LLM_FALLBACK = "LLM_FALLBACK"
     USER_CLARIFICATION = "USER_CLARIFICATION"
-
     CONVERSATION_CONTEXT = "CONVERSATION_CONTEXT"
     EXPLICIT_PATTERN = "EXPLICIT_PATTERN"
     SEMANTIC_LINKER = "SEMANTIC_LINKER"
@@ -363,7 +361,6 @@ class RequirementState:
     extracted_candidates: List[ExtractedCandidate] = dc_field(default_factory=list)
     final_json: Dict[str, Optional[FinalFieldValue]] = dc_field(default_factory=dict)
     issues: List[ValidationIssue] = dc_field(default_factory=list)
-
     missing_fields: List[str] = dc_field(default_factory=list)
     conflicting_fields: List[str] = dc_field(default_factory=list)
     invalid_fields: List[str] = dc_field(default_factory=list)
