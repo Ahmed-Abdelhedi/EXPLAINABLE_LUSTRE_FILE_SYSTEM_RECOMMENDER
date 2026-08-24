@@ -1,4 +1,0 @@
-language,n,accuracy,positive_precision,positive_recall,positive_f1,macro_precision,macro_recall,macro_f1,tn,fp,fn,tp,false_positive_rate,false_negative_rate,roc_auc,average_precision
-en,1600,1.0,1.0,1.0,1.0,1.0,1.0,1.0,800,0,0,800,0.0,0.0,1.0,0.9999999999999999
-fr,1600,1.0,1.0,1.0,1.0,1.0,1.0,1.0,800,0,0,800,0.0,0.0,1.0,0.9999999999999998
-mixed,800,1.0,1.0,1.0,1.0,1.0,1.0,1.0,400,0,0,400,0.0,0.0,1.0,1.0

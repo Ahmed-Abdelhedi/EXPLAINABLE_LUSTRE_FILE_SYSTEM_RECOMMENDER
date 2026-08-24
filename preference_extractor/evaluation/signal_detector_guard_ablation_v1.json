@@ -1,0 +1,272 @@
+{
+  "benchmark": "preference_signal_test_v1_500_known_regression_benchmark",
+  "protocol_note": "The 500-case stress benchmark has already been inspected during error analysis. Results after that inspection are regression results, not an untouched independent holdout.",
+  "raw_transformer": {
+    "samples": 500,
+    "accuracy": 0.852,
+    "precision": 0.8297101449275363,
+    "recall": 0.89453125,
+    "f1": 0.8609022556390977,
+    "true_negative": 197,
+    "false_positive": 47,
+    "false_negative": 27,
+    "true_positive": 229
+  },
+  "guarded_transformer": {
+    "samples": 500,
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "true_negative": 244,
+    "false_positive": 0,
+    "false_negative": 0,
+    "true_positive": 256
+  },
+  "delta_guarded_minus_raw": {
+    "accuracy": 0.14800000000000002,
+    "precision": 0.17028985507246375,
+    "recall": 0.10546875,
+    "f1": 0.13909774436090228,
+    "false_positive": -47,
+    "false_negative": -27
+  },
+  "guard_effect": {
+    "corrected_by_guard": 74,
+    "harmed_by_guard": 0,
+    "unchanged_errors": 0
+  },
+  "route_counts": {
+    "transformer": 369,
+    "context_guard_negative": 76,
+    "context_guard_positive": 55
+  },
+  "guard_reason_counts": {
+    "bare_deployment_fact": 1,
+    "conditional_choice_preference": 15,
+    "question_tradeoff_preference": 15,
+    "final_choice_preference": 15,
+    "telegraphic_ranked_choice": 10,
+    "quoted_third_party_explicitly_rejected": 15,
+    "negated_preference_report": 15,
+    "system_capability_not_user_preference": 15,
+    "lexical_priority_queue_trap": 15,
+    "rejected_hypothesis_or_draft": 15
+  },
+  "category_stats": {
+    "comparison": {
+      "n": 2,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "cost_preference": {
+      "n": 2,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "explicit_priority": {
+      "n": 6,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "french": {
+      "n": 3,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "french_comparison": {
+      "n": 1,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "french_tradeoff": {
+      "n": 1,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "implicit_preference": {
+      "n": 7,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "mixed_requirement": {
+      "n": 3,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "negative_preference": {
+      "n": 3,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_capability_statement": {
+      "n": 15,
+      "raw_errors": 10,
+      "guarded_errors": 0
+    },
+    "stress_comparative": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_concept_mention_only": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_concession": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_conditional_preference": {
+      "n": 15,
+      "raw_errors": 6,
+      "guarded_errors": 0
+    },
+    "stress_correction": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_deprioritization": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_descriptive_fact": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_double_negation": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_explicit_priority": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_historical_observation": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_implicit_choice": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_lexical_priority_trap": {
+      "n": 15,
+      "raw_errors": 1,
+      "guarded_errors": 0
+    },
+    "stress_long_context_negative": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_long_context_positive": {
+      "n": 15,
+      "raw_errors": 5,
+      "guarded_errors": 0
+    },
+    "stress_measured_comparison": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_mixed_requirement_preference": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_negated_preference_report": {
+      "n": 15,
+      "raw_errors": 15,
+      "guarded_errors": 0
+    },
+    "stress_normative_requirement": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_procedure_instruction": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_quantitative_only": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_question_preference": {
+      "n": 15,
+      "raw_errors": 15,
+      "guarded_errors": 0
+    },
+    "stress_question_without_preference": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_quoted_third_party": {
+      "n": 15,
+      "raw_errors": 11,
+      "guarded_errors": 0
+    },
+    "stress_rejected_hypothesis": {
+      "n": 15,
+      "raw_errors": 9,
+      "guarded_errors": 0
+    },
+    "stress_short_telegraphic": {
+      "n": 15,
+      "raw_errors": 1,
+      "guarded_errors": 0
+    },
+    "stress_soft_preference": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_tradeoff": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_typo_negative": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "stress_typo_positive": {
+      "n": 15,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "technical_context": {
+      "n": 3,
+      "raw_errors": 1,
+      "guarded_errors": 0
+    },
+    "technical_requirement": {
+      "n": 13,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    },
+    "tradeoff": {
+      "n": 6,
+      "raw_errors": 0,
+      "guarded_errors": 0
+    }
+  },
+  "latency_ms": {
+    "mean_transformer": 23.172538800397888,
+    "mean_guard_only": 0.059836200438439846
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "uploaded_artifact": "preference_signal_detector_v2.zip",
+  "zip_size_mb": 480.06,
+  "zip_crc_integrity": "PASS",
+  "required_file_count": 15,
+  "required_files_present": true,
+  "model_sha256": "f97a5107b6bcb63cb986ae18d8038ab276dd18589578065e1af6513582b6527c",
+  "stored_threshold": 0.05,
+  "stored_threshold_policy": "fallback_max_positive_f1",
+  "training_max_length": 128,
+  "best_epoch": 4,
+  "validation": {
+    "accuracy": 0.9861538461538462,
+    "precision": 1.0,
+    "recall": 0.9723076923076923,
+    "f1": 0.9859594383775351,
+    "fp": 0,
+    "fn": 72
+  },
+  "old_holdout_FIRST_RUN": {
+    "accuracy": 0.9033333333333333,
+    "precision": 1.0,
+    "recall": 0.8066666666666666,
+    "f1": 0.8929889298892989,
+    "fp": 0,
+    "fn": 116,
+    "roc_auc": 0.9964166666666666
+  },
+  "legacy_test_4000": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "fp": 0,
+    "fn": 0
+  },
+  "note": "Runtime model loading was not executed in the artifact-building sandbox because transformers is not installed there. ZIP integrity, configs, labels, metrics, hashes, and file structure were validated."
+}

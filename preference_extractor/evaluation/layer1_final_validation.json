@@ -1,0 +1,47 @@
+{
+  "component": "preference_extractor.layer1",
+  "status": "CLOSED_FINAL",
+  "model_version": "v2.2",
+  "model_sha256": "b7f8f4213b2400e69d68ef25cac0c111645d5736b772c9d7b79d0f9b0742133d",
+  "artifact_zip_sha256": "0a8911b0251c59ec8c1c6772e6a21b9e12cb4b2102ea2db417b3d1e43f1d5656",
+  "final_threshold": 0.00039663209463469684,
+  "threshold_policy": "guarded_pipeline_max_precision_subject_to_recall>=0.985",
+  "development_validation": {
+    "samples": 6600,
+    "accuracy": 0.9987878787878788,
+    "precision": 1.0,
+    "recall": 0.9975757575757576,
+    "f1": 0.9987864077669902,
+    "tn": 3300,
+    "fp": 0,
+    "fn": 8,
+    "tp": 3292
+  },
+  "fresh_v4_first_run": {
+    "samples": 1200,
+    "accuracy": 0.9991666666666666,
+    "precision": 1.0,
+    "recall": 0.9983333333333333,
+    "f1": 0.9991659716430359,
+    "tn": 600,
+    "fp": 0,
+    "fn": 1,
+    "tp": 599,
+    "languages": {
+      "en": {
+        "n": 480,
+        "accuracy": 1.0
+      },
+      "fr": {
+        "n": 480,
+        "accuracy": 0.9979166666666667
+      },
+      "mixed": {
+        "n": 240,
+        "accuracy": 1.0
+      }
+    },
+    "layer1_pass": true
+  },
+  "scientific_note": "Fresh V4 was generated only after checkpoint and threshold freeze. It is independent of V2.2 training/validation by exact-text overlap, but remains a synthetic benchmark designed around the target preference discourse categories."
+}
