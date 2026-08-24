@@ -5,6 +5,16 @@ from typing import Dict, List, Set
 from .models import ParamName
 
 
+# NOTE:
+# planning_horizon_years is NOT added unconditionally to REQUIRED_FIELDS here.
+# The supervisor requirement is conditional:
+#
+#   annual_growth_percent > 0
+#   AND planning_horizon_years missing
+#       -> clarification required
+#
+# That cross-field rule belongs to Step 2.2 / state validation rather than to
+# this unconditional legacy list.
 REQUIRED_FIELDS: List[ParamName] = [
     ParamName.requested_usable_capacity_tib,
     ParamName.client_count,
@@ -73,6 +83,10 @@ FIELD_QUESTIONS: Dict[ParamName, str] = {
 
     ParamName.annual_growth_percent:
         "Quel taux de croissance annuelle faut-il prévoir, en % ?",
+
+    # Step 2.1
+    ParamName.planning_horizon_years:
+        "Quel horizon de planification faut-il utiliser, en années ?",
 }
 
 
@@ -90,4 +104,15 @@ TARGET_UNITS: Dict[ParamName, str | None] = {
     ParamName.max_budget_usd: "USD",
     ParamName.max_power_w: "W",
     ParamName.annual_growth_percent: "%",
+
+    # Step 2.1
+    # This is used by ConversationScopeResolver for short contextual answers:
+    #
+    #   Assistant: "What planning horizon should be used?"
+    #   User:      "3 years"  or  "3"
+    #
+    # The scanner may expose the numeric quantity as unitless because "year"
+    # is not part of the storage/power/throughput QuantityDimension taxonomy.
+    # Conversation context is therefore the authoritative source of this unit.
+    ParamName.planning_horizon_years: "years",
 }
