@@ -1,12 +1,10 @@
 {
-  "version": "1.0",
-
+  "version": "2.0",
   "capacity_planning": {
     "default_target_fill_ratio": 0.8,
     "minimum_target_fill_ratio": 0.7,
     "maximum_target_fill_ratio": 0.85
   },
-
   "normalization": {
     "file_count": {
       "minimum": 1000,
@@ -39,7 +37,6 @@
       "scale": "linear"
     }
   },
-
   "score_weights": {
     "metadata": {
       "file_count": 0.5,
@@ -52,34 +49,28 @@
       "large_file_factor": 0.2
     }
   },
-
   "workload_classification": {
     "dominance_margin": 0.15
   },
-
   "importance_thresholds": {
     "critical": 0.7,
     "high": 0.45,
     "medium": 0.2
   },
-
   "file_size_thresholds_gb": {
     "small_max": 1,
     "medium_max": 10
   },
-
   "parallelism_thresholds": {
     "medium": 100,
     "high": 1000,
     "massive": 5000
   },
-
   "bandwidth_thresholds_gbps": {
     "medium": 100,
     "high": 500,
     "very_high": 1000
   },
-
   "metadata_pressure": {
     "high_file_count": 50000000,
     "medium_file_count": 5000000,
@@ -87,12 +78,10 @@
     "high_score": 0.4,
     "medium_score": 0.2
   },
-
   "data_pressure": {
     "high_score": 0.7,
     "medium_score": 0.35
   },
-
   "mdt_estimation": {
     "base_iops_per_client": 100,
     "small_file_multiplier": 3.0,
@@ -108,12 +97,10 @@
     "metadata_bytes_per_file": 4096,
     "metadata_capacity_safety_factor": 2.0
   },
-
   "ost_estimation": {
-    "bandwidth_safety_factor": 1.2,
+    "bandwidth_safety_factor": 1.25,
     "capacity_safety_factor": 1.0
   },
-
   "reliability_rules": {
     "ha_required_level": "high",
     "default_level": "medium"

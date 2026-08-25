@@ -1,0 +1,622 @@
+{
+  "registry_version": "2.0",
+  "scope": "lustre_sizing",
+  "policy": {
+    "initial_status": "TO_VALIDATE",
+    "allowed_final_statuses": [
+      "SUPPORTED",
+      "CALIBRATED",
+      "POLICY_CHOICE",
+      "NEEDS_REVISION"
+    ],
+    "rule": "No sizing constant may be treated as empirically validated until Toubkal benchmark evidence and sensitivity analysis are attached."
+  },
+  "assumptions": [
+    {
+      "id": "CAPACITY_FILL_RATIO_DEFAULT",
+      "component": "capacity_planning",
+      "config_path": "capacity_planning.default_target_fill_ratio",
+      "current_value": 0.8,
+      "unit": "ratio",
+      "role": "Default maximum operational fill target used in capacity planning.",
+      "formula": "C_planned = C_requested * (1 + g)^n / target_fill_ratio",
+      "evidence_type_required": [
+        "Lustre operational guidance",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_values": [
+        0.7,
+        0.8,
+        0.85
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 0.8,
+      "final_value": 0.8,
+      "sensitivity_level": "MEDIUM",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "0.80 is retained as an explicit operational fill policy. MDTest/IOR did not test capacity-fill behavior; S9 shows medium sensitivity, so the value must not be presented as a Toubkal-calibrated constant."
+    },
+    {
+      "id": "WORKLOAD_METADATA_FILE_COUNT_WEIGHT",
+      "component": "workload_classification",
+      "config_path": "score_weights.metadata.file_count",
+      "current_value": 0.5,
+      "unit": "weight",
+      "role": "Contribution of normalized file count to metadata pressure score.",
+      "formula": "metadata_score = 0.5*file_count_score + 0.3*small_file_factor + 0.2*client_count_score",
+      "evidence_type_required": [
+        "MDTest workload comparison",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 0.5,
+      "final_value": 0.5,
+      "sensitivity_level": "MEDIUM",
+      "toubkal_evidence_level": "NOT_ISOLATED",
+      "decision_reason": "The 0.50 classification weight was not isolated by Toubkal. S9 shows medium classification sensitivity; retain it as a transparent heuristic policy."
+    },
+    {
+      "id": "WORKLOAD_METADATA_SMALL_FILE_WEIGHT",
+      "component": "workload_classification",
+      "config_path": "score_weights.metadata.small_file_factor",
+      "current_value": 0.3,
+      "unit": "weight",
+      "role": "Contribution of small-file factor to metadata pressure score.",
+      "formula": "metadata_score = 0.5*file_count_score + 0.3*small_file_factor + 0.2*client_count_score",
+      "evidence_type_required": [
+        "MDTest workload comparison",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 0.3,
+      "final_value": 0.3,
+      "sensitivity_level": "MEDIUM",
+      "toubkal_evidence_level": "PARTIAL",
+      "decision_reason": "Small-file metadata behavior was exercised only partially, without controlled medium/large metadata contrasts. Retain 0.30 as a policy weight."
+    },
+    {
+      "id": "WORKLOAD_METADATA_CLIENT_WEIGHT",
+      "component": "workload_classification",
+      "config_path": "score_weights.metadata.client_count",
+      "current_value": 0.2,
+      "unit": "weight",
+      "role": "Contribution of client parallelism to metadata pressure score.",
+      "formula": "metadata_score = 0.5*file_count_score + 0.3*small_file_factor + 0.2*client_count_score",
+      "evidence_type_required": [
+        "MDTest client-scaling benchmark",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 0.2,
+      "final_value": 0.2,
+      "sensitivity_level": "LOW",
+      "toubkal_evidence_level": "DIRECT_DIRECTIONAL",
+      "decision_reason": "M1/M2 directly support the direction of client influence, but not the exact 0.20 score weight. S9 sensitivity is low, so keep the weight as policy."
+    },
+    {
+      "id": "WORKLOAD_DATA_CAPACITY_WEIGHT",
+      "component": "workload_classification",
+      "config_path": "score_weights.data.capacity",
+      "current_value": 0.4,
+      "unit": "weight",
+      "role": "Contribution of planned capacity to data pressure score.",
+      "formula": "data_score = 0.4*capacity_score + 0.4*bandwidth_score + 0.2*large_file_factor",
+      "evidence_type_required": [
+        "IOR workload comparison",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 0.4,
+      "final_value": 0.4,
+      "sensitivity_level": "MEDIUM",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "Capacity contribution was not isolated by the performance campaign. The 0.40 weight remains a classification policy choice."
+    },
+    {
+      "id": "WORKLOAD_DATA_BANDWIDTH_WEIGHT",
+      "component": "workload_classification",
+      "config_path": "score_weights.data.bandwidth",
+      "current_value": 0.4,
+      "unit": "weight",
+      "role": "Contribution of requested bandwidth to data pressure score.",
+      "formula": "data_score = 0.4*capacity_score + 0.4*bandwidth_score + 0.2*large_file_factor",
+      "evidence_type_required": [
+        "IOR throughput benchmark",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 0.4,
+      "final_value": 0.4,
+      "sensitivity_level": "MEDIUM",
+      "toubkal_evidence_level": "DIRECT_DIRECTIONAL",
+      "decision_reason": "IOR supports bandwidth relevance, but not the exact 0.40 classification weight. S9 shows medium sensitivity; retain it as policy."
+    },
+    {
+      "id": "WORKLOAD_DATA_LARGE_FILE_WEIGHT",
+      "component": "workload_classification",
+      "config_path": "score_weights.data.large_file_factor",
+      "current_value": 0.2,
+      "unit": "weight",
+      "role": "Contribution of large-file factor to data pressure score.",
+      "formula": "data_score = 0.4*capacity_score + 0.4*bandwidth_score + 0.2*large_file_factor",
+      "evidence_type_required": [
+        "IOR large-file benchmark",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 0.2,
+      "final_value": 0.2,
+      "sensitivity_level": "MEDIUM",
+      "toubkal_evidence_level": "PARTIAL",
+      "decision_reason": "Large sequential I/O was exercised, but no controlled score-weight experiment identifies the 0.20 coefficient. Retain it as policy."
+    },
+    {
+      "id": "WORKLOAD_DOMINANCE_MARGIN",
+      "component": "workload_classification",
+      "config_path": "workload_classification.dominance_margin",
+      "current_value": 0.15,
+      "unit": "score_difference",
+      "role": "Minimum score difference required to label a workload metadata-heavy or data-heavy.",
+      "formula": "metadata_heavy if metadata_score-data_score >= margin; data_heavy if <= -margin; otherwise balanced",
+      "evidence_type_required": [
+        "MDTest/IOR mixed-workload classification",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 0.15,
+      "final_value": 0.15,
+      "sensitivity_level": "MEDIUM",
+      "toubkal_evidence_level": "PARTIAL",
+      "decision_reason": "The 0.15 boundary is a decision-policy threshold, not a physical Lustre constant. S9 shows medium workload-classification sensitivity, so it remains explicit policy."
+    },
+    {
+      "id": "MDT_BASE_IOPS_PER_CLIENT",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.base_iops_per_client",
+      "current_value": 100,
+      "unit": "IOPS/client",
+      "role": "Base metadata operation-rate proxy per active client.",
+      "formula": "MDT_IOPS = base_iops_per_client * clients * file_size_multiplier * access_multiplier * metadata_pressure_multiplier * iops_safety_factor",
+      "evidence_type_required": [
+        "MDTest client-scaling benchmark",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 100,
+      "final_value": 100,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "DIRECT_DIRECTIONAL_NOT_ABSOLUTE",
+      "decision_reason": "M1/M2 confirm monotonic client influence but Toubkal throughput is delivered capacity, not user demand. Therefore MDTest peak ops/s cannot be fitted to the 100 IOPS/client demand proxy. High S9 sensitivity requires explicit policy labeling."
+    },
+    {
+      "id": "MDT_SMALL_FILE_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.small_file_multiplier",
+      "current_value": 3.0,
+      "unit": "multiplier",
+      "role": "Metadata pressure multiplier for small-file workloads.",
+      "formula": "MDT_IOPS *= file_size_multiplier",
+      "evidence_type_required": [
+        "MDTest small-file benchmark",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 3.0,
+      "final_value": 3.0,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "PARTIAL",
+      "decision_reason": "Small-file pressure is qualitatively supported, but the 3.0 magnitude was not identified by a controlled file-size sweep. Keep as a high-sensitivity policy prior."
+    },
+    {
+      "id": "MDT_MEDIUM_FILE_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.medium_file_multiplier",
+      "current_value": 1.5,
+      "unit": "multiplier",
+      "role": "Metadata pressure multiplier for medium-file workloads.",
+      "formula": "MDT_IOPS *= file_size_multiplier",
+      "evidence_type_required": [
+        "MDTest medium-file benchmark",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.5,
+      "final_value": 1.5,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "No controlled medium-file MDTest scenario identifies 1.5. Keep as an explicit high-sensitivity interpolation policy between small and large reference regimes."
+    },
+    {
+      "id": "MDT_LARGE_FILE_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.large_file_multiplier",
+      "current_value": 1.0,
+      "unit": "multiplier",
+      "role": "Metadata pressure multiplier for large-file workloads.",
+      "formula": "MDT_IOPS *= file_size_multiplier",
+      "evidence_type_required": [
+        "MDTest large-file control scenario",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.0,
+      "final_value": 1.0,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "1.0 is retained as the large-file reference multiplier. This is a normalization choice rather than an empirically estimated physical constant."
+    },
+    {
+      "id": "MDT_RANDOM_ACCESS_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.random_access_multiplier",
+      "current_value": 1.4,
+      "unit": "multiplier",
+      "role": "Additional metadata IOPS multiplier for random access.",
+      "formula": "MDT_IOPS *= access_multiplier",
+      "evidence_type_required": [
+        "MDTest random-access scenario",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.4,
+      "final_value": 1.4,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "M6 random/shuffled evidence is IOR/OST evidence and cannot validate an MDT access multiplier. Keep 1.4 as policy and do not claim empirical validation."
+    },
+    {
+      "id": "MDT_MIXED_ACCESS_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.mixed_access_multiplier",
+      "current_value": 1.15,
+      "unit": "multiplier",
+      "role": "Additional metadata IOPS multiplier for mixed access.",
+      "formula": "MDT_IOPS *= access_multiplier",
+      "evidence_type_required": [
+        "MDTest mixed-access scenario",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.15,
+      "final_value": 1.15,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "PARTIAL_NOT_ISOLATED",
+      "decision_reason": "M5 shows mixed-workload contention but does not isolate MDT access-pattern demand. Keep 1.15 as policy rather than fitting it from IOR."
+    },
+    {
+      "id": "MDT_SEQUENTIAL_ACCESS_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.sequential_access_multiplier",
+      "current_value": 1.0,
+      "unit": "multiplier",
+      "role": "Reference metadata IOPS multiplier for sequential access.",
+      "formula": "MDT_IOPS *= access_multiplier",
+      "evidence_type_required": [
+        "MDTest sequential-access control",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.0,
+      "final_value": 1.0,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "1.0 is retained as the MDT access-pattern reference baseline. M6 sequential IOR is OST evidence and does not identify an MDT factor."
+    },
+    {
+      "id": "MDT_HIGH_METADATA_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.high_metadata_multiplier",
+      "current_value": 1.5,
+      "unit": "multiplier",
+      "role": "IOPS multiplier applied to workloads classified with high metadata pressure.",
+      "formula": "MDT_IOPS *= metadata_pressure_multiplier",
+      "evidence_type_required": [
+        "MDTest metadata-heavy scenario",
+        "double_counting_check",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.5,
+      "final_value": 1.5,
+      "sensitivity_level": "MEDIUM",
+      "toubkal_evidence_level": "NOT_ISOLATED",
+      "decision_reason": "High metadata pressure was not independently varied from file/client scenario shape. Retain 1.5 as an explicit policy prior; S9 shows material numeric impact."
+    },
+    {
+      "id": "MDT_MEDIUM_METADATA_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.medium_metadata_multiplier",
+      "current_value": 1.2,
+      "unit": "multiplier",
+      "role": "IOPS multiplier applied to workloads classified with medium metadata pressure.",
+      "formula": "MDT_IOPS *= metadata_pressure_multiplier",
+      "evidence_type_required": [
+        "MDTest mixed scenario",
+        "double_counting_check",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.2,
+      "final_value": 1.2,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "NOT_ISOLATED",
+      "decision_reason": "Medium metadata pressure was not independently isolated. Retain 1.2 as a policy multiplier with high sensitivity disclosure."
+    },
+    {
+      "id": "MDT_LOW_METADATA_MULTIPLIER",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.low_metadata_multiplier",
+      "current_value": 1.0,
+      "unit": "multiplier",
+      "role": "Reference multiplier for low metadata pressure.",
+      "formula": "MDT_IOPS *= metadata_pressure_multiplier",
+      "evidence_type_required": [
+        "MDTest low-metadata control",
+        "prediction_vs_measurement"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.0,
+      "final_value": 1.0,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "PARTIAL",
+      "decision_reason": "1.0 is retained as the low-pressure reference baseline; this is a normalization/policy anchor, not a measured Lustre constant."
+    },
+    {
+      "id": "MDT_IOPS_SAFETY_FACTOR",
+      "component": "mdt_sizing",
+      "config_path": "mdt_estimation.iops_safety_factor",
+      "current_value": 1.25,
+      "unit": "multiplier",
+      "role": "Safety headroom applied to the MDT IOPS proxy.",
+      "formula": "required_MDT_IOPS = ceil(raw_MDT_IOPS * iops_safety_factor)",
+      "evidence_type_required": [
+        "prediction_vs_measurement",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 1.25,
+      "final_value": 1.25,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "PARTIAL",
+      "decision_reason": "M5 shows heterogeneous metadata contention: create/remove change little while stat is much more variable. The evidence does not identify a single MDT headroom factor, so 1.25 is retained as a conservative engineering policy rather than calibrated."
+    },
+    {
+      "id": "MDT_METADATA_BYTES_PER_FILE",
+      "component": "mdt_capacity",
+      "config_path": "mdt_estimation.metadata_bytes_per_file",
+      "current_value": 4096,
+      "unit": "bytes/file",
+      "role": "Proxy metadata footprint per file used for MDT capacity sizing.",
+      "formula": "MDT_capacity_TiB = files * metadata_bytes_per_file * metadata_capacity_safety_factor / 1024^4",
+      "evidence_type_required": [
+        "Lustre documentation/source evidence",
+        "Toubkal filesystem observation",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 4096,
+      "final_value": 4096,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "4096 bytes/file is an engineering footprint proxy. The Toubkal campaign did not measure per-file MDT space consumption, so it remains a clearly labeled policy approximation."
+    },
+    {
+      "id": "MDT_METADATA_CAPACITY_SAFETY_FACTOR",
+      "component": "mdt_capacity",
+      "config_path": "mdt_estimation.metadata_capacity_safety_factor",
+      "current_value": 2.0,
+      "unit": "multiplier",
+      "role": "Headroom applied to the estimated MDT metadata footprint.",
+      "formula": "MDT_capacity_TiB = raw_metadata_capacity * metadata_capacity_safety_factor",
+      "evidence_type_required": [
+        "Lustre operational guidance",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "POLICY_CHOICE",
+      "initial_value": 2.0,
+      "final_value": 2.0,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "2.0 is capacity headroom around the metadata-footprint proxy and was not identified by MDTest. Retain as an explicit conservative policy."
+    },
+    {
+      "id": "OST_BANDWIDTH_SAFETY_FACTOR",
+      "component": "ost_sizing",
+      "config_path": "ost_estimation.bandwidth_safety_factor",
+      "current_value": 1.25,
+      "unit": "multiplier",
+      "role": "Headroom applied independently to requested read and write throughput.",
+      "formula": "required_read = target_read * factor; required_write = target_write * factor",
+      "evidence_type_required": [
+        "IOR read/write benchmark",
+        "prediction_vs_measurement",
+        "sensitivity_analysis"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "CALIBRATED",
+      "initial_value": 1.2,
+      "final_value": 1.25,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "DIRECT_LOCAL",
+      "decision_reason": "Calibrated from 1.20 to 1.25. M5 write throughput fell 18.73% relative to the same-size sequential control M6-A, implying about 1.230x recovery headroom. 1.25 is a conservative rounded value and avoids fitting the exact system-specific observation."
+    },
+    {
+      "id": "OST_CAPACITY_SAFETY_FACTOR",
+      "component": "ost_sizing",
+      "config_path": "ost_estimation.capacity_safety_factor",
+      "current_value": 1.0,
+      "unit": "multiplier",
+      "role": "Additional capacity factor applied after capacity planning.",
+      "formula": "required_OST_usable_capacity = planned_usable_capacity * capacity_safety_factor",
+      "evidence_type_required": [
+        "design_review",
+        "double_margin_check"
+      ],
+      "sensitivity_percent": [
+        -20,
+        -10,
+        0,
+        10,
+        20
+      ],
+      "status": "SUPPORTED",
+      "initial_value": 1.0,
+      "final_value": 1.0,
+      "sensitivity_level": "HIGH",
+      "toubkal_evidence_level": "NOT_TESTED",
+      "decision_reason": "1.0 is supported by the sizing design: growth and free-space headroom are already applied in planned capacity through planning horizon and target fill ratio. Keeping this factor at 1.0 avoids silently double-counting capacity margin."
+    }
+  ],
+  "finalization": {
+    "stage": "S9_final_assumption_decisions",
+    "config_version": "2.0",
+    "all_assumptions_finalized": true,
+    "decision_artifact": "calibration_decisions.json"
+  }
+}

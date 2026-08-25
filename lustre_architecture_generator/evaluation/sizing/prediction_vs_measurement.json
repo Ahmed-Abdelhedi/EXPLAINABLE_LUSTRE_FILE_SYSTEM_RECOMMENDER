@@ -1,0 +1,507 @@
+{
+  "artifact_version": "1.0",
+  "stage": "S8_prediction_vs_measurement",
+  "config_version": "2.0",
+  "comparison_policy": {
+    "absolute_fit_allowed": false,
+    "reason": "Sizing equations estimate required demand/headroom while Toubkal benchmarks measure delivered capacity of a concrete filesystem.",
+    "allowed_uses": [
+      "directional validation",
+      "relative scaling comparison",
+      "variability characterization",
+      "mixed-workload contention evidence",
+      "assumption evidence coverage"
+    ]
+  },
+  "metadata_scaling": [
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_create_ops_s",
+      "scenario_id": "M1",
+      "clients": 1,
+      "model_relative_scale": 1.0,
+      "observed_relative_scale": 1.0,
+      "scaling_efficiency": 1.0,
+      "scaling_efficiency_percent": 100.0,
+      "measured_mean": 5034.765,
+      "interpretation": "baseline"
+    },
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_create_ops_s",
+      "scenario_id": "M2-2",
+      "clients": 2,
+      "model_relative_scale": 2.0,
+      "observed_relative_scale": 1.6841,
+      "scaling_efficiency": 0.842,
+      "scaling_efficiency_percent": 84.2,
+      "measured_mean": 8478.999,
+      "interpretation": "direction_supported_but_sublinear"
+    },
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_create_ops_s",
+      "scenario_id": "M2-4",
+      "clients": 4,
+      "model_relative_scale": 4.0,
+      "observed_relative_scale": 2.8631,
+      "scaling_efficiency": 0.7158,
+      "scaling_efficiency_percent": 71.58,
+      "measured_mean": 14415.27,
+      "interpretation": "direction_supported_but_sublinear"
+    },
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_stat_ops_s",
+      "scenario_id": "M1",
+      "clients": 1,
+      "model_relative_scale": 1.0,
+      "observed_relative_scale": 1.0,
+      "scaling_efficiency": 1.0,
+      "scaling_efficiency_percent": 100.0,
+      "measured_mean": 7021.303,
+      "interpretation": "baseline"
+    },
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_stat_ops_s",
+      "scenario_id": "M2-2",
+      "clients": 2,
+      "model_relative_scale": 2.0,
+      "observed_relative_scale": 1.1256,
+      "scaling_efficiency": 0.5628,
+      "scaling_efficiency_percent": 56.28,
+      "measured_mean": 7902.917,
+      "interpretation": "direction_supported_but_sublinear"
+    },
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_stat_ops_s",
+      "scenario_id": "M2-4",
+      "clients": 4,
+      "model_relative_scale": 4.0,
+      "observed_relative_scale": 1.5488,
+      "scaling_efficiency": 0.3872,
+      "scaling_efficiency_percent": 38.72,
+      "measured_mean": 10874.691,
+      "interpretation": "direction_supported_but_sublinear"
+    },
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_remove_ops_s",
+      "scenario_id": "M1",
+      "clients": 1,
+      "model_relative_scale": 1.0,
+      "observed_relative_scale": 1.0,
+      "scaling_efficiency": 1.0,
+      "scaling_efficiency_percent": 100.0,
+      "measured_mean": 7929.903,
+      "interpretation": "baseline"
+    },
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_remove_ops_s",
+      "scenario_id": "M2-2",
+      "clients": 2,
+      "model_relative_scale": 2.0,
+      "observed_relative_scale": 1.5169,
+      "scaling_efficiency": 0.7585,
+      "scaling_efficiency_percent": 75.85,
+      "measured_mean": 12029.121,
+      "interpretation": "direction_supported_but_sublinear"
+    },
+    {
+      "family": "MDT",
+      "comparison": "client_scaling",
+      "metric": "file_remove_ops_s",
+      "scenario_id": "M2-4",
+      "clients": 4,
+      "model_relative_scale": 4.0,
+      "observed_relative_scale": 2.7883,
+      "scaling_efficiency": 0.6971,
+      "scaling_efficiency_percent": 69.71,
+      "measured_mean": 22111.263,
+      "interpretation": "direction_supported_but_sublinear"
+    }
+  ],
+  "metadata_scaling_summary": {
+    "2": {
+      "median_scaling_efficiency_percent": 75.85,
+      "min_scaling_efficiency_percent": 56.28,
+      "max_scaling_efficiency_percent": 84.2
+    },
+    "4": {
+      "median_scaling_efficiency_percent": 69.71,
+      "min_scaling_efficiency_percent": 38.72,
+      "max_scaling_efficiency_percent": 71.58
+    }
+  },
+  "ior_scaling": [
+    {
+      "family": "OST",
+      "comparison": "client_scaling",
+      "metric": "write_mib_s",
+      "scenario_id": "M3",
+      "clients": 1,
+      "model_relative_scale": 1.0,
+      "observed_mean_relative_scale": 1.0,
+      "observed_median_relative_scale": 1.0,
+      "mean_scaling_efficiency_percent": 100.0,
+      "median_scaling_efficiency_percent": 100.0,
+      "measured_mean_mib_s": 375.336,
+      "measured_median_mib_s": 375.63,
+      "cv_percent": 4.51,
+      "interpretation": "baseline"
+    },
+    {
+      "family": "OST",
+      "comparison": "client_scaling",
+      "metric": "write_mib_s",
+      "scenario_id": "M4-2",
+      "clients": 2,
+      "model_relative_scale": 2.0,
+      "observed_mean_relative_scale": 1.6094,
+      "observed_median_relative_scale": 1.8723,
+      "mean_scaling_efficiency_percent": 80.47,
+      "median_scaling_efficiency_percent": 93.62,
+      "measured_mean_mib_s": 604.072,
+      "measured_median_mib_s": 703.31,
+      "cv_percent": 37.7,
+      "interpretation": "direction_supported_nonideal_scaling"
+    },
+    {
+      "family": "OST",
+      "comparison": "client_scaling",
+      "metric": "write_mib_s",
+      "scenario_id": "M4-4",
+      "clients": 4,
+      "model_relative_scale": 4.0,
+      "observed_mean_relative_scale": 2.8493,
+      "observed_median_relative_scale": 3.2459,
+      "mean_scaling_efficiency_percent": 71.23,
+      "median_scaling_efficiency_percent": 81.15,
+      "measured_mean_mib_s": 1069.434,
+      "measured_median_mib_s": 1219.26,
+      "cv_percent": 35.34,
+      "interpretation": "direction_supported_nonideal_scaling"
+    },
+    {
+      "family": "OST",
+      "comparison": "client_scaling",
+      "metric": "read_mib_s",
+      "scenario_id": "M3",
+      "clients": 1,
+      "model_relative_scale": 1.0,
+      "observed_mean_relative_scale": 1.0,
+      "observed_median_relative_scale": 1.0,
+      "mean_scaling_efficiency_percent": 100.0,
+      "median_scaling_efficiency_percent": 100.0,
+      "measured_mean_mib_s": 1203.244,
+      "measured_median_mib_s": 1212.7,
+      "cv_percent": 1.59,
+      "interpretation": "baseline"
+    },
+    {
+      "family": "OST",
+      "comparison": "client_scaling",
+      "metric": "read_mib_s",
+      "scenario_id": "M4-2",
+      "clients": 2,
+      "model_relative_scale": 2.0,
+      "observed_mean_relative_scale": 2.1565,
+      "observed_median_relative_scale": 2.1399,
+      "mean_scaling_efficiency_percent": 107.82,
+      "median_scaling_efficiency_percent": 106.99,
+      "measured_mean_mib_s": 2594.786,
+      "measured_median_mib_s": 2595.01,
+      "cv_percent": 2.66,
+      "interpretation": "direction_supported_nonideal_scaling"
+    },
+    {
+      "family": "OST",
+      "comparison": "client_scaling",
+      "metric": "read_mib_s",
+      "scenario_id": "M4-4",
+      "clients": 4,
+      "model_relative_scale": 4.0,
+      "observed_mean_relative_scale": 3.6784,
+      "observed_median_relative_scale": 3.6093,
+      "mean_scaling_efficiency_percent": 91.96,
+      "median_scaling_efficiency_percent": 90.23,
+      "measured_mean_mib_s": 4426.006,
+      "measured_median_mib_s": 4377.0,
+      "cv_percent": 2.08,
+      "interpretation": "direction_supported_nonideal_scaling"
+    }
+  ],
+  "mixed_workload_impact": {
+    "metadata": {
+      "create": {
+        "control_mean_ops_s": 5034.765,
+        "mixed_mean_ops_s": 4893.133,
+        "change_percent": -2.81,
+        "comparison_note": "M1 uses 20000 files/rank while M5 uses 10000; interpret as interaction evidence, not isolated calibration."
+      },
+      "stat": {
+        "control_mean_ops_s": 7021.303,
+        "mixed_mean_ops_s": 4789.893,
+        "change_percent": -31.78,
+        "comparison_note": "M1 uses 20000 files/rank while M5 uses 10000; interpret as interaction evidence, not isolated calibration."
+      },
+      "remove": {
+        "control_mean_ops_s": 7929.903,
+        "mixed_mean_ops_s": 7765.179,
+        "change_percent": -2.08,
+        "comparison_note": "M1 uses 20000 files/rank while M5 uses 10000; interpret as interaction evidence, not isolated calibration."
+      }
+    },
+    "ior": {
+      "write": {
+        "sequential_control_mean_mib_s": 436.974,
+        "mixed_mean_mib_s": 355.138,
+        "change_percent": -18.73,
+        "implied_recovery_headroom_factor": 1.2304
+      },
+      "read": {
+        "sequential_control_mean_mib_s": 1219.928,
+        "mixed_mean_mib_s": 1208.372,
+        "change_percent": -0.95,
+        "implied_recovery_headroom_factor": 1.0096
+      }
+    }
+  },
+  "access_pattern_impact": {
+    "write": {
+      "sequential_mean_mib_s": 436.974,
+      "shuffled_mean_mib_s": 395.526,
+      "change_percent": -9.49,
+      "relative_factor": 0.9051
+    },
+    "read": {
+      "sequential_mean_mib_s": 1219.928,
+      "shuffled_mean_mib_s": 1224.638,
+      "change_percent": 0.39,
+      "relative_factor": 1.0039
+    },
+    "fully_random_overlapping": {
+      "status": "FAILED",
+      "failure": {
+        "exit_code": "8:0",
+        "signal": 8,
+        "type": "Floating point exception",
+        "location": "WriteOrRead(), ior.c:1833",
+        "interpretation": "IOR 4.1.0+dev runtime/tool limitation for this tested option combination; no throughput result is accepted."
+      },
+      "accepted_as_measurement": false
+    }
+  },
+  "configured_ost_bandwidth_safety_factor": 1.25,
+  "assumption_coverage": [
+    {
+      "id": "CAPACITY_FILL_RATIO_DEFAULT",
+      "config_path": "capacity_planning.default_target_fill_ratio",
+      "current_value": 0.8,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "Capacity fill policy was not exercised by MDTest/IOR performance runs.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "WORKLOAD_METADATA_FILE_COUNT_WEIGHT",
+      "config_path": "score_weights.metadata.file_count",
+      "current_value": 0.5,
+      "toubkal_evidence_level": "NOT_ISOLATED",
+      "evidence_note": "File count was not varied independently of client count and scenario shape.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "WORKLOAD_METADATA_SMALL_FILE_WEIGHT",
+      "config_path": "score_weights.metadata.small_file_factor",
+      "current_value": 0.3,
+      "toubkal_evidence_level": "PARTIAL",
+      "evidence_note": "MDTest exercised a small/zero-byte file workload, but no contrasting medium/large-file metadata control was run.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "WORKLOAD_METADATA_CLIENT_WEIGHT",
+      "config_path": "score_weights.metadata.client_count",
+      "current_value": 0.2,
+      "toubkal_evidence_level": "DIRECT_DIRECTIONAL",
+      "evidence_note": "M1/M2 directly show that metadata operation rates change with 1, 2 and 4 Lustre clients.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "WORKLOAD_DATA_CAPACITY_WEIGHT",
+      "config_path": "score_weights.data.capacity",
+      "current_value": 0.4,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "IOR block size is not a validation of the capacity-score weight.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "WORKLOAD_DATA_BANDWIDTH_WEIGHT",
+      "config_path": "score_weights.data.bandwidth",
+      "current_value": 0.4,
+      "toubkal_evidence_level": "DIRECT_DIRECTIONAL",
+      "evidence_note": "M3/M4 directly measure read/write throughput scaling across 1, 2 and 4 clients.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "WORKLOAD_DATA_LARGE_FILE_WEIGHT",
+      "config_path": "score_weights.data.large_file_factor",
+      "current_value": 0.2,
+      "toubkal_evidence_level": "PARTIAL",
+      "evidence_note": "Large sequential IOR workloads were measured, but no controlled small/medium-file IOR comparison was run.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "WORKLOAD_DOMINANCE_MARGIN",
+      "config_path": "workload_classification.dominance_margin",
+      "current_value": 0.15,
+      "toubkal_evidence_level": "PARTIAL",
+      "evidence_note": "M5 demonstrates simultaneous MDT/OST pressure, but does not provide labelled score-boundary cases around the 0.15 margin.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_BASE_IOPS_PER_CLIENT",
+      "config_path": "mdt_estimation.base_iops_per_client",
+      "current_value": 100,
+      "toubkal_evidence_level": "DIRECT_DIRECTIONAL_NOT_ABSOLUTE",
+      "evidence_note": "M1/M2 validate client-count direction. Absolute MDTest capacity must not be fitted directly to a workload-demand proxy.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_SMALL_FILE_MULTIPLIER",
+      "config_path": "mdt_estimation.small_file_multiplier",
+      "current_value": 3.0,
+      "toubkal_evidence_level": "PARTIAL",
+      "evidence_note": "Small-file metadata behaviour is measured, but the 3.0 ratio is not isolated against medium/large controls.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_MEDIUM_FILE_MULTIPLIER",
+      "config_path": "mdt_estimation.medium_file_multiplier",
+      "current_value": 1.5,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "No medium-file MDTest control was run.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_LARGE_FILE_MULTIPLIER",
+      "config_path": "mdt_estimation.large_file_multiplier",
+      "current_value": 1.0,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "No large-file MDTest control was run.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_RANDOM_ACCESS_MULTIPLIER",
+      "config_path": "mdt_estimation.random_access_multiplier",
+      "current_value": 1.4,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "M6 access-pattern evidence is IOR data I/O, not MDTest metadata access.",
+      "final_status": "PENDING_SENSITIVITY",
+      "ior_pattern_write_change_percent": -9.49,
+      "warning": "IOR pattern effect cannot validate an MDT multiplier."
+    },
+    {
+      "id": "MDT_MIXED_ACCESS_MULTIPLIER",
+      "config_path": "mdt_estimation.mixed_access_multiplier",
+      "current_value": 1.15,
+      "toubkal_evidence_level": "PARTIAL_NOT_ISOLATED",
+      "evidence_note": "M5 combines metadata and data activity, but does not isolate the MDT mixed-access multiplier.",
+      "final_status": "PENDING_SENSITIVITY",
+      "ior_pattern_write_change_percent": -9.49,
+      "warning": "IOR pattern effect cannot validate an MDT multiplier."
+    },
+    {
+      "id": "MDT_SEQUENTIAL_ACCESS_MULTIPLIER",
+      "config_path": "mdt_estimation.sequential_access_multiplier",
+      "current_value": 1.0,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "Sequential IOR is an OST control, not a sequential MDTest metadata control.",
+      "final_status": "PENDING_SENSITIVITY",
+      "ior_pattern_write_change_percent": -9.49,
+      "warning": "IOR pattern effect cannot validate an MDT multiplier."
+    },
+    {
+      "id": "MDT_HIGH_METADATA_MULTIPLIER",
+      "config_path": "mdt_estimation.high_metadata_multiplier",
+      "current_value": 1.5,
+      "toubkal_evidence_level": "NOT_ISOLATED",
+      "evidence_note": "No controlled high/medium/low metadata-pressure triad was run.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_MEDIUM_METADATA_MULTIPLIER",
+      "config_path": "mdt_estimation.medium_metadata_multiplier",
+      "current_value": 1.2,
+      "toubkal_evidence_level": "NOT_ISOLATED",
+      "evidence_note": "M5 supplies interaction evidence but not an isolated medium-pressure multiplier measurement.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_LOW_METADATA_MULTIPLIER",
+      "config_path": "mdt_estimation.low_metadata_multiplier",
+      "current_value": 1.0,
+      "toubkal_evidence_level": "PARTIAL",
+      "evidence_note": "M1 is a low-scale metadata reference, but 1.0 is a normalization choice rather than an absolute benchmark fit.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_IOPS_SAFETY_FACTOR",
+      "config_path": "mdt_estimation.iops_safety_factor",
+      "current_value": 1.25,
+      "toubkal_evidence_level": "PARTIAL",
+      "evidence_note": "Observed metadata variability and M5 contention support headroom, but do not uniquely determine 1.25.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_METADATA_BYTES_PER_FILE",
+      "config_path": "mdt_estimation.metadata_bytes_per_file",
+      "current_value": 4096,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "The benchmark campaign measured operation rates, not bytes of MDT storage consumed per file.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "MDT_METADATA_CAPACITY_SAFETY_FACTOR",
+      "config_path": "mdt_estimation.metadata_capacity_safety_factor",
+      "current_value": 2.0,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "No MDT capacity exhaustion/operational fill experiment was performed.",
+      "final_status": "PENDING_SENSITIVITY"
+    },
+    {
+      "id": "OST_BANDWIDTH_SAFETY_FACTOR",
+      "config_path": "ost_estimation.bandwidth_safety_factor",
+      "current_value": 1.25,
+      "toubkal_evidence_level": "DIRECT_LOCAL",
+      "evidence_note": "M5 write throughput is lower than the same-size sequential control, providing direct local evidence for bandwidth headroom.",
+      "final_status": "PENDING_SENSITIVITY",
+      "configured_factor": 1.25,
+      "m5_write_implied_factor": 1.2304,
+      "factor_gap_percent": 1.59
+    },
+    {
+      "id": "OST_CAPACITY_SAFETY_FACTOR",
+      "config_path": "ost_estimation.capacity_safety_factor",
+      "current_value": 1.0,
+      "toubkal_evidence_level": "NOT_TESTED",
+      "evidence_note": "This is a post-planning capacity policy and is not a throughput benchmark parameter.",
+      "final_status": "PENDING_SENSITIVITY"
+    }
+  ],
+  "s8_decision": {
+    "modify_config_now": false,
+    "next_stage": "S9_sensitivity_analysis",
+    "final_assumption_statuses_assigned": false
+  }
+}

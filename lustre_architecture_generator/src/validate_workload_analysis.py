@@ -3,13 +3,13 @@
 Ce script vérifie :
 - la structure du dataset généré ;
 - la conservation des contraintes utilisateur ;
-- les formules de capacité ;
+- la formule de capacité multi-années ;
 - la cohérence des classifications ;
 - la monotonie des scores MDT/OST ;
 - le déterminisme du calcul.
 
 Exécution depuis lustre_architecture_generator :
-    python .\src\validate_workload_analysis.py
+    python .\\src\\validate_workload_analysis.py
 """
 
 from __future__ import annotations
@@ -62,6 +62,33 @@ def assert_close(
         raise ValidationError(
             f"{message} Valeur obtenue={actual}, attendue={expected}."
         )
+
+
+def expected_planning_horizon_years(
+    source: dict[str, Any],
+) -> float:
+    """Retourne l'horizon explicite attendu pour un cas source."""
+
+    if "planning_horizon_years" not in source:
+        raise ValidationError(
+            f"{source.get('case_id', '<case inconnu>')} : "
+            "planning_horizon_years est obligatoire depuis le freeze S10."
+        )
+
+    value = source["planning_horizon_years"]
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValidationError(
+            f"{source.get('case_id', '<case inconnu>')} : "
+            "planning_horizon_years source invalide."
+        )
+    horizon = float(value)
+
+    if not math.isfinite(horizon) or horizon <= 0:
+        raise ValidationError(
+            f"{source.get('case_id', '<case inconnu>')} : "
+            "planning_horizon_years attendu doit être > 0."
+        )
+    return horizon
 
 
 def validate_dataset_structure(
@@ -171,21 +198,85 @@ def validate_dataset_structure(
                 f"attendu={expected_type}."
             )
 
+        source = source_by_id.get(case_id)
+        if source is None:
+            errors.append(
+                f"{case_id}: identifiant absent du dataset d'entrée."
+            )
+            continue
+
         planning = result["capacity_planning"]
+        source_requirement = result["source_requirement"]
+
+        required_planning_fields = {
+            "requested_usable_capacity_tib",
+            "annual_growth_percent",
+            "planning_horizon_years",
+            "annual_growth_factor",
+            "growth_factor",
+            "target_fill_ratio",
+            "planned_usable_capacity_tib",
+        }
+        missing_planning = required_planning_fields - set(planning)
+        if missing_planning:
+            errors.append(
+                f"{case_id}: capacity_planning incomplet : "
+                f"{sorted(missing_planning)}."
+            )
+            continue
+
         requested = float(planning["requested_usable_capacity_tib"])
         growth_percent = float(planning["annual_growth_percent"])
+        horizon = float(planning["planning_horizon_years"])
         fill_ratio = float(planning["target_fill_ratio"])
         planned = float(planning["planned_usable_capacity_tib"])
 
-        expected_growth_factor = 1.0 + growth_percent / 100.0
+        try:
+            expected_horizon = expected_planning_horizon_years(source)
+        except ValidationError as exc:
+            errors.append(str(exc))
+            continue
+
+        expected_annual_growth_factor = 1.0 + growth_percent / 100.0
+        expected_growth_factor = (
+            expected_annual_growth_factor ** expected_horizon
+        )
         expected_planned = (
             requested * expected_growth_factor / fill_ratio
         )
 
         if not math.isclose(
+            horizon,
+            expected_horizon,
+            abs_tol=1e-9,
+        ):
+            errors.append(
+                f"{case_id}: planning_horizon_years incorrect."
+            )
+
+        if not math.isclose(
+            float(source_requirement["planning_horizon_years"]),
+            expected_horizon,
+            abs_tol=1e-9,
+        ):
+            errors.append(
+                f"{case_id}: planning_horizon_years non conservé "
+                "dans source_requirement."
+            )
+
+        if not math.isclose(
+            float(planning["annual_growth_factor"]),
+            expected_annual_growth_factor,
+            abs_tol=1e-9,
+        ):
+            errors.append(
+                f"{case_id}: annual_growth_factor incorrect."
+            )
+
+        if not math.isclose(
             float(planning["growth_factor"]),
             expected_growth_factor,
-            abs_tol=1e-6,
+            abs_tol=1e-8,
         ):
             errors.append(f"{case_id}: growth_factor incorrect.")
 
@@ -203,12 +294,12 @@ def validate_dataset_structure(
                 f"{case_id}: capacité planifiée inférieure à la demande."
             )
 
-        source = source_by_id.get(case_id)
-        if source is None:
+        trace = result["trace"]
+        expected_source = "input"
+        if trace.get("planning_horizon_source") != expected_source:
             errors.append(
-                f"{case_id}: identifiant absent du dataset d'entrée."
+                f"{case_id}: planning_horizon_source incorrect."
             )
-            continue
 
         constraints = result["constraints"]
         preferences = result["preferences"]
@@ -275,6 +366,7 @@ def make_reference_case() -> dict[str, Any]:
         "max_budget_usd": 500000,
         "max_power_w": 30000,
         "annual_growth_percent": 20,
+        "planning_horizon_years": 3,
         "performance_priority": 0.4,
         "cost_priority": 0.2,
         "power_priority": 0.15,
@@ -393,6 +485,16 @@ def validate_monotonicity(config: dict[str, Any]) -> list[str]:
             "data_score",
             baseline_data,
         ),
+        (
+            "augmentation de l'horizon de planification",
+            analyze_variant(
+                base,
+                config,
+                planning_horizon_years=5,
+            ),
+            "data_score",
+            baseline_data,
+        ),
     ]
 
     for description, result, score_name, baseline_score in checks:
@@ -418,6 +520,23 @@ def validate_monotonicity(config: dict[str, Any]) -> list[str]:
         errors.append(
             "Monotonie violée : augmenter la croissance n'augmente pas "
             "la capacité planifiée."
+        )
+
+    longer_horizon = analyze_variant(
+        base,
+        config,
+        planning_horizon_years=5,
+    )
+    longer_horizon_planned = float(
+        longer_horizon["capacity_planning"][
+            "planned_usable_capacity_tib"
+        ]
+    )
+
+    if longer_horizon_planned <= baseline_planned:
+        errors.append(
+            "Monotonie violée : augmenter l'horizon de planification "
+            "n'augmente pas la capacité planifiée."
         )
 
     first = analyze_workload(base, config)
