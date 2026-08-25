@@ -1,0 +1,65 @@
+{
+  "freeze_version": "1.0",
+  "stage": "S10_sizing_freeze",
+  "status": "FROZEN",
+  "config_version": "2.0",
+  "analyzer_version": "3.0",
+  "frozen_scope": [
+    "workload classification",
+    "multi-year capacity planning",
+    "MDT demand sizing",
+    "MDT metadata-capacity sizing",
+    "OST throughput sizing",
+    "OST usable-capacity sizing"
+  ],
+  "input_contract": {
+    "planning_horizon_years": {
+      "required": true,
+      "type": "number",
+      "constraint": "> 0 and finite",
+      "fallback_allowed": false
+    }
+  },
+  "assumption_status_counts": {
+    "SUPPORTED": 1,
+    "CALIBRATED": 1,
+    "POLICY_CHOICE": 21,
+    "NEEDS_REVISION": 0,
+    "TO_VALIDATE": 0
+  },
+  "calibrated_values": {
+    "ost_estimation.bandwidth_safety_factor": 1.25
+  },
+  "supported_values": {
+    "ost_estimation.capacity_safety_factor": 1.0
+  },
+  "empirical_evidence": {
+    "toubkal_scenarios": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6-A",
+      "M6-B"
+    ],
+    "m6_c": "FAILED inside IOR 4.1.0+dev with SIGFPE; excluded from accepted measurements",
+    "prediction_vs_measurement": "completed",
+    "sensitivity_analysis": "completed on 1200-case historical fixture"
+  },
+  "known_semantic_debt": [
+    "Fields ending in _gbps are currently interpreted by project convention as GB/s; mass rename deferred to a controlled contract migration."
+  ],
+  "historical_fixture_policy": {
+    "production_fallback": false,
+    "s9_reproducibility_adapter": "evaluation-only explicit planning_horizon_years=1.0 in an in-memory copy of the legacy 1200-case fixture"
+  },
+  "downstream_boundary": [
+    "drive ranking",
+    "drive selection",
+    "RAID selection",
+    "MDT/OST/OSS target counts",
+    "server topology",
+    "striping parameters"
+  ]
+}

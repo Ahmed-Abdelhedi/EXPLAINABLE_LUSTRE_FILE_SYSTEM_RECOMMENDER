@@ -167,18 +167,14 @@ def calculate_file_size_factors(
     size = clamp(average_file_size_gb, 0.0, maximum_size)
 
     if size <= small_max:
-        # À proximité de 0 GiB : pression metadata maximale.
-        # À small_max : transition vers les fichiers moyens.
         progress = size / small_max
         small_file_factor = 1.0 - 0.5 * progress
         large_file_factor = 0.0
     elif size < medium_max:
-        # Transition progressive entre les deux plans.
         progress = (size - small_max) / (medium_max - small_max)
         small_file_factor = 0.5 * (1.0 - progress)
         large_file_factor = 0.5 * progress
     else:
-        # Les fichiers >= medium_max renforcent progressivement le data plane.
         progress = (size - medium_max) / (maximum_size - medium_max)
         small_file_factor = 0.0
         large_file_factor = 0.5 + 0.5 * progress
@@ -258,7 +254,6 @@ def validate_config(config: dict[str, Any]) -> None:
                     f"Clé manquante : normalization.{field}.{key}."
                 )
 
-        # Déclenche aussi la validation de l'échelle et des bornes.
         normalize_with_rule(
             float(rule["minimum"]),
             rule,
@@ -310,6 +305,15 @@ def validate_config(config: dict[str, Any]) -> None:
             "0 < minimum <= default <= maximum <= 1."
         )
 
+    if "legacy_default_planning_horizon_years" in capacity_rules:
+        raise WorkloadAnalysisError(
+            "Configuration obsolète : "
+            "capacity_planning.legacy_default_planning_horizon_years "
+            "a été supprimé au freeze S10. "
+            "planning_horizon_years doit être fourni explicitement "
+            "dans chaque besoin utilisateur."
+        )
+
     margin = float(config["workload_classification"]["dominance_margin"])
     if not 0 <= margin <= 1:
         raise WorkloadAnalysisError(
@@ -350,6 +354,36 @@ def extract_read_write_ratio(case: dict[str, Any]) -> tuple[float, float]:
         )
 
     return read_percent, write_percent
+
+
+def extract_planning_horizon_years(
+    case: dict[str, Any],
+) -> tuple[float, str]:
+    """Retourne l'horizon explicite de planification et sa provenance.
+
+    Depuis le freeze S10, ``planning_horizon_years`` fait partie du contrat
+    d'entrée obligatoire. Aucun horizon par défaut n'est appliqué : une
+    absence doit être corrigée en amont plutôt que masquée dans le sizing.
+    """
+
+    if "planning_horizon_years" not in case:
+        raise WorkloadAnalysisError(
+            f"{case.get('case_id', '<case inconnu>')} : "
+            "'planning_horizon_years' est obligatoire depuis le freeze S10 ; "
+            "aucun fallback n'est autorisé."
+        )
+
+    horizon = require_number(
+        case,
+        "planning_horizon_years",
+        minimum=0.0,
+    )
+    if horizon <= 0:
+        raise WorkloadAnalysisError(
+            f"{case.get('case_id', '<case inconnu>')} : "
+            "'planning_horizon_years' doit être > 0."
+        )
+    return horizon, "input"
 
 
 def classify_workload(
@@ -400,6 +434,9 @@ def analyze_workload(case: dict[str, Any], config: dict[str, Any]) -> dict[str, 
         "annual_growth_percent",
         minimum=0,
     )
+    planning_horizon_years, planning_horizon_source = (
+        extract_planning_horizon_years(case)
+    )
     max_budget_usd = require_number(case, "max_budget_usd", minimum=0)
     max_power_w = require_number(case, "max_power_w", minimum=0)
     ha_required = require_boolean(case, "ha_required")
@@ -441,11 +478,12 @@ def analyze_workload(case: dict[str, Any], config: dict[str, Any]) -> dict[str, 
             f"valeur actuelle : {preference_sum:.6f}."
         )
 
-    # Planification de capacité calculée avant le data_score afin que la croissance
-    # et le taux de remplissage soient pris en compte dans la pression OST.
+    # Capacity planning multi-années :
+    # C_planned = C_requested * (1 + g)^n / target_fill_ratio
     capacity_rules = config["capacity_planning"]
     target_fill_ratio = float(capacity_rules["default_target_fill_ratio"])
-    growth_factor = 1.0 + annual_growth_percent / 100.0
+    annual_growth_factor = 1.0 + annual_growth_percent / 100.0
+    growth_factor = annual_growth_factor ** planning_horizon_years
     planned_usable_capacity_tib = (
         requested_capacity_tib * growth_factor / target_fill_ratio
     )
@@ -537,6 +575,7 @@ def analyze_workload(case: dict[str, Any], config: dict[str, Any]) -> dict[str, 
             "target_write_gbps": round(target_write_gbps, 6),
             "ha_required": ha_required,
             "annual_growth_percent": round(annual_growth_percent, 6),
+            "planning_horizon_years": round(planning_horizon_years, 6),
         },
         "capacity_planning": {
             "requested_usable_capacity_tib": round(
@@ -544,7 +583,9 @@ def analyze_workload(case: dict[str, Any], config: dict[str, Any]) -> dict[str, 
                 6,
             ),
             "annual_growth_percent": round(annual_growth_percent, 6),
-            "growth_factor": round(growth_factor, 6),
+            "planning_horizon_years": round(planning_horizon_years, 6),
+            "annual_growth_factor": round(annual_growth_factor, 9),
+            "growth_factor": round(growth_factor, 9),
             "target_fill_ratio": round(target_fill_ratio, 6),
             "planned_usable_capacity_tib": round(
                 planned_usable_capacity_tib,
@@ -607,10 +648,15 @@ def analyze_workload(case: dict[str, Any], config: dict[str, Any]) -> dict[str, 
             key: round(value, 6) for key, value in preferences.items()
         },
         "trace": {
-            "analyzer_version": "2.1",
+            "analyzer_version": "3.0",
             "rules_version": str(config["version"]),
             "normalization_scope": "fixed_business_bounds",
             "capacity_score_basis": "planned_usable_capacity_tib",
+            "capacity_formula": (
+                "requested_capacity*(1+annual_growth)^planning_horizon/"
+                "target_fill_ratio"
+            ),
+            "planning_horizon_source": planning_horizon_source,
             "file_size_factor_method": "piecewise_continuous_v1",
         },
     }

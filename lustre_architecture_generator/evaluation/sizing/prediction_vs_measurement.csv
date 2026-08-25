@@ -1,0 +1,16 @@
+family,comparison,metric,scenario_id,clients,model_relative_scale,observed_relative_scale,observed_mean_relative_scale,observed_median_relative_scale,scaling_efficiency_percent,mean_scaling_efficiency_percent,median_scaling_efficiency_percent,measured_mean,measured_mean_mib_s,measured_median_mib_s,cv_percent,interpretation
+MDT,client_scaling,file_create_ops_s,M1,1,1.0,1.0,,,100.0,,,5034.765,,,,baseline
+MDT,client_scaling,file_create_ops_s,M2-2,2,2.0,1.6841,,,84.2,,,8478.999,,,,direction_supported_but_sublinear
+MDT,client_scaling,file_create_ops_s,M2-4,4,4.0,2.8631,,,71.58,,,14415.27,,,,direction_supported_but_sublinear
+MDT,client_scaling,file_stat_ops_s,M1,1,1.0,1.0,,,100.0,,,7021.303,,,,baseline
+MDT,client_scaling,file_stat_ops_s,M2-2,2,2.0,1.1256,,,56.28,,,7902.917,,,,direction_supported_but_sublinear
+MDT,client_scaling,file_stat_ops_s,M2-4,4,4.0,1.5488,,,38.72,,,10874.691,,,,direction_supported_but_sublinear
+MDT,client_scaling,file_remove_ops_s,M1,1,1.0,1.0,,,100.0,,,7929.903,,,,baseline
+MDT,client_scaling,file_remove_ops_s,M2-2,2,2.0,1.5169,,,75.85,,,12029.121,,,,direction_supported_but_sublinear
+MDT,client_scaling,file_remove_ops_s,M2-4,4,4.0,2.7883,,,69.71,,,22111.263,,,,direction_supported_but_sublinear
+OST,client_scaling,write_mib_s,M3,1,1.0,,1.0,1.0,,100.0,100.0,,375.336,375.63,4.51,baseline
+OST,client_scaling,write_mib_s,M4-2,2,2.0,,1.6094,1.8723,,80.47,93.62,,604.072,703.31,37.7,direction_supported_nonideal_scaling
+OST,client_scaling,write_mib_s,M4-4,4,4.0,,2.8493,3.2459,,71.23,81.15,,1069.434,1219.26,35.34,direction_supported_nonideal_scaling
+OST,client_scaling,read_mib_s,M3,1,1.0,,1.0,1.0,,100.0,100.0,,1203.244,1212.7,1.59,baseline
+OST,client_scaling,read_mib_s,M4-2,2,2.0,,2.1565,2.1399,,107.82,106.99,,2594.786,2595.01,2.66,direction_supported_nonideal_scaling
+OST,client_scaling,read_mib_s,M4-4,4,4.0,,3.6784,3.6093,,91.96,90.23,,4426.006,4377.0,2.08,direction_supported_nonideal_scaling

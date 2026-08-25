@@ -1,0 +1,448 @@
+{
+  "artifact_version": "1.0",
+  "scope": "lustre_sizing_toubkal_validation",
+  "date": "2026-08-24",
+  "environment": {
+    "lustre_mount": "/srv/lustre01",
+    "benchmark_user_path": "/srv/lustre01/project/sw_stack-373lcd9r8io/users/nessrine.aloulou-ext/lustre_sizing_tests",
+    "mdtest_version": "4.1.0+dev",
+    "ior_version": "4.1.0+dev",
+    "mpi": "OpenMPI 5.0.3",
+    "compiler": "GCC 13.3.0",
+    "slurm_partition": "compute",
+    "slurm_account": "sw_stack-373lcd9r8io-default-cpu",
+    "slurm_qos": "default-cpu",
+    "ior_api": "POSIX",
+    "ior_direct_io": true,
+    "ior_transfer_size_mib": 1,
+    "ior_stripe_count": 4,
+    "ior_stripe_size_mib": 1,
+    "client_mapping": "1 MPI rank per compute node for scaling scenarios"
+  },
+  "scientific_notes": [
+    "Toubkal is a reference Lustre system, not universal ground truth.",
+    "MDTest scenarios report create/stat/remove operation rates; File read with read-bytes=0 is not used as a data-throughput metric.",
+    "M4 write means are affected by an abnormally low first iteration; medians are retained for interpretation.",
+    "M6-C fully random overlapping I/O failed inside IOR 4.1.0+dev with SIGFPE / integer divide-by-zero and is recorded as a tool/runtime limitation rather than a valid measurement.",
+    "MDTest summary output did not expose per-iteration values, so medians are unavailable for M1/M2/M5 metadata."
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "M1",
+      "label": "metadata_baseline",
+      "job_id": 7680190,
+      "clients": 1,
+      "nodes": 1,
+      "benchmark": "MDTest",
+      "repetitions": 5,
+      "metadata": {
+        "file_creation_ops_s": {
+          "mean": 5034.765,
+          "min": 4934.782,
+          "max": 5108.673,
+          "stddev": 64.525,
+          "cv_percent": 1.28,
+          "median": null
+        },
+        "file_stat_ops_s": {
+          "mean": 7021.303,
+          "min": 5915.914,
+          "max": 7793.258,
+          "stddev": 899.079,
+          "cv_percent": 12.8,
+          "median": null
+        },
+        "file_removal_ops_s": {
+          "mean": 7929.903,
+          "min": 7823.343,
+          "max": 8002.394,
+          "stddev": 78.424,
+          "cv_percent": 0.99,
+          "median": null
+        }
+      },
+      "notes": [
+        "1 node, 1 rank, 20000 files/rank, files-only mode"
+      ]
+    },
+    {
+      "scenario_id": "M2-2",
+      "label": "metadata_scaling_2_nodes",
+      "job_id": 7680198,
+      "clients": 2,
+      "nodes": 2,
+      "benchmark": "MDTest",
+      "repetitions": 5,
+      "metadata": {
+        "file_creation_ops_s": {
+          "mean": 8478.999,
+          "min": 7686.082,
+          "max": 9043.761,
+          "stddev": 566.44,
+          "cv_percent": 6.68,
+          "median": null
+        },
+        "file_stat_ops_s": {
+          "mean": 7902.917,
+          "min": 3687.882,
+          "max": 11129.376,
+          "stddev": 3303.269,
+          "cv_percent": 41.8,
+          "median": null
+        },
+        "file_removal_ops_s": {
+          "mean": 12029.121,
+          "min": 10944.077,
+          "max": 14157.674,
+          "stddev": 1266.686,
+          "cv_percent": 10.53,
+          "median": null
+        }
+      },
+      "notes": [
+        "2 nodes, 2 ranks, one rank per node, 20000 files/rank"
+      ]
+    },
+    {
+      "scenario_id": "M2-4",
+      "label": "metadata_scaling_4_nodes",
+      "job_id": 7680199,
+      "clients": 4,
+      "nodes": 4,
+      "benchmark": "MDTest",
+      "repetitions": 5,
+      "metadata": {
+        "file_creation_ops_s": {
+          "mean": 14415.27,
+          "min": 12685.492,
+          "max": 15218.375,
+          "stddev": 1028.674,
+          "cv_percent": 7.14,
+          "median": null
+        },
+        "file_stat_ops_s": {
+          "mean": 10874.691,
+          "min": 6306.134,
+          "max": 18713.827,
+          "stddev": 5698.392,
+          "cv_percent": 52.4,
+          "median": null
+        },
+        "file_removal_ops_s": {
+          "mean": 22111.263,
+          "min": 21441.73,
+          "max": 22799.862,
+          "stddev": 640.974,
+          "cv_percent": 2.9,
+          "median": null
+        }
+      },
+      "notes": [
+        "4 nodes, 4 ranks, one rank per node, 20000 files/rank"
+      ]
+    },
+    {
+      "scenario_id": "M3",
+      "label": "data_baseline",
+      "job_id": 7680195,
+      "clients": 1,
+      "nodes": 1,
+      "benchmark": "IOR",
+      "repetitions": 5,
+      "block_size_gib_per_rank": 8,
+      "write": {
+        "iterations_mib_s": [
+          363.8,
+          375.63,
+          398.64,
+          350.78,
+          387.83
+        ],
+        "mean_mib_s": 375.336,
+        "median_mib_s": 375.63,
+        "min_mib_s": 350.78,
+        "max_mib_s": 398.64,
+        "stddev_mib_s": 16.943,
+        "cv_percent": 4.51
+      },
+      "read": {
+        "iterations_mib_s": [
+          1212.7,
+          1217.35,
+          1225.45,
+          1181.36,
+          1179.36
+        ],
+        "mean_mib_s": 1203.244,
+        "median_mib_s": 1212.7,
+        "min_mib_s": 1179.36,
+        "max_mib_s": 1225.45,
+        "stddev_mib_s": 19.136,
+        "cv_percent": 1.59
+      },
+      "notes": [
+        "Sequential POSIX, O_DIRECT, file-per-process"
+      ]
+    },
+    {
+      "scenario_id": "M4-2",
+      "label": "data_scaling_2_nodes",
+      "job_id": 7680223,
+      "clients": 2,
+      "nodes": 2,
+      "benchmark": "IOR",
+      "repetitions": 5,
+      "block_size_gib_per_rank": 8,
+      "write": {
+        "iterations_mib_s": [
+          158.02,
+          703.31,
+          639.92,
+          738.86,
+          780.25
+        ],
+        "mean_mib_s": 604.072,
+        "median_mib_s": 703.31,
+        "min_mib_s": 158.02,
+        "max_mib_s": 780.25,
+        "stddev_mib_s": 227.729,
+        "cv_percent": 37.7
+      },
+      "read": {
+        "iterations_mib_s": [
+          2472.99,
+          2671.57,
+          2584.41,
+          2649.95,
+          2595.01
+        ],
+        "mean_mib_s": 2594.786,
+        "median_mib_s": 2595.01,
+        "min_mib_s": 2472.99,
+        "max_mib_s": 2671.57,
+        "stddev_mib_s": 69.11,
+        "cv_percent": 2.66
+      },
+      "notes": [
+        "First write iteration is a low outlier/warm-up candidate; retain both mean and median"
+      ]
+    },
+    {
+      "scenario_id": "M4-4",
+      "label": "data_scaling_4_nodes",
+      "job_id": 7680224,
+      "clients": 4,
+      "nodes": 4,
+      "benchmark": "IOR",
+      "repetitions": 5,
+      "block_size_gib_per_rank": 8,
+      "write": {
+        "iterations_mib_s": [
+          333.07,
+          1219.26,
+          1347.04,
+          1335.33,
+          1112.47
+        ],
+        "mean_mib_s": 1069.434,
+        "median_mib_s": 1219.26,
+        "min_mib_s": 333.07,
+        "max_mib_s": 1347.04,
+        "stddev_mib_s": 377.968,
+        "cv_percent": 35.34
+      },
+      "read": {
+        "iterations_mib_s": [
+          4584.46,
+          4475.0,
+          4343.57,
+          4377.0,
+          4350.0
+        ],
+        "mean_mib_s": 4426.006,
+        "median_mib_s": 4377.0,
+        "min_mib_s": 4343.57,
+        "max_mib_s": 4584.46,
+        "stddev_mib_s": 92.176,
+        "cv_percent": 2.08
+      },
+      "notes": [
+        "First write iteration is a low outlier/warm-up candidate; retain both mean and median"
+      ]
+    },
+    {
+      "scenario_id": "M5",
+      "label": "mixed_concurrent_metadata_and_data",
+      "job_id": 7680442,
+      "clients": 1,
+      "nodes": 1,
+      "benchmark": "MDTest+IOR concurrent",
+      "repetitions": 5,
+      "metadata": {
+        "file_creation_ops_s": {
+          "mean": 4893.133,
+          "min": 4730.512,
+          "max": 5046.967,
+          "stddev": 123.812,
+          "cv_percent": 2.53,
+          "median": null
+        },
+        "file_stat_ops_s": {
+          "mean": 4789.893,
+          "min": 2595.048,
+          "max": 7067.732,
+          "stddev": 1967.329,
+          "cv_percent": 41.07,
+          "median": null
+        },
+        "file_removal_ops_s": {
+          "mean": 7765.179,
+          "min": 7642.823,
+          "max": 7831.484,
+          "stddev": 72.963,
+          "cv_percent": 0.94,
+          "median": null
+        }
+      },
+      "ior": {
+        "block_size_gib_per_rank": 4,
+        "write": {
+          "iterations_mib_s": [
+            421.03,
+            382.38,
+            311.77,
+            368.32,
+            292.19
+          ],
+          "mean_mib_s": 355.138,
+          "median_mib_s": 368.32,
+          "min_mib_s": 292.19,
+          "max_mib_s": 421.03,
+          "stddev_mib_s": 47.119,
+          "cv_percent": 13.27
+        },
+        "read": {
+          "iterations_mib_s": [
+            1186.35,
+            1178.59,
+            1213.22,
+            1245.1,
+            1218.6
+          ],
+          "mean_mib_s": 1208.372,
+          "median_mib_s": 1213.22,
+          "min_mib_s": 1178.59,
+          "max_mib_s": 1245.1,
+          "stddev_mib_s": 23.87,
+          "cv_percent": 1.98
+        }
+      },
+      "notes": [
+        "MDTest and IOR ran concurrently on the same compute node"
+      ]
+    },
+    {
+      "scenario_id": "M6-A",
+      "label": "sequential_access",
+      "job_id": 7680491,
+      "clients": 1,
+      "nodes": 1,
+      "benchmark": "IOR",
+      "repetitions": 5,
+      "block_size_gib_per_rank": 4,
+      "write": {
+        "iterations_mib_s": [
+          435.6,
+          436.61,
+          473.85,
+          415.32,
+          423.49
+        ],
+        "mean_mib_s": 436.974,
+        "median_mib_s": 435.6,
+        "min_mib_s": 415.32,
+        "max_mib_s": 473.85,
+        "stddev_mib_s": 20.063,
+        "cv_percent": 4.59
+      },
+      "read": {
+        "iterations_mib_s": [
+          1235.44,
+          1231.69,
+          1234.13,
+          1206.26,
+          1192.12
+        ],
+        "mean_mib_s": 1219.928,
+        "median_mib_s": 1231.69,
+        "min_mib_s": 1192.12,
+        "max_mib_s": 1235.44,
+        "stddev_mib_s": 17.554,
+        "cv_percent": 1.44
+      },
+      "notes": [
+        "Sequential reference pattern"
+      ]
+    },
+    {
+      "scenario_id": "M6-B",
+      "label": "shuffled_non_sequential_access",
+      "job_id": 7680491,
+      "clients": 1,
+      "nodes": 1,
+      "benchmark": "IOR",
+      "repetitions": 5,
+      "block_size_gib_per_rank": 4,
+      "write": {
+        "iterations_mib_s": [
+          433.02,
+          365.05,
+          383.93,
+          392.27,
+          403.36
+        ],
+        "mean_mib_s": 395.526,
+        "median_mib_s": 392.27,
+        "min_mib_s": 365.05,
+        "max_mib_s": 433.02,
+        "stddev_mib_s": 22.543,
+        "cv_percent": 5.7
+      },
+      "read": {
+        "iterations_mib_s": [
+          1209.02,
+          1231.85,
+          1208.94,
+          1242.09,
+          1231.29
+        ],
+        "mean_mib_s": 1224.638,
+        "median_mib_s": 1231.29,
+        "min_mib_s": 1208.94,
+        "max_mib_s": 1242.09,
+        "stddev_mib_s": 13.351,
+        "cv_percent": 1.09
+      },
+      "notes": [
+        "IOR -z shuffled/random ordering without overlapping-random mode"
+      ]
+    },
+    {
+      "scenario_id": "M6-C",
+      "label": "fully_random_overlapping_access",
+      "job_id": 7680491,
+      "clients": 1,
+      "nodes": 1,
+      "benchmark": "IOR",
+      "repetitions": 0,
+      "status": "FAILED",
+      "failure": {
+        "exit_code": "8:0",
+        "signal": 8,
+        "type": "Floating point exception",
+        "location": "WriteOrRead(), ior.c:1833",
+        "interpretation": "IOR 4.1.0+dev runtime/tool limitation for this tested option combination; no throughput result is accepted."
+      }
+    }
+  ]
+}
