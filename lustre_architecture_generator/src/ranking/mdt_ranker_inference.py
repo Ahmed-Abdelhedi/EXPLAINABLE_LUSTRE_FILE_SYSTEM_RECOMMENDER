@@ -5,8 +5,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 import pandas as pd
-from catboost import Pool
 
 
 # ============================================================
@@ -32,7 +32,10 @@ from feature_builder import (  # noqa: E402
     load_json,
 )
 
-from ranker_loader import load_ranker_bundle  # noqa: E402
+from ranker_loader import (  # noqa: E402
+    load_ranker_bundle,
+    prepare_lightgbm_dataframe,
+)
 
 
 # ============================================================
@@ -54,8 +57,8 @@ def generate_all_feasible_mdt_candidates(
     """
     Applique les filtres déterministes à tous les drives MDT.
 
-    Aucun Top-K teacher n'est appliqué ici. Tous les candidats
-    faisables sont transmis au modèle ML.
+    Aucun Top-K teacher n'est appliqué ici. Tous les candidats faisables
+    sont transmis au modèle LightGBM officiel.
     """
 
     requirement = architecture["MDT_requirement"]
@@ -68,13 +71,11 @@ def generate_all_feasible_mdt_candidates(
         if not bool(drive.get("mdt_eligible", False)):
             continue
 
-        candidate, rejection_reasons = (
-            mdt_generator.evaluate_drive(
-                drive,
-                requirement,
-                constraints,
-                preferences,
-            )
+        candidate, rejection_reasons = mdt_generator.evaluate_drive(
+            drive,
+            requirement,
+            constraints,
+            preferences,
         )
 
         if rejection_reasons:
@@ -89,83 +90,44 @@ def generate_all_feasible_mdt_candidates(
 
     if not feasible_candidates:
         raise MDTInferenceError(
-            "Aucun candidat MDT ne respecte les "
-            "contraintes déterministes."
+            "Aucun candidat MDT ne respecte les contraintes déterministes."
         )
 
     return feasible_candidates
 
 
 # ============================================================
-# Création du Pool CatBoost
+# Préparation LightGBM
 # ============================================================
+
+def prepare_mdt_dataframe(
+    feature_rows: list[dict[str, Any]],
+    metadata: dict[str, Any],
+) -> pd.DataFrame:
+    """Prépare le DataFrame MDT selon le contrat LightGBM officiel."""
+
+    try:
+        return prepare_lightgbm_dataframe(
+            feature_rows=feature_rows,
+            metadata=metadata,
+        )
+    except Exception as error:
+        raise MDTInferenceError(
+            f"Impossible de préparer les features MDT : {error}"
+        ) from error
+
 
 def prepare_mdt_pool(
     feature_rows: list[dict[str, Any]],
     metadata: dict[str, Any],
-) -> Pool:
+) -> pd.DataFrame:
     """
-    Transforme plusieurs lignes MDT en un Pool CatBoost.
+    Alias de compatibilité avec l'ancien runtime CatBoost.
+
+    Le retour est désormais un DataFrame pandas et non un catboost.Pool.
     """
 
-    if not feature_rows:
-        raise MDTInferenceError(
-            "Aucune ligne de features MDT reçue."
-        )
-
-    feature_columns = metadata["feature_columns"]
-    categorical_features = metadata[
-        "categorical_features"
-    ]
-
-    for row_index, feature_row in enumerate(feature_rows):
-        missing_features = [
-            column
-            for column in feature_columns
-            if column not in feature_row
-        ]
-
-        extra_features = [
-            column
-            for column in feature_row
-            if column not in feature_columns
-        ]
-
-        if missing_features:
-            raise MDTInferenceError(
-                f"Ligne {row_index} : features manquantes : "
-                f"{missing_features}"
-            )
-
-        if extra_features:
-            raise MDTInferenceError(
-                f"Ligne {row_index} : features supplémentaires : "
-                f"{extra_features}"
-            )
-
-    dataframe = pd.DataFrame(
-        [
-            {
-                column: feature_row[column]
-                for column in feature_columns
-            }
-            for feature_row in feature_rows
-        ],
-        columns=feature_columns,
-    )
-
-    for column in categorical_features:
-        dataframe[column] = (
-            dataframe[column]
-            .fillna("NONE")
-            .astype(str)
-        )
-
-    return Pool(
-        data=dataframe,
-        cat_features=categorical_features,
-        feature_names=feature_columns,
-    )
+    return prepare_mdt_dataframe(feature_rows, metadata)
 
 
 # ============================================================
@@ -176,86 +138,79 @@ def rank_all_mdt_candidates(
     architecture: dict[str, Any],
     catalog: list[dict[str, Any]],
 ) -> dict[str, Any]:
-    """
-    Classe tous les drives MDT faisables avec le modèle ML.
-    """
+    """Classe tous les drives MDT faisables avec LightGBM."""
 
     model, metadata = load_ranker_bundle("mdt")
 
-    feasible_candidates = (
-        generate_all_feasible_mdt_candidates(
-            architecture=architecture,
-            catalog=catalog,
-        )
+    feasible_candidates = generate_all_feasible_mdt_candidates(
+        architecture=architecture,
+        catalog=catalog,
     )
 
     feature_rows: list[dict[str, Any]] = []
 
     for item in feasible_candidates:
-        feature_row = build_mdt_feature_row(
-            architecture=architecture,
-            drive=item["drive"],
-            candidate=item["candidate"],
+        feature_rows.append(
+            build_mdt_feature_row(
+                architecture=architecture,
+                drive=item["drive"],
+                candidate=item["candidate"],
+            )
         )
 
-        feature_rows.append(feature_row)
-
-    prediction_pool = prepare_mdt_pool(
+    prediction_frame = prepare_mdt_dataframe(
         feature_rows=feature_rows,
         metadata=metadata,
     )
 
-    predictions = model.predict(prediction_pool)
+    try:
+        raw_predictions: Any = model.predict(
+            prediction_frame,
+            num_iteration=model.num_trees(),
+            validate_features=True,
+        )
+
+        predictions = np.asarray(
+            raw_predictions,
+            dtype=np.float64,
+        ).reshape(-1)
+    except Exception as error:
+        raise MDTInferenceError(
+            f"Échec de prédiction LightGBM MDT : {error}"
+        ) from error
 
     if len(predictions) != len(feasible_candidates):
         raise MDTInferenceError(
-            "Le nombre de prédictions ne correspond pas "
-            "au nombre de candidats MDT."
+            "Le nombre de prédictions ne correspond pas au nombre "
+            "de candidats MDT faisables."
         )
 
     ranked_candidates: list[dict[str, Any]] = []
 
-    for item, prediction in zip(
-        feasible_candidates,
-        predictions,
-    ):
+    for item, prediction in zip(feasible_candidates, predictions):
         drive = item["drive"]
         candidate = item["candidate"]
-
         ml_score = float(prediction)
 
         if not math.isfinite(ml_score):
             raise MDTInferenceError(
-                f"Score ML invalide pour "
-                f"{drive['drive_id']} : {ml_score}"
+                f"Score ML invalide pour {drive['drive_id']} : {ml_score}"
             )
 
         ranked_candidates.append(
             {
                 "drive_id": drive["drive_id"],
                 "drive_name": drive["name"],
-                "manufacturer": drive.get(
-                    "manufacturer"
-                ),
+                "manufacturer": drive.get("manufacturer"),
                 "series": drive.get("series"),
                 "media_type": drive["media_type"],
                 "protocol": drive["protocol"],
                 "capacity_tib": drive["capacity_tib"],
-                "random_read_iops_4k": drive[
-                    "random_read_iops_4k"
-                ],
-                "random_write_iops_4k": drive[
-                    "random_write_iops_4k"
-                ],
-                "endurance_dwpd": drive[
-                    "endurance_dwpd_numeric"
-                ],
-                "price_usd": drive[
-                    "price_en_dollars"
-                ],
-                "power_w": drive[
-                    "power_consumption_en_w"
-                ],
+                "random_read_iops_4k": drive["random_read_iops_4k"],
+                "random_write_iops_4k": drive["random_write_iops_4k"],
+                "endurance_dwpd": drive["endurance_dwpd_numeric"],
+                "price_usd": drive["price_en_dollars"],
+                "power_w": drive["power_consumption_en_w"],
                 "ml_score": ml_score,
                 "raw_minimum_drive_count": candidate[
                     "raw_minimum_drive_count"
@@ -269,37 +224,26 @@ def rank_all_mdt_candidates(
                 "raw_provided_write_iops": candidate[
                     "raw_provided_write_iops"
                 ],
-                "raw_drive_cost_usd": candidate[
-                    "raw_drive_cost_usd"
-                ],
-                "raw_drive_power_w": candidate[
-                    "raw_drive_power_w"
-                ],
+                "raw_drive_cost_usd": candidate["raw_drive_cost_usd"],
+                "raw_drive_power_w": candidate["raw_drive_power_w"],
             }
         )
 
     ranked_candidates.sort(
-        key=lambda item: (
-            -item["ml_score"],
-            item["drive_id"],
-        )
+        key=lambda item: (-item["ml_score"], item["drive_id"])
     )
 
-    for rank, candidate in enumerate(
-        ranked_candidates,
-        start=1,
-    ):
+    for rank, candidate in enumerate(ranked_candidates, start=1):
         candidate["ml_rank"] = rank
 
     return {
         "case_id": architecture["case_id"],
         "model_role": metadata["model_role"],
-        "feature_count": len(
-            metadata["feature_columns"]
-        ),
-        "feasible_candidate_count": len(
-            ranked_candidates
-        ),
+        "model_family": metadata["model_family"],
+        "model_type": metadata["model_type"],
+        "model_seed": metadata["selected_seed"],
+        "feature_count": len(metadata["feature_columns"]),
+        "feasible_candidate_count": len(ranked_candidates),
         "ranked_candidates": ranked_candidates,
     }
 
@@ -314,17 +258,14 @@ def print_mdt_top_k(
 ) -> None:
     """Affiche les meilleurs candidats MDT."""
 
-    candidates = ranking_result[
-        "ranked_candidates"
-    ][:top_k]
+    candidates = ranking_result["ranked_candidates"][:top_k]
 
     print("=" * 100)
-    print("CLASSEMENT MDT RANKER")
+    print("CLASSEMENT MDT RANKER OFFICIEL")
     print("Case ID             :", ranking_result["case_id"])
-    print(
-        "Candidats faisables :",
-        ranking_result["feasible_candidate_count"],
-    )
+    print("Modèle              :", ranking_result["model_family"])
+    print("Seed                :", ranking_result["model_seed"])
+    print("Candidats faisables :", ranking_result["feasible_candidate_count"])
     print("Features            :", ranking_result["feature_count"])
     print("Top-K affiché       :", len(candidates))
     print("=" * 100)
@@ -364,45 +305,23 @@ def print_mdt_top_k(
 def main() -> None:
     """Classe les candidats MDT du premier cas architectural."""
 
-    architectures = load_json(
-        DEFAULT_ARCHITECTURES_PATH
-    )
-
-    catalog = load_json(
-        DEFAULT_CATALOG_PATH
-    )
+    architectures = load_json(DEFAULT_ARCHITECTURES_PATH)
+    catalog = load_json(DEFAULT_CATALOG_PATH)
 
     if not isinstance(architectures, list):
-        raise TypeError(
-            "Le dataset architectural doit être une liste."
-        )
-
+        raise TypeError("Le dataset architectural doit être une liste.")
     if not architectures:
-        raise MDTInferenceError(
-            "Le dataset architectural est vide."
-        )
-
+        raise MDTInferenceError("Le dataset architectural est vide.")
     if not isinstance(catalog, list):
-        raise TypeError(
-            "Le catalogue doit être une liste."
-        )
-
+        raise TypeError("Le catalogue doit être une liste.")
     if not catalog:
-        raise MDTInferenceError(
-            "Le catalogue est vide."
-        )
-
-    architecture = architectures[0]
+        raise MDTInferenceError("Le catalogue est vide.")
 
     ranking_result = rank_all_mdt_candidates(
-        architecture=architecture,
+        architecture=architectures[0],
         catalog=catalog,
     )
-
-    print_mdt_top_k(
-        ranking_result=ranking_result,
-        top_k=10,
-    )
+    print_mdt_top_k(ranking_result=ranking_result, top_k=10)
 
 
 if __name__ == "__main__":

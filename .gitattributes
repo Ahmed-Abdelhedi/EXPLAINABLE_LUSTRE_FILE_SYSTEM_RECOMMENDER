@@ -2,3 +2,5 @@ requirement_extractor_v2/artifacts/*/encoder/*.safetensors filter=lfs diff=lfs m
 requirement_extractor_v2/artifacts/*/*.pt filter=lfs diff=lfs merge=lfs -text
 preference_extractor/signal_detector/artifacts/*/model/*.safetensors filter=lfs diff=lfs merge=lfs -text
 preference_signal_detector_v2_2.zip filter=lfs diff=lfs merge=lfs -text
+lustre_architecture_generator/artifacts/rankers/official/mdt/mdt_ranker.txt -text
+lustre_architecture_generator/artifacts/rankers/official/ost/ost_ranker.txt -text

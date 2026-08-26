@@ -1,0 +1,431 @@
+{
+  "benchmark_version": "1.0",
+  "scope": "deterministic_mdt_ost_drive_filter",
+  "throughput_contract": "Historical fields ending in _gbps carry GB/s values; catalogue MB/s is converted with x0.001.",
+  "metrics": {
+    "case_count": 24,
+    "expected_feasible_cases": 12,
+    "expected_infeasible_cases": 12,
+    "correct_decisions": 24,
+    "decision_accuracy_percent": 100.0,
+    "false_feasible_count": 0,
+    "false_feasible_rate_percent": 0.0,
+    "false_infeasible_count": 0,
+    "false_infeasible_rate_percent": 0.0,
+    "rejection_reason_cases": 18,
+    "correct_rejection_reason_cases": 18,
+    "rejection_reason_accuracy_percent": 100.0,
+    "by_role": {
+      "MDT": {
+        "case_count": 12,
+        "decision_accuracy_percent": 100.0
+      },
+      "OST": {
+        "case_count": 12,
+        "decision_accuracy_percent": 100.0
+      }
+    },
+    "by_group": {
+      "boundary": {
+        "case_count": 8,
+        "decision_accuracy_percent": 100.0
+      },
+      "clearly_feasible": {
+        "case_count": 8,
+        "decision_accuracy_percent": 100.0
+      },
+      "clearly_infeasible": {
+        "case_count": 8,
+        "decision_accuracy_percent": 100.0
+      }
+    }
+  },
+  "results": [
+    {
+      "case_id": "MDT_F01_FULL_MODERATE",
+      "role": "MDT",
+      "group": "clearly_feasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 174,
+      "rejection_counts": {
+        "not_mdt_eligible": 59,
+        "raw_mdt_cost_exceeds_global_budget": 2
+      },
+      "reason_checked": false,
+      "reason_correct": null
+    },
+    {
+      "case_id": "MDT_F02_FULL_CRITICAL",
+      "role": "MDT",
+      "group": "clearly_feasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 3,
+      "rejection_counts": {
+        "endurance_requirement_not_met": 170,
+        "latency_requirement_not_met": 41,
+        "not_mdt_eligible": 59,
+        "raw_mdt_cost_exceeds_global_budget": 1,
+        "reliability_requirement_not_met": 67
+      },
+      "reason_checked": false,
+      "reason_correct": null
+    },
+    {
+      "case_id": "MDT_F03_SINGLE_ANCHOR",
+      "role": "MDT",
+      "group": "clearly_feasible",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 1,
+      "rejection_counts": {},
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "MDT_F04_FULL_HIGH_IOPS",
+      "role": "MDT",
+      "group": "clearly_feasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 41,
+      "rejection_counts": {
+        "endurance_requirement_not_met": 111,
+        "latency_requirement_not_met": 41,
+        "not_mdt_eligible": 59,
+        "raw_mdt_cost_exceeds_global_budget": 4,
+        "reliability_requirement_not_met": 67
+      },
+      "reason_checked": false,
+      "reason_correct": null
+    },
+    {
+      "case_id": "MDT_I01_FULL_BUDGET",
+      "role": "MDT",
+      "group": "clearly_infeasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "not_mdt_eligible": 59,
+        "raw_mdt_cost_exceeds_global_budget": 176
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "MDT_I02_FULL_POWER",
+      "role": "MDT",
+      "group": "clearly_infeasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "not_mdt_eligible": 59,
+        "raw_mdt_power_exceeds_global_power_limit": 176
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "MDT_I03_SINGLE_RELIABILITY",
+      "role": "MDT",
+      "group": "clearly_infeasible",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "reliability_requirement_not_met": 1
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "MDT_I04_SINGLE_ENDURANCE",
+      "role": "MDT",
+      "group": "clearly_infeasible",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "endurance_requirement_not_met": 1
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "MDT_B01_EXACT_BUDGET",
+      "role": "MDT",
+      "group": "boundary",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 1,
+      "rejection_counts": {},
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "MDT_B02_JUST_BELOW_BUDGET",
+      "role": "MDT",
+      "group": "boundary",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "raw_mdt_cost_exceeds_global_budget": 1
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "MDT_B03_EXACT_POWER",
+      "role": "MDT",
+      "group": "boundary",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 1,
+      "rejection_counts": {},
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "MDT_B04_LATENCY_STEP",
+      "role": "MDT",
+      "group": "boundary",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "latency_requirement_not_met": 1
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_F01_FULL_MODERATE",
+      "role": "OST",
+      "group": "clearly_feasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 224,
+      "rejection_counts": {
+        "raw_ost_cost_exceeds_global_budget": 11
+      },
+      "reason_checked": false,
+      "reason_correct": null
+    },
+    {
+      "case_id": "OST_F02_FULL_LARGE_CRITICAL",
+      "role": "OST",
+      "group": "clearly_feasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 150,
+      "rejection_counts": {
+        "raw_ost_cost_exceeds_global_budget": 38,
+        "reliability_requirement_not_met": 67
+      },
+      "reason_checked": false,
+      "reason_correct": null
+    },
+    {
+      "case_id": "OST_F03_SINGLE_ANCHOR",
+      "role": "OST",
+      "group": "clearly_feasible",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 1,
+      "rejection_counts": {},
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_F04_FULL_RANDOM_CRITICAL",
+      "role": "OST",
+      "group": "clearly_feasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 167,
+      "rejection_counts": {
+        "raw_ost_cost_exceeds_global_budget": 9,
+        "reliability_requirement_not_met": 67
+      },
+      "reason_checked": false,
+      "reason_correct": null
+    },
+    {
+      "case_id": "OST_I01_FULL_BUDGET",
+      "role": "OST",
+      "group": "clearly_infeasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "raw_ost_cost_exceeds_global_budget": 235
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_I02_FULL_POWER",
+      "role": "OST",
+      "group": "clearly_infeasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "raw_ost_power_exceeds_global_power_limit": 235
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_I03_SINGLE_RELIABILITY",
+      "role": "OST",
+      "group": "clearly_infeasible",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "reliability_requirement_not_met": 1
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_I04_FULL_EXTREME_THROUGHPUT",
+      "role": "OST",
+      "group": "clearly_infeasible",
+      "catalog_scope": "full",
+      "catalog_drive_count": 235,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "raw_ost_cost_exceeds_global_budget": 235
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_B01_EXACT_THROUGHPUT",
+      "role": "OST",
+      "group": "boundary",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 1,
+      "rejection_counts": {},
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_B02_JUST_ABOVE_READ",
+      "role": "OST",
+      "group": "boundary",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "raw_ost_cost_exceeds_global_budget": 1
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_B03_EXACT_CAPACITY",
+      "role": "OST",
+      "group": "boundary",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": true,
+      "predicted_feasible": true,
+      "decision_correct": true,
+      "feasible_drive_count": 1,
+      "rejection_counts": {},
+      "reason_checked": true,
+      "reason_correct": true
+    },
+    {
+      "case_id": "OST_B04_JUST_ABOVE_CAPACITY",
+      "role": "OST",
+      "group": "boundary",
+      "catalog_scope": "drive_ids",
+      "catalog_drive_count": 1,
+      "expected_feasible": false,
+      "predicted_feasible": false,
+      "decision_correct": true,
+      "feasible_drive_count": 0,
+      "rejection_counts": {
+        "raw_ost_cost_exceeds_global_budget": 1
+      },
+      "reason_checked": true,
+      "reason_correct": true
+    }
+  ],
+  "status": "VALIDATED"
+}

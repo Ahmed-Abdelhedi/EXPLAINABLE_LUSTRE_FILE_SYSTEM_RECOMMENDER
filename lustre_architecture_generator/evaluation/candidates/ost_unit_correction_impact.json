@@ -1,0 +1,45 @@
+{
+  "stage": "candidate_filter_ost_unit_contract_fix",
+  "cases": 1200,
+  "frozen_contract": {
+    "legacy_field_suffix": "_gbps",
+    "semantic_value_unit": "GB/s"
+  },
+  "old_conversion": {
+    "factor": 0.008,
+    "interpretation": "Gb/s = MB/s * 0.008",
+    "status": "INVALID_AGAINST_FROZEN_CONTRACT"
+  },
+  "corrected_conversion": {
+    "factor": 0.001,
+    "interpretation": "legacy *_gbps value (GB/s) = MB/s * 0.001",
+    "status": "CORRECT"
+  },
+  "impact": {
+    "top10_changed_cases": 834,
+    "top10_changed_percent": 69.5,
+    "top1_changed_cases": 466,
+    "top1_changed_percent": 38.83,
+    "cases_with_any_feasible_candidate_count_change": 480,
+    "count_change_percent": 40.0,
+    "old_feasible_min": 23,
+    "new_feasible_min": 4,
+    "old_feasible_median": 81.0,
+    "new_feasible_median": 80.0,
+    "old_top1_media": {
+      "SSD": 273,
+      "HDD": 927
+    },
+    "new_top1_media": {
+      "SSD": 389,
+      "HDD": 811
+    },
+    "new_cases_without_candidate": 0
+  },
+  "downstream_consequence": {
+    "existing_ost_training_dataset_stale": true,
+    "existing_ost_ranker_artifact_stale": true,
+    "required_next_action": "Regenerate OST training data with corrected candidates, then retrain/evaluate the OST CatBoostRanker before using it in production inference."
+  },
+  "runtime_pipeline_note": "Current ranker inference already passes all feasible candidates to CatBoost before Top-K; the standalone deterministic Top-K is a teacher/reference artifact, not a pre-ML runtime truncation."
+}

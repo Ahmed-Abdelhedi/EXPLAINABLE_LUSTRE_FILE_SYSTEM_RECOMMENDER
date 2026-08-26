@@ -1397,7 +1397,7 @@
   },
   "ost": {
     "file": "ost_training_dataset.csv.gz",
-    "row_count": 118110,
+    "row_count": 116572,
     "identifier_columns": [
       "split",
       "case_id",
@@ -1527,25 +1527,25 @@
     ],
     "statistics": {
       "rows_by_split": {
-        "train": 82452,
-        "validation": 18575,
-        "test": 17083
+        "train": 81277,
+        "validation": 18461,
+        "test": 16834
       },
       "grade_distribution": {
-        "0": 70397,
-        "1": 35713,
-        "2": 8400,
+        "0": 69452,
+        "1": 35134,
+        "2": 8386,
         "3": 2400,
         "4": 1200
       },
-      "minimum_group_size": 23,
+      "minimum_group_size": 4,
       "maximum_group_size": 235,
-      "mean_group_size": 98.425
+      "mean_group_size": 97.143333
     }
   },
   "checksums_sha256": {
-    "mdt_training_dataset.csv.gz": "2f62fa0bb834fbb3bb3398cd818e70fd3119c13bece90012131443e4407ae851",
-    "ost_training_dataset.csv.gz": "5c55710a267d8a85a60915c5181e9aa0875d3251a2273cf793947d5102c5bd32",
+    "mdt_training_dataset.csv.gz": "99331a5e03725f163a381e2d2ec295132d7e88a0f209300d64c5969a47f234d9",
+    "ost_training_dataset.csv.gz": "afe2014594172939c8b243fe68b54b0d088362a9031022599f3af3490b67dfbc",
     "case_splits.json": "6abd9948d22c6863709241d5122b62a98f19db0aa2bfe9468e7a0bed599da359"
   }
 }

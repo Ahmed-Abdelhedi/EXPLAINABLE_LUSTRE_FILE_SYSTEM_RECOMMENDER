@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "status": "OFFICIAL_SELECTION",
+  "model_family": "LightGBM",
+  "selection_rule": "family selected from validation-only comparison; per-role seed selected by validation NDCG@5; test used only for final confirmation",
+  "mdt": {
+    "seed": 168,
+    "model_file": "artifacts/rankers/official/mdt/mdt_ranker.txt",
+    "validation_ndcg_at_5": 0.9885568127480762,
+    "test_ndcg_at_5": 0.9806331617251856,
+    "dataset_sha256_uncompressed": "a6dbcb1ae8c446f626a05d1f8393500a8ee77292770baf6e6ce10dc5824b273c"
+  },
+  "ost": {
+    "seed": 84,
+    "model_file": "artifacts/rankers/official/ost/ost_ranker.txt",
+    "validation_ndcg_at_5": 0.9564590896267722,
+    "test_ndcg_at_5": 0.9481718501871088,
+    "dataset_sha256_uncompressed": "28380ba8e4ae5d988da834b5d74bce6bd3062d2a948cdece3710227ae51fd2b2"
+  }
+}

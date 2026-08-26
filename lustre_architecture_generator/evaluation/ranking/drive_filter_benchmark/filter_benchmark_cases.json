@@ -1,0 +1,537 @@
+{
+  "benchmark_version": "1.0",
+  "scope": "deterministic_mdt_ost_drive_filter",
+  "throughput_contract": "Historical fields ending in _gbps carry GB/s values; catalogue MB/s is converted with x0.001.",
+  "groups": ["clearly_feasible", "clearly_infeasible", "boundary"],
+  "cases": [
+    {
+      "case_id": "MDT_F01_FULL_MODERATE",
+      "role": "MDT",
+      "group": "clearly_feasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "MDT_F01_FULL_MODERATE",
+        "MDT_requirement": {
+          "required_total_iops": 15000,
+          "required_read_iops": 10000,
+          "required_write_iops": 5000,
+          "required_metadata_capacity_tib": 0.1,
+          "latency_requirement": "low",
+          "endurance_requirement": "standard",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": true, "max_budget_usd": 10000, "max_power_w": 1000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true}
+    },
+    {
+      "case_id": "MDT_F02_FULL_CRITICAL",
+      "role": "MDT",
+      "group": "clearly_feasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "MDT_F02_FULL_CRITICAL",
+        "MDT_requirement": {
+          "required_total_iops": 500000,
+          "required_read_iops": 300000,
+          "required_write_iops": 200000,
+          "required_metadata_capacity_tib": 1.0,
+          "latency_requirement": "very_low",
+          "endurance_requirement": "critical",
+          "reliability_requirement": "critical"
+        },
+        "constraints": {"ha_required": true, "max_budget_usd": 100000, "max_power_w": 10000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true}
+    },
+    {
+      "case_id": "MDT_F03_SINGLE_ANCHOR",
+      "role": "MDT",
+      "group": "clearly_feasible",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "MDT_F03_SINGLE_ANCHOR",
+        "MDT_requirement": {
+          "required_total_iops": 64000,
+          "required_read_iops": 49000,
+          "required_write_iops": 15000,
+          "required_metadata_capacity_tib": 0.8,
+          "latency_requirement": "low",
+          "endurance_requirement": "medium",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 1200, "max_power_w": 10},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true, "exact_rejection_counts": {}}
+    },
+    {
+      "case_id": "MDT_F04_FULL_HIGH_IOPS",
+      "role": "MDT",
+      "group": "clearly_feasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "MDT_F04_FULL_HIGH_IOPS",
+        "MDT_requirement": {
+          "required_total_iops": 5000000,
+          "required_read_iops": 3000000,
+          "required_write_iops": 2000000,
+          "required_metadata_capacity_tib": 5.0,
+          "latency_requirement": "very_low",
+          "endurance_requirement": "high",
+          "reliability_requirement": "critical"
+        },
+        "constraints": {"ha_required": true, "max_budget_usd": 500000, "max_power_w": 50000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true}
+    },
+    {
+      "case_id": "MDT_I01_FULL_BUDGET",
+      "role": "MDT",
+      "group": "clearly_infeasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "MDT_I01_FULL_BUDGET",
+        "MDT_requirement": {
+          "required_total_iops": 15000,
+          "required_read_iops": 10000,
+          "required_write_iops": 5000,
+          "required_metadata_capacity_tib": 0.1,
+          "latency_requirement": "low",
+          "endurance_requirement": "standard",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 100, "max_power_w": 10000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "required_rejection_reasons": ["raw_mdt_cost_exceeds_global_budget"]}
+    },
+    {
+      "case_id": "MDT_I02_FULL_POWER",
+      "role": "MDT",
+      "group": "clearly_infeasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "MDT_I02_FULL_POWER",
+        "MDT_requirement": {
+          "required_total_iops": 15000,
+          "required_read_iops": 10000,
+          "required_write_iops": 5000,
+          "required_metadata_capacity_tib": 0.1,
+          "latency_requirement": "low",
+          "endurance_requirement": "standard",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 100000, "max_power_w": 2.0},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "required_rejection_reasons": ["raw_mdt_power_exceeds_global_power_limit"]}
+    },
+    {
+      "case_id": "MDT_I03_SINGLE_RELIABILITY",
+      "role": "MDT",
+      "group": "clearly_infeasible",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "MDT_I03_SINGLE_RELIABILITY",
+        "MDT_requirement": {
+          "required_total_iops": 10000,
+          "required_read_iops": 7000,
+          "required_write_iops": 3000,
+          "required_metadata_capacity_tib": 0.1,
+          "latency_requirement": "low",
+          "endurance_requirement": "medium",
+          "reliability_requirement": "critical"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 100000, "max_power_w": 10000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "exact_rejection_counts": {"reliability_requirement_not_met": 1}}
+    },
+    {
+      "case_id": "MDT_I04_SINGLE_ENDURANCE",
+      "role": "MDT",
+      "group": "clearly_infeasible",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "MDT_I04_SINGLE_ENDURANCE",
+        "MDT_requirement": {
+          "required_total_iops": 10000,
+          "required_read_iops": 7000,
+          "required_write_iops": 3000,
+          "required_metadata_capacity_tib": 0.1,
+          "latency_requirement": "low",
+          "endurance_requirement": "high",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 100000, "max_power_w": 10000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "exact_rejection_counts": {"endurance_requirement_not_met": 1}}
+    },
+    {
+      "case_id": "MDT_B01_EXACT_BUDGET",
+      "role": "MDT",
+      "group": "boundary",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "MDT_B01_EXACT_BUDGET",
+        "MDT_requirement": {
+          "required_total_iops": 128000,
+          "required_read_iops": 98000,
+          "required_write_iops": 30000,
+          "required_metadata_capacity_tib": 1.74623,
+          "latency_requirement": "low",
+          "endurance_requirement": "medium",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 600, "max_power_w": 100},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true, "exact_rejection_counts": {}}
+    },
+    {
+      "case_id": "MDT_B02_JUST_BELOW_BUDGET",
+      "role": "MDT",
+      "group": "boundary",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "MDT_B02_JUST_BELOW_BUDGET",
+        "MDT_requirement": {
+          "required_total_iops": 128000,
+          "required_read_iops": 98000,
+          "required_write_iops": 30000,
+          "required_metadata_capacity_tib": 1.74623,
+          "latency_requirement": "low",
+          "endurance_requirement": "medium",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 599.99, "max_power_w": 100},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "exact_rejection_counts": {"raw_mdt_cost_exceeds_global_budget": 1}}
+    },
+    {
+      "case_id": "MDT_B03_EXACT_POWER",
+      "role": "MDT",
+      "group": "boundary",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "MDT_B03_EXACT_POWER",
+        "MDT_requirement": {
+          "required_total_iops": 128000,
+          "required_read_iops": 98000,
+          "required_write_iops": 30000,
+          "required_metadata_capacity_tib": 1.74623,
+          "latency_requirement": "low",
+          "endurance_requirement": "medium",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 10000, "max_power_w": 3.2},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true, "exact_rejection_counts": {}}
+    },
+    {
+      "case_id": "MDT_B04_LATENCY_STEP",
+      "role": "MDT",
+      "group": "boundary",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "MDT_B04_LATENCY_STEP",
+        "MDT_requirement": {
+          "required_total_iops": 10000,
+          "required_read_iops": 7000,
+          "required_write_iops": 3000,
+          "required_metadata_capacity_tib": 0.1,
+          "latency_requirement": "very_low",
+          "endurance_requirement": "medium",
+          "reliability_requirement": "high"
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 100000, "max_power_w": 10000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "exact_rejection_counts": {"latency_requirement_not_met": 1}}
+    },
+
+    {
+      "case_id": "OST_F01_FULL_MODERATE",
+      "role": "OST",
+      "group": "clearly_feasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "OST_F01_FULL_MODERATE",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 10.0,
+          "required_read_bandwidth_gbps": 0.5,
+          "required_write_bandwidth_gbps": 0.5,
+          "required_total_bandwidth_gbps": 1.0,
+          "throughput_requirement": "medium",
+          "access_pattern": "mixed",
+          "file_size_class": "medium_files",
+          "reliability_requirement": "high",
+          "ha_required": true
+        },
+        "constraints": {"ha_required": true, "max_budget_usd": 10000, "max_power_w": 1000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true}
+    },
+    {
+      "case_id": "OST_F02_FULL_LARGE_CRITICAL",
+      "role": "OST",
+      "group": "clearly_feasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "OST_F02_FULL_LARGE_CRITICAL",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 1000.0,
+          "required_read_bandwidth_gbps": 20.0,
+          "required_write_bandwidth_gbps": 10.0,
+          "required_total_bandwidth_gbps": 30.0,
+          "throughput_requirement": "very_high",
+          "access_pattern": "sequential",
+          "file_size_class": "large_files",
+          "reliability_requirement": "critical",
+          "ha_required": true
+        },
+        "constraints": {"ha_required": true, "max_budget_usd": 500000, "max_power_w": 50000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true}
+    },
+    {
+      "case_id": "OST_F03_SINGLE_ANCHOR",
+      "role": "OST",
+      "group": "clearly_feasible",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "OST_F03_SINGLE_ANCHOR",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 1.0,
+          "required_read_bandwidth_gbps": 0.3,
+          "required_write_bandwidth_gbps": 0.3,
+          "required_total_bandwidth_gbps": 0.6,
+          "throughput_requirement": "medium",
+          "access_pattern": "mixed",
+          "file_size_class": "medium_files",
+          "reliability_requirement": "high",
+          "ha_required": false
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 1200, "max_power_w": 10},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true, "exact_rejection_counts": {}}
+    },
+    {
+      "case_id": "OST_F04_FULL_RANDOM_CRITICAL",
+      "role": "OST",
+      "group": "clearly_feasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "OST_F04_FULL_RANDOM_CRITICAL",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 100.0,
+          "required_read_bandwidth_gbps": 10.0,
+          "required_write_bandwidth_gbps": 10.0,
+          "required_total_bandwidth_gbps": 20.0,
+          "throughput_requirement": "very_high",
+          "access_pattern": "random",
+          "file_size_class": "small_files",
+          "reliability_requirement": "critical",
+          "ha_required": true
+        },
+        "constraints": {"ha_required": true, "max_budget_usd": 100000, "max_power_w": 10000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true}
+    },
+    {
+      "case_id": "OST_I01_FULL_BUDGET",
+      "role": "OST",
+      "group": "clearly_infeasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "OST_I01_FULL_BUDGET",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 10.0,
+          "required_read_bandwidth_gbps": 0.5,
+          "required_write_bandwidth_gbps": 0.5,
+          "required_total_bandwidth_gbps": 1.0,
+          "throughput_requirement": "medium",
+          "access_pattern": "mixed",
+          "file_size_class": "medium_files",
+          "reliability_requirement": "high",
+          "ha_required": false
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 100, "max_power_w": 10000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "required_rejection_reasons": ["raw_ost_cost_exceeds_global_budget"]}
+    },
+    {
+      "case_id": "OST_I02_FULL_POWER",
+      "role": "OST",
+      "group": "clearly_infeasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "OST_I02_FULL_POWER",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 10.0,
+          "required_read_bandwidth_gbps": 0.5,
+          "required_write_bandwidth_gbps": 0.5,
+          "required_total_bandwidth_gbps": 1.0,
+          "throughput_requirement": "medium",
+          "access_pattern": "mixed",
+          "file_size_class": "medium_files",
+          "reliability_requirement": "high",
+          "ha_required": false
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 100000, "max_power_w": 2.0},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "required_rejection_reasons": ["raw_ost_power_exceeds_global_power_limit"]}
+    },
+    {
+      "case_id": "OST_I03_SINGLE_RELIABILITY",
+      "role": "OST",
+      "group": "clearly_infeasible",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "OST_I03_SINGLE_RELIABILITY",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 1.0,
+          "required_read_bandwidth_gbps": 0.1,
+          "required_write_bandwidth_gbps": 0.1,
+          "required_total_bandwidth_gbps": 0.2,
+          "throughput_requirement": "low",
+          "access_pattern": "sequential",
+          "file_size_class": "large_files",
+          "reliability_requirement": "critical",
+          "ha_required": false
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 100000, "max_power_w": 10000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "exact_rejection_counts": {"reliability_requirement_not_met": 1}}
+    },
+    {
+      "case_id": "OST_I04_FULL_EXTREME_THROUGHPUT",
+      "role": "OST",
+      "group": "clearly_infeasible",
+      "catalog_scope": {"type": "full"},
+      "architecture_case": {
+        "case_id": "OST_I04_FULL_EXTREME_THROUGHPUT",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 100.0,
+          "required_read_bandwidth_gbps": 1000.0,
+          "required_write_bandwidth_gbps": 1000.0,
+          "required_total_bandwidth_gbps": 2000.0,
+          "throughput_requirement": "very_high",
+          "access_pattern": "mixed",
+          "file_size_class": "large_files",
+          "reliability_requirement": "high",
+          "ha_required": true
+        },
+        "constraints": {"ha_required": true, "max_budget_usd": 1000, "max_power_w": 100000},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "required_rejection_reasons": ["raw_ost_cost_exceeds_global_budget"]}
+    },
+    {
+      "case_id": "OST_B01_EXACT_THROUGHPUT",
+      "role": "OST",
+      "group": "boundary",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "OST_B01_EXACT_THROUGHPUT",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 1.74623,
+          "required_read_bandwidth_gbps": 0.55,
+          "required_write_bandwidth_gbps": 0.52,
+          "required_total_bandwidth_gbps": 1.07,
+          "throughput_requirement": "high",
+          "access_pattern": "sequential",
+          "file_size_class": "large_files",
+          "reliability_requirement": "high",
+          "ha_required": false
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 600, "max_power_w": 3.2},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true, "exact_rejection_counts": {}}
+    },
+    {
+      "case_id": "OST_B02_JUST_ABOVE_READ",
+      "role": "OST",
+      "group": "boundary",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "OST_B02_JUST_ABOVE_READ",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 1.0,
+          "required_read_bandwidth_gbps": 0.550001,
+          "required_write_bandwidth_gbps": 0.1,
+          "required_total_bandwidth_gbps": 0.650001,
+          "throughput_requirement": "high",
+          "access_pattern": "sequential",
+          "file_size_class": "large_files",
+          "reliability_requirement": "high",
+          "ha_required": false
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 600, "max_power_w": 100},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "exact_rejection_counts": {"raw_ost_cost_exceeds_global_budget": 1}}
+    },
+    {
+      "case_id": "OST_B03_EXACT_CAPACITY",
+      "role": "OST",
+      "group": "boundary",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "OST_B03_EXACT_CAPACITY",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 1.74623,
+          "required_read_bandwidth_gbps": 0.1,
+          "required_write_bandwidth_gbps": 0.1,
+          "required_total_bandwidth_gbps": 0.2,
+          "throughput_requirement": "low",
+          "access_pattern": "sequential",
+          "file_size_class": "large_files",
+          "reliability_requirement": "high",
+          "ha_required": false
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 600, "max_power_w": 100},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": true, "exact_rejection_counts": {}}
+    },
+    {
+      "case_id": "OST_B04_JUST_ABOVE_CAPACITY",
+      "role": "OST",
+      "group": "boundary",
+      "catalog_scope": {"type": "drive_ids", "drive_ids": ["DRV_000001"]},
+      "architecture_case": {
+        "case_id": "OST_B04_JUST_ABOVE_CAPACITY",
+        "OST_requirement": {
+          "required_usable_capacity_tib": 1.746231,
+          "required_read_bandwidth_gbps": 0.1,
+          "required_write_bandwidth_gbps": 0.1,
+          "required_total_bandwidth_gbps": 0.2,
+          "throughput_requirement": "low",
+          "access_pattern": "sequential",
+          "file_size_class": "large_files",
+          "reliability_requirement": "high",
+          "ha_required": false
+        },
+        "constraints": {"ha_required": false, "max_budget_usd": 600, "max_power_w": 100},
+        "preferences": {"performance_priority": 0.4, "cost_priority": 0.2, "power_priority": 0.15, "reliability_priority": 0.25}
+      },
+      "expected": {"feasible": false, "exact_rejection_counts": {"raw_ost_cost_exceeds_global_budget": 1}}
+    }
+  ]
+}

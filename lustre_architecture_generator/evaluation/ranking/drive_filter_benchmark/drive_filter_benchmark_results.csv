@@ -1,0 +1,25 @@
+case_id,role,group,catalog_scope,catalog_drive_count,expected_feasible,predicted_feasible,decision_correct,feasible_drive_count,reason_checked,reason_correct,rejection_counts
+MDT_F01_FULL_MODERATE,MDT,clearly_feasible,full,235,True,True,True,174,False,,"{""not_mdt_eligible"": 59, ""raw_mdt_cost_exceeds_global_budget"": 2}"
+MDT_F02_FULL_CRITICAL,MDT,clearly_feasible,full,235,True,True,True,3,False,,"{""endurance_requirement_not_met"": 170, ""latency_requirement_not_met"": 41, ""not_mdt_eligible"": 59, ""raw_mdt_cost_exceeds_global_budget"": 1, ""reliability_requirement_not_met"": 67}"
+MDT_F03_SINGLE_ANCHOR,MDT,clearly_feasible,drive_ids,1,True,True,True,1,True,True,{}
+MDT_F04_FULL_HIGH_IOPS,MDT,clearly_feasible,full,235,True,True,True,41,False,,"{""endurance_requirement_not_met"": 111, ""latency_requirement_not_met"": 41, ""not_mdt_eligible"": 59, ""raw_mdt_cost_exceeds_global_budget"": 4, ""reliability_requirement_not_met"": 67}"
+MDT_I01_FULL_BUDGET,MDT,clearly_infeasible,full,235,False,False,True,0,True,True,"{""not_mdt_eligible"": 59, ""raw_mdt_cost_exceeds_global_budget"": 176}"
+MDT_I02_FULL_POWER,MDT,clearly_infeasible,full,235,False,False,True,0,True,True,"{""not_mdt_eligible"": 59, ""raw_mdt_power_exceeds_global_power_limit"": 176}"
+MDT_I03_SINGLE_RELIABILITY,MDT,clearly_infeasible,drive_ids,1,False,False,True,0,True,True,"{""reliability_requirement_not_met"": 1}"
+MDT_I04_SINGLE_ENDURANCE,MDT,clearly_infeasible,drive_ids,1,False,False,True,0,True,True,"{""endurance_requirement_not_met"": 1}"
+MDT_B01_EXACT_BUDGET,MDT,boundary,drive_ids,1,True,True,True,1,True,True,{}
+MDT_B02_JUST_BELOW_BUDGET,MDT,boundary,drive_ids,1,False,False,True,0,True,True,"{""raw_mdt_cost_exceeds_global_budget"": 1}"
+MDT_B03_EXACT_POWER,MDT,boundary,drive_ids,1,True,True,True,1,True,True,{}
+MDT_B04_LATENCY_STEP,MDT,boundary,drive_ids,1,False,False,True,0,True,True,"{""latency_requirement_not_met"": 1}"
+OST_F01_FULL_MODERATE,OST,clearly_feasible,full,235,True,True,True,224,False,,"{""raw_ost_cost_exceeds_global_budget"": 11}"
+OST_F02_FULL_LARGE_CRITICAL,OST,clearly_feasible,full,235,True,True,True,150,False,,"{""raw_ost_cost_exceeds_global_budget"": 38, ""reliability_requirement_not_met"": 67}"
+OST_F03_SINGLE_ANCHOR,OST,clearly_feasible,drive_ids,1,True,True,True,1,True,True,{}
+OST_F04_FULL_RANDOM_CRITICAL,OST,clearly_feasible,full,235,True,True,True,167,False,,"{""raw_ost_cost_exceeds_global_budget"": 9, ""reliability_requirement_not_met"": 67}"
+OST_I01_FULL_BUDGET,OST,clearly_infeasible,full,235,False,False,True,0,True,True,"{""raw_ost_cost_exceeds_global_budget"": 235}"
+OST_I02_FULL_POWER,OST,clearly_infeasible,full,235,False,False,True,0,True,True,"{""raw_ost_power_exceeds_global_power_limit"": 235}"
+OST_I03_SINGLE_RELIABILITY,OST,clearly_infeasible,drive_ids,1,False,False,True,0,True,True,"{""reliability_requirement_not_met"": 1}"
+OST_I04_FULL_EXTREME_THROUGHPUT,OST,clearly_infeasible,full,235,False,False,True,0,True,True,"{""raw_ost_cost_exceeds_global_budget"": 235}"
+OST_B01_EXACT_THROUGHPUT,OST,boundary,drive_ids,1,True,True,True,1,True,True,{}
+OST_B02_JUST_ABOVE_READ,OST,boundary,drive_ids,1,False,False,True,0,True,True,"{""raw_ost_cost_exceeds_global_budget"": 1}"
+OST_B03_EXACT_CAPACITY,OST,boundary,drive_ids,1,True,True,True,1,True,True,{}
+OST_B04_JUST_ABOVE_CAPACITY,OST,boundary,drive_ids,1,False,False,True,0,True,True,"{""raw_ost_cost_exceeds_global_budget"": 1}"

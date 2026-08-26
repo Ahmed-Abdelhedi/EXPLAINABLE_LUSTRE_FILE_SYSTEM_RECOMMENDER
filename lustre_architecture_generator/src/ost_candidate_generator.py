@@ -11,7 +11,7 @@ Le générateur :
 - conserve case_id, OST_requirement, constraints et preferences ;
 - évalue uniquement les disques avec ost_eligible=true ;
 - vérifie la fiabilité minimale ;
-- convertit les débits MB/s du catalogue en Gbps ;
+- convertit les débits MB/s du catalogue dans l'unité historique du contrat (GB/s, malgré les noms ``*_gbps``) ;
 - calcule une borne minimale avant RAID selon capacité et débits ;
 - élimine les candidats dont la borne minimale dépasse déjà le budget
   ou la puissance globale ;
@@ -51,8 +51,21 @@ DEFAULT_CATALOG = BASE_DIR / "data" / "catalogue_drives_ready_final.json"
 DEFAULT_OUTPUT = BASE_DIR / "output" / "ost_drive_candidates_dataset.json"
 
 
-GENERATOR_VERSION = "1.0"
-MB_S_TO_GBPS = 0.008
+GENERATOR_VERSION = "1.1"
+
+# IMPORTANT CONTRACT NOTE
+# -----------------------
+# The historical project field names end in ``_gbps``, but the frozen
+# sizing contract (v2.0) explicitly defines their VALUES as GB/s.
+# Therefore catalogue throughput expressed in MB/s must be converted to
+# the legacy project bandwidth unit with 1 MB/s = 0.001 GB/s.
+#
+# Keep the old constant name as a compatibility alias because the
+# validator imports it. Its value follows the frozen semantic contract,
+# not the literal spelling of the legacy field name.
+LEGACY_BANDWIDTH_VALUE_UNIT = "GB/s"
+MB_S_TO_LEGACY_BANDWIDTH_UNIT = 0.001
+MB_S_TO_GBPS = MB_S_TO_LEGACY_BANDWIDTH_UNIT
 
 RELIABILITY_MIN_MTBF_HOURS = {
     "low": 0,
@@ -805,7 +818,7 @@ def generate_case_candidates(
             "candidate_stage":
                 "pre_raid_drive_model_ranking",
             "bandwidth_conversion":
-                "Gbps = MB/s * 0.008",
+                "legacy *_gbps values are GB/s; GB/s = MB/s * 0.001",
             "raw_minimum_drive_count_is_lower_bound": True,
             "workload_media_adjustment_is_soft": True,
             "global_budget_and_power_are_not_allocated_per_role":

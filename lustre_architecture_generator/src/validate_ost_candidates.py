@@ -519,7 +519,7 @@ def validate_case(
         "candidate_stage":
             "pre_raid_drive_model_ranking",
         "bandwidth_conversion":
-            "Gbps = MB/s * 0.008",
+            "legacy *_gbps values are GB/s; GB/s = MB/s * 0.001",
         "raw_minimum_drive_count_is_lower_bound": True,
         "workload_media_adjustment_is_soft": True,
         "global_budget_and_power_are_not_allocated_per_role":
