@@ -1,0 +1,57 @@
+{
+  "step": "4.2E",
+  "status": "LAYER2_HYBRID_GUARD_RESIDUAL_VALIDATOR_LLM_FROZEN_BEFORE_TEST",
+  "guard_version": "layer2_deterministic_semantic_guard_v1_20260825",
+  "residual_validator_version": "layer2_residual_validator_v1_20260825",
+  "hybrid_prompt_version": "layer2_hybrid_residual_qwen_v1_20260825",
+  "hybrid_prompt_sha256": "04e60847fc4739e3ece178cbc2c37fefabd1854314a457636747cfcd535df137",
+  "model": "qwen2.5-coder:7b",
+  "validation_benchmark": "preference_extractor\\evaluation\\layer2_validation_hybrid_qwen_v2.json",
+  "validation_overall": {
+    "rows": 200,
+    "dimension_cases": 335,
+    "exact_correct": 331,
+    "exact_accuracy": 0.9880597014925373,
+    "accepted_outputs": 331,
+    "accepted_precision": 1.0,
+    "wrong_accepted_count": 0,
+    "false_acceptance_rate_among_all_dimensions": 0.0,
+    "abstention_rate": 0.011940298507462687,
+    "guard_dimension_cases": 327,
+    "guard_coverage": 0.9761194029850746,
+    "guard_precision_on_covered_evaluation_only": 1.0,
+    "residual_llm_dimension_cases": 8,
+    "residual_llm_exact_accuracy": 0.5,
+    "residual_accepted_outputs": 4,
+    "residual_accepted_precision": 1.0,
+    "residual_validator_corrections": 1,
+    "residual_validator_rejections": 1,
+    "llm_global_contract_violation_rows": 4,
+    "llm_calls": 8,
+    "llm_row_call_rate": 0.04,
+    "llm_calls_saved_vs_one_call_per_input_row": 0.96,
+    "gold_status_metrics": {
+      "RESOLVED": {
+        "n": 224,
+        "exact_accuracy": 1.0
+      },
+      "NO_SIGNAL": {
+        "n": 7,
+        "exact_accuracy": 0.8571428571428571
+      },
+      "RELATIVE_ONLY": {
+        "n": 104,
+        "exact_accuracy": 0.9711538461538461
+      }
+    },
+    "llm_latency": {
+      "mean_s": 13.872166462497262,
+      "median_s": 9.825603650009725,
+      "p95_s": 23.540361450001363,
+      "max_s": 24.148387399996864
+    }
+  },
+  "test_hybrid_seen_before_freeze": false,
+  "final_holdout_seen": false,
+  "protocol": "After this freeze, do not modify guard rules, residual validator rules, residual prompt, model, parser, or decoding based on TEST results."
+}

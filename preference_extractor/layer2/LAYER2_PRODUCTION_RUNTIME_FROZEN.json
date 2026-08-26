@@ -1,0 +1,26 @@
+{
+  "step": "4.4",
+  "status": "LAYER2_PRODUCTION_RUNTIME_FROZEN",
+  "meaning": "The real preference_extractor/layer2 runtime is integrated and functionally frozen. This is not a claim of final statistical generalization.",
+  "artifact_sha256": "cdbb6f6544d4b4d96578e0901a00f46c68916ad66547800ffc4d232095298890",
+  "guard_version": "layer2_deterministic_semantic_guard_v1_20260825",
+  "residual_validator_version": "layer2_residual_validator_v1_20260825",
+  "hybrid_prompt_version": "layer2_hybrid_residual_qwen_v1_20260825",
+  "hybrid_prompt_sha256": "04e60847fc4739e3ece178cbc2c37fefabd1854314a457636747cfcd535df137",
+  "ollama_model": "qwen2.5-coder:7b",
+  "production_runtime_smoke": "preference_extractor\\layer2\\layer2_production_runtime_smoke.json",
+  "production_runtime_smoke_status": "LAYER2_PRODUCTION_RUNTIME_SMOKE_PASS",
+  "production_file_sha256": {
+    "preference_extractor\\layer2\\confidence.py": "5bb9593f3c522b461d7ec00c0293438412bfe94066afa265d4caad983a071fb5",
+    "preference_extractor\\layer2\\labels.py": "5231de271f7ba5b479fcde3e2591b4f68e5ee02a9c045c83adf37ebf92185066",
+    "preference_extractor\\layer2\\schemas.py": "a8d3a09be9434c0bd86a17ac6172d07648414e423472fc0df7266fe1a631ca58",
+    "preference_extractor\\layer2\\semantic_guard.py": "e9af834e6d1701fdc2900ad9c28fca45b5c7287ea482abe9b8b9f228efea7417",
+    "preference_extractor\\layer2\\residual_validator.py": "22acbdfa70a0e6855b566a3e7cb54febd352ad32923e8b219c7c172e6bc3898d",
+    "preference_extractor\\layer2\\llm_fallback.py": "ca852c4a5c9a917977c0afd877525fe274a7a7c8dfc63e386ce5ba88c596cf7e",
+    "preference_extractor\\layer2\\runtime.py": "304f3ceab8b425b6f3dba9b4d85ca63b0d1b6e40b7d3d987d827337521285e34"
+  },
+  "fine_tuning_performed": false,
+  "test_dataset_used_by_smoke": false,
+  "final_holdout_seen": false,
+  "known_limitation": "A previous large frozen TEST diagnostic showed weaker fallback generalization than validation. No TEST-driven tuning is incorporated here."
+}

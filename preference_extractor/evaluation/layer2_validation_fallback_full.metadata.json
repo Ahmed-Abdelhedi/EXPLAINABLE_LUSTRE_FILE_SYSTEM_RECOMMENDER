@@ -1,0 +1,20 @@
+{
+  "step": "4.2A",
+  "split": "validation",
+  "artifact": "preference_layer2_xlmr_v1_FINAL.zip",
+  "artifact_sha256": "cdbb6f6544d4b4d96578e0901a00f46c68916ad66547800ffc4d232095298890",
+  "dataset": "preference_layer2_dataset_KAGGLE_FRESH_R3.zip",
+  "dataset_sha256": "4a37c5bc61ddfad2bcf2785c5c63cb3c93b40e745edac3f4530d3a5db2b26ad5",
+  "dataset_version": "2026-08-24-r3-kaggle-fresh",
+  "model_max_length": 128,
+  "total_rows": 6000,
+  "rows_reaching_llm": 4349,
+  "row_fallback_rate": 0.7248333333333333,
+  "fallback_dimension_cases": 7821,
+  "direct_dimension_cases": 16179,
+  "direct_wrong_against_gold_evaluation_only": 69,
+  "direct_relative_only_mistaken_as_absolute": 2,
+  "sample_size": 200,
+  "sample_seed": 20260824,
+  "important_protocol_note": "Gold labels are stored only for benchmark scoring. Routing is computed from frozen Transformer probabilities and frozen validation calibration; gold is never used to decide whether a dimension reaches the LLM."
+}

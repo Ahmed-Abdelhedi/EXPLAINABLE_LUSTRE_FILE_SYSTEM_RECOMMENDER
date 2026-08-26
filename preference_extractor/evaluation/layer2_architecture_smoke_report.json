@@ -1,0 +1,168 @@
+{
+  "step": "4.3",
+  "status": "LAYER2_ARCHITECTURE_SMOKE_PASS",
+  "scope": "functional architecture + safety contracts; not a statistical accuracy claim",
+  "frozen_policy": "preference_extractor\\evaluation\\layer2_hybrid_policy_FROZEN.json",
+  "frozen_policy_sha256": "b3abc42aa6106dc0cb7878f3040d2346ff2a879fab51792d3ae1a87b9a0aa42a",
+  "artifact": "preference_layer2_xlmr_v1_FINAL.zip",
+  "artifact_sha256": "cdbb6f6544d4b4d96578e0901a00f46c68916ad66547800ffc4d232095298890",
+  "guard_version": "layer2_deterministic_semantic_guard_v1_20260825",
+  "residual_validator_version": "layer2_residual_validator_v1_20260825",
+  "hybrid_prompt_version": "layer2_hybrid_residual_qwen_v1_20260825",
+  "hybrid_prompt_sha256": "04e60847fc4739e3ece178cbc2c37fefabd1854314a457636747cfcd535df137",
+  "model": "qwen2.5-coder:7b",
+  "contracts": {
+    "status": "PASS",
+    "checks_passed": 11,
+    "checks": [
+      {
+        "name": "guard_absolute_en",
+        "status": "PASS",
+        "details": {
+          "dimension": "cost",
+          "status": "RESOLVED",
+          "level": "VERY_HIGH",
+          "evidence": "Cost is a top priority for this design",
+          "reason": "DETERMINISTIC_ABSOLUTE_INTENSITY"
+        }
+      },
+      {
+        "name": "guard_absolute_fr",
+        "status": "PASS",
+        "details": {
+          "dimension": "power",
+          "status": "RESOLVED",
+          "level": "LOW",
+          "evidence": "La consommation électrique est souhaitable sans être prioritaire",
+          "reason": "DETERMINISTIC_ABSOLUTE_INTENSITY"
+        }
+      },
+      {
+        "name": "guard_comparison_relative_only",
+        "status": "PASS",
+        "details": {
+          "performance": {
+            "dimension": "performance",
+            "status": "RELATIVE_ONLY",
+            "level": null,
+            "evidence": "Performance is more important than cost",
+            "reason": "DETERMINISTIC_PURE_COMPARISON"
+          },
+          "cost": {
+            "dimension": "cost",
+            "status": "RELATIVE_ONLY",
+            "level": null,
+            "evidence": "Performance is more important than cost",
+            "reason": "DETERMINISTIC_PURE_COMPARISON"
+          }
+        }
+      },
+      {
+        "name": "guard_no_signal_not_very_low",
+        "status": "PASS",
+        "details": {
+          "dimension": "performance",
+          "status": "NO_SIGNAL",
+          "level": null,
+          "evidence": null,
+          "reason": "DETERMINISTIC_HARD_NEGATIVE"
+        }
+      },
+      {
+        "name": "guard_explicit_very_low",
+        "status": "PASS",
+        "details": {
+          "dimension": "power",
+          "status": "RESOLVED",
+          "level": "VERY_LOW",
+          "evidence": "Keeping wattage modest can be largely ignored",
+          "reason": "DETERMINISTIC_ABSOLUTE_INTENSITY"
+        }
+      },
+      {
+        "name": "residual_rejects_absolute_from_comparison",
+        "status": "PASS",
+        "details": {
+          "action": "REJECTED:RESOLVED_WITHOUT_DETERMINISTIC_INTENSITY_SUPPORT",
+          "raw_status": "RESOLVED",
+          "raw_level": "VERY_HIGH",
+          "canonical_level": null
+        }
+      },
+      {
+        "name": "residual_accepts_supported_relative_only",
+        "status": "PASS",
+        "details": {
+          "action": "SUPPORTED_RELATIVE_ONLY",
+          "raw_status": "RELATIVE_ONLY",
+          "raw_level": null,
+          "canonical_level": null
+        }
+      },
+      {
+        "name": "residual_canonicalizes_level",
+        "status": "PASS",
+        "details": {
+          "action": "CANONICALIZED_RESOLVED_LEVEL",
+          "raw_status": "RESOLVED",
+          "raw_level": "VERY_LOW",
+          "canonical_level": "LOW"
+        }
+      },
+      {
+        "name": "residual_no_signal_is_safety_abstention",
+        "status": "PASS",
+        "details": {
+          "action": "REJECTED:RESIDUAL_NO_SIGNAL_NOT_AUTO_ACCEPTED",
+          "raw_status": "NO_SIGNAL",
+          "raw_level": null,
+          "canonical_level": null
+        }
+      },
+      {
+        "name": "parser_flags_unrequested_dimensions",
+        "status": "PASS",
+        "details": {
+          "valid": false,
+          "violations": [
+            "UNREQUESTED_DIMENSIONS:power"
+          ],
+          "dimensions": {
+            "cost": {
+              "status": "UNRESOLVED",
+              "level": null,
+              "evidence": null,
+              "accepted": false,
+              "validation_error": null
+            }
+          }
+        }
+      },
+      {
+        "name": "parser_rejects_unsupported_evidence",
+        "status": "PASS",
+        "details": {
+          "valid": false,
+          "violations": [
+            "reliability:UNSUPPORTED_EVIDENCE"
+          ],
+          "dimensions": {
+            "reliability": {
+              "status": "UNRESOLVED",
+              "level": null,
+              "evidence": "mission critical reliability",
+              "accepted": false,
+              "validation_error": "UNSUPPORTED_EVIDENCE"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "llm_smoke": {
+    "status": "SKIPPED",
+    "reason": "Run with --with-llm for one short Ollama liveness call."
+  },
+  "test_or_holdout_data_used_by_this_smoke": false,
+  "final_holdout_seen": false
+}

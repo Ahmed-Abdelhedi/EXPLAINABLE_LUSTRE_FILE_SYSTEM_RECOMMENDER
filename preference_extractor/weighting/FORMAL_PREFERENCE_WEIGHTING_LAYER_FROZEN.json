@@ -1,0 +1,30 @@
+{
+  "step": "4.5",
+  "status": "FORMAL_PREFERENCE_WEIGHTING_LAYER_FROZEN",
+  "method": "LINEAR_BWM_PLUS_ORDINAL_CONSISTENCY_GATE",
+  "scope": "deterministic formal weighting implementation; no direct qualitative-label-to-number mapping",
+  "production_smoke": "preference_extractor\\weighting\\formal_weighting_smoke_report.json",
+  "weights_example": {
+    "cost": 0.125,
+    "power": 0.0,
+    "performance": 0.225,
+    "reliability": 0.65
+  },
+  "xi_star_example": 0.025000000000000022,
+  "production_file_sha256": {
+    "preference_extractor\\weighting\\models.py": "b24754c3c0fee71b4387238c2cc5227b2b203ff92764479736492d58dd726158",
+    "preference_extractor\\weighting\\active_set.py": "6bf87ae644f833989ded178aa3f5ae636f7c621453a355005b7cab588af15b13",
+    "preference_extractor\\weighting\\best_worst_selector.py": "c1b4501e0bce62af15881b3d44ff3b8cbd62e9f2cf12f8cef036b5c9be4ed23a",
+    "preference_extractor\\weighting\\elicitation.py": "0922d3ff22fc6273a9ed6e14955bfcef4dbbf752b0262f47cd1fe0e06d070a28",
+    "preference_extractor\\weighting\\bwm_solver.py": "ee8e28563f2f5460c0384021c9c3d25ad2fb1837927514ad0890270edef1acab",
+    "preference_extractor\\weighting\\consistency_gate.py": "7a2b0ffc28339b189cee29ad1ce326d7707678073fe97d0509c19934585bd3e6",
+    "preference_extractor\\weighting\\runtime.py": "fd74147324f94810d706126785dd49a86ff6fbcbb3c30e53705adcf4615d5f6f"
+  },
+  "scientific_contract": {
+    "qualitative_labels_define_order_not_ratios": true,
+    "bwm_ratios_must_be_user_elicited": true,
+    "default_xi_acceptance_threshold": null,
+    "reason_no_default_xi_threshold": "A project-specific xi threshold must be calibrated rather than invented arbitrarily.",
+    "sum_weights": 1.0
+  }
+}

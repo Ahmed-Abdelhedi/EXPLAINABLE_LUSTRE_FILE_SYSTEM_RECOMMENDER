@@ -1,0 +1,60 @@
+{
+  "step": "4.5",
+  "status": "FORMAL_PREFERENCE_WEIGHTING_SMOKE_PASS",
+  "method": "LINEAR_BWM",
+  "example": {
+    "qualitative_labels": {
+      "cost": "LOW",
+      "power": "NO_SIGNAL",
+      "performance": "HIGH",
+      "reliability": "VERY_HIGH"
+    },
+    "bwm_judgments": {
+      "B2O:reliability:performance": 3,
+      "B2O:reliability:cost": 5,
+      "O2W:performance:cost": 2
+    },
+    "result": {
+      "status": "WEIGHTS_READY",
+      "method": "LINEAR_BWM",
+      "active_dimensions": [
+        "cost",
+        "performance",
+        "reliability"
+      ],
+      "best": "reliability",
+      "worst": "cost",
+      "weights": {
+        "cost": 0.125,
+        "power": 0.0,
+        "performance": 0.225,
+        "reliability": 0.65
+      },
+      "sum": 1.0,
+      "xi_star": 0.025000000000000022,
+      "ordinal_consistency": "PASS",
+      "consistency": {
+        "status": "PASS",
+        "violations": [],
+        "deviation_threshold": null
+      },
+      "missing_questions": [],
+      "violations": [],
+      "source": "USER_ELICITED_BWM",
+      "notes": [
+        "Weights are produced by linear BWM, not by direct ordinal label-to-number mapping."
+      ]
+    }
+  },
+  "properties_verified": {
+    "no_direct_label_to_numeric_mapping": true,
+    "best_worst_selected_from_verified_order": true,
+    "exact_question_count_2n_minus_3": true,
+    "weights_sum_to_one": true,
+    "inactive_dimension_weight_zero": true,
+    "linear_bwm_solver_used": true,
+    "xi_star_recorded": true,
+    "ordinal_consistency_gate_passed": true,
+    "llm_generates_weights": false
+  }
+}

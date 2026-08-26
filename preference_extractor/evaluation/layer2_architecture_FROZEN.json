@@ -1,0 +1,41 @@
+{
+  "step": "4.3",
+  "status": "LAYER2_ARCHITECTURE_FROZEN_FUNCTIONAL_BASELINE",
+  "scope": "Layer-2 architecture/integration/safety contracts are frozen. This does NOT claim final statistical generalization.",
+  "components": {
+    "encoder": "XLM-R Base shared multilingual encoder",
+    "heads": "4 presence + 4 cumulative ordinal intensity heads",
+    "dimensions": [
+      "cost",
+      "power",
+      "performance",
+      "reliability"
+    ],
+    "output_vocabulary": [
+      "NO_SIGNAL",
+      "VERY_LOW",
+      "LOW",
+      "MEDIUM",
+      "HIGH",
+      "VERY_HIGH",
+      "RELATIVE_ONLY",
+      "UNRESOLVED"
+    ],
+    "fallback": "selective deterministic guard -> residual qwen2.5-coder:7b -> residual evidence validator"
+  },
+  "frozen_policy_sha256": "b3abc42aa6106dc0cb7878f3040d2346ff2a879fab51792d3ae1a87b9a0aa42a",
+  "artifact_sha256": "cdbb6f6544d4b4d96578e0901a00f46c68916ad66547800ffc4d232095298890",
+  "guard_version": "layer2_deterministic_semantic_guard_v1_20260825",
+  "residual_validator_version": "layer2_residual_validator_v1_20260825",
+  "hybrid_prompt_version": "layer2_hybrid_residual_qwen_v1_20260825",
+  "hybrid_prompt_sha256": "04e60847fc4739e3ece178cbc2c37fefabd1854314a457636747cfcd535df137",
+  "model": "qwen2.5-coder:7b",
+  "architecture_smoke_report": "preference_extractor\\evaluation\\layer2_architecture_smoke_report.json",
+  "architecture_smoke_status": "LAYER2_ARCHITECTURE_SMOKE_PASS",
+  "architecture_smoke_checks_passed": 11,
+  "llm_liveness_checked": false,
+  "known_evaluation_note": "The previously started frozen TEST diagnostic exposed weaker fallback generalization than VALIDATION. No TEST-driven tuning is performed. This freeze is therefore a functional baseline, not a claim of final accuracy.",
+  "fine_tuning_performed_after_test": false,
+  "final_holdout_seen": false,
+  "next_project_step": "categorical/boolean extractor -> merged Requirement State -> sizing"
+}

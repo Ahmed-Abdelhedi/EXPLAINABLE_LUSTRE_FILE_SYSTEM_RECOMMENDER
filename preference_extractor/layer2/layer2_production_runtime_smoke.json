@@ -1,0 +1,146 @@
+{
+  "step": "4.4",
+  "status": "LAYER2_PRODUCTION_RUNTIME_SMOKE_PASS",
+  "scope": "functional production integration smoke; not a statistical accuracy benchmark",
+  "artifact": "preference_layer2_xlmr_v1_FINAL.zip",
+  "artifact_sha256": "cdbb6f6544d4b4d96578e0901a00f46c68916ad66547800ffc4d232095298890",
+  "frozen_calibration_status": "FROZEN_BEFORE_TEST",
+  "frozen_calibration_max_length": 128,
+  "guard_version": "layer2_deterministic_semantic_guard_v1_20260825",
+  "residual_validator_version": "layer2_residual_validator_v1_20260825",
+  "hybrid_prompt_version": "layer2_hybrid_residual_qwen_v1_20260825",
+  "hybrid_prompt_sha256": "04e60847fc4739e3ece178cbc2c37fefabd1854314a457636747cfcd535df137",
+  "ollama_model": "qwen2.5-coder:7b",
+  "checks": {
+    "production_guard_intercepts_before_llm": true,
+    "production_guard_llm_call_count": 0,
+    "production_residual_llm_called": true,
+    "production_residual_llm_call_count": 1,
+    "production_residual_requested_dimensions": [
+      "performance"
+    ],
+    "production_residual_response_valid": true,
+    "production_residual_response_violations": [],
+    "production_residual_latency_seconds": 19.869817500002682,
+    "production_residual_accepted_dimensions": [],
+    "final_four_dimension_contract": true
+  },
+  "guard_example": {
+    "text": "Performance is a top priority for this design.",
+    "dimensions": {
+      "cost": {
+        "dimension": "cost",
+        "status": "NO_SIGNAL",
+        "source": "TRANSFORMER",
+        "level": null,
+        "presence_probability": 0.009999998845160007,
+        "intensity_confidence": null,
+        "evidence": null,
+        "reason": "High-confidence absence of preference signal."
+      },
+      "power": {
+        "dimension": "power",
+        "status": "NO_SIGNAL",
+        "source": "TRANSFORMER",
+        "level": null,
+        "presence_probability": 0.009999998845160007,
+        "intensity_confidence": null,
+        "evidence": null,
+        "reason": "High-confidence absence of preference signal."
+      },
+      "performance": {
+        "dimension": "performance",
+        "status": "RESOLVED",
+        "source": "DETERMINISTIC_GUARD",
+        "level": "VERY_HIGH",
+        "presence_probability": 0.5,
+        "intensity_confidence": null,
+        "evidence": "Performance is a top priority for this design",
+        "reason": "DETERMINISTIC_ABSOLUTE_INTENSITY"
+      },
+      "reliability": {
+        "dimension": "reliability",
+        "status": "NO_SIGNAL",
+        "source": "TRANSFORMER",
+        "level": null,
+        "presence_probability": 0.009999998845160007,
+        "intensity_confidence": null,
+        "evidence": null,
+        "reason": "High-confidence absence of preference signal."
+      }
+    },
+    "relations": [],
+    "deterministic_guard_used": true,
+    "deterministic_guard_dimensions": [
+      "performance"
+    ],
+    "llm_fallback_used": false,
+    "llm_fallback_dimensions": [],
+    "requirement_fields": {
+      "cost_priority": "NO_SIGNAL",
+      "power_priority": "NO_SIGNAL",
+      "performance_priority": "VERY_HIGH",
+      "reliability_priority": "NO_SIGNAL"
+    }
+  },
+  "llm_liveness_example": {
+    "text": "For the final design, performance should influence our choice.",
+    "dimensions": {
+      "cost": {
+        "dimension": "cost",
+        "status": "NO_SIGNAL",
+        "source": "TRANSFORMER",
+        "level": null,
+        "presence_probability": 0.009999998845160007,
+        "intensity_confidence": null,
+        "evidence": null,
+        "reason": "High-confidence absence of preference signal."
+      },
+      "power": {
+        "dimension": "power",
+        "status": "NO_SIGNAL",
+        "source": "TRANSFORMER",
+        "level": null,
+        "presence_probability": 0.009999998845160007,
+        "intensity_confidence": null,
+        "evidence": null,
+        "reason": "High-confidence absence of preference signal."
+      },
+      "performance": {
+        "dimension": "performance",
+        "status": "UNRESOLVED",
+        "source": "NONE",
+        "level": null,
+        "presence_probability": 0.5,
+        "intensity_confidence": null,
+        "evidence": null,
+        "reason": "Transformer abstained, deterministic guard abstained, and residual LLM did not produce an accepted verified result."
+      },
+      "reliability": {
+        "dimension": "reliability",
+        "status": "NO_SIGNAL",
+        "source": "TRANSFORMER",
+        "level": null,
+        "presence_probability": 0.009999998845160007,
+        "intensity_confidence": null,
+        "evidence": null,
+        "reason": "High-confidence absence of preference signal."
+      }
+    },
+    "relations": [],
+    "deterministic_guard_used": false,
+    "deterministic_guard_dimensions": [],
+    "llm_fallback_used": true,
+    "llm_fallback_dimensions": [
+      "performance"
+    ],
+    "requirement_fields": {
+      "cost_priority": "NO_SIGNAL",
+      "power_priority": "NO_SIGNAL",
+      "performance_priority": null,
+      "reliability_priority": "NO_SIGNAL"
+    }
+  },
+  "test_dataset_used": false,
+  "final_holdout_used": false
+}
