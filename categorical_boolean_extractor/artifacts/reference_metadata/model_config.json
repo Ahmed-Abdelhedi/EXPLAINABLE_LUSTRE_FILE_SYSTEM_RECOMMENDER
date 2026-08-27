@@ -1,0 +1,13 @@
+{
+  "architecture": "CategoricalBooleanMultiTaskXLMR",
+  "base_model_name": "FacebookAI/xlm-roberta-base",
+  "dropout": 0.1,
+  "max_length": 128,
+  "ha_num_labels": 4,
+  "access_num_labels": 4,
+  "loss": "CE_HA + CE_ACCESS",
+  "checkpoint_selection": "mean(HA_macro_F1, Access_macro_F1)",
+  "seed": 20260826,
+  "training_backend": "torch.distributed.DDP",
+  "world_size": 2
+}

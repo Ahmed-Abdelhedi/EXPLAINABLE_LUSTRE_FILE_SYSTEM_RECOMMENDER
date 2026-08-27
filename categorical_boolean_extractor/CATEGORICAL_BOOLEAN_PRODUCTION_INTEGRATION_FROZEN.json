@@ -1,0 +1,9 @@
+{
+  "step": "5.5B",
+  "status": "CATEGORICAL_BOOLEAN_PRODUCTION_INTEGRATION_FROZEN",
+  "artifact": "categorical_boolean_xlmr_v1_FROZEN.zip",
+  "artifact_sha256": "fcda293810e1ca735ea1744b8278a2f41dc1be8b2cdb1c4c10c3ebc66da11ff3",
+  "calibration_version": "exact_2d_suffix_precision_constrained_v1_20260826",
+  "max_length": 128,
+  "llm_policy": "Qwen fallback remains selective in production and is called only after semantic abstention. It is disabled only for this core artifact-loading smoke."
+}

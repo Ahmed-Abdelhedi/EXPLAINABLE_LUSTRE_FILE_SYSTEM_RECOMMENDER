@@ -1,0 +1,78 @@
+{
+  "status": "CALIBRATED_ON_VALIDATION_BEFORE_TEST",
+  "calibration_version": "exact_2d_suffix_precision_constrained_v1_20260826",
+  "target_precision": 0.99,
+  "thresholds": {
+    "ha": {
+      "HA_REQUIRED": {
+        "min_top_probability": 0.9974586367607117,
+        "min_margin": 0.9960382422432303,
+        "validation_precision": 1.0,
+        "validation_accepted": 1500,
+        "predicted_validation_cases": 1500,
+        "search": "exact_empirical_2d_suffix"
+      },
+      "HA_NOT_REQUIRED": {
+        "min_top_probability": 0.9969117045402527,
+        "min_margin": 0.9953062041895464,
+        "validation_precision": 1.0,
+        "validation_accepted": 1500,
+        "predicted_validation_cases": 1500,
+        "search": "exact_empirical_2d_suffix"
+      },
+      "HA_MENTION_NO_COMMITMENT": {
+        "min_top_probability": 0.9968420267105103,
+        "min_margin": 0.9949813459534198,
+        "validation_precision": 1.0,
+        "validation_accepted": 1500,
+        "predicted_validation_cases": 1500,
+        "search": "exact_empirical_2d_suffix"
+      },
+      "HA_NO_EVIDENCE": {
+        "min_top_probability": 0.9952587485313416,
+        "min_margin": 0.9934373229043558,
+        "validation_precision": 1.0,
+        "validation_accepted": 1500,
+        "predicted_validation_cases": 1500,
+        "search": "exact_empirical_2d_suffix"
+      }
+    },
+    "access": {
+      "SEQUENTIAL": {
+        "min_top_probability": 0.9979909658432007,
+        "min_margin": 0.9970916705788113,
+        "validation_precision": 1.0,
+        "validation_accepted": 1500,
+        "predicted_validation_cases": 1500,
+        "search": "exact_empirical_2d_suffix"
+      },
+      "RANDOM": {
+        "min_top_probability": 0.9943494200706482,
+        "min_margin": 0.9915903753135353,
+        "validation_precision": 1.0,
+        "validation_accepted": 1500,
+        "predicted_validation_cases": 1500,
+        "search": "exact_empirical_2d_suffix"
+      },
+      "MIXED": {
+        "min_top_probability": 0.9971554279327393,
+        "min_margin": 0.9951657108031213,
+        "validation_precision": 1.0,
+        "validation_accepted": 1500,
+        "predicted_validation_cases": 1500,
+        "search": "exact_empirical_2d_suffix"
+      },
+      "NO_SUPPORTED_ACCESS_CLASS": {
+        "min_top_probability": 0.9972649812698364,
+        "min_margin": 0.9960078691365197,
+        "validation_precision": 1.0,
+        "validation_accepted": 1500,
+        "predicted_validation_cases": 1500,
+        "search": "exact_empirical_2d_suffix"
+      }
+    }
+  },
+  "validation_rows": 6000,
+  "test_used": false,
+  "final_holdout_used": false
+}

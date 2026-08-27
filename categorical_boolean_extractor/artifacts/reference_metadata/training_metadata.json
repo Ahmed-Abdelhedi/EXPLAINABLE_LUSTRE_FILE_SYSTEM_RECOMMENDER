@@ -1,0 +1,15 @@
+{
+  "status": "ONE_HEAVY_TRAINING_RUN_COMPLETE_BEST_VALIDATION_CHECKPOINT_SAVED",
+  "epochs_run": 4,
+  "best_epoch": 1,
+  "best_composite_macro_f1": 1.0,
+  "world_size": 2,
+  "visible_gpu_count": 2,
+  "gpu_names": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "test_used": false,
+  "final_holdout_used": false,
+  "retraining_planned": false
+}
