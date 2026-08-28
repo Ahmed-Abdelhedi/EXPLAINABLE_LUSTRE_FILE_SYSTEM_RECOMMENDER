@@ -1,0 +1,501 @@
+{
+  "schema_version": "1.0",
+  "purpose": "h10d_topk_feasibility_coverage",
+  "semantics": {
+    "h10c_result_is_baseline": true,
+    "baseline_k": 10,
+    "tested_top_k_values": [
+      20,
+      50
+    ],
+    "max_role_options_removed": true,
+    "hardware_path_domain_exhaustive_for_current_catalog": true,
+    "recovered_pair_confirmed_by_h10": true,
+    "beam_search_applied": false,
+    "architecture_scoring_required": false,
+    "this_is_feasibility_coverage_not_k_optimality": true,
+    "global_infeasibility_is_not_claimed": true
+  },
+  "baseline": {
+    "cases": 1200,
+    "cases_with_valid_after_h10c": 1090,
+    "unresolved_after_h10c": 110
+  },
+  "limits": {
+    "limit_unresolved": 10,
+    "baseline_k": 10,
+    "top_k_values": [
+      20,
+      50
+    ]
+  },
+  "summary": {
+    "status": "VALIDATED",
+    "baseline_unresolved_cases": 110,
+    "analyzed_unresolved_cases": 10,
+    "successful_analysis_cases": 10,
+    "failure_cases": 0,
+    "recovered_total": 4,
+    "recovered_by_k": {
+      "20": 3,
+      "50": 1
+    },
+    "still_unresolved": 6,
+    "final_classification_counts": {
+      "FEASIBLE_PAIR_EXISTS": 4,
+      "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED": 2,
+      "POWER_LOWER_BOUND_EXCEEDS": 2,
+      "JOINT_BUDGET_POWER_CONFLICT": 1,
+      "BUDGET_LOWER_BOUND_EXCEEDS": 1
+    },
+    "full_unresolved_run": false,
+    "overall_cases_with_valid_after_h10d": null,
+    "overall_coverage_ratio_after_h10d": null,
+    "elapsed_seconds": 34.9141
+  },
+  "cases": [
+    {
+      "case_id": "REQ_000004",
+      "status": "OK",
+      "recovered_valid_architecture": true,
+      "recovered_at_k": 20,
+      "recovered_architecture_id": "ARCH_REQ_000004_894e4a8af8fe7837",
+      "final_classification": "FEASIBLE_PAIR_EXISTS",
+      "coverage_interpretation": "RECOVERED_AT_K_20",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": true,
+          "classification": "FEASIBLE_PAIR_EXISTS",
+          "coverage_interpretation": "RECOVERED_BY_FULL_HARDWARE_PATH_EXPANSION",
+          "recovered_architecture_id": "ARCH_REQ_000004_894e4a8af8fe7837",
+          "mdt_raw_options": 3780,
+          "ost_raw_options": 18900,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 11,
+          "minimum_total_cost_usd": 6418960.0,
+          "maximum_budget_usd": 16563134.0,
+          "minimum_total_power_w": 101565.0,
+          "maximum_power_w": 119212.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": 45,
+            "ost_hardware_path_index": 39
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000011",
+      "status": "OK",
+      "recovered_valid_architecture": false,
+      "recovered_at_k": null,
+      "recovered_architecture_id": null,
+      "final_classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "coverage_interpretation": "NO_FEASIBLE_PAIR_THROUGH_K_50_WITH_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": false,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 12240,
+          "ost_raw_options": 47250,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 7,
+          "minimum_total_cost_usd": 3108610.0,
+          "maximum_budget_usd": 4628759.0,
+          "minimum_total_power_w": 34530.0,
+          "maximum_power_w": 85160.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        },
+        {
+          "top_k": 50,
+          "recovered_valid_architecture": false,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 30150,
+          "ost_raw_options": 120150,
+          "mdt_pareto_options": 2,
+          "ost_pareto_options": 8,
+          "minimum_total_cost_usd": 3101800.0,
+          "maximum_budget_usd": 4628759.0,
+          "minimum_total_power_w": 34526.0,
+          "maximum_power_w": 85160.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000013",
+      "status": "OK",
+      "recovered_valid_architecture": false,
+      "recovered_at_k": null,
+      "recovered_architecture_id": null,
+      "final_classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "coverage_interpretation": "NO_FEASIBLE_PAIR_THROUGH_K_50_WITH_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": false,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 4320,
+          "ost_raw_options": 21600,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 10,
+          "minimum_total_cost_usd": 3797250.0,
+          "maximum_budget_usd": 3439859.0,
+          "minimum_total_power_w": 104770.20000000001,
+          "maximum_power_w": 97270.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        },
+        {
+          "top_k": 50,
+          "recovered_valid_architecture": false,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 10440,
+          "ost_raw_options": 51840,
+          "mdt_pareto_options": 2,
+          "ost_pareto_options": 10,
+          "minimum_total_cost_usd": 3797120.0,
+          "maximum_budget_usd": 3439859.0,
+          "minimum_total_power_w": 104770.20000000001,
+          "maximum_power_w": 97270.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000017",
+      "status": "OK",
+      "recovered_valid_architecture": false,
+      "recovered_at_k": null,
+      "recovered_architecture_id": null,
+      "final_classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "coverage_interpretation": "NO_FEASIBLE_PAIR_THROUGH_K_50_WITH_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": false,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 11520,
+          "ost_raw_options": 48600,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 6,
+          "minimum_total_cost_usd": 7532770.0,
+          "maximum_budget_usd": 10233839.0,
+          "minimum_total_power_w": 204453.0,
+          "maximum_power_w": 184049.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        },
+        {
+          "top_k": 50,
+          "recovered_valid_architecture": false,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 32220,
+          "ost_raw_options": 116640,
+          "mdt_pareto_options": 2,
+          "ost_pareto_options": 8,
+          "minimum_total_cost_usd": 7512410.0,
+          "maximum_budget_usd": 10233839.0,
+          "minimum_total_power_w": 204434.0,
+          "maximum_power_w": 184049.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000020",
+      "status": "OK",
+      "recovered_valid_architecture": false,
+      "recovered_at_k": null,
+      "recovered_architecture_id": null,
+      "final_classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "coverage_interpretation": "NO_FEASIBLE_PAIR_THROUGH_K_50_WITH_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": false,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 5040,
+          "ost_raw_options": 21600,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 6,
+          "minimum_total_cost_usd": 116390.0,
+          "maximum_budget_usd": 63559.0,
+          "minimum_total_power_w": 6145.2,
+          "maximum_power_w": 5179.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        },
+        {
+          "top_k": 50,
+          "recovered_valid_architecture": false,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 13680,
+          "ost_raw_options": 33480,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 6,
+          "minimum_total_cost_usd": 115682.34,
+          "maximum_budget_usd": 63559.0,
+          "minimum_total_power_w": 6144.0,
+          "maximum_power_w": 5179.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000040",
+      "status": "OK",
+      "recovered_valid_architecture": false,
+      "recovered_at_k": null,
+      "recovered_architecture_id": null,
+      "final_classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+      "coverage_interpretation": "NO_FEASIBLE_PAIR_THROUGH_K_50_WITH_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": false,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 5040,
+          "ost_raw_options": 4320,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 2,
+          "minimum_total_cost_usd": 132840.0,
+          "maximum_budget_usd": 52747.0,
+          "minimum_total_power_w": 9007.2,
+          "maximum_power_w": 12710.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        },
+        {
+          "top_k": 50,
+          "recovered_valid_architecture": false,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 12600,
+          "ost_raw_options": 4320,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 2,
+          "minimum_total_cost_usd": 121100.0,
+          "maximum_budget_usd": 52747.0,
+          "minimum_total_power_w": 8406.6,
+          "maximum_power_w": 12710.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000042",
+      "status": "OK",
+      "recovered_valid_architecture": true,
+      "recovered_at_k": 50,
+      "recovered_architecture_id": "ARCH_REQ_000042_d7fb2b5033419058",
+      "final_classification": "FEASIBLE_PAIR_EXISTS",
+      "coverage_interpretation": "RECOVERED_AT_K_50",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": false,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 4860,
+          "ost_raw_options": 11700,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 5,
+          "minimum_total_cost_usd": 119230.0,
+          "maximum_budget_usd": 116411.0,
+          "minimum_total_power_w": 4752.0,
+          "maximum_power_w": 12352.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        },
+        {
+          "top_k": 50,
+          "recovered_valid_architecture": true,
+          "classification": "FEASIBLE_PAIR_EXISTS",
+          "coverage_interpretation": "RECOVERED_BY_FULL_HARDWARE_PATH_EXPANSION",
+          "recovered_architecture_id": "ARCH_REQ_000042_d7fb2b5033419058",
+          "mdt_raw_options": 12060,
+          "ost_raw_options": 32940,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 5,
+          "minimum_total_cost_usd": 108010.0,
+          "maximum_budget_usd": 116411.0,
+          "minimum_total_power_w": 4153.2,
+          "maximum_power_w": 12352.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": 75,
+            "ost_hardware_path_index": 113
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000046",
+      "status": "OK",
+      "recovered_valid_architecture": true,
+      "recovered_at_k": 20,
+      "recovered_architecture_id": "ARCH_REQ_000046_73a89471c8f706ca",
+      "final_classification": "FEASIBLE_PAIR_EXISTS",
+      "coverage_interpretation": "RECOVERED_AT_K_20",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": true,
+          "classification": "FEASIBLE_PAIR_EXISTS",
+          "coverage_interpretation": "RECOVERED_BY_FULL_HARDWARE_PATH_EXPANSION",
+          "recovered_architecture_id": "ARCH_REQ_000046_73a89471c8f706ca",
+          "mdt_raw_options": 3780,
+          "ost_raw_options": 20880,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 16,
+          "minimum_total_cost_usd": 7265390.0,
+          "maximum_budget_usd": 14815115.0,
+          "minimum_total_power_w": 114668.0,
+          "maximum_power_w": 182857.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": 25,
+            "ost_hardware_path_index": 27
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000059",
+      "status": "OK",
+      "recovered_valid_architecture": false,
+      "recovered_at_k": null,
+      "recovered_architecture_id": null,
+      "final_classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "coverage_interpretation": "NO_FEASIBLE_PAIR_THROUGH_K_50_WITH_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": false,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 3780,
+          "ost_raw_options": 18720,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 9,
+          "minimum_total_cost_usd": 8467510.0,
+          "maximum_budget_usd": 21933110.0,
+          "minimum_total_power_w": 134285.0,
+          "maximum_power_w": 100980.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        },
+        {
+          "top_k": 50,
+          "recovered_valid_architecture": false,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS",
+          "coverage_interpretation": "NO_FEASIBLE_PAIR_WITHIN_CURRENT_TOPK_AND_FULL_REFERENCE_HARDWARE_PATH_DOMAIN",
+          "recovered_architecture_id": null,
+          "mdt_raw_options": 11700,
+          "ost_raw_options": 25740,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 9,
+          "minimum_total_cost_usd": 8459890.0,
+          "maximum_budget_usd": 21933110.0,
+          "minimum_total_power_w": 133745.0,
+          "maximum_power_w": 100980.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": null,
+            "ost_hardware_path_index": null
+          }
+        }
+      ],
+      "error": ""
+    },
+    {
+      "case_id": "REQ_000061",
+      "status": "OK",
+      "recovered_valid_architecture": true,
+      "recovered_at_k": 20,
+      "recovered_architecture_id": "ARCH_REQ_000061_735395cb2cac3afe",
+      "final_classification": "FEASIBLE_PAIR_EXISTS",
+      "coverage_interpretation": "RECOVERED_AT_K_20",
+      "attempts": [
+        {
+          "top_k": 20,
+          "recovered_valid_architecture": true,
+          "classification": "FEASIBLE_PAIR_EXISTS",
+          "coverage_interpretation": "RECOVERED_BY_FULL_HARDWARE_PATH_EXPANSION",
+          "recovered_architecture_id": "ARCH_REQ_000061_735395cb2cac3afe",
+          "mdt_raw_options": 12780,
+          "ost_raw_options": 44820,
+          "mdt_pareto_options": 1,
+          "ost_pareto_options": 9,
+          "minimum_total_cost_usd": 6787780.0,
+          "maximum_budget_usd": 16147792.0,
+          "minimum_total_power_w": 75244.0,
+          "maximum_power_w": 144024.0,
+          "selected_path_indexes": {
+            "mdt_hardware_path_index": 133,
+            "ost_hardware_path_index": 139
+          }
+        }
+      ],
+      "error": ""
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "catalog_version": "1.0.1",
+  "catalog_sha256": "a0ddc5334ce49d4a69f0940224dc97e77805f728815ce4139cd6667707d1cd4a",
+  "component_counts": {
+    "servers": 5,
+    "controllers": 5,
+    "enclosures": 5,
+    "networks": 5,
+    "protection_profiles": 6,
+    "ha_profiles": 3
+  },
+  "provenance_status": "POLICY_REFERENCE_NOT_VENDOR_BENCHMARKED",
+  "change_note": "v1.0.1: add PCIe Gen5 NVMe controller, E1.S/E3.S enclosure coverage, and matching dense-server bay reference coverage."
+}
