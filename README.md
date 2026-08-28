@@ -1,225 +1,176 @@
-Explainable Lustre Recommender
+# Explainable Lustre File System Recommender
 
-Projet de stage — système hybride et explicable de recommandation d’architectures Lustre pour environnements HPC
+Système hybride, déterministe et explicable de recommandation d’architectures **Lustre** pour environnements HPC.
 
-Ce dépôt contient un système qui transforme une demande utilisateur exprimée en langage naturel en exigences structurées pour une architecture Lustre, vérifie leur validité et leur plausibilité, prépare les besoins techniques MDT/OST, filtre les disques compatibles, puis utilise des modèles de Learning-to-Rank pour préparer la future recherche d’architecture complète.
+Le projet transforme une demande utilisateur exprimée en langage naturel en un **Requirement State structuré**, applique un **sizing Lustre**, filtre et classe les candidats matériels MDT/OST, puis construit et valide des architectures physiques complètes selon des contraintes déterministes.
 
-Le principe architectural central est volontairement conservateur :
+> Principe central : **l’IA aide à comprendre et à classer ; elle ne remplace jamais les contraintes physiques ni les validateurs déterministes.**
 
-Les modèles IA améliorent la compréhension linguistique et le classement des candidats, mais les décisions critiques de validité et de faisabilité restent contrôlées par des règles déterministes.
+---
 
-1. État actuel du projet
+## 1. État actuel du projet
 
-Composant
+État consolidé au **28 août 2026**.
 
-Statut
+| Bloc | Statut | Résultat principal |
+|---|---|---|
+| Quantity Requirement Extractor V2 | ✅ Validé | 96/96 régressions, aucune acceptation automatique fausse observée |
+| Preference Signal Detector | ✅ Frozen | DistilBERT multilingue, garde haute précision |
+| Preference Layer 2 | ✅ Frozen | XLM-R + 8 têtes + garde déterministe + fallback résiduel |
+| Preference Weighting | ✅ Frozen | Linear Best-Worst Method (BWM) |
+| Categorical / Boolean Extractor | ✅ Frozen | XLM-R partagé pour `ha_required` et `access_type` |
+| Input Orchestrator | ✅ Validé | clarification stricte, conflits, multi-tour, BWM |
+| Final Requirement State | ✅ Validé | JSON canonique + validation déterministe |
+| Production online `main.py` | 🚧 En validation manuelle finale | 38 tests orchestrateur + 21 tests Requirement State |
+| Sizing Lustre | ✅ Frozen S10 | formule de croissance composée + registre d’hypothèses + validation Toubkal |
+| MDT / OST technical requirements | ✅ Validé | génération sur 1200/1200 cas |
+| Deterministic drive filtering | ✅ Validé | contraintes appliquées avant ML |
+| MDT / OST ranking | ✅ Frozen | LightGBM LambdaRank officiel pour MDT et OST |
+| Top-K MDT / OST | ✅ Intégré | candidats classés après filtrage déterministe |
+| H5 protection arithmetic | ✅ Validé | calcul des variantes de protection et des nombres physiques |
+| H6 hardware compatibility | ✅ Validé | chemins serveur/contrôleur/enclosure/network/HA |
+| H7 `ArchitectureState` | ✅ Validé | transitions et agrégations déterministes |
+| H8 Full Architecture Generator | ✅ Validé | architectures physiques complètes générées |
+| H9 Architecture Scoring | ✅ Validé | score soft indépendant des contraintes dures |
+| H10 Full Architecture Validator | ✅ Validé | validation déterministe indépendante du score |
+| Feasibility coverage | ✅ Évaluée | 1090/1200 cas confirmés faisables après H10-C à K=10 |
+| Beam Search | ⏳ Couche suivante | non utilisé par H8/H9/H10 ; doit seulement optimiser l’exploration |
 
-Extraction des exigences utilisateur
+### Point important sur le mot “architecture finale”
 
-✅ Terminé et validé
+Le projet sait déjà **générer des architectures physiques complètes et les valider avec H10**.
 
-Normalisation des unités et vocabulaires
+Le **Beam Search n’est pas nécessaire pour définir la validité physique**. Il doit être ajouté ensuite comme mécanisme d’optimisation de recherche pour éviter d’explorer exhaustivement trop de combinaisons. Une architecture ne devient jamais valide parce que son score Beam est élevé : seul le validateur H10 peut la déclarer valide.
 
-✅ Terminé et validé
+---
 
-Gestion des conflits / clarifications
+# 2. Vue d’ensemble du pipeline
 
-✅ Terminé et validé
-
-LLM fallback contrôlé
-
-✅ Terminé et validé
-
-AI Plausibility Agent
-
-✅ Terminé et validé
-
-Validation end-to-end du Requirement Pipeline
-
-✅ 30/30 scénarios
-
-Workload Analyzer
-
-✅ Terminé
-
-Feature Calculator
-
-✅ Terminé
-
-Lustre Architecture Generator
-
-✅ Terminé
-
-MDT Candidate Generator
-
-✅ Terminé
-
-OST Candidate Generator
-
-✅ Terminé
-
-Datasets de ranking MDT / OST
-
-✅ Terminé
-
-Entraînement MDT Ranker
-
-✅ Terminé
-
-Entraînement OST Ranker
-
-✅ Terminé
-
-Comparaison CatBoost / LightGBM
-
-✅ Terminée
-
-LightGBM retenu pour MDT et OST
-
-✅ Décision prise
-
-Intégration des modèles LightGBM dans le runtime VS Code
-
-🚧 Prochaine étape
-
-Top-K MDT / OST en inférence réelle
-
-🚧 Prochaine étape
-
-ArchitectureState et scoring global
-
-⏳ À faire
-
-Beam Search
-
-⏳ À faire
-
-Validation finale d’architecture complète
-
-⏳ À faire
-
-Recommandation Lustre finale de bout en bout
-
-⏳ À faire
-
-Important : le pipeline de compréhension et de validation des exigences est actuellement exécutable et validé.La partie de recommandation physique complète n’est pas encore terminée : l’intégration des deux modèles LightGBM et le Beam Search constituent les prochaines étapes.
-
-2. Objectif du système
-
-L’utilisateur ne doit pas connaître les détails internes de Lustre.
-
-Il décrit simplement son besoin, par exemple :
-
-Je souhaite environ 500 TiB utilisables pour 200 clients.
-Les fichiers font environ 2 GB en moyenne et peuvent atteindre 100 GB.
-Le workload est plutôt 70 % lecture / 30 % écriture.
-Je souhaite environ 80 GB/s en lecture et 40 GB/s en écriture.
-La haute disponibilité est obligatoire.
-Budget maximum : 100000 USD.
-Puissance maximum : 15 kW.
-Croissance annuelle estimée : 30 %.
-
-Le système transforme progressivement cette demande en un contrat structuré, puis en besoins techniques MDT/OST.
-
-À terme, le pipeline complet sera :
-
-User text
-   ↓
-Requirement Extractor
-   ↓
-StateGuard
-   ↓
-AI Plausibility Agent
-   ↓
-Requirement Contract
-   ↓
-Workload Analyzer
-   ↓
-Feature Calculator
-   ↓
-Architecture Generator
-   ↓
-Deterministic MDT / OST filters
-   ↓
-LightGBM MDT Ranker + LightGBM OST Ranker
-   ↓
-Top-K MDT / OST
-   ↓
-Beam Search
-   ↓
-Deterministic final validator
-   ↓
-Explainable Lustre recommendation
-
-3. Architecture générale
-
+```mermaid
 flowchart TD
-    A[Texte utilisateur] --> B[Text Preprocessor]
-    B --> C[Rule / Entity Extractor]
-    C --> D[Unit Normalizer + Vocabulary Mapper]
+    A[User natural-language request] --> B[Input Orchestrator]
 
-    D --> E{Informations correctement extraites ?}
-    E -- Oui --> F[StateGuard]
-    E -- Cas difficile --> G[LLM Fallback]
-    G --> F
+    B --> Q[Quantity Extractor V2]
+    B --> P[Preference Extractor]
+    B --> C[Categorical / Boolean Extractor]
 
-    F --> H{Besoin de clarification ?}
-    H -- Oui --> I[Question de clarification]
-    I --> A
+    Q --> M[Result Merger]
+    P --> M
+    C --> M
 
-    H -- Non --> J[AI Plausibility Agent]
+    M --> K{Missing / Conflict / Unresolved ?}
+    K -- Yes --> F[Targeted clarification]
+    F --> B
 
-    J --> K{Plausibilité}
-    K -- COHERENT --> L[Requirement Contract]
-    K -- AMBIGUOUS --> M[Warning + éventuel LLM enrichment]
-    M --> L
-    K -- INCOHERENT --> N[Blocage / correction utilisateur]
+    K -- No --> W[Linear BWM preference weighting]
+    W --> V[Final Requirement State Validator]
 
-    L --> O[Workload Analyzer]
-    O --> P[Feature Calculator]
-    P --> Q[Architecture Generator]
-    Q --> R[MDT Candidate Generator]
-    Q --> S[OST Candidate Generator]
+    V --> R{ready_for_sizing ?}
+    R -- No --> F
+    R -- Yes --> J[Canonical Requirement JSON]
 
-    R --> T[LightGBM MDT Ranker]
-    S --> U[LightGBM OST Ranker]
+    J --> S[Sizing / Workload analysis]
+    S --> T[MDT + OST technical requirements]
 
-    T --> V[Top-K MDT]
-    U --> W[Top-K OST]
+    T --> D1[Deterministic MDT drive filter]
+    T --> D2[Deterministic OST drive filter]
 
-    V --> X[Beam Search - à intégrer]
-    W --> X
-    X --> Y[Validation déterministe finale]
-    Y --> Z[Recommandation explicable]
+    D1 --> L1[LightGBM MDT Ranker]
+    D2 --> L2[LightGBM OST Ranker]
 
-4. Séparation des responsabilités
+    L1 --> K1[Top-K MDT]
+    L2 --> K2[Top-K OST]
 
-4.1 Requirement Extractor
+    K1 --> H5[H5 Protection arithmetic]
+    K2 --> H5
 
-Le module requirement_extractor traite le texte utilisateur.
+    H5 --> H6[H6 Hardware compatibility]
+    H6 --> H7[H7 ArchitectureState]
+    H7 --> H8[H8 Full Architecture Generator]
+    H8 --> H9[H9 Soft Architecture Scoring]
+    H8 --> H10[H10 Deterministic Validator]
+    H9 --> H10
 
-Il couvre notamment :
+    H10 --> OUT[Validated architecture pool]
+    OUT --> BS[Future Beam Search optimization]
+```
 
-extraction des valeurs ;
+---
 
-normalisation des unités ;
+# 3. Deux pipelines différents : offline et online
 
-vocabulaire contrôlé ;
+## 3.1 Pipeline offline
 
-gestion des conflits ;
+Le pipeline offline sert à construire, entraîner et valider les composants.
 
-gestion multi-tour ;
+```text
+datasets
+   ↓
+training / calibration
+   ↓
+frozen model artifacts
+   ↓
+evaluation
+   ↓
+runtime artifacts
+```
 
-clarification ;
+Il contient notamment :
 
-LLM fallback ;
+- entraînement du Semantic Linker ;
+- entraînement du Preference Signal Detector ;
+- entraînement du Preference Layer 2 ;
+- entraînement du modèle categorical/boolean ;
+- génération des datasets MDT / OST ;
+- comparaison CatBoost / LightGBM ;
+- entraînement des rankers LightGBM officiels ;
+- campagnes de validation sizing et architecture.
 
-validation locale ;
+**Il ne doit pas être relancé à chaque requête utilisateur.**
 
-plausibilité inter-champs.
+## 3.2 Pipeline online
 
-Le contrat utilisateur contient notamment les champs suivants :
+Le pipeline online charge les modèles déjà entraînés.
 
+```text
+user text
+   ↓
+extraction
+   ↓
+clarification
+   ↓
+BWM
+   ↓
+Final Requirement JSON
+   ↓
+sizing
+   ↓
+filtering
+   ↓
+ranking
+   ↓
+architecture generation / validation
+```
+
+Le point d’entrée actuel pour la partie online Requirement est :
+
+```powershell
+python main.py --device cpu
+```
+
+Le fichier produit est :
+
+```text
+output/final_requirement.json
+```
+
+---
+
+# 4. Requirement Contract final
+
+Le contrat canonique contient **18 champs bruts**.
+
+```text
 requested_usable_capacity_tib
 client_count
 average_file_size_gb
@@ -233,526 +184,1762 @@ ha_required
 max_budget_usd
 max_power_w
 annual_growth_percent
+planning_horizon_years
+cost_priority
+power_priority
+reliability_priority
+performance_priority
+```
 
-Note importante sur les débits : dans la version actuelle du projet, les noms de champs utilisent encore le suffixe gbps, mais le benchmark et le contrat métier courant les interprètent comme GB/s. Cette convention doit être conservée tant qu’un renommage contrôlé n’a pas été effectué.
+Un objet dérivé séparé contient les poids :
 
-4.2 StateGuard
+```json
+{
+  "preference_weights": {
+    "cost": 0.0,
+    "power": 0.0,
+    "performance": 0.25,
+    "reliability": 0.75
+  }
+}
+```
 
-StateGuard contrôle les exigences extraites.
-
-Il vérifie notamment :
-
-les valeurs positives attendues ;
-
-les compteurs entiers ;
-
-les ratios lecture/écriture ;
-
-les conflits entre valeurs ;
-
-les informations manquantes ;
-
-les clarifications nécessaires ;
-
-la cohérence de l’état conversationnel.
+Les poids BWM **ne remplacent jamais** les labels qualitatifs `LOW`, `MEDIUM`, `HIGH`, etc.
 
 Exemple :
 
-Tour 1 : budget maximum = 100000 USD
-Tour 2 : mon budget est 150000 USD
+```json
+{
+  "requested_usable_capacity_tib": 100,
+  "client_count": 64,
+  "average_file_size_gb": null,
+  "max_file_size_gb": null,
+  "total_file_count": null,
+  "read_write_ratio": {
+    "read_percent": 20.0,
+    "write_percent": 80.0
+  },
+  "access_type": "sequential",
+  "target_read_gbps": 20,
+  "target_write_gbps": 22,
+  "ha_required": true,
+  "max_budget_usd": 5000,
+  "max_power_w": 20000000,
+  "annual_growth_percent": 20,
+  "planning_horizon_years": 3,
+  "cost_priority": "HIGH",
+  "power_priority": "LOW",
+  "reliability_priority": "HIGH",
+  "performance_priority": "HIGH",
+  "preference_weights": {
+    "cost": 0.0,
+    "power": 0.0,
+    "performance": 0.25,
+    "reliability": 0.75
+  }
+}
+```
 
-Sans expression explicite de correction, le système détecte deux valeurs différentes et demande laquelle conserver.
+---
 
-En revanche :
+# 5. Quantity Requirement Extractor V2
 
-Correction : remplace le budget par 150000 USD
+Production package :
 
-est traité comme une mise à jour explicite.
+```text
+requirement_extractor_v2/
+```
 
-4.3 LLM Fallback
+L’ancien dossier :
 
-Le système est rule-first.
+```text
+requirement_extractor/
+```
 
-Le LLM fallback n’est appelé que lorsqu’une formulation est difficile à traiter avec les règles déterministes.
+est conservé pour historique/compatibilité, mais la nouvelle architecture de production est basée sur **Requirement Extractor V2**.
 
-Modèle utilisé pour les évaluations finales :
+## 5.1 Pipeline
 
+```text
+ConversationScopeResolver
+        ↓
+QuantityScanner
+        ↓
+Robust Explicit Resolver
+        ↓ unresolved only
+Semantic Linker XLM-R
+        ↓ abstention only
+Qwen LLM fallback
+        ↓
+CandidateRelationResolver
+        ↓
+RelationAwareDeterministicVerifier
+```
+
+Fichiers principaux :
+
+```text
+requirement_extractor_v2/
+├── verified_pipeline.py
+├── selective_cascade.py
+├── robust_quantity_scanner.py
+├── robust_explicit_pattern_resolver.py
+├── candidate_relation_resolver.py
+├── relation_aware_verifier.py
+├── deterministic_verifier.py
+├── llm_fallback_extractor.py
+├── unit_normalizer.py
+└── semantic_linker/
+```
+
+## 5.2 Semantic Linker
+
+Le Semantic Linker utilise **XLM-R** avec :
+
+- une tête FIELD ;
+- une tête ROLE ;
+- calibration hiérarchique ;
+- masque de compatibilité ;
+- garde de sécurité déterministe ;
+- abstention autorisée.
+
+Artifact :
+
+```text
+requirement_extractor_v2/artifacts/semantic_linker_xlmr_base_final/
+```
+
+Le runtime vérifie notamment :
+
+```text
+encoder/
+tokenizer/
+classifier_heads.pt
+labels.json
+compatibility.json
+thresholds.json
+training_config.json
+```
+
+## 5.3 Gestion des relations entre valeurs
+
+`CandidateRelationResolver` distingue notamment :
+
+```text
+SINGLE_VALUE
+MULTIPLE_FIELDS
+ALTERNATIVE
+RANGE
+CORRECTION
+COMPARISON
+CONFLICT
+```
+
+Une alternative ou un conflit ambigu n’est jamais converti automatiquement en une valeur arbitraire.
+
+## 5.4 LLM fallback
+
+Modèle local :
+
+```text
 qwen2.5-coder:7b
+```
 
-Le LLM ne devient jamais la source autoritaire de vérité.
+Le LLM :
 
-Les valeurs candidates qu’il propose restent soumises aux contrôles du pipeline.
+- ne modifie pas la quantité détectée ;
+- ne remplace pas la valeur numérique ;
+- ne crée pas une unité ;
+- ne devient jamais source autoritaire ;
+- peut seulement résoudre FIELD/ROLE ou s’abstenir ;
+- doit fournir une évidence issue du texte utilisateur.
 
-4.4 AI Plausibility Agent
+Validation de référence :
 
-L’AI Plausibility Agent vérifie les relations entre plusieurs champs déjà acceptés.
+- 96/96 scénarios de régression après correction ;
+- 94 vrais positifs observés dans ce jeu ;
+- 0 faux positif ;
+- 8/8 ambiguïtés bloquées ;
+- 8/8 cas hors scope correctement gérés ;
+- 0 fausse acceptation automatique ;
+- sous-ensemble fallback : 3/3 cas récupérables résolus ;
+- 20/20 cas sans unité ont correctement conduit à l’abstention.
 
-Exemples de contradictions fortes :
+> Le jeu de 96 scénarios est une **suite de régression après inspection**, pas un benchmark indépendant totalement aveugle.
 
-average_file_size > max_file_size
-estimated_dataset_volume >> requested_capacity
-read_percent + write_percent != 100
+---
 
-Les décisions possibles sont :
+# 6. Preference Extractor
 
-COHERENT
-AMBIGUOUS
-INCOHERENT
+Production package :
 
-COHERENT
+```text
+preference_extractor/
+```
 
-Aucune contradiction détectée.
+Le traitement des préférences est séparé en plusieurs couches.
 
-AMBIGUOUS
+## 6.1 Layer 1 — Preference Signal Detector
 
-Le besoin est techniquement valide, mais sa faisabilité dépend encore de l’architecture.
+But :
 
-Exemples : budget très contraignant, power très contraignant, throughput très élevé, nombre de clients très élevé.
+```text
+Le message contient-il un signal de préférence ?
+```
 
-Ces situations génèrent des warnings, pas un blocage automatique.
+Modèle :
 
-INCOHERENT
+```text
+multilingual DistilBERT
+```
 
-Une contradiction calculable est détectée.
+Artifact :
 
-La recommandation est alors bloquée jusqu’à correction.
+```text
+preference_signal_detector_v2_2.zip
+```
 
-4.5 Garde de l’enrichissement LLM
+Le fichier est suivi avec Git LFS.
 
-Pour les warnings AMBIGUOUS, le système peut demander au LLM de rendre l’explication plus naturelle.
+Threshold frozen :
 
-La décision métier existe avant l’appel LLM.
+```text
+0.00039663209463469684
+```
 
-Le LLM est uniquement autorisé à reformuler.
+Validation finale contrôlée :
 
-Le garde intégré à ai_plausibility_agent.py vérifie notamment :
+```text
+1200 cas
+precision = 1.0
+recall ≈ 0.99833
+F1 ≈ 0.99917
+FP = 0
+FN = 1
+```
 
-que la réponse est exploitable ;
+Cette campagne est synthétique/contrôlée et doit être présentée comme telle.
 
-que le JSON peut être parsé ;
+## 6.2 Layer 2 — Preference dimension + intensity
 
-que le problème détecté n’est pas changé ;
+Architecture :
 
-que les nombres ne sont pas modifiés ;
-
-que les unités protégées ne sont pas modifiées ;
-
-que le LLM n’introduit pas de faits non supportés.
-
-Si la reformulation est invalide :
-
-LLM output rejected
+```text
+XLM-R Base shared encoder
         ↓
-deterministic warning preserved
-
-Le benchmark end-to-end a réellement rencontré un JSON LLM brut invalide ; le pipeline a tout de même conservé une sortie correcte.
-
-5. Architecture Generator
-
-Le générateur ne choisit pas encore directement un disque, un RAID ou un serveur.
-
-Il transforme le besoin utilisateur en exigences techniques indépendantes du hardware.
-
-La chaîne hors ligne utilisée pour construire et vérifier les données est :
-
-requirements
-    ↓
-workload analysis
-    ↓
-feature calculation
-    ↓
-architecture requirements
-    ↓
-MDT candidate generation
-    ↓
-OST candidate generation
-    ↓
-training datasets
-
-Les composants principaux sont :
-
-workload_analyzer.py
-feature_calculator.py
-architecture_generator.py
-mdt_candidate_generator.py
-ost_candidate_generator.py
-training_dataset_builder.py
-
-6. MDT et OST : deux problèmes différents
-
-Le système sépare la sélection des drives en deux tâches.
-
-MDT
-
-Le ranking MDT favorise principalement : IOPS, faible latence, endurance et fiabilité.
-
-OST
-
-Le ranking OST favorise principalement : capacité, bande passante, coût par capacité, puissance et fiabilité.
-
-Cette séparation est volontaire : un bon disque MDT n’est pas nécessairement un bon disque OST.
-
-7. Modèles de ranking
-
-Deux familles ont été comparées :
-
-CatBoostRanker — YetiRankPairwise
-LightGBM — LambdaRank
-
-La comparaison multi-seeds a conduit à retenir LightGBM LambdaRank comme ranker principal pour MDT et OST.
-
-Les modèles ne construisent pas l’architecture complète.
-
-Leur rôle est uniquement :
-
-Drives techniquement faisables
-        ↓
-LightGBM Ranker
-        ↓
-liste ordonnée
-        ↓
-Top-K
-
-La faisabilité reste déterministe.
-
-Résultats principaux du benchmark de ranking
-
-MDT
-
-LightGBM NDCG@10   ≈ 0.9784
-LightGBM Recall@10 ≈ 0.9461
-Top-1 agreement    ≈ 96.44 %
-
-OST
-
-LightGBM NDCG@10   ≈ 0.9455
-LightGBM Recall@10 ≈ 0.9018
-Top-1 agreement    ≈ 83.00 %
-
-Ces scores justifient l’utilisation du Top-K LightGBM comme espace d’entrée du futur Beam Search.
-
-8. Beam Search — prochaine grande phase
-
-Le Beam Search n’est pas encore intégré dans le runtime final.
-
-Son rôle sera de construire des architectures complètes en combinant :
-
-Top-K MDT drives
+4 presence heads
 +
-Top-K OST drives
-+
-RAID
-+
-nombre de drives
-+
-nombre de MDT / OST
-+
-groupes de protection
-+
-serveurs
-+
-striping
-+
-coût
-+
-puissance
-+
+4 ordinal intensity heads
+```
+
+Dimensions :
+
+```text
+cost
+power
 performance
+reliability
+```
 
-Chaque branche devra être contrôlée par les contraintes dures.
+Labels :
 
-Exemple :
+```text
+NO_SIGNAL
+VERY_LOW
+LOW
+MEDIUM
+HIGH
+VERY_HIGH
+```
 
-capacity < required capacity
-→ reject
+`NO_SIGNAL` est distinct de `VERY_LOW`.
 
-cost > max_budget
-→ reject
+Artifact frozen :
 
-power > max_power
-→ reject
+```text
+preference_layer2_xlmr_v1_FINAL.zip
+```
 
-required throughput not satisfied
-→ reject
+SHA256 :
 
-hardware incompatible
-→ reject
+```text
+cdbb6f6544d4b4d96578e0901a00f46c68916ad66547800ffc4d232095298890
+```
 
-Le Beam Search gardera uniquement les meilleurs états à chaque étape afin d’éviter une explosion combinatoire.
+Pipeline hybride :
 
-9. Structure principale du dépôt
+```text
+raw XLM-R
+   ↓
+deterministic semantic guard
+   ↓
+residual validator
+   ↓ only residual cases
+Qwen fallback
+```
 
-La structure exacte peut évoluer pendant l’intégration du ranker et du Beam Search, mais l’organisation actuelle est centrée sur :
+Prompt frozen SHA256 :
 
-version2/
-│
-├── requirement_extractor/
-│   ├── __init__.py
-│   ├── ai_plausibility_agent.py
-│   ├── calculation_engine.py
-│   ├── clarification_agent.py
-│   ├── closed_vocabulary_mapper.py
-│   ├── field_defs.py
-│   ├── hybrid_extractor.py
-│   ├── llm_fallback_extractor.py
-│   ├── main.py
-│   ├── models.py
-│   ├── requirement_chatbot.py
-│   ├── rule_entity_extractor.py
-│   ├── state_guard.py
-│   ├── text_preprocessor.py
-│   ├── unit_normalizer.py
-│   └── validation/
-│
-├── lustre_architecture_generator/
-│   ├── config/
-│   ├── input/
-│   ├── output/
-│   └── src/
-│
-├── lustre_recommender/
-│
-├── drive_selector_dataset_v3/
-│
-├── docs/
-├── .env
-├── requirements.txt
-└── README.md
+```text
+04e60847fc4739e3ece178cbc2c37fefabd1854314a457636747cfcd535df137
+```
 
-10. Installation
+Validation du sous-ensemble hybride de calibration :
 
-10.1 Ouvrir le projet
+```text
+331 / 335 exact
+≈ 98.806 %
+accepted precision = 1.0
+false acceptance = 0
+```
 
-Depuis VS Code :
+> Le TEST complet a montré que le résiduel LLM reste plus faible que le sous-ensemble de validation. Cette limite doit rester explicitement documentée ; le modèle n’a pas été réentraîné uniquement pour améliorer un smoke test.
 
-cd <CHEMIN_VERS_LE_PROJET>\version2
+## 6.3 Formal Preference Weighting — Linear BWM
 
-10.2 Créer un environnement virtuel
+Package :
 
-Sous PowerShell :
+```text
+preference_extractor/weighting/
+```
 
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+Méthode :
 
-Sous Linux / macOS :
+```text
+Linear Best-Worst Method
+```
 
-python -m venv .venv
-source .venv/bin/activate
+Le système ne fait **jamais** :
 
-10.3 Installer les dépendances Python
+```text
+HIGH -> 0.8
+MEDIUM -> 0.5
+LOW -> 0.2
+```
 
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+Les labels qualitatifs servent à déterminer les préférences actives, puis le système demande les comparaisons BWM nécessaires.
 
-11. Installation d’Ollama
+Nombre exact de questions pour `n` critères actifs :
 
-Ollama est nécessaire uniquement pour les chemins utilisant les LLM.
-
-Le chemin déterministe peut être testé sans LLM.
-
-Les modèles utilisés dans la campagne finale sont :
-
-qwen2.5-coder:7b
-qwen2.5:3b
-
-Après installation d’Ollama :
-
-ollama pull qwen2.5-coder:7b
-ollama pull qwen2.5:3b
-
-Vérifier les modèles disponibles :
-
-ollama list
-
-Vérifier les modèles actuellement chargés :
-
-ollama ps
-
-Selon l’installation, Ollama peut déjà fonctionner comme service local. Sinon :
-
-ollama serve
-
-12. Configuration .env
-
-Le projet utilise un fichier .env à la racine.
-
-Pour les tests avec LLM fallback :
-
-ENABLE_LLM_FALLBACK=true
-
-Les paramètres de sécurité/latence utilisés pour l’AI Plausibility peuvent inclure :
-
-PLAUSIBILITY_AGENT_TIMEOUT_SECONDS=60
-PLAUSIBILITY_AGENT_NUM_PREDICT=192
-PLAUSIBILITY_AGENT_KEEP_ALIVE=30s
-
-Ne jamais placer de secret ou token externe dans le dépôt Git.
-
-13. Exécuter le chatbot
-
-Depuis la racine version2/ :
-
-python -m requirement_extractor.main
-
-Le chatbot peut ensuite recevoir une demande en langage naturel.
+```text
+2n - 3
+```
 
 Exemple :
 
-Je veux 500 TiB utilisables pour 200 clients,
-avec des fichiers moyens de 2 GB et maximum 100 GB.
-Le ratio est 70/30, accès mixed.
-Je vise 80 GB/s en lecture et 40 GB/s en écriture.
-HA obligatoire, budget 100000 USD,
-puissance maximum 15 kW et croissance 30 %.
+```text
+cost        = 0.00
+power       = 0.00
+performance = 0.25
+reliability = 0.75
+sum         = 1.00
+```
 
-Le système peut extraire les informations, demander une clarification, détecter un conflit, signaler une incohérence et produire un RequirementContract prêt pour la suite du pipeline.
+Tests :
 
-14. Tester la baseline déterministe
+```text
+16 passed
+```
 
-Aucun LLM n’est nécessaire.
+Contrats :
 
-python -m requirement_extractor.validation.run_validation --mode deterministic
-python -m requirement_extractor.validation.metrics --mode deterministic
-python -m requirement_extractor.validation.error_analyzer --mode deterministic
+- poids finis ;
+- poids non négatifs ;
+- somme = 1 ;
+- critère inactif => poids 0 ;
+- `xi_star` conservé ;
+- cohérence ordinale vérifiée ;
+- aucun poids numérique inventé par le LLM.
 
-Résultats de référence :
+---
 
-150 scénarios
-175 tours
-0 erreur technique
-Scenario success          ≈ 87.33 %
-Full-turn exact           ≈ 89.14 %
-Field-slot accuracy       ≈ 97.67 %
-Field precision           = 100 %
-Field recall/value        ≈ 97.02 %
-Field F1                  ≈ 98.49 %
-Hallucination             = 0 %
-Normalization             = 100 %
-Multi-turn consistency    = 100 %
-Average latency           ≈ 1.15 ms
+# 7. Categorical / Boolean Extractor
 
-15. Tester le LLM fallback
+Package :
 
-Ollama et qwen2.5-coder:7b doivent être disponibles.
+```text
+categorical_boolean_extractor/
+```
 
-python -m requirement_extractor.validation.run_validation --mode llm_fallback
-python -m requirement_extractor.validation.metrics --mode llm_fallback
-python -m requirement_extractor.validation.error_analyzer --mode llm_fallback
+Deux sorties :
 
-Résultats de référence :
+```text
+ha_required
+access_type
+```
 
-Scenario success          ≈ 91.33 %
-Full-turn exact           ≈ 92.57 %
-Field exact               ≈ 93.71 %
-Field precision           = 100 %
-Field recall/value        ≈ 98.87 %
-Field F1                  ≈ 99.43 %
-Hallucination             = 0 %
+Architecture :
 
-Le LLM améliore principalement les formulations difficiles, notamment certaines requêtes multilingues et contenant des fautes de frappe.
+```text
+Explicit Resolver
+      ↓
+shared XLM-R Base
+      ↓
+HA 4-class head
++
+Access 4-class head
+      ↓
+class-specific confidence gate
+      ↓ abstention only
+Qwen fallback
+      ↓
+final semantic validator
+```
 
-16. Tester l’AI Plausibility Agent
+Classes HA :
 
-Ollama et qwen2.5:3b doivent être disponibles.
+```text
+HA_REQUIRED
+HA_NOT_REQUIRED
+HA_MENTION_NO_COMMITMENT
+HA_NO_EVIDENCE
+```
 
-python -m requirement_extractor.validation.run_ai_plausibility_full_agent_validation `
-  --dataset requirement_extractor/validation/datasets/ai_plausibility_stress_dataset_v1.json `
-  --ollama-model qwen2.5:3b `
-  --temperature 0
+Classes access :
 
-Sous Linux/macOS :
+```text
+SEQUENTIAL
+RANDOM
+MIXED
+NO_SUPPORTED_ACCESS_CLASS
+```
 
-python -m requirement_extractor.validation.run_ai_plausibility_full_agent_validation \
-  --dataset requirement_extractor/validation/datasets/ai_plausibility_stress_dataset_v1.json \
-  --ollama-model qwen2.5:3b \
-  --temperature 0
+`UNRESOLVED` est un état de sortie de la confidence gate, pas une classe d’entraînement.
 
-Le benchmark dédié contient :
+Artifact :
 
-50 COHERENT
-50 AMBIGUOUS
-50 INCOHERENT
-----------------
-150 scénarios
+```text
+categorical_boolean_extractor/artifacts/categorical_boolean_xlmr_v1_FROZEN.zip
+```
 
-La couche de décision déterministe gardée atteint la référence attendue sur ce benchmark dédié.
+SHA256 :
 
-17. Test end-to-end du Requirement Pipeline
+```text
+fcda293810e1ca735ea1744b8278a2f41dc1be8b2cdb1c4c10c3ebc66da11ff3
+```
 
-Ce test exécute la chaîne réelle :
+Validation TEST contrôlée :
 
-raw text
-→ HybridExtractor
-→ optional LLM fallback
-→ StateGuard
-→ AI Plausibility
-→ optional LLM enrichment
-→ final outcome
+```text
+HA accepted     = 5994 / 6000
+Access accepted = 5996 / 6000
+accepted precision = 1.0
+```
 
-Commande PowerShell :
+Le final holdout est resté intact pendant la phase de freeze.
 
-python -m requirement_extractor.validation.run_end_to_end_validation `
-  --dataset requirement_extractor/validation/datasets/end_to_end_stress_dataset_v1.json `
-  --fallback-model qwen2.5-coder:7b `
-  --plausibility-model qwen2.5:3b `
-  --plausibility-temperature 0
+---
+
+# 8. Input Orchestrator
+
+Package local actuel :
+
+```text
+input_orchestrator/
+```
+
+Le rôle de l’orchestrateur n’est pas d’extraire lui-même des valeurs.
+
+Il :
+
+- reçoit les messages ;
+- connaît la question active ;
+- route vers les extracteurs ;
+- fusionne les observations ;
+- conserve l’état multi-tour ;
+- gère les conflits ;
+- choisit une seule clarification ciblée ;
+- lance le dialogue BWM ;
+- empêche l’accès à la validation finale tant que le contrat n’est pas complet.
+
+États conversationnels :
+
+```text
+COLLECTING
+WAITING_FOR_ANSWER
+RESOLVING_CONFLICT
+BWM_ELICITATION
+READY_FOR_FINAL_VALIDATION
+```
+
+Règle de priorité :
+
+```text
+CONFLICT
+  >
+UNRESOLVED / MISSING
+  >
+BWM
+  >
+READY_FOR_FINAL_VALIDATION
+```
+
+Les champs optionnels peuvent devenir :
+
+```text
+DECLINED
+```
+
+si l’utilisateur répond par exemple :
+
+```text
+skip
+```
+
+Un champ requis ne peut pas être rendu prêt uniquement par `skip`.
+
+Cas conditionnel important :
+
+```text
+annual_growth_percent > 0
+```
+
+implique :
+
+```text
+planning_horizon_years = VERIFIED
+```
+
+---
+
+# 9. Final Requirement State
+
+Package :
+
+```text
+requirement_state/
+```
+
+Responsabilités :
+
+```text
+WorkingSessionState
+        ↓
+RequirementStateBuilder
+        ↓
+FinalRequirementState
+        ↓
+DeterministicRequirementValidator
+        ↓
+ready_for_sizing
+```
+
+Le validateur final contrôle notamment :
+
+- aucun champ requis non résolu ;
+- aucun `CONFLICT` ;
+- aucun `UNRESOLVED` ;
+- nombres finis ;
+- valeurs positives/non négatives selon le champ ;
+- `average_file_size_gb <= max_file_size_gb` ;
+- croissance > 0 => horizon requis ;
+- structure correcte du read/write ratio ;
+- `read_percent + write_percent = 100` ;
+- `access_type` canonique ;
+- `ha_required` booléen ;
+- labels de préférence canoniques ;
+- poids BWM finis/non négatifs ;
+- somme des poids = 1 ;
+- poids nul pour critères inactifs ;
+- cohérence BWM = PASS.
+
+La sortie n’est transmise au sizing que si :
+
+```text
+ready_for_sizing = true
+```
+
+---
+
+# 10. Production Online Main
+
+Point d’entrée :
+
+```text
+main.py
+```
+
+Commande :
+
+```powershell
+python main.py --device cpu
+```
+
+Le LLM fallback est activé par défaut.
+
+Le launcher :
+
+1. vérifie les artifacts ;
+2. vérifie Ollama ;
+3. vérifie `qwen2.5-coder:7b` ;
+4. démarre le dialogue ;
+5. charge Quantity / Preference / Categorical ;
+6. demande les clarifications ;
+7. lance BWM ;
+8. lance la validation finale ;
+9. revient vers l’utilisateur si la validation trouve une contradiction ;
+10. écrit le JSON final.
+
+Exemple de correction automatique de flux :
+
+```text
+average_file_size_gb = 20
+max_file_size_gb = 1
+```
+
+ne doit pas faire terminer le processus.
+
+La production doit revenir avec une question du type :
+
+```text
+Please enter a corrected maximum file size >= 20 GB.
+```
+
+Le JSON final est écrit dans :
+
+```text
+output/final_requirement.json
+```
+
+Tests actuels du nouveau launcher / orchestration :
+
+```text
+input_orchestrator : 38 passed
+requirement_state  : 21 passed
+```
+
+Le dernier test manuel a confirmé :
+
+- Ollama prêt ;
+- fallback global activé ;
+- `20/80` converti en structure `{read_percent, write_percent}` ;
+- `"not important"` lié à `power_priority=LOW` sans créer un faux conflit HA ;
+- erreur `average > max` détectée et transformée en clarification.
+
+La validation manuelle finale de cette nouvelle boucle doit être terminée jusqu’à :
+
+```text
+STATUS: PRODUCTION_ONLINE_PIPELINE_COMPLETE
+```
+
+avant de considérer ce launcher frozen.
+
+---
+
+# 11. Sizing Lustre — Frozen S10
+
+Le sizing est documenté dans :
+
+```text
+lustre_architecture_generator/evaluation/sizing/
+```
+
+Document principal :
+
+```text
+sizing_formula_spec.md
+```
+
+## 11.1 Capacité planifiée
+
+Formule frozen :
+
+```text
+planned_usable_capacity_tib
+=
+requested_usable_capacity_tib
+*
+(1 + annual_growth_percent / 100)^planning_horizon_years
+/
+target_fill_ratio
+```
+
+Default :
+
+```text
+target_fill_ratio = 0.8
+```
+
+Exemple de référence :
+
+```text
+requested capacity = 100 TiB
+growth             = 20 %
+horizon            = 3 years
+fill ratio         = 0.8
+
+planned capacity   = 216 TiB
+```
+
+Il n’existe plus de fallback production pour l’horizon.
+
+`planning_horizon_years` doit être :
+
+```text
+finite
+integer
+> 0
+```
+
+## 11.2 Workload classification
+
+Metadata score :
+
+```text
+0.5 * file_count_score
++ 0.3 * small_file_factor
++ 0.2 * client_count_score
+```
+
+Data score :
+
+```text
+0.4 * capacity_score
++ 0.4 * bandwidth_score
++ 0.2 * large_file_factor
+```
+
+Marge de dominance :
+
+```text
+0.15
+```
+
+## 11.3 MDT IOPS sizing
+
+```text
+raw_iops
+=
+base_iops_per_client
+* client_count
+* file_size_multiplier
+* access_multiplier
+* metadata_pressure_multiplier
+```
 
 Puis :
 
-python -m requirement_extractor.validation.end_to_end_metrics
-python -m requirement_extractor.validation.end_to_end_error_analyzer
+```text
+required_total_iops
+=
+ceil(raw_iops * iops_safety_factor)
+```
 
-Sous Linux/macOS :
+Valeurs frozen :
 
-python -m requirement_extractor.validation.run_end_to_end_validation \
-  --dataset requirement_extractor/validation/datasets/end_to_end_stress_dataset_v1.json \
-  --fallback-model qwen2.5-coder:7b \
-  --plausibility-model qwen2.5:3b \
-  --plausibility-temperature 0
+```text
+base IOPS/client       = 100
+file-size multipliers  = 3.0 / 1.5 / 1.0
+access multipliers     = 1.4 / 1.15 / 1.0
+metadata multipliers   = 1.5 / 1.2 / 1.0
+IOPS safety factor     = 1.25
+```
 
-python -m requirement_extractor.validation.end_to_end_metrics
-python -m requirement_extractor.validation.end_to_end_error_analyzer
+## 11.4 MDT metadata capacity
 
-Résultat de référence :
+```text
+required_metadata_capacity_tib
+=
+file_count
+* 4096
+* 2.0
+/ 1024^4
+```
 
-30 scénarios
-37 tours
-30 / 30 scénarios réussis
-0 erreur fonctionnelle
-0 erreur technique
+## 11.5 OST throughput sizing
 
-Distribution des sorties :
+```text
+required_read_bandwidth
+=
+target_read_bandwidth * 1.25
 
-READY_COHERENT          7
-READY_AMBIGUOUS         8
-BLOCKED_PLAUSIBILITY    5
-CLARIFICATION_REQUIRED 10
+required_write_bandwidth
+=
+target_write_bandwidth * 1.25
+```
 
-18. Interpréter les quatre sorties end-to-end
+Le `1.25` est le facteur calibré final.
 
-READY_COHERENT
+## 11.6 Assumption Registry
 
-Les exigences sont suffisamment complètes et cohérentes pour continuer.
+Le freeze S10 impose :
 
-READY_AMBIGUOUS
+```text
+architecture_rules.json version = 2.0
+23 registered assumptions with final status
+```
 
-Les exigences sont valides, mais une contrainte dépend de l’architecture finale, par exemple budget, puissance ou débit à confirmer. La recommandation peut continuer avec un warning.
+Statuts possibles :
 
-BLOCKED_PLAUSIBILITY
+```text
+SUPPORTED
+CALIBRATED
+POLICY_CHOICE
+NEEDS_REVISION
+```
 
-Les champs sont individuellement acceptables mais une contradiction inter-champs a été détectée. La génération doit s’arrêter jusqu’à correction.
+Artefacts :
 
-CLARIFICATION_REQUIRED
+```text
+sizing_assumptions.json
+calibration_decisions.json
+sizing_formula_spec.md
+sensitivity_analysis.md
+```
 
-Une information est manquante, invalide, conflictuelle ou doit être confirmée. Le chatbot interroge alors l’utilisateur.
+---
 
-19. Rejouer la génération des données d’architecture
+# 12. Validation Toubkal du sizing
 
-Depuis :
+Le sizing a été confronté à des expériences MDTest / IOR sur Toubkal.
 
+Scope terminé :
+
+```text
+M1 – M5 validés
+M6 sequential validé
+M6 shuffled validé
+```
+
+Observation M5 mixed :
+
+```text
+create ≈ 4893 ops/s
+stat   ≈ 4790 ops/s
+remove ≈ 7765 ops/s
+IOR write ≈ 355 MiB/s
+IOR read  ≈ 1208 MiB/s
+```
+
+Le facteur OST final `1.25` a été calibré à partir de la contention observée.
+
+Limitation connue :
+
+```text
+M6-C random-overlap
+```
+
+échoue avec IOR 4.1.0+dev à cause d’une division par zéro. Cette limitation doit rester documentée ; elle ne doit pas être masquée.
+
+---
+
+# 13. Architecture Generator — MDT / OST technical requirements
+
+Package :
+
+```text
+lustre_architecture_generator/
+```
+
+Principaux fichiers :
+
+```text
+src/workload_analyzer.py
+src/feature_calculator.py
+src/architecture_generator.py
+src/mdt_candidate_generator.py
+src/ost_candidate_generator.py
+src/training_dataset_builder.py
+```
+
+`architecture_generator.py` produit des **exigences techniques MDT/OST indépendantes du matériel**.
+
+Il ne choisit pas encore, à cette étape :
+
+```text
+drive
+RAID
+target count
+server
+stripe
+```
+
+Commande :
+
+```powershell
+python lustre_architecture_generator\src\architecture_generator.py
+```
+
+Dernier run manuel observé :
+
+```text
+Cas chargés              : 1200
+Architectures générées   : 1200
+
+MDT priority
+low       959
+medium    235
+high        4
+critical    2
+
+OST priority
+low       604
+medium    273
+high      282
+critical   41
+
+MDT IOPS
+min      = 2750
+mean     ≈ 678410.07
+max      = 7715138
+
+OST bandwidth
+min      = 31.25
+mean     ≈ 500.74
+max      = 3307.50 GB/s
+```
+
+Output :
+
+```text
+lustre_architecture_generator/output/lustre_architecture_dataset.json
+```
+
+---
+
+# 14. Correction importante des unités OST
+
+Le contrat historique utilise des noms de champs terminant par :
+
+```text
+_gbps
+```
+
+mais la convention métier du projet représente actuellement ces valeurs en :
+
+```text
+GB/s
+```
+
+La conversion catalogue correcte est :
+
+```text
+GB/s = MB/s / 1000
+```
+
+et non :
+
+```text
+Gb/s = MB/s * 0.008
+```
+
+Après correction :
+
+- les datasets OST ont été régénérés ;
+- les anciens modèles OST ont été invalidés ;
+- les rankers ont été réentraînés.
+
+Impact observé sur 1200 cas :
+
+```text
+Top-10 changed : 834 / 1200
+Top-1 changed  : 466 / 1200
+drive count changed : 480 / 1200
+```
+
+---
+
+# 15. Deterministic drive filtering
+
+Avant le ranking, tous les candidats passent par les contraintes dures.
+
+Principe :
+
+```text
+hardware catalog
+      ↓
+deterministic feasibility
+      ↓
+feasible candidates only
+      ↓
+ML ranking
+```
+
+Le ML ne peut jamais récupérer un candidat éliminé pour non-faisabilité.
+
+Le runtime officiel garantit :
+
+```text
+hard_constraints_applied_before_model = true
+all_feasible_candidates_ranked_before_top_k = true
+```
+
+Le ranking reste un ranking **pre-RAID drive selection**.
+
+---
+
+# 16. Datasets MDT / OST de ranking
+
+Datasets finaux régénérés :
+
+## MDT
+
+```text
+rows = 188,412
+train cases = 840
+validation cases = 180
+test cases = 180
+```
+
+SHA256 dataset non compressé :
+
+```text
+a6dbcb1ae8c446f626a05d1f8393500a8ee77292770baf6e6ce10dc5824b273c
+```
+
+## OST
+
+```text
+rows = 116,572
+train cases = 840
+validation cases = 180
+test cases = 180
+```
+
+SHA256 dataset non compressé :
+
+```text
+28380ba8e4ae5d988da834b5d74bce6bd3062d2a948cdece3710227ae51fd2b2
+```
+
+> Les labels sont issus d’un **teacher déterministe synthétique**. Les métriques mesurent donc principalement la capacité du ranker à reproduire ce teacher, et non une vérité terrain universelle issue de clusters Lustre réels.
+
+---
+
+# 17. Rankers officiels — LightGBM LambdaRank
+
+Après comparaison CatBoost / LightGBM, **LightGBM** a été retenu pour MDT et OST.
+
+Runtime :
+
+```text
+lustre_architecture_generator/src/ranking/
+├── feature_builder.py
+├── ranker_loader.py
+├── mdt_ranker_inference.py
+├── ost_ranker_inference.py
+└── diversified_topk.py
+```
+
+## 17.1 MDT official ranker
+
+Artifact :
+
+```text
+lustre_architecture_generator/artifacts/rankers/official/mdt/
+├── mdt_ranker.txt
+└── mdt_ranker_metadata.json
+```
+
+Model SHA256 :
+
+```text
+a4bea06c0af044f4d95ada7a616b0a656f6a763b7b64cec5e9a89bd44c32fb35
+```
+
+Selected seed :
+
+```text
+168
+```
+
+Test metrics :
+
+```text
+NDCG@5        = 0.980633
+NDCG@10       = 0.975324
+Top-1         = 0.966667
+Top-3 overlap = 0.929630
+Recall@5      = 0.865556
+Recall@10     = 0.935000
+```
+
+Model size :
+
+```text
+≈ 3.93 MiB
+```
+
+## 17.2 OST official ranker
+
+Artifact :
+
+```text
+lustre_architecture_generator/artifacts/rankers/official/ost/
+├── ost_ranker.txt
+└── ost_ranker_metadata.json
+```
+
+Model SHA256 :
+
+```text
+4ebdce885ff0d26de78f45f19716a240b915a14e5bb3206d2e3aaba8c654acbc
+```
+
+Selected seed :
+
+```text
+84
+```
+
+Test metrics :
+
+```text
+NDCG@5        = 0.948172
+NDCG@10       = 0.941815
+Top-1         = 0.838889
+Top-3 overlap = 0.855556
+Recall@5      = 0.821111
+Recall@10     = 0.881111
+```
+
+Model size :
+
+```text
+≈ 9.73 MiB
+```
+
+---
+
+# 18. Top-K candidates
+
+Le Top-K est une **entrée de la recherche d’architecture**, pas une architecture finale.
+
+Chaque candidat conserve :
+
+- drive ID ;
+- ranking score/rank ;
+- capacité ;
+- IOPS ou throughput ;
+- coût ;
+- puissance ;
+- headroom ;
+- nombre minimum preliminary ;
+- évidence de faisabilité.
+
+Le Top-K doit toujours être interprété avec :
+
+```text
+ranking scope = pre-RAID drive selection
+```
+
+Le nombre physique final de drives dépend ensuite de H5/protection.
+
+---
+
+# 19. H5 — Protection arithmetic
+
+Module :
+
+```text
+lustre_architecture_generator/src/full_architecture/protection_arithmetic.py
+```
+
+Responsabilité :
+
+```text
+candidate drive
+      +
+protection profile
+      ↓
+usable/raw geometry
+physical drive count
+fault tolerance
+```
+
+H5 ne choisit pas le meilleur RAID.
+
+Il **énumère et valide** les profils possibles.
+
+Validation de phase :
+
+```text
+105 tests
+1200 / 1200 cases
+6 protection profiles
+```
+
+Le nombre physique final est recalculé à partir du `raw_minimum_drive_count`.
+
+---
+
+# 20. H6 — Hardware compatibility
+
+Module principal :
+
+```text
+lustre_architecture_generator/src/full_architecture/compatibility_rules.py
+```
+
+H6 valide les chemins matériels compatibles :
+
+```text
+drive
+  ↓
+controller / HBA
+  ↓
+server
+  ↓
+enclosure
+  ↓
+network
+  ↓
+HA profile
+```
+
+Il calcule également les ressources minimales :
+
+```text
+physical drives
+servers
+controllers
+enclosures
+network adapters
+```
+
+Les règles H6 sont déterministes.
+
+---
+
+# 21. H7 — ArchitectureState
+
+Module :
+
+```text
+lustre_architecture_generator/src/full_architecture/architecture_state.py
+```
+
+H7 fournit l’état structuré utilisé par les étapes suivantes.
+
+Il conserve notamment :
+
+- choix MDT ;
+- choix OST ;
+- profils de protection ;
+- chemins hardware ;
+- nombres de composants ;
+- capacité ;
+- IOPS ;
+- bandwidth ;
+- cost ;
+- power ;
+- validation status.
+
+Les transitions déterministes permettent de construire un état complet sans laisser le Beam Search inventer les règles physiques.
+
+---
+
+# 22. H8 — FullArchitectureGenerator
+
+Module :
+
+```text
+lustre_architecture_generator/src/full_architecture/full_architecture_generator.py
+```
+
+H8 est la première couche qui génère de **vraies architectures physiques complètes**.
+
+Pour chaque rôle :
+
+```text
+candidate drive
+    ↓
+protection
+    ↓
+compatible hardware path
+```
+
+Puis :
+
+```text
+MDT options × OST options
+        ↓
+ArchitectureState COMPLETE
+```
+
+Chaque architecture reçoit un :
+
+```text
+architecture_id
+```
+
+stable dérivé de sa signature physique.
+
+Validation réalisée :
+
+```text
+1200 / 1200 cases processed
+16 architectures/case under evaluation caps
+19,200 complete architectures generated
+```
+
+H8 n’utilise :
+
+```text
+aucun Beam Search
+aucun architecture score
+aucune déclaration d’optimalité
+```
+
+---
+
+# 23. H9 — Architecture Scoring
+
+Module :
+
+```text
+lustre_architecture_generator/src/full_architecture/architecture_scoring.py
+```
+
+H9 ajoute un **soft score** pour comparer des architectures.
+
+Règle critique :
+
+> une contrainte dure n’est jamais convertie en pénalité soft.
+
+H9 combine :
+
+- performance/headroom ;
+- cost ;
+- power ;
+- reliability proxy ;
+- préférences utilisateur.
+
+Exemple de headroom :
+
+```text
+headroom_score = max(0, 1 - required / provided)
+```
+
+Le score H9 est un score de préférence.
+
+Il ne peut pas rendre valide une architecture invalide.
+
+---
+
+# 24. H10 — Full Deterministic Architecture Validator
+
+Module :
+
+```text
+lustre_architecture_generator/src/full_architecture/full_architecture_validator.py
+```
+
+H10 ne fait pas confiance aux valeurs intermédiaires.
+
+Il recalcule :
+
+- H5 protection arithmetic ;
+- H6 hardware compatibility ;
+- H7 counts/performance/cost/power.
+
+Puis il vérifie :
+
+```text
+MDT capacity
+MDT read IOPS
+MDT write IOPS
+OST usable capacity
+OST read bandwidth
+OST write bandwidth
+OST total bandwidth
+RAID geometry
+physical drive count
+drive/controller/server compatibility
+enclosure compatibility
+network resources
+HA
+budget
+power
+```
+
+Sorties :
+
+```text
+VALIDATED + is_valid=true
+```
+
+ou :
+
+```text
+INVALID + explicit violation codes
+```
+
+Aucun score H9 ne peut contourner H10.
+
+---
+
+# 25. Résultats H10 et feasibility coverage
+
+Premier pool H8 contrôlé :
+
+```text
+19,200 architectures
+6,906 valid
+12,294 invalid
+```
+
+Violations dominantes observées :
+
+```text
+power_exceeded  ≈ 10,222
+budget_exceeded ≈ 5,256
+```
+
+Avec les caps H8 initiaux :
+
+```text
+488 / 1200 cases
+```
+
+avaient au moins une solution.
+
+Après expansion déterministe des options et des hardware paths :
+
+```text
+H10-B:
+1066 / 1200 confirmed feasible
+134 unresolved
+
+H10-C:
+1090 / 1200 confirmed feasible
+110 unresolved
+```
+
+H10-C couvre à K=10 :
+
+- tous les profils de protection courants ;
+- pas de cap sur les role options ;
+- domaine complet de hardware paths compatibles du catalogue de référence ;
+- confirmation finale par H10.
+
+Les 110 cas restants ne signifient pas nécessairement une impossibilité globale. Ils sont limités par le Top-K et le catalogue de référence.
+
+H10-D a été conçu pour tester K=20 puis K=50 sur ces cas.
+
+---
+
+# 26. Beam Search — rôle exact
+
+Le Beam Search doit être ajouté **après** la définition complète H5–H10.
+
+Il ne doit jamais :
+
+- choisir une géométrie RAID invalide ;
+- inventer des serveurs ;
+- ignorer le budget ;
+- ignorer la puissance ;
+- ignorer la compatibilité ;
+- déclarer une architecture valide.
+
+Il sert uniquement à limiter efficacement l’espace de recherche :
+
+```text
+Top-K candidates
+      ↓
+expand valid partial states
+      ↓
+reject hard-invalid branches
+      ↓
+score remaining states
+      ↓
+keep best B states
+      ↓
+repeat
+      ↓
+H10 final validation
+```
+
+Le futur benchmark Beam devra faire varier ensemble :
+
+```text
+K ∈ {5, 10, 20, 50}
+beam width B
+```
+
+et mesurer :
+
+- final architecture quality ;
+- feasible-solution rate ;
+- search runtime.
+
+---
+
+# 27. Structure principale du dépôt
+
+Structure simplifiée :
+
+```text
+version2/
+│
+├── main.py
+│
+├── requirements.txt
+│
+├── README.md
+│
+├── output/
+│   └── final_requirement.json
+│
+├── requirement_extractor_v2/
+│   ├── artifacts/
+│   │   └── semantic_linker_xlmr_base_final/
+│   ├── semantic_linker/
+│   ├── candidate_relation_resolver.py
+│   ├── relation_aware_verifier.py
+│   ├── selective_cascade.py
+│   └── verified_pipeline.py
+│
+├── preference_extractor/
+│   ├── signal_detector/
+│   ├── layer2/
+│   ├── weighting/
+│   ├── tests/
+│   ├── tests_layer2/
+│   └── tests_weighting/
+│
+├── preference_signal_detector_v2_2.zip
+├── preference_layer2_xlmr_v1_FINAL.zip
+│
+├── categorical_boolean_extractor/
+│   ├── artifacts/
+│   │   └── categorical_boolean_xlmr_v1_FROZEN.zip
+│   ├── explicit/
+│   ├── llm_fallback.py
+│   ├── final_validator.py
+│   └── tests/
+│
+├── input_orchestrator/
+│   ├── production_adapters.py
+│   ├── production_wiring.py
+│   ├── session_state.py
+│   ├── result_merger.py
+│   ├── question_planner.py
+│   ├── ratio_parser.py
+│   └── tests/
+│
+├── requirement_state/
+│   ├── models.py
+│   ├── builder.py
+│   ├── validator.py
+│   ├── finalizer.py
+│   ├── production_main.py
+│   └── tests/
+│
+├── lustre_architecture_generator/
+│   ├── config/
+│   ├── data/
+│   ├── output/
+│   ├── artifacts/
+│   │   └── rankers/
+│   │       └── official/
+│   │           ├── mdt/
+│   │           └── ost/
+│   ├── evaluation/
+│   │   ├── sizing/
+│   │   └── architecture/
+│   ├── docs/
+│   └── src/
+│       ├── workload_analyzer.py
+│       ├── feature_calculator.py
+│       ├── architecture_generator.py
+│       ├── mdt_candidate_generator.py
+│       ├── ost_candidate_generator.py
+│       ├── ranking/
+│       └── full_architecture/
+│
+├── drive_selector_dataset_v3/
+└── docs/
+```
+
+> Selon Git LFS et l’état local du clone, certains gros `.zip` peuvent apparaître comme pointeurs tant que `git lfs pull` n’a pas été exécuté.
+
+---
+
+# 28. Installation
+
+## 28.1 Clone
+
+```powershell
+git clone <REPOSITORY_URL>
+cd EXPLAINABLE_LUSTRE_FILE_SYSTEM_RECOMMENDER
+```
+
+Si Git LFS est utilisé :
+
+```powershell
+git lfs install
+git lfs pull
+```
+
+## 28.2 Virtual environment
+
+Windows PowerShell :
+
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+Linux/macOS :
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+## 28.3 Dependencies
+
+```powershell
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+---
+
+# 29. Ollama
+
+Le pipeline utilise un fallback local :
+
+```text
+qwen2.5-coder:7b
+```
+
+Installation du modèle :
+
+```powershell
+ollama pull qwen2.5-coder:7b
+```
+
+Vérification :
+
+```powershell
+ollama list
+```
+
+Serveur manuel si nécessaire :
+
+```powershell
+ollama serve
+```
+
+Le `main.py` actuel vérifie Ollama et tente de démarrer le serveur quand cela est possible.
+
+---
+
+# 30. Lancer le pipeline online
+
+Depuis la racine `version2/` :
+
+```powershell
+python main.py --device cpu
+```
+
+Exemple :
+
+```text
+USER> We need 100 TiB of usable capacity for 64 clients.
+      High availability is mandatory.
+      The workload is sequential.
+      Expected annual growth is 20 percent.
+      Reliability is absolutely critical and performance is very important.
+```
+
+Le système peut ensuite demander :
+
+```text
+SYSTEM> Over how many years should the growth be planned?
+USER> 3 years
+```
+
+Pour un champ optionnel :
+
+```text
+USER> skip
+```
+
+Pour inspecter l’état :
+
+```text
+/state
+```
+
+Pour quitter :
+
+```text
+/quit
+```
+
+---
+
+# 31. Tests de non-régression actuels
+
+Après intégration du nouveau production main :
+
+```powershell
+python -m pytest input_orchestrator/tests -q
+```
+
+Référence actuelle :
+
+```text
+38 passed
+```
+
+Puis :
+
+```powershell
+python -m pytest requirement_state/tests -q
+```
+
+Référence actuelle :
+
+```text
+21 passed
+```
+
+Preference weighting :
+
+```powershell
+python -m pytest preference_extractor/tests_weighting -q
+```
+
+Référence :
+
+```text
+16 passed
+```
+
+Categorical/Boolean production integration :
+
+```text
+26 tests passed
+```
+
+Pendant la phase architecture/sizing, la suite globale a atteint :
+
+```text
+218 passed
+```
+
+sur le snapshot validé de cette phase.
+
+> Les compteurs peuvent augmenter lorsque de nouveaux tests sont ajoutés. Le point important est de ne jamais faire régresser les suites frozen existantes.
+
+---
+
+# 32. Rejouer la génération des exigences MDT/OST
+
+Commande courte depuis `version2/` :
+
+```powershell
+python lustre_architecture_generator\src\architecture_generator.py
+```
+
+Ou chaîne offline complète :
+
+```powershell
 cd lustre_architecture_generator
-
-La chaîne de référence est :
 
 python src/workload_analyzer.py
 python src/feature_calculator.py
@@ -762,298 +1949,241 @@ python src/validate_mdt_candidates.py
 python src/ost_candidate_generator.py
 python src/validate_ost_candidates.py
 python src/training_dataset_builder.py
+```
 
-Ces scripts construisent successivement : workload analysis, workload features, hardware-independent Lustre requirements, MDT feasible candidates, OST feasible candidates et training datasets.
+Ne pas relancer cette chaîne à chaque utilisateur en production.
 
-La génération des datasets et l’entraînement des modèles appartiennent au pipeline hors ligne.
+---
 
-Ils ne doivent pas être rejoués pour chaque nouvelle requête utilisateur.
+# 33. Artefacts et fichiers de validation importants
 
-20. Hors ligne vs en ligne
+## Requirement / NLP
 
-Hors ligne — développement
+```text
+requirement_extractor_v2/artifacts/semantic_linker_xlmr_base_final/
+preference_signal_detector_v2_2.zip
+preference_layer2_xlmr_v1_FINAL.zip
+categorical_boolean_extractor/artifacts/categorical_boolean_xlmr_v1_FROZEN.zip
+```
 
-Créer / mettre à jour les datasets
-↓
-Générer les candidats
-↓
-Construire les labels
-↓
-Split train / validation / test
-↓
-Entraîner MDT / OST
-↓
-Évaluer
-↓
-Sauvegarder les modèles
+## Ranking
 
-En ligne — future recommandation réelle
+```text
+lustre_architecture_generator/artifacts/rankers/official/mdt/
+lustre_architecture_generator/artifacts/rankers/official/ost/
+```
 
-Nouvelle requête utilisateur
-↓
-Extraction
-↓
-Validation
-↓
-Workload / features
-↓
-Filtrage déterministe
-↓
-Modèles déjà entraînés
-↓
-Top-K
-↓
-Beam Search
-↓
-Validation finale
-↓
-Réponse utilisateur
+## Sizing
 
-Une nouvelle demande utilisateur ne déclenche jamais un réentraînement des rankers.
+```text
+lustre_architecture_generator/evaluation/sizing/sizing_formula_spec.md
+lustre_architecture_generator/evaluation/sizing/sizing_assumptions.json
+lustre_architecture_generator/evaluation/sizing/calibration_decisions.json
+lustre_architecture_generator/evaluation/sizing/sensitivity_analysis.md
+```
 
-21. Artefacts principaux de validation
+## Full architecture
 
-Dans requirement_extractor/validation/, les artefacts importants incluent :
+```text
+lustre_architecture_generator/docs/full_architecture_generator.md
+lustre_architecture_generator/docs/full_architecture_scoring.md
+lustre_architecture_generator/docs/full_architecture_validator.md
+lustre_architecture_generator/docs/full_architecture_topk_coverage.md
+```
 
-datasets/stress_requests_v1.json
-datasets/ai_plausibility_stress_dataset_v1.json
-datasets/end_to_end_stress_dataset_v1.json
+Validation scripts :
 
-metrics_deterministic.json
-metrics_llm_fallback.json
-metrics_ai_plausibility_full_agent.json
+```text
+lustre_architecture_generator/evaluation/architecture/generation/
+lustre_architecture_generator/evaluation/architecture/scoring/
+lustre_architecture_generator/evaluation/architecture/validation/
+```
 
-results_end_to_end_v1.json
-metrics_end_to_end_v1.json
-errors_end_to_end_v1.json
+---
 
-Ces fichiers constituent la baseline de non-régression du Requirement Pipeline.
+# 34. Reproductibilité et politique de freeze
 
-Une modification future ne doit pas casser les comportements déjà validés.
+Une couche frozen ne doit pas être modifiée pour faire passer un seul exemple manuel.
 
-22. Résultats end-to-end : latence
+Toute modification future doit distinguer :
 
-La latence dépend fortement du chemin réellement exécuté.
+```text
+bug de code
+≠
+variation statistique du modèle
+≠
+changement de contrat métier
+```
 
-Référence du benchmark final :
+Pour les artifacts importants, conserver :
 
-deterministic fast path     ≈ quelques ms
-plausibility LLM only       ≈ 10 s
-fallback only               ≈ 25.5 s
-both LLM paths              ≈ 41.2 s
+- SHA256 ;
+- dataset hash ;
+- split ;
+- seed ;
+- library versions ;
+- threshold/calibration ;
+- prompt version ;
+- source artifact ;
+- test status.
 
-Statistiques globales :
+Les metadata des rankers officiels stockent déjà cette provenance.
 
-mean     ≈ 11.55 s
-median   ≈ 7.93 s
-P95      ≈ 42.43 s
-P99      ≈ 49.84 s
-maximum  ≈ 50.60 s
+---
 
-La principale source de latence est donc l’appel aux modèles locaux Ollama, pas le moteur déterministe.
+# 35. Limites connues
 
-23. Observations connues du benchmark end-to-end
+Le projet doit rester transparent sur ses limites.
 
-Le run final comporte :
+### 35.1 Datasets NLP synthétiques/contrôlés
 
-0 erreur fonctionnelle
-11 observations non bloquantes
+Les scores très élevés de certaines couches ne doivent pas être présentés comme une preuve de généralisation parfaite à tout texte réel.
 
-Fallback appelé sans candidat final
+### 35.2 Preference Layer 2 residual fallback
 
-Plusieurs appels fallback n’ont produit aucun candidat finalement retenu.
+La partie résiduelle LLM est plus faible sur le TEST complet que sur le petit sous-ensemble de validation hybride.
 
-Ce n’est pas une erreur de correction. Cela montre surtout qu’il est possible d’améliorer le routing afin d’éviter certains appels LLM coûteux lorsqu’aucune preuve textuelle exploitable n’existe.
+### 35.3 Ranking labels
 
-JSON brut LLM invalide
+Les labels MDT/OST proviennent d’un teacher déterministe synthétique.
 
-Un enrichissement LLM a produit un JSON brut invalide.
+Les métriques de ranking mesurent principalement l’accord avec ce teacher.
 
-Le garde de sécurité l’a rejeté et a conservé le warning déterministe. Le scénario final est donc resté correct.
+### 35.4 Catalogue hardware
 
-24. Procédure rapide de démonstration pour l’encadrement
+Le catalogue courant est un catalogue de référence, pas une liste exhaustive de tous les produits disponibles sur le marché.
 
-Pour une démonstration courte, utiliser cet ordre :
+### 35.5 Top-K feasibility
 
-1. Activer l’environnement Python
-2. Vérifier Ollama
-3. Lancer le chatbot
-4. Tester une requête complète
-5. Tester une requête incomplète
-6. Tester une contradiction
-7. Exécuter la validation déterministe
-8. Exécuter le benchmark end-to-end
-9. Montrer les métriques
-10. Montrer le pipeline de génération MDT / OST
+Un cas sans solution jusqu’à K=50 ne constitue pas une preuve mathématique d’infaisabilité globale.
 
-Commandes minimales :
+### 35.6 Toubkal
 
-.\.venv\Scripts\Activate.ps1
+`M6-C random-overlap` est limité par un crash IOR 4.1.0+dev.
+
+### 35.7 Naming `_gbps`
+
+Les champs historiques utilisent `_gbps`, alors que la convention actuelle est **GB/s**.
+
+Le renommage massif n’a pas été effectué pour éviter de casser les contrats existants.
+
+### 35.8 Beam Search
+
+H8/H9/H10 sont utilisables sans Beam Search.
+
+Beam Search reste une couche d’optimisation de l’espace de recherche, pas une couche de validité physique.
+
+---
+
+# 36. Démonstration recommandée
+
+Pour une démonstration courte devant l’encadrant :
+
+```text
+1. activer le venv
+2. ollama list
+3. python main.py --device cpu
+4. saisir un besoin complet
+5. montrer l’extraction
+6. montrer une clarification
+7. montrer un conflit/correction
+8. montrer BWM
+9. afficher final_requirement.json
+10. montrer le sizing formula spec
+11. montrer les rankers officiels
+12. montrer H8 full architecture generation
+13. montrer H10 validation
+```
+
+Commandes de départ :
+
+```powershell
+.\venv\Scripts\Activate.ps1
 ollama list
-python -m requirement_extractor.main
+python main.py --device cpu
+```
 
-Puis pour la validation rapide :
+---
 
-python -m requirement_extractor.validation.run_validation --mode deterministic
-python -m requirement_extractor.validation.metrics --mode deterministic
+# 37. Principe d’explicabilité
 
-Pour reproduire le run complet avec LLM, utiliser les commandes de la section 17.
+Chaque recommandation doit pouvoir être expliquée à plusieurs niveaux :
 
-25. Exemples de tests manuels
+```text
+User requirement
+→ extracted field + evidence
+→ clarification history
+→ sizing formula
+→ technical MDT/OST requirement
+→ deterministic candidate feasibility
+→ ML ranking score/rank
+→ protection arithmetic
+→ hardware compatibility
+→ architecture score
+→ H10 validation result
+```
 
-Cas complet
+Ainsi, le système ne répond pas simplement :
 
-Je souhaite 500 TiB utilisables pour 200 clients.
-Les fichiers font 2 GB en moyenne et 100 GB maximum.
-Il y aura environ 10 millions de fichiers.
-Le ratio est 70 % lecture et 30 % écriture.
-Accès mixed.
-Je vise 80 GB/s en lecture et 40 GB/s en écriture.
-HA obligatoire.
-Budget maximum 100000 USD.
-Puissance maximale 15000 W.
-Croissance annuelle 30 %.
+```text
+“Choose drive X.”
+```
 
-Attendu : pas de valeur inventée, normalisation correcte, contrat complet, poursuite vers la plausibilité.
+Il peut justifier :
 
-Cas incomplet
+```text
+Pourquoi le besoin a été compris ainsi
+Pourquoi la capacité planifiée vaut cette valeur
+Pourquoi un drive est faisable
+Pourquoi un autre a été rejeté
+Pourquoi le ranker préfère un candidat
+Pourquoi une architecture complète respecte ou viole les contraintes
+```
 
-Je souhaite environ 500 TiB pour 200 clients.
+---
 
-Attendu :
+# 38. Résumé
 
-CLARIFICATION_REQUIRED
+Le projet est basé sur une séparation nette :
 
-Le système doit demander une information pertinente au lieu d’inventer les champs manquants.
+```text
+NLP / ML
+→ comprendre et classer
 
-Cas de conflit
+Deterministic logic
+→ valider, dimensionner et imposer les contraintes physiques
+```
 
-Tour 1 : Mon budget maximum est 100000 USD.
-Tour 2 : Mon budget est 150000 USD.
+La partie **Requirement Extraction + Orchestration + Final Requirement State** est implémentée et fortement testée.
 
-Attendu : conflit détecté puis clarification.
+Le **Sizing S10** est frozen avec croissance composée, horizon explicite et hypothèses documentées/calibrées.
 
-Cas de correction explicite
+Les **rankers MDT/OST LightGBM** sont officiels et intégrés avec filtrage déterministe avant ML.
 
-Correction : remplace mon budget par 150000 USD.
+La couche **H5–H10** sait construire et valider des architectures physiques complètes indépendamment du Beam Search.
 
-Attendu : mise à jour directe, pas de conflit artificiel.
+Le prochain objectif architectural est d’utiliser **Beam Search uniquement pour optimiser l’exploration**, tout en conservant H10 comme autorité finale de validité.
 
-Cas incohérent
+---
 
-Taille moyenne des fichiers : 100 GB
-Taille maximale : 10 GB
+## Repository
 
-Attendu :
+```text
+EXPLAINABLE_LUSTRE_FILE_SYSTEM_RECOMMENDER
+```
 
-INCOHERENT
-AVERAGE_FILE_EXCEEDS_MAXIMUM
+## Main runtime command
 
-26. Dépannage
+```powershell
+python main.py --device cpu
+```
 
-ollama n’est pas reconnu
+## Main Requirement output
 
-Vérifier qu’Ollama est installé et présent dans le PATH, puis redémarrer le terminal VS Code.
+```text
+output/final_requirement.json
+```
 
-Modèle Ollama absent
+## Core rule
 
-ollama list
-ollama pull qwen2.5-coder:7b
-ollama pull qwen2.5:3b
-
-Le LLM est trop lent
-
-ollama ps
-
-Le moteur déterministe peut toujours être validé indépendamment. Les benchmarks LLM locaux dépendent fortement du CPU/GPU disponible.
-
-Une validation LLM semble bloquée
-
-Vérifier le .env :
-
-PLAUSIBILITY_AGENT_TIMEOUT_SECONDS=60
-PLAUSIBILITY_AGENT_NUM_PREDICT=192
-PLAUSIBILITY_AGENT_KEEP_ALIVE=30s
-
-Erreur d’import Python
-
-Toujours exécuter les commandes python -m requirement_extractor... depuis la racine version2/ et vérifier que l’environnement virtuel est activé.
-
-27. Limites actuelles
-
-Les résultats actuels doivent être interprétés dans le cadre de leurs benchmarks.
-
-Points importants :
-
-les datasets de ranking reposent encore sur un teacher déterministe synthétique ;
-
-un score élevé sur le benchmark interne ne prouve pas une généralisation parfaite à toutes les requêtes réelles ;
-
-le catalogue de drives doit être régulièrement revalidé contre les données constructeurs ;
-
-la nomenclature gbps / GB/s doit être nettoyée dans une future version ;
-
-les performances LLM dépendent fortement du hardware local ;
-
-le Beam Search n’est pas encore intégré ;
-
-la recommandation d’une architecture Lustre physique complète n’est donc pas encore la sortie finale du runtime actuel.
-
-28. Prochaines étapes de développement
-
-Ordre recommandé :
-
-1. Exporter / figer les deux modèles LightGBM
-2. Sauvegarder le feature schema et les mappings catégoriels
-3. Créer le module d’inférence MDT / OST
-4. Vérifier Kaggle vs VS Code sur les mêmes candidats
-5. Produire un Top-K MDT et OST explicable
-6. Définir ArchitectureState
-7. Implémenter calculs capacité / coût / puissance / performance
-8. Implémenter contraintes dures d’architecture
-9. Définir le score global
-10. Implémenter Beam Search
-11. Ajouter le validateur final
-12. Produire Top-N architectures
-13. Générer les explications
-14. Construire le benchmark end-to-end de recommandation complète
-
-29. Philosophie scientifique du projet
-
-Le système suit trois principes :
-
-Deterministic rules
-→ correctness and safety
-
-Machine Learning rankers
-→ efficient prioritization
-
-LLM
-→ linguistic understanding and explanation
-
-Le modèle génératif ne doit jamais remplacer une contrainte métier vérifiable.
-
-Le ranker ne doit jamais rendre faisable un candidat rejeté par le filtre déterministe.
-
-Le futur Beam Search ne devra jamais retourner une architecture qui viole les contraintes du validateur final.
-
-30. Résumé
-
-Requirement understanding       ✅
-Requirement validation          ✅
-AI plausibility                 ✅
-End-to-end requirement tests    ✅
-
-Workload / feature pipeline     ✅
-Architecture requirements       ✅
-MDT / OST candidate datasets    ✅
-MDT / OST training              ✅
-LightGBM selection              ✅
-
-LightGBM runtime integration    🚧
-ArchitectureState               ⏳
-Beam Search                     ⏳
-Final architecture validator    ⏳
-Full Lustre recommendation      ⏳
-
-La prochaine étape logicielle est donc l’intégration des deux modèles LightGBM LambdaRank dans le code d’inférence avant le développement du Beam Search.
+> **AI proposes or ranks. Deterministic validators decide.**

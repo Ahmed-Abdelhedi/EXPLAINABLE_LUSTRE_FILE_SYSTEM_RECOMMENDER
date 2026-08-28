@@ -24,3 +24,16 @@ tokens/
 secrets
 secrets.*
 secrets/
+
+# Local editor and diagnostics
+.vscode/
+*.log
+
+# Generated runtime output
+/output/
+
+# Local packaging and dataset archives
+/lustre_architecture_generator.zip
+/lustre_architecture_generator (2).zip
+/preference_extractor.zip
+/preference_layer2_dataset_KAGGLE_FRESH_R3.zip

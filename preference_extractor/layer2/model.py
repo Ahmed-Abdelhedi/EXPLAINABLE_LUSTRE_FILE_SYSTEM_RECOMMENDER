@@ -34,6 +34,9 @@ class XLMRPreferenceMultiTaskModel(
         each predicts four cumulative logits for five ordered levels.
 
     NO_SIGNAL comes from the presence head and is not an intensity class.
+
+    Step 6.1B adds only the optional `encoder=` constructor argument so the
+    frozen full state dict can be loaded without downloading base weights.
     """
 
     def __init__(
@@ -43,6 +46,8 @@ class XLMRPreferenceMultiTaskModel(
         ),
         dropout: float = 0.10,
         monotonicity_weight: float = 0.10,
+        *,
+        encoder=None,
     ) -> None:
         super().__init__()
 
@@ -50,8 +55,12 @@ class XLMRPreferenceMultiTaskModel(
             encoder_name_or_path
         )
 
-        self.encoder = AutoModel.from_pretrained(
-            encoder_name_or_path
+        self.encoder = (
+            encoder
+            if encoder is not None
+            else AutoModel.from_pretrained(
+                encoder_name_or_path
+            )
         )
 
         hidden_size = int(
@@ -250,9 +259,9 @@ class XLMRPreferenceMultiTaskModel(
         ]
 
         if pieces:
-            total_loss = sum(
-                pieces
-            )
+            total_loss = pieces[0]
+            for piece in pieces[1:]:
+                total_loss = total_loss + piece
 
             if (
                 monotonicity_loss

@@ -1,0 +1,26 @@
+{
+  "include": [
+    "input_orchestrator",
+    "lustre_architecture_generator",
+    "main.py",
+    "preference_extractor",
+    "requirement_extractor",
+    "requirement_extractor_v2",
+    "requirement_state"
+  ],
+  "exclude": [
+    "**/__pycache__",
+    "**/.pytest_cache",
+    "**/venv",
+    "**/.venv"
+  ],
+  "extraPaths": [
+    "lustre_architecture_generator/src",
+    "preference_extractor",
+    "preference_extractor/evaluation",
+    "requirement_extractor",
+    "requirement_extractor_v2"
+  ],
+  "pythonVersion": "3.13",
+  "typeCheckingMode": "basic"
+}
