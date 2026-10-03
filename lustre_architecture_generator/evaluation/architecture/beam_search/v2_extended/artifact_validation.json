@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "configurations_checked": 1000,
+  "checks": [
+    "Complete unique case x K x B matrix; all development cases excluded",
+    "Repeat fingerprints, Beam/COMPLETE/buffer bounds, counters and common-pool regret identities",
+    "Uncapped exhaustive pools below threshold; explicit skips above threshold",
+    "Aggregates independently recomputed; per-configuration CSV matches JSON",
+    "Every missing Beam solution included in the independent feasibility audit",
+    "Only the explicitly documented Beam patch changed production sources; H5-H10, ranking, inputs and earlier V1/V2 artifacts retain their hashes",
+    "Final report contains all A-R sections with no unfinished placeholders"
+  ]
+}

@@ -1,0 +1,452 @@
+{
+  "beam_width": 32,
+  "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+  "levels": [
+    {
+      "search_stage": "MDT_DRIVE",
+      "depth": 1,
+      "branches_created": 50,
+      "hard_pruned": 0,
+      "width_pruned": 18,
+      "pruning_reason_counts": {
+        "beam_width_limit": 18
+      },
+      "retained": 32,
+      "best_retained_score": 0.666191520706623,
+      "worst_retained_score": 0.6640216102884072,
+      "diversity": {
+        "mdt_drives": 32,
+        "mdt_protections": 0,
+        "mdt_hardware_paths": 0,
+        "distinct_costs": 31,
+        "distinct_powers": 10,
+        "cost_deciles_of_limit": [
+          0
+        ],
+        "power_deciles_of_limit": [
+          0
+        ]
+      },
+      "viable_generated": 1,
+      "viable_hard_pruned": 0,
+      "viable_width_pruned": 1,
+      "viable_retained": 0,
+      "reachable_valid_architectures": 0,
+      "known_witness_path": {
+        "status": "WIDTH_PRUNED",
+        "rank_before_width": 44,
+        "score": 0.6633748210106563
+      }
+    },
+    {
+      "search_stage": "MDT_PROTECTION",
+      "depth": 2,
+      "branches_created": 192,
+      "hard_pruned": 43,
+      "width_pruned": 117,
+      "pruning_reason_counts": {
+        "beam_width_limit": 117,
+        "completion_budget_lower_bound_exceeded": 43
+      },
+      "retained": 32,
+      "best_retained_score": 0.6657006603268668,
+      "worst_retained_score": 0.653769922339346,
+      "diversity": {
+        "mdt_drives": 19,
+        "mdt_protections": 3,
+        "mdt_hardware_paths": 0,
+        "distinct_costs": 32,
+        "distinct_powers": 19,
+        "cost_deciles_of_limit": [
+          0
+        ],
+        "power_deciles_of_limit": [
+          0
+        ]
+      },
+      "viable_generated": 0,
+      "viable_hard_pruned": 0,
+      "viable_width_pruned": 0,
+      "viable_retained": 0,
+      "reachable_valid_architectures": 0,
+      "known_witness_path": {
+        "status": "PARENT_ALREADY_LOST",
+        "rank_before_width": null,
+        "score": null
+      }
+    },
+    {
+      "search_stage": "MDT_HARDWARE",
+      "depth": 3,
+      "branches_created": 32,
+      "hard_pruned": 0,
+      "width_pruned": 0,
+      "pruning_reason_counts": {},
+      "retained": 32,
+      "best_retained_score": 0.6657006603268668,
+      "worst_retained_score": 0.653769922339346,
+      "diversity": {
+        "mdt_drives": 19,
+        "mdt_protections": 3,
+        "mdt_hardware_paths": 8,
+        "distinct_costs": 31,
+        "distinct_powers": 25,
+        "cost_deciles_of_limit": [
+          0
+        ],
+        "power_deciles_of_limit": [
+          0
+        ]
+      },
+      "viable_generated": 0,
+      "viable_hard_pruned": 0,
+      "viable_width_pruned": 0,
+      "viable_retained": 0,
+      "reachable_valid_architectures": 0,
+      "known_witness_path": {
+        "status": "PARENT_ALREADY_LOST",
+        "rank_before_width": null,
+        "score": null
+      }
+    },
+    {
+      "search_stage": "OST_DRIVE",
+      "depth": 4,
+      "branches_created": 1600,
+      "hard_pruned": 1600,
+      "width_pruned": 0,
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 32,
+        "completion_budget_lower_bound_exceeded": 32,
+        "completion_power_lower_bound_exceeded": 32,
+        "no_compatible_completion": 1504
+      },
+      "retained": 0,
+      "best_retained_score": null,
+      "worst_retained_score": null,
+      "diversity": {
+        "mdt_drives": 0,
+        "mdt_protections": 0,
+        "mdt_hardware_paths": 0,
+        "distinct_costs": 0,
+        "distinct_powers": 0,
+        "cost_deciles_of_limit": [],
+        "power_deciles_of_limit": []
+      },
+      "viable_generated": 0,
+      "viable_hard_pruned": 0,
+      "viable_width_pruned": 0,
+      "viable_retained": 0,
+      "reachable_valid_architectures": 0,
+      "known_witness_path": {
+        "status": "PARENT_ALREADY_LOST",
+        "rank_before_width": null,
+        "score": null
+      }
+    },
+    {
+      "search_stage": "OST_PROTECTION",
+      "branches_created": 0,
+      "hard_pruned": 0,
+      "width_pruned": 0,
+      "retained": 0,
+      "pruning_reason_counts": {},
+      "best_retained_score": null,
+      "worst_retained_score": null,
+      "viable_generated": 0,
+      "viable_hard_pruned": 0,
+      "viable_width_pruned": 0,
+      "viable_retained": 0,
+      "reachable_valid_architectures": 0,
+      "diversity": {
+        "mdt_drives": 0,
+        "mdt_protections": 0,
+        "mdt_hardware_paths": 0,
+        "distinct_costs": 0,
+        "distinct_powers": 0,
+        "cost_deciles_of_limit": [],
+        "power_deciles_of_limit": []
+      },
+      "known_witness_path": {
+        "status": "PARENT_ALREADY_LOST",
+        "rank_before_width": null,
+        "score": null
+      }
+    },
+    {
+      "search_stage": "OST_HARDWARE",
+      "branches_created": 0,
+      "hard_pruned": 0,
+      "width_pruned": 0,
+      "retained": 0,
+      "pruning_reason_counts": {},
+      "best_retained_score": null,
+      "worst_retained_score": null,
+      "viable_generated": 0,
+      "viable_hard_pruned": 0,
+      "viable_width_pruned": 0,
+      "viable_retained": 0,
+      "reachable_valid_architectures": 0,
+      "diversity": {
+        "mdt_drives": 0,
+        "mdt_protections": 0,
+        "mdt_hardware_paths": 0,
+        "distinct_costs": 0,
+        "distinct_powers": 0,
+        "cost_deciles_of_limit": [],
+        "power_deciles_of_limit": []
+      },
+      "known_witness_path": {
+        "status": "PARENT_ALREADY_LOST",
+        "rank_before_width": null,
+        "score": null
+      }
+    },
+    {
+      "search_stage": "COMPLETE",
+      "branches_created": 0,
+      "hard_pruned": 0,
+      "width_pruned": 0,
+      "retained": 0,
+      "viable_retained": 0,
+      "best_retained_score": null,
+      "worst_retained_score": null,
+      "pruning_reason_counts": {}
+    },
+    {
+      "search_stage": "H10",
+      "branches_created": 0,
+      "hard_pruned": 0,
+      "width_pruned": 0,
+      "retained": 0,
+      "viable_retained": 0,
+      "best_retained_score": null,
+      "worst_retained_score": null,
+      "pruning_reason_counts": {}
+    }
+  ],
+  "lookahead_trace": [
+    {
+      "search_stage": "LOOKAHEAD_MDT",
+      "branches_created": 650,
+      "hard_pruned": 0,
+      "width_pruned": 0,
+      "pruning_reason_counts": {},
+      "role_options": 300,
+      "prefix_envelopes": 651
+    },
+    {
+      "search_stage": "LOOKAHEAD_OST",
+      "branches_created": 489,
+      "hard_pruned": 298,
+      "width_pruned": 0,
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 283,
+        "power_lower_bound_exceeded": 148
+      },
+      "role_options": 2,
+      "prefix_envelopes": 7
+    }
+  ],
+  "summary": {
+    "branches_created": 3013,
+    "branches_explored": 3013,
+    "main_search_branches_created": 1874,
+    "lookahead_branches_created": 1139,
+    "lookahead_role_options": {
+      "mdt": 300,
+      "ost": 2
+    },
+    "branches_pruned": 2076,
+    "hard_pruned": 1941,
+    "width_pruned": 135,
+    "pruning_reason_counts": {
+      "beam_width_limit": 135,
+      "budget_lower_bound_exceeded": 315,
+      "completion_budget_lower_bound_exceeded": 75,
+      "completion_power_lower_bound_exceeded": 32,
+      "no_compatible_completion": 1504,
+      "power_lower_bound_exceeded": 148
+    },
+    "max_active_states": 32,
+    "max_selection_buffer": 33,
+    "h5_calls": 600,
+    "h6_calls": 439,
+    "complete_architectures_produced": 0,
+    "h10_calls": 0,
+    "valid_architecture_count": 0,
+    "search_seconds": 0.3637328000040725,
+    "best_architecture_id": null,
+    "best_final_h9_score": null
+  },
+  "known_witness_count": 1,
+  "known_witness_id": "ARCH_REQ_000267_e62f7c71ba739177",
+  "best_path_first_loss": "MDT_DRIVE",
+  "known_witness_selected": {
+    "mdt_drive": {
+      "drive_id": "DRV_000099",
+      "drive_name": "KPM71VUG3T20",
+      "manufacturer": "Kioxia",
+      "series": "PM7-V",
+      "media_type": "SSD",
+      "catalog_id": "6a597080136a37d0ea2885a6",
+      "model_number": "KPM71VUG3T20"
+    },
+    "ost_drive": {
+      "drive_id": "DRV_000205",
+      "drive_name": "Western Digital Ultrastar DC HC560 20TB 3.5in SATA HDD (WUH722020ALE6L4)",
+      "manufacturer": "Western Digital",
+      "series": "Ultrastar DC HC560",
+      "media_type": "HDD",
+      "catalog_id": "01b1da31f025a6db273b0fed",
+      "model_number": "WUH722020ALE6L4"
+    },
+    "mdt_protection": {
+      "role": "MDT",
+      "drive_id": "DRV_000099",
+      "protection_profile_id": "PROT_RAID1_2",
+      "raid_level": "RAID1",
+      "raw_minimum_drive_count": 1,
+      "group_count": 1,
+      "group_size": 2,
+      "data_drives_per_group": 1,
+      "parity_drives_per_group": 0,
+      "mirror_copies": 2,
+      "physical_drive_count": 2,
+      "counts_basis": {
+        "lower_bound": 1,
+        "capacity": 1,
+        "read_iops": 1,
+        "write_iops": 1
+      },
+      "per_drive": {
+        "capacity_tib": 2.910383,
+        "read_iops": 720000.0,
+        "write_iops": 340000.0
+      },
+      "provided": {
+        "usable_capacity_tib": 2.910383,
+        "read_iops": 1368000.0,
+        "write_iops": 306000.0
+      },
+      "requirements": {
+        "usable_capacity_tib": 0.006186314,
+        "read_iops": 307800.0,
+        "write_iops": 205200.0
+      },
+      "satisfied": {
+        "capacity": true,
+        "read_iops": true,
+        "write_iops": true
+      },
+      "fault_tolerance_drives_per_group": 1,
+      "per_drive_cost_usd": 2255.0,
+      "per_drive_power_w": 18.0,
+      "protected_drive_cost_usd": 4510.0,
+      "protected_drive_power_w": 36.0
+    },
+    "ost_protection": {
+      "role": "OST",
+      "drive_id": "DRV_000205",
+      "protection_profile_id": "PROT_RAID6_12",
+      "raid_level": "RAID6",
+      "raw_minimum_drive_count": 3383,
+      "group_count": 339,
+      "group_size": 12,
+      "data_drives_per_group": 10,
+      "parity_drives_per_group": 2,
+      "mirror_copies": 1,
+      "physical_drive_count": 4068,
+      "counts_basis": {
+        "lower_bound": 282,
+        "capacity": 339,
+        "read_bandwidth": 71,
+        "write_bandwidth": 79,
+        "total_bandwidth": 74
+      },
+      "per_drive": {
+        "capacity_tib": 18.189894,
+        "read_bandwidth_gb_s": 0.291,
+        "write_bandwidth_gb_s": 0.291
+      },
+      "provided": {
+        "usable_capacity_tib": 61663.740659999996,
+        "read_bandwidth_gb_s": 1089.08496,
+        "write_bandwidth_gb_s": 651.0834,
+        "total_bandwidth_gb_s": 1740.16836
+      },
+      "requirements": {
+        "usable_capacity_tib": 61522.5,
+        "read_bandwidth_gb_s": 225.0,
+        "write_bandwidth_gb_s": 150.0,
+        "total_bandwidth_gb_s": 375.0
+      },
+      "satisfied": {
+        "capacity": true,
+        "read_bandwidth": true,
+        "write_bandwidth": true,
+        "total_bandwidth": true
+      },
+      "fault_tolerance_drives_per_group": 2,
+      "per_drive_cost_usd": 575.0,
+      "per_drive_power_w": 7.0,
+      "protected_drive_cost_usd": 2339100.0,
+      "protected_drive_power_w": 28476.0
+    },
+    "mdt_hardware_path": {
+      "compatible": true,
+      "role": "MDT",
+      "attachment_mode": "ENCLOSURE",
+      "drive_id": "DRV_000099",
+      "protection_profile_id": "PROT_RAID1_2",
+      "server_id": "SRV_DUALROLE_01",
+      "controller_id": "CTRL_RAID12_16P_01",
+      "enclosure_id": "ENC_SAS_24X25_01",
+      "network_id": "NET_ETH100_01",
+      "ha_profile_id": "HA_ACTIVE_ACTIVE",
+      "minimum_resources": {
+        "physical_drive_count": 2,
+        "server_count": 2,
+        "controller_count": 2,
+        "enclosure_count": 1,
+        "network_adapter_count": 2
+      },
+      "bandwidth": {
+        "required_gb_s": 0.0,
+        "controller_total_gb_s": 22.0,
+        "network_total_gb_s": 45.0
+      },
+      "component_cost_lower_bound_usd": 23600.0,
+      "component_power_lower_bound_w": 1832.0,
+      "violations": []
+    },
+    "ost_hardware_path": {
+      "compatible": true,
+      "role": "OST",
+      "attachment_mode": "ENCLOSURE",
+      "drive_id": "DRV_000205",
+      "protection_profile_id": "PROT_RAID6_12",
+      "server_id": "SRV_DUALROLE_01",
+      "controller_id": "CTRL_RAID12_16P_01",
+      "enclosure_id": "ENC_SAS_60X35_01",
+      "network_id": "NET_ETH100_01",
+      "ha_profile_id": "HA_ACTIVE_ACTIVE",
+      "minimum_resources": {
+        "physical_drive_count": 4068,
+        "server_count": 7,
+        "controller_count": 35,
+        "enclosure_count": 68,
+        "network_adapter_count": 17
+      },
+      "bandwidth": {
+        "required_gb_s": 375.0,
+        "controller_total_gb_s": 385.0,
+        "network_total_gb_s": 382.5
+      },
+      "component_cost_lower_bound_usd": 663750.0,
+      "component_power_lower_bound_w": 64086.0,
+      "violations": []
+    }
+  },
+  "scope": "Single H10 VALID witness only; not an exhaustive quality or total feasible-count reference."
+}

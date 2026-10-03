@@ -34,13 +34,20 @@ Le projet transforme une demande utilisateur exprimée en langage naturel en un 
 | H9 Architecture Scoring | ✅ Validé | score soft indépendant des contraintes dures |
 | H10 Full Architecture Validator | ✅ Validé | validation déterministe indépendante du score |
 | Feasibility coverage | ✅ Évaluée | 1090/1200 cas confirmés faisables après H10-C à K=10 |
-| Beam Search | ⏳ Couche suivante | non utilisé par H8/H9/H10 ; doit seulement optimiser l’exploration |
+| Beam Search | ✅ Implémenté et testé | recherche progressive avant le produit cartésien ; H9 final et confirmation H10 |
+
+Beam Search **V2.1**, revu le **3 octobre 2026** : **ACCEPTED WITH VALIDATION LIMITATIONS**.
+La validation étendue couvre 50 cas synthétiques et 1 000 configurations
+(K=5/10/20/50, B=1/4/8/16/32), dont 785 recommandations H10 VALID.
+Aucun domaine faisable connu n'est manqué dans les audits effectués ;
+H5–H10 et le ranking restent inchangés. Résultats finaux et portée des tests :
+[revue V2.1](lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review.md).
 
 ### Point important sur le mot “architecture finale”
 
 Le projet sait déjà **générer des architectures physiques complètes et les valider avec H10**.
 
-Le **Beam Search n’est pas nécessaire pour définir la validité physique**. Il doit être ajouté ensuite comme mécanisme d’optimisation de recherche pour éviter d’explorer exhaustivement trop de combinaisons. Une architecture ne devient jamais valide parce que son score Beam est élevé : seul le validateur H10 peut la déclarer valide.
+Le **Beam Search n’est pas nécessaire pour définir la validité physique**. Il est utilisé comme mécanisme d’optimisation de recherche pour éviter d’explorer exhaustivement trop de combinaisons. Une architecture ne devient jamais valide parce que son score Beam est élevé : seul le validateur H10 peut la déclarer valide.
 
 ---
 
@@ -81,18 +88,18 @@ flowchart TD
     L1 --> K1[Top-K MDT]
     L2 --> K2[Top-K OST]
 
-    K1 --> H5[H5 Protection arithmetic]
-    K2 --> H5
+    K1 --> SEARCH[H8 exhaustif ou Beam Search]
+    K2 --> SEARCH
+    SEARCH --> H5[H5 Protection arithmetic]
 
     H5 --> H6[H6 Hardware compatibility]
     H6 --> H7[H7 ArchitectureState]
-    H7 --> H8[H8 Full Architecture Generator]
-    H8 --> H9[H9 Soft Architecture Scoring]
-    H8 --> H10[H10 Deterministic Validator]
+    H7 --> COMPLETE[Architecture COMPLETE]
+    COMPLETE --> H9[H9 Soft Architecture Scoring]
+    COMPLETE --> H10[H10 Deterministic Validator]
     H9 --> H10
 
     H10 --> OUT[Validated architecture pool]
-    OUT --> BS[Future Beam Search optimization]
 ```
 
 ---
@@ -1621,47 +1628,70 @@ H10-D a été conçu pour tester K=20 puis K=50 sur ces cas.
 
 # 26. Beam Search — rôle exact
 
-Le Beam Search doit être ajouté **après** la définition complète H5–H10.
-
-Il ne doit jamais :
-
-- choisir une géométrie RAID invalide ;
-- inventer des serveurs ;
-- ignorer le budget ;
-- ignorer la puissance ;
-- ignorer la compatibilité ;
-- déclarer une architecture valide.
-
-Il sert uniquement à limiter efficacement l’espace de recherche :
+La couche [Beam Search](lustre_architecture_generator/docs/beam_search.md)
+réutilise les primitives H5–H10 et réduit les expansions avant de matérialiser
+les architectures complètes. H8 reste la référence exhaustive. Aucun module
+H5/H6/H7/H8/H9/H10 n’a été modifié pour cette intégration.
 
 ```text
-Top-K candidates
-      ↓
-expand valid partial states
-      ↓
-reject hard-invalid branches
-      ↓
-score remaining states
-      ↓
-keep best B states
-      ↓
-repeat
-      ↓
-H10 final validation
+Top-K reçu dans le handoff
+  → MDT drive → protection H5 → hardware H6
+  → OST drive → protection H5 → hardware H6
+  → construction publique H7 / identité H8 → COMPLETE
+  → H9 sur les COMPLETE survivants → H10 sur chaque COMPLETE
+  → meilleur VALID dans l’ordre H9
 ```
 
-Le futur benchmark Beam devra faire varier ensemble :
+Chaque étape élimine les branches certainement impossibles, puis conserve au
+plus B branches selon une heuristique déterministe distincte de H9. Aucun
+score ne remplace les contraintes physiques. Sans décision H10 VALID, le
+résultat est `NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN`, sans déclaration
+d’infaisabilité globale. H9 et H10 conservent `beam_search_applied=False` ; le
+wrapper Beam porte `beam_search_applied=True`.
 
-```text
-K ∈ {5, 10, 20, 50}
-beam width B
+```python
+from lustre_architecture_generator.src.full_architecture import beam_search_architectures
+
+result = beam_search_architectures(
+    handoff=handoff,
+    hardware_catalog=hardware_catalog,
+    beam_width=8,
+    max_paths_per_variant=2,
+)
+selected = result["best_validated_architecture"]
 ```
 
-et mesurer :
+### Beam Search V2.1 — validation étendue
 
-- final architecture quality ;
-- feasible-solution rate ;
-- search runtime.
+La version actuelle conserve les enveloppes de complétion de V2 et ajoute un
+pruning dur générique des préfixes sans aucune complétion conjointe respectant
+budget et puissance, avant la sélection de largeur. L'heuristique et ses poids,
+H5–H10 et le ranking restent inchangés.
+
+- 50 cas synthétiques, **1 000 configurations**, K=5/10/20/50 et B=1/4/8/16/32 ; K=50 inclus.
+- **785/1 000** configurations retournent une architecture **H10 VALID** ; 215 sont
+  infaisables dans leur domaine Top-K et cap de chemins, sans preuve d'infaisabilité globale.
+- **36/36 domaines faisables** parmi les 51 références H8/H9/H10 exhaustives sont
+  retrouvés pour toutes les largeurs : **0 domaine faisable connu manqué**.
+  L'audit scalaire complémentaire couvre toutes les absences de solution.
+- V2 → V2.1 : **5 gains, 0 perte** ; qualité inchangée sur les 180 configurations comparables.
+- Campagne finale : **76 tests dédiés, 303 tests architecture/sizing/ranking et 509 tests globaux PASS**.
+
+Un domaine est un cas × K × cap de chemins ; B définit une configuration de
+recherche dans ce domaine. La qualité et les deux regrets sont entièrement
+analysés sur les domaines exhaustivement traitables : **analysis available on
+exhaustively tractable domains only**. Les 149 grands domaines sautés ne
+permettent aucune conclusion de qualité exhaustive. L'optimalité globale et
+la monotonie de qualité avec B ne sont pas garanties.
+
+La [documentation actuelle](lustre_architecture_generator/docs/beam_search.md),
+les [mesures étendues](lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/extended_benchmark.md)
+et la [revue finale A–R](lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review.md)
+détaillent les preuves et limites. L'historique conserve séparément
+[V1](lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_benchmark.md),
+[V1 → V2](lustre_architecture_generator/docs/beam_search_v2.md) et
+[le défaut V2 corrigé en V2.1](lustre_architecture_generator/docs/beam_search_v2_extended.md).
+
 
 ---
 
@@ -1874,6 +1904,14 @@ Pour quitter :
 
 # 31. Tests de non-régression actuels
 
+Vérification finale Beam Search V2.1, le 3 octobre 2026 :
+**76 tests dédiés, 303 tests architecture/sizing/ranking et 509 tests globaux PASS**.
+Les commandes exactes, sorties et durées sont dans la
+[revue finale, section H](lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review.md#h-tests-finaux).
+Les résultats V1/V2 sont conservés comme historique dans les rapports d'évaluation.
+
+Les références historiques suivantes décrivent les campagnes précédentes.
+
 Après intégration du nouveau production main :
 
 ```powershell
@@ -1989,6 +2027,8 @@ lustre_architecture_generator/docs/full_architecture_generator.md
 lustre_architecture_generator/docs/full_architecture_scoring.md
 lustre_architecture_generator/docs/full_architecture_validator.md
 lustre_architecture_generator/docs/full_architecture_topk_coverage.md
+lustre_architecture_generator/docs/beam_search.md
+lustre_architecture_generator/docs/beam_search_v2.md
 ```
 
 Validation scripts :
@@ -2072,6 +2112,12 @@ Le renommage massif n’a pas été effectué pour éviter de casser les contrat
 H8/H9/H10 sont utilisables sans Beam Search.
 
 Beam Search reste une couche d’optimisation de l’espace de recherche, pas une couche de validité physique.
+
+La largeur limitée peut perdre une solution réalisable. La campagne actuelle
+V2.1 ne manque aucun domaine faisable connu dans les audits effectués ; cela
+ne constitue pas une garantie générale de complétude.
+La normalisation H9 dépend du pool, même lorsque le pruning retire uniquement
+des architectures INVALID.
 
 ---
 
@@ -2162,7 +2208,10 @@ Les **rankers MDT/OST LightGBM** sont officiels et intégrés avec filtrage dét
 
 La couche **H5–H10** sait construire et valider des architectures physiques complètes indépendamment du Beam Search.
 
-Le prochain objectif architectural est d’utiliser **Beam Search uniquement pour optimiser l’exploration**, tout en conservant H10 comme autorité finale de validité.
+Le **Beam Search est implémenté pour optimiser l’exploration**, avec une
+heuristique partielle séparée de H9, des raisons de pruning comptabilisées et
+H10 comme autorité finale. La validation étendue V2.1
+mesure séparément la qualité, la faisabilité et les limites de couverture.
 
 ---
 

@@ -1,0 +1,18 @@
+{
+  "mdt": {
+    "seed": 168,
+    "family": "LightGBM",
+    "files": {
+      "lustre_architecture_generator/artifacts/rankers/official/mdt/mdt_ranker.txt": "a4bea06c0af044f4d95ada7a616b0a656f6a763b7b64cec5e9a89bd44c32fb35",
+      "lustre_architecture_generator/artifacts/rankers/official/mdt/mdt_ranker_metadata.json": "02f5ff696c0d7cc81e29924d4cea7cb76666bb318d42169a6507c31023358982"
+    }
+  },
+  "ost": {
+    "seed": 84,
+    "family": "LightGBM",
+    "files": {
+      "lustre_architecture_generator/artifacts/rankers/official/ost/ost_ranker.txt": "4ebdce885ff0d26de78f45f19716a240b915a14e5bb3206d2e3aaba8c654acbc",
+      "lustre_architecture_generator/artifacts/rankers/official/ost/ost_ranker_metadata.json": "eb13cbc0ba27b4bf558f279d8e048e2c1983c008caca62b6a20efd2174f449f5"
+    }
+  }
+}

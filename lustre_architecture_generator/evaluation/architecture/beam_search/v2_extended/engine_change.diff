@@ -1,0 +1,61 @@
+diff --git "a/C:\\Users\\LENOVO\\Desktop\\internship\\version2\\lustre_architecture_generator\\evaluation\\architecture\\beam_search\\v2_extended\\before_joint_fix\\beam_search_v2_reference.py" "b/C:\\Users\\LENOVO\\Desktop\\internship\\version2\\lustre_architecture_generator\\src\\full_architecture\\beam_search.py"
+index db2160b..3e468c0 100644
+--- "a/C:\\Users\\LENOVO\\Desktop\\internship\\version2\\lustre_architecture_generator\\evaluation\\architecture\\beam_search\\v2_extended\\before_joint_fix\\beam_search_v2_reference.py"
++++ "b/C:\\Users\\LENOVO\\Desktop\\internship\\version2\\lustre_architecture_generator\\src\\full_architecture\\beam_search.py"
+@@ -28,2 +28,2 @@ from .protection_arithmetic import ProtectionArithmeticError, enumerate_candidat
+-BEAM_SCHEMA_VERSION = "2.0"
+-BEAM_HEURISTIC_POLICY_ID = "BEAM_OPTIMISTIC_COMPLETION_V2"
++BEAM_SCHEMA_VERSION = "2.1"
++BEAM_HEURISTIC_POLICY_ID = "BEAM_OPTIMISTIC_COMPLETION_V2_JOINT_RESOURCES"
+@@ -238 +238 @@ def _add_completion(index: dict, choice: dict, ha_modes: dict) -> None:
+-                  "option_count": 1}
++                  "option_count": 1, "resource_points": [(bounds["cost_usd"], bounds["power_w"])]}
+@@ -247,0 +248,38 @@ def _add_completion(index: dict, choice: dict, ha_modes: dict) -> None:
++            old["resource_points"].extend(values["resource_points"])
++
++
++def _pareto_resources(points) -> tuple[tuple[float, float], ...]:
++    """Keep real cost/power pairs, sorted by cost with strictly decreasing power."""
++    frontier = []
++    lowest_power = math.inf
++    for cost, power in sorted(set(points)):
++        if power < lowest_power:
++            frontier.append((cost, power))
++            lowest_power = power
++    return tuple(frontier)
++
++
++def _joint_resources_possible(envelopes: tuple[dict, dict], constraints: dict) -> bool:
++    """Test two role frontiers in linear time, without Cartesian materialization.
++
++    Independent minima may refer to different completions. This necessary
++    resource test removes only prefixes with no real joint completion. Fixed
++    conservative rounding margins preserve the monotonic two-pointer scan;
++    H10 remains the authority at the exact boundary.
++    """
++    mdt, ost = (e["resource_points"] for e in envelopes)
++    budget = float(constraints["max_budget_usd"])
++    power = float(constraints["max_power_w"])
++    budget_limit = budget + max(1e-12, 8*math.ulp(budget))
++    power_limit = power + max(1e-12, 8*math.ulp(power))
++    ost_index = len(ost)-1
++    for mdt_cost, mdt_power in mdt:
++        while ost_index >= 0 and mdt_cost+ost[ost_index][0] > budget_limit:
++            ost_index -= 1
++        if ost_index < 0:
++            break
++        # The last affordable OST point has the lowest power among all
++        # affordable points. Later MDT points cost more but need less power.
++        if mdt_power+ost[ost_index][1] <= power_limit:
++            return True
++    return False
+@@ -394,0 +433,2 @@ def beam_search_architectures(
++        for envelope in index.values():
++            envelope["resource_points"] = _pareto_resources(envelope["resource_points"])
+@@ -399 +439,2 @@ def beam_search_architectures(
+-                                "prefix_envelopes": len(index)})
++                                "prefix_envelopes": len(index),
++                                "resource_frontier_points": sum(len(e["resource_points"]) for e in index.values())})
+@@ -431,0 +473,2 @@ def beam_search_architectures(
++                    if not reasons and not _joint_resources_possible(envelopes, constraints):
++                        reasons = ["completion_joint_budget_power_conflict"]

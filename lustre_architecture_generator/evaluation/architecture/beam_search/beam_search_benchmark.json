@@ -1,0 +1,5286 @@
+{
+  "schema_version": "1.0",
+  "purpose": "beam_search_k_b_benchmark",
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "source_sha256": {
+    "output\\lustre_architecture_dataset.json": "d8894082b2239899936022203276f2e7656005165b3cdb8fad9c7f2d31687ef1",
+    "data\\catalogue_drives_ready_final.json": "154e00cd4c26b91dd9dd201cb3888d63de49a3614b344868a462b1598d7d28b5",
+    "data\\hardware_catalog_reference_v1.json": "a0ddc5334ce49d4a69f0940224dc97e77805f728815ce4139cd6667707d1cd4a",
+    "evaluation\\architecture\\beam_search\\benchmark_beam_search.py": "a4cdb3a3b5ab628f40d591e75de6cb022ebbcc3063bebb68a429260c19fd038e",
+    "src\\full_architecture\\beam_search.py": "7b700ca809b2f53ad0909c0fbca23bb90ae8320155f9ad8ef64ba974e11b548c"
+  },
+  "config": {
+    "case_ids": [
+      "REQ_000001",
+      "REQ_000002",
+      "REQ_000003"
+    ],
+    "top_k_values": [
+      5,
+      10,
+      20,
+      50
+    ],
+    "beam_widths": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "max_paths_per_variant": 1,
+    "exhaustive_max_pairs": 20000,
+    "repeats": 2
+  },
+  "ranking_times": [
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 5,
+      "seconds": 1.798086000024341
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 10,
+      "seconds": 0.11115379992406815
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 20,
+      "seconds": 0.11783200001809746
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 50,
+      "seconds": 0.12934200000017881
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 5,
+      "seconds": 0.11524169996846467
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 10,
+      "seconds": 0.10190689994487911
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 20,
+      "seconds": 0.10106779995840043
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 50,
+      "seconds": 0.10651790001429617
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "seconds": 0.1003597000380978
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 10,
+      "seconds": 0.09574340004473925
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 20,
+      "seconds": 0.10209849989041686
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 50,
+      "seconds": 0.1030645000282675
+    }
+  ],
+  "baselines": [
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 5,
+      "potential_pairs": 720,
+      "role_option_counts": {
+        "mdt": 30,
+        "ost": 24
+      },
+      "preflight_seconds": 0.024133099941536784,
+      "status": "COMPLETE",
+      "runtime_seconds": 1.1966893000062555,
+      "architectures_explored": 720,
+      "h10_calls": 720,
+      "valid_count": 420,
+      "best_architecture_id": "ARCH_REQ_000001_1d38d46c2a0de81f",
+      "best_h9_score": 0.805134936361778
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 10,
+      "potential_pairs": 2520,
+      "role_option_counts": {
+        "mdt": 60,
+        "ost": 42
+      },
+      "preflight_seconds": 0.05490360001567751,
+      "status": "COMPLETE",
+      "runtime_seconds": 4.521609599934891,
+      "architectures_explored": 2520,
+      "h10_calls": 2520,
+      "valid_count": 1460,
+      "best_architecture_id": "ARCH_REQ_000001_b90146e139bf3b22",
+      "best_h9_score": 0.8205900336294986
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 20,
+      "potential_pairs": 11520,
+      "role_option_counts": {
+        "mdt": 120,
+        "ost": 96
+      },
+      "preflight_seconds": 0.08512980001978576,
+      "status": "COMPLETE",
+      "runtime_seconds": 29.583778299973346,
+      "architectures_explored": 11520,
+      "h10_calls": 11520,
+      "valid_count": 6384,
+      "best_architecture_id": "ARCH_REQ_000001_0939aa29ff9046a4",
+      "best_h9_score": 0.8349205162434662
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 50,
+      "potential_pairs": 79200,
+      "role_option_counts": {
+        "mdt": 300,
+        "ost": 264
+      },
+      "preflight_seconds": 0.12670370005071163,
+      "status": "SKIPPED_PAIR_LIMIT",
+      "pair_limit": 20000
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 5,
+      "potential_pairs": 900,
+      "role_option_counts": {
+        "mdt": 30,
+        "ost": 30
+      },
+      "preflight_seconds": 0.005244100000709295,
+      "status": "COMPLETE",
+      "runtime_seconds": 1.3800379999447614,
+      "architectures_explored": 900,
+      "h10_calls": 900,
+      "valid_count": 780,
+      "best_architecture_id": "ARCH_REQ_000002_df283e6366b9efab",
+      "best_h9_score": 0.8467292865126157
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 10,
+      "potential_pairs": 3600,
+      "role_option_counts": {
+        "mdt": 60,
+        "ost": 60
+      },
+      "preflight_seconds": 0.010605000075884163,
+      "status": "COMPLETE",
+      "runtime_seconds": 6.317825000034645,
+      "architectures_explored": 3600,
+      "h10_calls": 3600,
+      "valid_count": 3360,
+      "best_architecture_id": "ARCH_REQ_000002_d7a95f563342ce56",
+      "best_h9_score": 0.8449793248756384
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 20,
+      "potential_pairs": 13680,
+      "role_option_counts": {
+        "mdt": 120,
+        "ost": 114
+      },
+      "preflight_seconds": 0.030039799981750548,
+      "status": "COMPLETE",
+      "runtime_seconds": 36.608453900087625,
+      "architectures_explored": 13680,
+      "h10_calls": 13680,
+      "valid_count": 13200,
+      "best_architecture_id": "ARCH_REQ_000002_f2f6913af4a3dbe9",
+      "best_h9_score": 0.8455311233273053
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 50,
+      "potential_pairs": 86400,
+      "role_option_counts": {
+        "mdt": 300,
+        "ost": 288
+      },
+      "preflight_seconds": 0.07691439997870475,
+      "status": "SKIPPED_PAIR_LIMIT",
+      "pair_limit": 20000
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "potential_pairs": 900,
+      "role_option_counts": {
+        "mdt": 30,
+        "ost": 30
+      },
+      "preflight_seconds": 0.004257800057530403,
+      "status": "COMPLETE",
+      "runtime_seconds": 1.3858445000369102,
+      "architectures_explored": 900,
+      "h10_calls": 900,
+      "valid_count": 90,
+      "best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+      "best_h9_score": 0.8313385809399926
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 10,
+      "potential_pairs": 3600,
+      "role_option_counts": {
+        "mdt": 60,
+        "ost": 60
+      },
+      "preflight_seconds": 0.007886300096288323,
+      "status": "COMPLETE",
+      "runtime_seconds": 6.268390699988231,
+      "architectures_explored": 3600,
+      "h10_calls": 3600,
+      "valid_count": 180,
+      "best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+      "best_h9_score": 0.8335449602481241
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 20,
+      "potential_pairs": 13680,
+      "role_option_counts": {
+        "mdt": 120,
+        "ost": 114
+      },
+      "preflight_seconds": 0.028996100067161024,
+      "status": "COMPLETE",
+      "runtime_seconds": 35.28386219998356,
+      "architectures_explored": 13680,
+      "h10_calls": 13680,
+      "valid_count": 360,
+      "best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+      "best_h9_score": 0.8126867072107621
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 50,
+      "potential_pairs": 86400,
+      "role_option_counts": {
+        "mdt": 300,
+        "ost": 288
+      },
+      "preflight_seconds": 0.06949439994059503,
+      "status": "SKIPPED_PAIR_LIMIT",
+      "pair_limit": 20000
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.004802999959792942,
+      "runtime_samples_seconds": [
+        0.00505519995931536,
+        0.004550799960270524
+      ],
+      "branches_explored": 24,
+      "branches_pruned": 18,
+      "hard_pruned": 0,
+      "width_pruned": 18,
+      "pruning_reason_counts": {
+        "beam_width_limit": 18
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "local_final_h9_score": 0.8899662803176568,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7993390775332051,
+        "exhaustive_best_h9_score": 0.805134936361778,
+        "common_score_regret": 0.0057958588285729196,
+        "relative_quality": 0.9928013820208037,
+        "exhaustive_valid_rank": 10,
+        "exhaustive_pool_rank": 10,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 720,
+      "materialization_reduction": 0.9986111111111111,
+      "exhaustive_runtime_seconds": 1.1966893000062555,
+      "speedup": 249.15455132709286
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.008504700032062829,
+      "runtime_samples_seconds": [
+        0.008585500065237284,
+        0.008423899998888373
+      ],
+      "branches_explored": 43,
+      "branches_pruned": 31,
+      "hard_pruned": 0,
+      "width_pruned": 31,
+      "pruning_reason_counts": {
+        "beam_width_limit": 31
+      },
+      "h5_calls": 18,
+      "h6_calls": 3,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "local_final_h9_score": 0.8899662803176568,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7993390775332051,
+        "exhaustive_best_h9_score": 0.805134936361778,
+        "common_score_regret": 0.0057958588285729196,
+        "relative_quality": 0.9928013820208037,
+        "exhaustive_valid_rank": 10,
+        "exhaustive_pool_rank": 10,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 720,
+      "materialization_reduction": 0.9972222222222222,
+      "exhaustive_runtime_seconds": 1.1966893000062555,
+      "speedup": 140.70917204542445
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.014218500058632344,
+      "runtime_samples_seconds": [
+        0.01451680005993694,
+        0.013920200057327747
+      ],
+      "branches_explored": 81,
+      "branches_pruned": 57,
+      "hard_pruned": 0,
+      "width_pruned": 57,
+      "pruning_reason_counts": {
+        "beam_width_limit": 57
+      },
+      "h5_calls": 30,
+      "h6_calls": 5,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000001_c7b3232b95de3d97",
+      "local_final_h9_score": 0.8762908654264898,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7902577038472905,
+        "exhaustive_best_h9_score": 0.805134936361778,
+        "common_score_regret": 0.01487723251448747,
+        "relative_quality": 0.981522063144205,
+        "exhaustive_valid_rank": 38,
+        "exhaustive_pool_rank": 38,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 720,
+      "materialization_reduction": 0.9944444444444445,
+      "exhaustive_runtime_seconds": 1.1966893000062555,
+      "speedup": 84.1642434202981
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.027473000052850693,
+      "runtime_samples_seconds": [
+        0.02768270007800311,
+        0.02726330002769828
+      ],
+      "branches_explored": 139,
+      "branches_pruned": 94,
+      "hard_pruned": 0,
+      "width_pruned": 94,
+      "pruning_reason_counts": {
+        "beam_width_limit": 94
+      },
+      "h5_calls": 42,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000001_7e55616e5355b392",
+      "local_final_h9_score": 0.8682101196085441,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8030751721615066,
+        "exhaustive_best_h9_score": 0.805134936361778,
+        "common_score_regret": 0.00205976420027143,
+        "relative_quality": 0.9974417155345674,
+        "exhaustive_valid_rank": 2,
+        "exhaustive_pool_rank": 2,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 720,
+      "materialization_reduction": 0.9888888888888889,
+      "exhaustive_runtime_seconds": 1.1966893000062555,
+      "speedup": 43.55874122608182
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.05434939998667687,
+      "runtime_samples_seconds": [
+        0.052708699950017035,
+        0.05599010002333671
+      ],
+      "branches_explored": 243,
+      "branches_pruned": 160,
+      "hard_pruned": 2,
+      "width_pruned": 158,
+      "pruning_reason_counts": {
+        "beam_width_limit": 158,
+        "budget_lower_bound_exceeded": 2
+      },
+      "h5_calls": 42,
+      "h6_calls": 20,
+      "max_active_states": 16,
+      "complete_architectures_produced": 14,
+      "h10_calls": 14,
+      "valid_architecture_count": 14,
+      "best_architecture_id": "ARCH_REQ_000001_2d3f118254fcbcf9",
+      "local_final_h9_score": 0.8532509833673738,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7942414241940063,
+        "exhaustive_best_h9_score": 0.805134936361778,
+        "common_score_regret": 0.01089351216777168,
+        "relative_quality": 0.986469954692319,
+        "exhaustive_valid_rank": 21,
+        "exhaustive_pool_rank": 21,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 720,
+      "materialization_reduction": 0.9805555555555555,
+      "exhaustive_runtime_seconds": 1.1966893000062555,
+      "speedup": 22.018445471331976
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.11800724995555356,
+      "runtime_samples_seconds": [
+        0.12051579996477813,
+        0.115498699946329
+      ],
+      "branches_explored": 439,
+      "branches_pruned": 284,
+      "hard_pruned": 12,
+      "width_pruned": 272,
+      "pruning_reason_counts": {
+        "beam_width_limit": 272,
+        "budget_lower_bound_exceeded": 12
+      },
+      "h5_calls": 48,
+      "h6_calls": 36,
+      "max_active_states": 32,
+      "complete_architectures_produced": 26,
+      "h10_calls": 26,
+      "valid_architecture_count": 26,
+      "best_architecture_id": "ARCH_REQ_000001_2d3f118254fcbcf9",
+      "local_final_h9_score": 0.8532509833673738,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7942414241940063,
+        "exhaustive_best_h9_score": 0.805134936361778,
+        "common_score_regret": 0.01089351216777168,
+        "relative_quality": 0.986469954692319,
+        "exhaustive_valid_rank": 21,
+        "exhaustive_pool_rank": 21,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 720,
+      "materialization_reduction": 0.9638888888888889,
+      "exhaustive_runtime_seconds": 1.1966893000062555,
+      "speedup": 10.140811691289972
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.004888849973212928,
+      "runtime_samples_seconds": [
+        0.0049977999879047275,
+        0.004779899958521128
+      ],
+      "branches_explored": 34,
+      "branches_pruned": 28,
+      "hard_pruned": 0,
+      "width_pruned": 28,
+      "pruning_reason_counts": {
+        "beam_width_limit": 28
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "local_final_h9_score": 0.8850236877250642,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8169346003971963,
+        "exhaustive_best_h9_score": 0.8205900336294986,
+        "common_score_regret": 0.0036554332323022187,
+        "relative_quality": 0.9955453599452895,
+        "exhaustive_valid_rank": 4,
+        "exhaustive_pool_rank": 4,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 2520,
+      "materialization_reduction": 0.9996031746031746,
+      "exhaustive_runtime_seconds": 4.521609599934891,
+      "speedup": 924.8820529796933
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.009326650004368275,
+      "runtime_samples_seconds": [
+        0.00882450002245605,
+        0.009828799986280501
+      ],
+      "branches_explored": 58,
+      "branches_pruned": 46,
+      "hard_pruned": 0,
+      "width_pruned": 46,
+      "pruning_reason_counts": {
+        "beam_width_limit": 46
+      },
+      "h5_calls": 18,
+      "h6_calls": 3,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "local_final_h9_score": 0.8850236877250642,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8169346003971963,
+        "exhaustive_best_h9_score": 0.8205900336294986,
+        "common_score_regret": 0.0036554332323022187,
+        "relative_quality": 0.9955453599452895,
+        "exhaustive_valid_rank": 4,
+        "exhaustive_pool_rank": 4,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 2520,
+      "materialization_reduction": 0.9992063492063492,
+      "exhaustive_runtime_seconds": 4.521609599934891,
+      "speedup": 484.8053264373733
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.021041849977336824,
+      "runtime_samples_seconds": [
+        0.02216449996922165,
+        0.019919199985451996
+      ],
+      "branches_explored": 106,
+      "branches_pruned": 82,
+      "hard_pruned": 0,
+      "width_pruned": 82,
+      "pruning_reason_counts": {
+        "beam_width_limit": 82
+      },
+      "h5_calls": 30,
+      "h6_calls": 5,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000001_c7b3232b95de3d97",
+      "local_final_h9_score": 0.8713482728338973,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8073417264717199,
+        "exhaustive_best_h9_score": 0.8205900336294986,
+        "common_score_regret": 0.013248307157778694,
+        "relative_quality": 0.9838551449385987,
+        "exhaustive_valid_rank": 29,
+        "exhaustive_pool_rank": 29,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 2520,
+      "materialization_reduction": 0.9984126984126984,
+      "exhaustive_runtime_seconds": 4.521609599934891,
+      "speedup": 214.8865049795955
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.03988125000614673,
+      "runtime_samples_seconds": [
+        0.03872650000266731,
+        0.04103600000962615
+      ],
+      "branches_explored": 202,
+      "branches_pruned": 154,
+      "hard_pruned": 0,
+      "width_pruned": 154,
+      "pruning_reason_counts": {
+        "beam_width_limit": 154
+      },
+      "h5_calls": 60,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000001_7e55616e5355b392",
+      "local_final_h9_score": 0.8632675270159516,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8145409920663637,
+        "exhaustive_best_h9_score": 0.8205900336294986,
+        "common_score_regret": 0.006049041563134905,
+        "relative_quality": 0.992628424285901,
+        "exhaustive_valid_rank": 9,
+        "exhaustive_pool_rank": 9,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 2520,
+      "materialization_reduction": 0.9968253968253968,
+      "exhaustive_runtime_seconds": 4.521609599934891,
+      "speedup": 113.37682743740466
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.08160279993899167,
+      "runtime_samples_seconds": [
+        0.08952429995406419,
+        0.07368129992391914
+      ],
+      "branches_explored": 358,
+      "branches_pruned": 270,
+      "hard_pruned": 2,
+      "width_pruned": 268,
+      "pruning_reason_counts": {
+        "beam_width_limit": 268,
+        "budget_lower_bound_exceeded": 2
+      },
+      "h5_calls": 72,
+      "h6_calls": 20,
+      "max_active_states": 16,
+      "complete_architectures_produced": 14,
+      "h10_calls": 14,
+      "valid_architecture_count": 14,
+      "best_architecture_id": "ARCH_REQ_000001_2d3f118254fcbcf9",
+      "local_final_h9_score": 0.8483083907747813,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8050252437794475,
+        "exhaustive_best_h9_score": 0.8205900336294986,
+        "common_score_regret": 0.015564789850051053,
+        "relative_quality": 0.9810321973066045,
+        "exhaustive_valid_rank": 47,
+        "exhaustive_pool_rank": 47,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 2520,
+      "materialization_reduction": 0.9944444444444445,
+      "exhaustive_runtime_seconds": 4.521609599934891,
+      "speedup": 55.40998107069073
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.16063750005559996,
+      "runtime_samples_seconds": [
+        0.15554060006979853,
+        0.1657344000414014
+      ],
+      "branches_explored": 646,
+      "branches_pruned": 482,
+      "hard_pruned": 13,
+      "width_pruned": 469,
+      "pruning_reason_counts": {
+        "beam_width_limit": 469,
+        "budget_lower_bound_exceeded": 13
+      },
+      "h5_calls": 84,
+      "h6_calls": 38,
+      "max_active_states": 32,
+      "complete_architectures_produced": 26,
+      "h10_calls": 26,
+      "valid_architecture_count": 26,
+      "best_architecture_id": "ARCH_REQ_000001_2d3f118254fcbcf9",
+      "local_final_h9_score": 0.8483083907747813,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8050252437794475,
+        "exhaustive_best_h9_score": 0.8205900336294986,
+        "common_score_regret": 0.015564789850051053,
+        "relative_quality": 0.9810321973066045,
+        "exhaustive_valid_rank": 47,
+        "exhaustive_pool_rank": 47,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 2520,
+      "materialization_reduction": 0.9896825396825397,
+      "exhaustive_runtime_seconds": 4.521609599934891,
+      "speedup": 28.14790816820399
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.007349850027821958,
+      "runtime_samples_seconds": [
+        0.007515900069847703,
+        0.007183799985796213
+      ],
+      "branches_explored": 54,
+      "branches_pruned": 48,
+      "hard_pruned": 0,
+      "width_pruned": 48,
+      "pruning_reason_counts": {
+        "beam_width_limit": 48
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "local_final_h9_score": 0.8803718358732123,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8080049315125788,
+        "exhaustive_best_h9_score": 0.8349205162434662,
+        "common_score_regret": 0.0269155847308874,
+        "relative_quality": 0.9677626981164771,
+        "exhaustive_valid_rank": 20,
+        "exhaustive_pool_rank": 25,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 11520,
+      "materialization_reduction": 0.9999131944444445,
+      "exhaustive_runtime_seconds": 29.583778299973346,
+      "speedup": 4025.085979712181
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.012976249970961362,
+      "runtime_samples_seconds": [
+        0.013013900024816394,
+        0.01293859991710633
+      ],
+      "branches_explored": 88,
+      "branches_pruned": 76,
+      "hard_pruned": 0,
+      "width_pruned": 76,
+      "pruning_reason_counts": {
+        "beam_width_limit": 76
+      },
+      "h5_calls": 18,
+      "h6_calls": 3,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "local_final_h9_score": 0.8803718358732123,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8080049315125788,
+        "exhaustive_best_h9_score": 0.8349205162434662,
+        "common_score_regret": 0.0269155847308874,
+        "relative_quality": 0.9677626981164771,
+        "exhaustive_valid_rank": 20,
+        "exhaustive_pool_rank": 25,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 11520,
+      "materialization_reduction": 0.9998263888888889,
+      "exhaustive_runtime_seconds": 29.583778299973346,
+      "speedup": 2279.8403518872406
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.024932550033554435,
+      "runtime_samples_seconds": [
+        0.024570500012487173,
+        0.025294600054621696
+      ],
+      "branches_explored": 156,
+      "branches_pruned": 132,
+      "hard_pruned": 0,
+      "width_pruned": 132,
+      "pruning_reason_counts": {
+        "beam_width_limit": 132
+      },
+      "h5_calls": 30,
+      "h6_calls": 5,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000001_c7b3232b95de3d97",
+      "local_final_h9_score": 0.8666964209820454,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7976086428063462,
+        "exhaustive_best_h9_score": 0.8349205162434662,
+        "common_score_regret": 0.03731187343711995,
+        "relative_quality": 0.9553108676679833,
+        "exhaustive_valid_rank": 67,
+        "exhaustive_pool_rank": 80,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 11520,
+      "materialization_reduction": 0.9996527777777777,
+      "exhaustive_runtime_seconds": 29.583778299973346,
+      "speedup": 1186.5524489135387
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.049478249973617494,
+      "runtime_samples_seconds": [
+        0.04953109996858984,
+        0.049425399978645146
+      ],
+      "branches_explored": 292,
+      "branches_pruned": 244,
+      "hard_pruned": 0,
+      "width_pruned": 244,
+      "pruning_reason_counts": {
+        "beam_width_limit": 244
+      },
+      "h5_calls": 60,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000001_7e55616e5355b392",
+      "local_final_h9_score": 0.8586156751640996,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7990043475921704,
+        "exhaustive_best_h9_score": 0.8349205162434662,
+        "common_score_regret": 0.035916168651295766,
+        "relative_quality": 0.9569825295312033,
+        "exhaustive_valid_rank": 53,
+        "exhaustive_pool_rank": 65,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 11520,
+      "materialization_reduction": 0.9993055555555556,
+      "exhaustive_runtime_seconds": 29.583778299973346,
+      "speedup": 597.9148073294394
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.10214184992946684,
+      "runtime_samples_seconds": [
+        0.10211429989431053,
+        0.10216939996462315
+      ],
+      "branches_explored": 564,
+      "branches_pruned": 470,
+      "hard_pruned": 2,
+      "width_pruned": 468,
+      "pruning_reason_counts": {
+        "beam_width_limit": 468,
+        "budget_lower_bound_exceeded": 2
+      },
+      "h5_calls": 108,
+      "h6_calls": 20,
+      "max_active_states": 16,
+      "complete_architectures_produced": 14,
+      "h10_calls": 14,
+      "valid_architecture_count": 14,
+      "best_architecture_id": "ARCH_REQ_000001_2d3f118254fcbcf9",
+      "local_final_h9_score": 0.8436565389229294,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7884173795975793,
+        "exhaustive_best_h9_score": 0.8349205162434662,
+        "common_score_regret": 0.0465031366458869,
+        "relative_quality": 0.9443023189140002,
+        "exhaustive_valid_rank": 183,
+        "exhaustive_pool_rank": 224,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 11520,
+      "materialization_reduction": 0.9987847222222223,
+      "exhaustive_runtime_seconds": 29.583778299973346,
+      "speedup": 289.6342519780302
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.22653250000439584,
+      "runtime_samples_seconds": [
+        0.22774530004244298,
+        0.2253196999663487
+      ],
+      "branches_explored": 1036,
+      "branches_pruned": 862,
+      "hard_pruned": 13,
+      "width_pruned": 849,
+      "pruning_reason_counts": {
+        "beam_width_limit": 849,
+        "budget_lower_bound_exceeded": 13
+      },
+      "h5_calls": 144,
+      "h6_calls": 38,
+      "max_active_states": 32,
+      "complete_architectures_produced": 26,
+      "h10_calls": 26,
+      "valid_architecture_count": 26,
+      "best_architecture_id": "ARCH_REQ_000001_2d3f118254fcbcf9",
+      "local_final_h9_score": 0.8436565389229294,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7884173795975793,
+        "exhaustive_best_h9_score": 0.8349205162434662,
+        "common_score_regret": 0.0465031366458869,
+        "relative_quality": 0.9443023189140002,
+        "exhaustive_valid_rank": 183,
+        "exhaustive_pool_rank": 224,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 11520,
+      "materialization_reduction": 0.9977430555555555,
+      "exhaustive_runtime_seconds": 29.583778299973346,
+      "speedup": 130.5939690746329
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.011473250051494688,
+      "runtime_samples_seconds": [
+        0.011887200060300529,
+        0.011059300042688847
+      ],
+      "branches_explored": 114,
+      "branches_pruned": 108,
+      "hard_pruned": 1,
+      "width_pruned": 107,
+      "pruning_reason_counts": {
+        "beam_width_limit": 107,
+        "budget_lower_bound_exceeded": 1
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "local_final_h9_score": 0.8806675044231183,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 79200,
+      "materialization_reduction": 0.9999873737373738,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.01951775001361966,
+      "runtime_samples_seconds": [
+        0.019611200084909797,
+        0.019424299942329526
+      ],
+      "branches_explored": 178,
+      "branches_pruned": 166,
+      "hard_pruned": 2,
+      "width_pruned": 164,
+      "pruning_reason_counts": {
+        "beam_width_limit": 164,
+        "budget_lower_bound_exceeded": 2
+      },
+      "h5_calls": 18,
+      "h6_calls": 3,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "local_final_h9_score": 0.8806675044231183,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 79200,
+      "materialization_reduction": 0.9999747474747475,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.03900664998218417,
+      "runtime_samples_seconds": [
+        0.03836909995879978,
+        0.039644200005568564
+      ],
+      "branches_explored": 306,
+      "branches_pruned": 282,
+      "hard_pruned": 4,
+      "width_pruned": 278,
+      "pruning_reason_counts": {
+        "beam_width_limit": 278,
+        "budget_lower_bound_exceeded": 4
+      },
+      "h5_calls": 30,
+      "h6_calls": 5,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000001_c7b3232b95de3d97",
+      "local_final_h9_score": 0.8669920895319512,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 79200,
+      "materialization_reduction": 0.9999494949494949,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.078313949983567,
+      "runtime_samples_seconds": [
+        0.08337669994216412,
+        0.07325120002496988
+      ],
+      "branches_explored": 562,
+      "branches_pruned": 514,
+      "hard_pruned": 8,
+      "width_pruned": 506,
+      "pruning_reason_counts": {
+        "beam_width_limit": 506,
+        "budget_lower_bound_exceeded": 8
+      },
+      "h5_calls": 60,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000001_7e55616e5355b392",
+      "local_final_h9_score": 0.8589113437140055,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 79200,
+      "materialization_reduction": 0.99989898989899,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.1728595499880612,
+      "runtime_samples_seconds": [
+        0.16691719996742904,
+        0.17880190000869334
+      ],
+      "branches_explored": 1074,
+      "branches_pruned": 980,
+      "hard_pruned": 18,
+      "width_pruned": 962,
+      "pruning_reason_counts": {
+        "beam_width_limit": 962,
+        "budget_lower_bound_exceeded": 18
+      },
+      "h5_calls": 108,
+      "h6_calls": 20,
+      "max_active_states": 16,
+      "complete_architectures_produced": 14,
+      "h10_calls": 14,
+      "valid_architecture_count": 14,
+      "best_architecture_id": "ARCH_REQ_000001_2d3f118254fcbcf9",
+      "local_final_h9_score": 0.8439522074728353,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 79200,
+      "materialization_reduction": 0.9998232323232323,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000001",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.44082454999443144,
+      "runtime_samples_seconds": [
+        0.4568540999898687,
+        0.42479499999899417
+      ],
+      "branches_explored": 2098,
+      "branches_pruned": 1912,
+      "hard_pruned": 45,
+      "width_pruned": 1867,
+      "pruning_reason_counts": {
+        "beam_width_limit": 1867,
+        "budget_lower_bound_exceeded": 45
+      },
+      "h5_calls": 216,
+      "h6_calls": 38,
+      "max_active_states": 32,
+      "complete_architectures_produced": 26,
+      "h10_calls": 26,
+      "valid_architecture_count": 26,
+      "best_architecture_id": "ARCH_REQ_000001_2d3f118254fcbcf9",
+      "local_final_h9_score": 0.8439522074728353,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 79200,
+      "materialization_reduction": 0.9996717171717172,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.004125049978028983,
+      "runtime_samples_seconds": [
+        0.00428039999678731,
+        0.003969699959270656
+      ],
+      "branches_explored": 24,
+      "branches_pruned": 18,
+      "hard_pruned": 0,
+      "width_pruned": 18,
+      "pruning_reason_counts": {
+        "beam_width_limit": 18
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000002_cf81850a34331dd3",
+      "local_final_h9_score": 0.916949668269586,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6907365665070945,
+        "exhaustive_best_h9_score": 0.8467292865126157,
+        "common_score_regret": 0.15599272000552122,
+        "relative_quality": 0.815770255629162,
+        "exhaustive_valid_rank": 115,
+        "exhaustive_pool_rank": 115,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9988888888888889,
+      "exhaustive_runtime_seconds": 1.3800379999447614,
+      "speedup": 334.550613276246
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.0072885999688878655,
+      "runtime_samples_seconds": [
+        0.007339300005696714,
+        0.007237899932079017
+      ],
+      "branches_explored": 43,
+      "branches_pruned": 31,
+      "hard_pruned": 0,
+      "width_pruned": 31,
+      "pruning_reason_counts": {
+        "beam_width_limit": 31
+      },
+      "h5_calls": 18,
+      "h6_calls": 4,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000002_cf81850a34331dd3",
+      "local_final_h9_score": 0.916949668269586,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6907365665070945,
+        "exhaustive_best_h9_score": 0.8467292865126157,
+        "common_score_regret": 0.15599272000552122,
+        "relative_quality": 0.815770255629162,
+        "exhaustive_valid_rank": 115,
+        "exhaustive_pool_rank": 115,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9977777777777778,
+      "exhaustive_runtime_seconds": 1.3800379999447614,
+      "speedup": 189.34198691595023
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.014060899964533746,
+      "runtime_samples_seconds": [
+        0.014277099980972707,
+        0.013844699948094785
+      ],
+      "branches_explored": 81,
+      "branches_pruned": 57,
+      "hard_pruned": 0,
+      "width_pruned": 57,
+      "pruning_reason_counts": {
+        "beam_width_limit": 57
+      },
+      "h5_calls": 30,
+      "h6_calls": 6,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6966230408072762,
+        "exhaustive_best_h9_score": 0.8467292865126157,
+        "common_score_regret": 0.15010624570533948,
+        "relative_quality": 0.8227222701560554,
+        "exhaustive_valid_rank": 65,
+        "exhaustive_pool_rank": 65,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9955555555555555,
+      "exhaustive_runtime_seconds": 1.3800379999447614,
+      "speedup": 98.14720276978537
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.02742234995821491,
+      "runtime_samples_seconds": [
+        0.02732220001053065,
+        0.027522499905899167
+      ],
+      "branches_explored": 139,
+      "branches_pruned": 94,
+      "hard_pruned": 0,
+      "width_pruned": 94,
+      "pruning_reason_counts": {
+        "beam_width_limit": 94
+      },
+      "h5_calls": 36,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6966230408072762,
+        "exhaustive_best_h9_score": 0.8467292865126157,
+        "common_score_regret": 0.15010624570533948,
+        "relative_quality": 0.8227222701560554,
+        "exhaustive_valid_rank": 65,
+        "exhaustive_pool_rank": 65,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9911111111111112,
+      "exhaustive_runtime_seconds": 1.3800379999447614,
+      "speedup": 50.32530042274308
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.05580364994239062,
+      "runtime_samples_seconds": [
+        0.0562366999220103,
+        0.05537059996277094
+      ],
+      "branches_explored": 243,
+      "branches_pruned": 158,
+      "hard_pruned": 0,
+      "width_pruned": 158,
+      "pruning_reason_counts": {
+        "beam_width_limit": 158
+      },
+      "h5_calls": 42,
+      "h6_calls": 19,
+      "max_active_states": 16,
+      "complete_architectures_produced": 16,
+      "h10_calls": 16,
+      "valid_architecture_count": 16,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6966230408072762,
+        "exhaustive_best_h9_score": 0.8467292865126157,
+        "common_score_regret": 0.15010624570533948,
+        "relative_quality": 0.8227222701560554,
+        "exhaustive_valid_rank": 65,
+        "exhaustive_pool_rank": 65,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9822222222222222,
+      "exhaustive_runtime_seconds": 1.3800379999447614,
+      "speedup": 24.730246164354043
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.11948689998826012,
+      "runtime_samples_seconds": [
+        0.12140960001852363,
+        0.1175641999579966
+      ],
+      "branches_explored": 439,
+      "branches_pruned": 278,
+      "hard_pruned": 0,
+      "width_pruned": 278,
+      "pruning_reason_counts": {
+        "beam_width_limit": 278
+      },
+      "h5_calls": 54,
+      "h6_calls": 36,
+      "max_active_states": 32,
+      "complete_architectures_produced": 32,
+      "h10_calls": 32,
+      "valid_architecture_count": 32,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6966230408072762,
+        "exhaustive_best_h9_score": 0.8467292865126157,
+        "common_score_regret": 0.15010624570533948,
+        "relative_quality": 0.8227222701560554,
+        "exhaustive_valid_rank": 65,
+        "exhaustive_pool_rank": 65,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9644444444444444,
+      "exhaustive_runtime_seconds": 1.3800379999447614,
+      "speedup": 11.549701264995187
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.005144750000908971,
+      "runtime_samples_seconds": [
+        0.005555700045078993,
+        0.004733799956738949
+      ],
+      "branches_explored": 34,
+      "branches_pruned": 28,
+      "hard_pruned": 0,
+      "width_pruned": 28,
+      "pruning_reason_counts": {
+        "beam_width_limit": 28
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000002_cf81850a34331dd3",
+      "local_final_h9_score": 0.916949668269586,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7533575032543487,
+        "exhaustive_best_h9_score": 0.8449793248756384,
+        "common_score_regret": 0.09162182162128973,
+        "relative_quality": 0.8915691556893722,
+        "exhaustive_valid_rank": 152,
+        "exhaustive_pool_rank": 152,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 0.9997222222222222,
+      "exhaustive_runtime_seconds": 6.317825000034645,
+      "speedup": 1228.0139946388874
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.008844149997457862,
+      "runtime_samples_seconds": [
+        0.00911769992671907,
+        0.008570600068196654
+      ],
+      "branches_explored": 58,
+      "branches_pruned": 46,
+      "hard_pruned": 0,
+      "width_pruned": 46,
+      "pruning_reason_counts": {
+        "beam_width_limit": 46
+      },
+      "h5_calls": 18,
+      "h6_calls": 4,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000002_cf81850a34331dd3",
+      "local_final_h9_score": 0.916949668269586,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7533575032543487,
+        "exhaustive_best_h9_score": 0.8449793248756384,
+        "common_score_regret": 0.09162182162128973,
+        "relative_quality": 0.8915691556893722,
+        "exhaustive_valid_rank": 152,
+        "exhaustive_pool_rank": 152,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 0.9994444444444445,
+      "exhaustive_runtime_seconds": 6.317825000034645,
+      "speedup": 714.3507292222117
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.019514450046699494,
+      "runtime_samples_seconds": [
+        0.016814300091937184,
+        0.022214600001461804
+      ],
+      "branches_explored": 106,
+      "branches_pruned": 82,
+      "hard_pruned": 0,
+      "width_pruned": 82,
+      "pruning_reason_counts": {
+        "beam_width_limit": 82
+      },
+      "h5_calls": 30,
+      "h6_calls": 6,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7565068359684365,
+        "exhaustive_best_h9_score": 0.8449793248756384,
+        "common_score_regret": 0.08847248890720194,
+        "relative_quality": 0.8952962678462896,
+        "exhaustive_valid_rank": 124,
+        "exhaustive_pool_rank": 124,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 0.9988888888888889,
+      "exhaustive_runtime_seconds": 6.317825000034645,
+      "speedup": 323.75111698846916
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.040433049958664924,
+      "runtime_samples_seconds": [
+        0.037123699905350804,
+        0.043742400011979043
+      ],
+      "branches_explored": 202,
+      "branches_pruned": 154,
+      "hard_pruned": 0,
+      "width_pruned": 154,
+      "pruning_reason_counts": {
+        "beam_width_limit": 154
+      },
+      "h5_calls": 54,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7565068359684365,
+        "exhaustive_best_h9_score": 0.8449793248756384,
+        "common_score_regret": 0.08847248890720194,
+        "relative_quality": 0.8952962678462896,
+        "exhaustive_valid_rank": 124,
+        "exhaustive_pool_rank": 124,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 0.9977777777777778,
+      "exhaustive_runtime_seconds": 6.317825000034645,
+      "speedup": 156.25398050588356
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.08700149995274842,
+      "runtime_samples_seconds": [
+        0.09456449991557747,
+        0.07943849998991936
+      ],
+      "branches_explored": 358,
+      "branches_pruned": 268,
+      "hard_pruned": 0,
+      "width_pruned": 268,
+      "pruning_reason_counts": {
+        "beam_width_limit": 268
+      },
+      "h5_calls": 72,
+      "h6_calls": 19,
+      "max_active_states": 16,
+      "complete_architectures_produced": 16,
+      "h10_calls": 16,
+      "valid_architecture_count": 16,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7565068359684365,
+        "exhaustive_best_h9_score": 0.8449793248756384,
+        "common_score_regret": 0.08847248890720194,
+        "relative_quality": 0.8952962678462896,
+        "exhaustive_valid_rank": 124,
+        "exhaustive_pool_rank": 124,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 0.9955555555555555,
+      "exhaustive_runtime_seconds": 6.317825000034645,
+      "speedup": 72.6174261761686
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.18050810002023354,
+      "runtime_samples_seconds": [
+        0.2140281000174582,
+        0.14698810002300888
+      ],
+      "branches_explored": 646,
+      "branches_pruned": 476,
+      "hard_pruned": 0,
+      "width_pruned": 476,
+      "pruning_reason_counts": {
+        "beam_width_limit": 476
+      },
+      "h5_calls": 84,
+      "h6_calls": 38,
+      "max_active_states": 32,
+      "complete_architectures_produced": 32,
+      "h10_calls": 32,
+      "valid_architecture_count": 32,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7565068359684365,
+        "exhaustive_best_h9_score": 0.8449793248756384,
+        "common_score_regret": 0.08847248890720194,
+        "relative_quality": 0.8952962678462896,
+        "exhaustive_valid_rank": 124,
+        "exhaustive_pool_rank": 124,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 0.9911111111111112,
+      "exhaustive_runtime_seconds": 6.317825000034645,
+      "speedup": 35.00022990284905
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.006571099977008998,
+      "runtime_samples_seconds": [
+        0.006750499946065247,
+        0.00639170000795275
+      ],
+      "branches_explored": 54,
+      "branches_pruned": 48,
+      "hard_pruned": 0,
+      "width_pruned": 48,
+      "pruning_reason_counts": {
+        "beam_width_limit": 48
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000002_cf81850a34331dd3",
+      "local_final_h9_score": 0.916949668269586,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7478066096562997,
+        "exhaustive_best_h9_score": 0.8455311233273053,
+        "common_score_regret": 0.09772451367100554,
+        "relative_quality": 0.8844223341106081,
+        "exhaustive_valid_rank": 732,
+        "exhaustive_pool_rank": 732,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 0.9999269005847953,
+      "exhaustive_runtime_seconds": 36.608453900087625,
+      "speedup": 5571.130256452267
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.011410349979996681,
+      "runtime_samples_seconds": [
+        0.011512400000356138,
+        0.011308299959637225
+      ],
+      "branches_explored": 88,
+      "branches_pruned": 76,
+      "hard_pruned": 0,
+      "width_pruned": 76,
+      "pruning_reason_counts": {
+        "beam_width_limit": 76
+      },
+      "h5_calls": 18,
+      "h6_calls": 4,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000002_cf81850a34331dd3",
+      "local_final_h9_score": 0.916949668269586,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7478066096562997,
+        "exhaustive_best_h9_score": 0.8455311233273053,
+        "common_score_regret": 0.09772451367100554,
+        "relative_quality": 0.8844223341106081,
+        "exhaustive_valid_rank": 732,
+        "exhaustive_pool_rank": 732,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 0.9998538011695907,
+      "exhaustive_runtime_seconds": 36.608453900087625,
+      "speedup": 3208.3550429448155
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.022274749935604632,
+      "runtime_samples_seconds": [
+        0.02195719990413636,
+        0.022592299967072904
+      ],
+      "branches_explored": 156,
+      "branches_pruned": 132,
+      "hard_pruned": 0,
+      "width_pruned": 132,
+      "pruning_reason_counts": {
+        "beam_width_limit": 132
+      },
+      "h5_calls": 30,
+      "h6_calls": 6,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7493187279689907,
+        "exhaustive_best_h9_score": 0.8455311233273053,
+        "common_score_regret": 0.0962123953583146,
+        "relative_quality": 0.8862106991642095,
+        "exhaustive_valid_rank": 706,
+        "exhaustive_pool_rank": 706,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 0.9997076023391813,
+      "exhaustive_runtime_seconds": 36.608453900087625,
+      "speedup": 1643.4956175005839
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.044076049991417676,
+      "runtime_samples_seconds": [
+        0.044485999969765544,
+        0.04366610001306981
+      ],
+      "branches_explored": 292,
+      "branches_pruned": 244,
+      "hard_pruned": 0,
+      "width_pruned": 244,
+      "pruning_reason_counts": {
+        "beam_width_limit": 244
+      },
+      "h5_calls": 54,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7493187279689907,
+        "exhaustive_best_h9_score": 0.8455311233273053,
+        "common_score_regret": 0.0962123953583146,
+        "relative_quality": 0.8862106991642095,
+        "exhaustive_valid_rank": 706,
+        "exhaustive_pool_rank": 706,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 0.9994152046783625,
+      "exhaustive_runtime_seconds": 36.608453900087625,
+      "speedup": 830.5747431363719
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.09368044999428093,
+      "runtime_samples_seconds": [
+        0.09357180004008114,
+        0.09378909994848073
+      ],
+      "branches_explored": 564,
+      "branches_pruned": 468,
+      "hard_pruned": 0,
+      "width_pruned": 468,
+      "pruning_reason_counts": {
+        "beam_width_limit": 468
+      },
+      "h5_calls": 108,
+      "h6_calls": 19,
+      "max_active_states": 16,
+      "complete_architectures_produced": 16,
+      "h10_calls": 16,
+      "valid_architecture_count": 16,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7493187279689907,
+        "exhaustive_best_h9_score": 0.8455311233273053,
+        "common_score_regret": 0.0962123953583146,
+        "relative_quality": 0.8862106991642095,
+        "exhaustive_valid_rank": 706,
+        "exhaustive_pool_rank": 706,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 0.9988304093567252,
+      "exhaustive_runtime_seconds": 36.608453900087625,
+      "speedup": 390.78008167469864
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.20959149999544024,
+      "runtime_samples_seconds": [
+        0.2101333000464365,
+        0.209049699944444
+      ],
+      "branches_explored": 1036,
+      "branches_pruned": 856,
+      "hard_pruned": 0,
+      "width_pruned": 856,
+      "pruning_reason_counts": {
+        "beam_width_limit": 856
+      },
+      "h5_calls": 144,
+      "h6_calls": 38,
+      "max_active_states": 32,
+      "complete_architectures_produced": 32,
+      "h10_calls": 32,
+      "valid_architecture_count": 32,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7493187279689907,
+        "exhaustive_best_h9_score": 0.8455311233273053,
+        "common_score_regret": 0.0962123953583146,
+        "relative_quality": 0.8862106991642095,
+        "exhaustive_valid_rank": 706,
+        "exhaustive_pool_rank": 706,
+        "best_id_matched": false,
+        "best_score_matched": false
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 0.9976608187134502,
+      "exhaustive_runtime_seconds": 36.608453900087625,
+      "speedup": 174.66573740291977
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.011447250028140843,
+      "runtime_samples_seconds": [
+        0.01170190004631877,
+        0.011192600009962916
+      ],
+      "branches_explored": 114,
+      "branches_pruned": 108,
+      "hard_pruned": 0,
+      "width_pruned": 108,
+      "pruning_reason_counts": {
+        "beam_width_limit": 108
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000002_cf81850a34331dd3",
+      "local_final_h9_score": 0.916949668269586,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 0.999988425925926,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.023020200082100928,
+      "runtime_samples_seconds": [
+        0.024994100094772875,
+        0.02104630006942898
+      ],
+      "branches_explored": 178,
+      "branches_pruned": 166,
+      "hard_pruned": 0,
+      "width_pruned": 166,
+      "pruning_reason_counts": {
+        "beam_width_limit": 166
+      },
+      "h5_calls": 18,
+      "h6_calls": 4,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000002_cf81850a34331dd3",
+      "local_final_h9_score": 0.916949668269586,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 0.9999768518518518,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.0391249000094831,
+      "runtime_samples_seconds": [
+        0.03984810004476458,
+        0.03840169997420162
+      ],
+      "branches_explored": 306,
+      "branches_pruned": 282,
+      "hard_pruned": 0,
+      "width_pruned": 282,
+      "pruning_reason_counts": {
+        "beam_width_limit": 282
+      },
+      "h5_calls": 30,
+      "h6_calls": 6,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 0.9999537037037037,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.07609159999992698,
+      "runtime_samples_seconds": [
+        0.07425659999717027,
+        0.0779266000026837
+      ],
+      "branches_explored": 562,
+      "branches_pruned": 514,
+      "hard_pruned": 0,
+      "width_pruned": 514,
+      "pruning_reason_counts": {
+        "beam_width_limit": 514
+      },
+      "h5_calls": 54,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 0.9999074074074074,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.16122254997026175,
+      "runtime_samples_seconds": [
+        0.16111310000997037,
+        0.16133199993055314
+      ],
+      "branches_explored": 1074,
+      "branches_pruned": 978,
+      "hard_pruned": 0,
+      "width_pruned": 978,
+      "pruning_reason_counts": {
+        "beam_width_limit": 978
+      },
+      "h5_calls": 108,
+      "h6_calls": 19,
+      "max_active_states": 16,
+      "complete_architectures_produced": 16,
+      "h10_calls": 16,
+      "valid_architecture_count": 16,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 0.9998148148148148,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000002",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.41834899998502806,
+      "runtime_samples_seconds": [
+        0.42320229997858405,
+        0.41349569999147207
+      ],
+      "branches_explored": 2098,
+      "branches_pruned": 1906,
+      "hard_pruned": 0,
+      "width_pruned": 1906,
+      "pruning_reason_counts": {
+        "beam_width_limit": 1906
+      },
+      "h5_calls": 216,
+      "h6_calls": 38,
+      "max_active_states": 32,
+      "complete_architectures_produced": 32,
+      "h10_calls": 32,
+      "valid_architecture_count": 32,
+      "best_architecture_id": "ARCH_REQ_000002_f392082ba81f3652",
+      "local_final_h9_score": 0.9119940263805111,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 0.9996296296296296,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 1,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.003743499983102083,
+      "runtime_samples_seconds": [
+        0.003320900024846196,
+        0.00416609994135797
+      ],
+      "branches_explored": 24,
+      "branches_pruned": 19,
+      "hard_pruned": 1,
+      "width_pruned": 18,
+      "pruning_reason_counts": {
+        "beam_width_limit": 18,
+        "power_lower_bound_exceeded": 1
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 1.3858445000369102,
+      "speedup": 370.2002153846728
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 2,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.006879849941469729,
+      "runtime_samples_seconds": [
+        0.007343699922785163,
+        0.006415999960154295
+      ],
+      "branches_explored": 43,
+      "branches_pruned": 33,
+      "hard_pruned": 2,
+      "width_pruned": 31,
+      "pruning_reason_counts": {
+        "beam_width_limit": 31,
+        "power_lower_bound_exceeded": 2
+      },
+      "h5_calls": 18,
+      "h6_calls": 3,
+      "max_active_states": 2,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 1.3858445000369102,
+      "speedup": 201.435280104504
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 4,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.008601900015491992,
+      "runtime_samples_seconds": [
+        0.009182300069369376,
+        0.008021499961614609
+      ],
+      "branches_explored": 81,
+      "branches_pruned": 61,
+      "hard_pruned": 4,
+      "width_pruned": 57,
+      "pruning_reason_counts": {
+        "beam_width_limit": 57,
+        "power_lower_bound_exceeded": 4
+      },
+      "h5_calls": 30,
+      "h6_calls": 6,
+      "max_active_states": 4,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 1.3858445000369102,
+      "speedup": 161.1091151421208
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 8,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.015530049975495785,
+      "runtime_samples_seconds": [
+        0.015450799954123795,
+        0.015609299996867776
+      ],
+      "branches_explored": 139,
+      "branches_pruned": 102,
+      "hard_pruned": 8,
+      "width_pruned": 94,
+      "pruning_reason_counts": {
+        "beam_width_limit": 94,
+        "power_lower_bound_exceeded": 8
+      },
+      "h5_calls": 36,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 1.3858445000369102,
+      "speedup": 89.23631940808794
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 16,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.03254004998598248,
+      "runtime_samples_seconds": [
+        0.03177539992611855,
+        0.0333047000458464
+      ],
+      "branches_explored": 243,
+      "branches_pruned": 174,
+      "hard_pruned": 16,
+      "width_pruned": 158,
+      "pruning_reason_counts": {
+        "beam_width_limit": 158,
+        "power_lower_bound_exceeded": 16
+      },
+      "h5_calls": 48,
+      "h6_calls": 19,
+      "max_active_states": 16,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 1.3858445000369102,
+      "speedup": 42.58888663766346
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.0714169999700971,
+      "runtime_samples_seconds": [
+        0.07191950001288205,
+        0.07091449992731214
+      ],
+      "branches_explored": 439,
+      "branches_pruned": 310,
+      "hard_pruned": 32,
+      "width_pruned": 278,
+      "pruning_reason_counts": {
+        "beam_width_limit": 278,
+        "budget_lower_bound_exceeded": 6,
+        "power_lower_bound_exceeded": 32
+      },
+      "h5_calls": 54,
+      "h6_calls": 38,
+      "max_active_states": 32,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 1.3858445000369102,
+      "speedup": 19.404966613231796
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 1,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.0033076999825425446,
+      "runtime_samples_seconds": [
+        0.0035596999805420637,
+        0.0030556999845430255
+      ],
+      "branches_explored": 34,
+      "branches_pruned": 29,
+      "hard_pruned": 1,
+      "width_pruned": 28,
+      "pruning_reason_counts": {
+        "beam_width_limit": 28,
+        "power_lower_bound_exceeded": 1
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 6.268390699988231,
+      "speedup": 1895.0904656019857
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 2,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.0056733000092208385,
+      "runtime_samples_seconds": [
+        0.005978400004096329,
+        0.005368200014345348
+      ],
+      "branches_explored": 58,
+      "branches_pruned": 48,
+      "hard_pruned": 2,
+      "width_pruned": 46,
+      "pruning_reason_counts": {
+        "beam_width_limit": 46,
+        "power_lower_bound_exceeded": 2
+      },
+      "h5_calls": 18,
+      "h6_calls": 3,
+      "max_active_states": 2,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 6.268390699988231,
+      "speedup": 1104.8932173162339
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 4,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.010132850031368434,
+      "runtime_samples_seconds": [
+        0.010293000028468668,
+        0.0099727000342682
+      ],
+      "branches_explored": 106,
+      "branches_pruned": 86,
+      "hard_pruned": 4,
+      "width_pruned": 82,
+      "pruning_reason_counts": {
+        "beam_width_limit": 82,
+        "power_lower_bound_exceeded": 4
+      },
+      "h5_calls": 30,
+      "h6_calls": 6,
+      "max_active_states": 4,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 6.268390699988231,
+      "speedup": 618.6206921629224
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 8,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.020523149927612394,
+      "runtime_samples_seconds": [
+        0.02075289993081242,
+        0.02029339992441237
+      ],
+      "branches_explored": 202,
+      "branches_pruned": 162,
+      "hard_pruned": 8,
+      "width_pruned": 154,
+      "pruning_reason_counts": {
+        "beam_width_limit": 154,
+        "power_lower_bound_exceeded": 8
+      },
+      "h5_calls": 54,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 6.268390699988231,
+      "speedup": 305.4302444847694
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 16,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.043182099994737655,
+      "runtime_samples_seconds": [
+        0.04348599992226809,
+        0.04287820006720722
+      ],
+      "branches_explored": 358,
+      "branches_pruned": 284,
+      "hard_pruned": 16,
+      "width_pruned": 268,
+      "pruning_reason_counts": {
+        "beam_width_limit": 268,
+        "power_lower_bound_exceeded": 16
+      },
+      "h5_calls": 78,
+      "h6_calls": 19,
+      "max_active_states": 16,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 6.268390699988231,
+      "speedup": 145.1617846457704
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 10,
+      "actual_top_k": {
+        "mdt": 10,
+        "ost": 10
+      },
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.09815299999900162,
+      "runtime_samples_seconds": [
+        0.09896620002109557,
+        0.09733979997690767
+      ],
+      "branches_explored": 646,
+      "branches_pruned": 508,
+      "hard_pruned": 32,
+      "width_pruned": 476,
+      "pruning_reason_counts": {
+        "beam_width_limit": 476,
+        "budget_lower_bound_exceeded": 6,
+        "power_lower_bound_exceeded": 32
+      },
+      "h5_calls": 90,
+      "h6_calls": 40,
+      "max_active_states": 32,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 3600,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 6.268390699988231,
+      "speedup": 63.86346520281592
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 1,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.005143099988345057,
+      "runtime_samples_seconds": [
+        0.005259500001557171,
+        0.005026699975132942
+      ],
+      "branches_explored": 54,
+      "branches_pruned": 49,
+      "hard_pruned": 1,
+      "width_pruned": 48,
+      "pruning_reason_counts": {
+        "beam_width_limit": 48,
+        "power_lower_bound_exceeded": 1
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 35.28386219998356,
+      "speedup": 6860.427034267552
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 2,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.008507799997460097,
+      "runtime_samples_seconds": [
+        0.00846589996945113,
+        0.008549700025469065
+      ],
+      "branches_explored": 88,
+      "branches_pruned": 78,
+      "hard_pruned": 2,
+      "width_pruned": 76,
+      "pruning_reason_counts": {
+        "beam_width_limit": 76,
+        "power_lower_bound_exceeded": 2
+      },
+      "h5_calls": 18,
+      "h6_calls": 3,
+      "max_active_states": 2,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 35.28386219998356,
+      "speedup": 4147.236913246332
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 4,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.01640525000402704,
+      "runtime_samples_seconds": [
+        0.016304499935358763,
+        0.016506000072695315
+      ],
+      "branches_explored": 156,
+      "branches_pruned": 136,
+      "hard_pruned": 4,
+      "width_pruned": 132,
+      "pruning_reason_counts": {
+        "beam_width_limit": 132,
+        "power_lower_bound_exceeded": 4
+      },
+      "h5_calls": 30,
+      "h6_calls": 6,
+      "max_active_states": 4,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 35.28386219998356,
+      "speedup": 2150.7665040960874
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 8,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.03078189998632297,
+      "runtime_samples_seconds": [
+        0.031158500001765788,
+        0.03040529997088015
+      ],
+      "branches_explored": 292,
+      "branches_pruned": 252,
+      "hard_pruned": 8,
+      "width_pruned": 244,
+      "pruning_reason_counts": {
+        "beam_width_limit": 244,
+        "power_lower_bound_exceeded": 8
+      },
+      "h5_calls": 54,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 35.28386219998356,
+      "speedup": 1146.2535521088985
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 16,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.06776730000274256,
+      "runtime_samples_seconds": [
+        0.06693189998622984,
+        0.06860270001925528
+      ],
+      "branches_explored": 564,
+      "branches_pruned": 484,
+      "hard_pruned": 16,
+      "width_pruned": 468,
+      "pruning_reason_counts": {
+        "beam_width_limit": 468,
+        "power_lower_bound_exceeded": 16
+      },
+      "h5_calls": 114,
+      "h6_calls": 19,
+      "max_active_states": 16,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 35.28386219998356,
+      "speedup": 520.6620626549326
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 20,
+      "actual_top_k": {
+        "mdt": 20,
+        "ost": 20
+      },
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.15434615005506203,
+      "runtime_samples_seconds": [
+        0.15427020005881786,
+        0.1544221000513062
+      ],
+      "branches_explored": 1036,
+      "branches_pruned": 888,
+      "hard_pruned": 32,
+      "width_pruned": 856,
+      "pruning_reason_counts": {
+        "beam_width_limit": 856,
+        "budget_lower_bound_exceeded": 6,
+        "power_lower_bound_exceeded": 32
+      },
+      "h5_calls": 150,
+      "h6_calls": 40,
+      "max_active_states": 32,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "BEAM_FOUND_NO_VALID_ARCHITECTURE"
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 13680,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": 35.28386219998356,
+      "speedup": 228.60215293608724
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 1,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.009792500000912696,
+      "runtime_samples_seconds": [
+        0.01019950001500547,
+        0.009385499986819923
+      ],
+      "branches_explored": 114,
+      "branches_pruned": 109,
+      "hard_pruned": 1,
+      "width_pruned": 108,
+      "pruning_reason_counts": {
+        "beam_width_limit": 108,
+        "power_lower_bound_exceeded": 1
+      },
+      "h5_calls": 12,
+      "h6_calls": 2,
+      "max_active_states": 1,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 2,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.01633040001615882,
+      "runtime_samples_seconds": [
+        0.0163880999898538,
+        0.01627270004246384
+      ],
+      "branches_explored": 178,
+      "branches_pruned": 168,
+      "hard_pruned": 2,
+      "width_pruned": 166,
+      "pruning_reason_counts": {
+        "beam_width_limit": 166,
+        "power_lower_bound_exceeded": 2
+      },
+      "h5_calls": 18,
+      "h6_calls": 3,
+      "max_active_states": 2,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 4,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.03074620000552386,
+      "runtime_samples_seconds": [
+        0.031869999947957695,
+        0.029622400063090026
+      ],
+      "branches_explored": 306,
+      "branches_pruned": 286,
+      "hard_pruned": 4,
+      "width_pruned": 282,
+      "pruning_reason_counts": {
+        "beam_width_limit": 282,
+        "power_lower_bound_exceeded": 4
+      },
+      "h5_calls": 30,
+      "h6_calls": 6,
+      "max_active_states": 4,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 8,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.06122345000039786,
+      "runtime_samples_seconds": [
+        0.06378359999507666,
+        0.058663300005719066
+      ],
+      "branches_explored": 562,
+      "branches_pruned": 522,
+      "hard_pruned": 8,
+      "width_pruned": 514,
+      "pruning_reason_counts": {
+        "beam_width_limit": 514,
+        "power_lower_bound_exceeded": 8
+      },
+      "h5_calls": 54,
+      "h6_calls": 10,
+      "max_active_states": 8,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 16,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.1319759499747306,
+      "runtime_samples_seconds": [
+        0.13018919993191957,
+        0.13376270001754165
+      ],
+      "branches_explored": 1074,
+      "branches_pruned": 994,
+      "hard_pruned": 16,
+      "width_pruned": 978,
+      "pruning_reason_counts": {
+        "beam_width_limit": 978,
+        "power_lower_bound_exceeded": 16
+      },
+      "h5_calls": 114,
+      "h6_calls": 19,
+      "max_active_states": 16,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 50,
+      "actual_top_k": {
+        "mdt": 50,
+        "ost": 50
+      },
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_seconds": 0.3163328500231728,
+      "runtime_samples_seconds": [
+        0.31944440002553165,
+        0.31322130002081394
+      ],
+      "branches_explored": 2098,
+      "branches_pruned": 1938,
+      "hard_pruned": 32,
+      "width_pruned": 1906,
+      "pruning_reason_counts": {
+        "beam_width_limit": 1906,
+        "budget_lower_bound_exceeded": 6,
+        "power_lower_bound_exceeded": 32
+      },
+      "h5_calls": 222,
+      "h6_calls": 40,
+      "max_active_states": 32,
+      "complete_architectures_produced": 0,
+      "h10_calls": 0,
+      "valid_architecture_count": 0,
+      "best_architecture_id": null,
+      "local_final_h9_score": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "exhaustive_status": "SKIPPED_PAIR_LIMIT",
+      "exhaustive_potential_pairs": 86400,
+      "materialization_reduction": 1.0,
+      "exhaustive_runtime_seconds": null,
+      "speedup": null
+    }
+  ],
+  "aggregates": [
+    {
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.004223849973641336,
+      "total_branches_explored": 72,
+      "total_branches_pruned": 55,
+      "total_hard_pruned": 1,
+      "total_width_pruned": 54,
+      "total_h10_calls": 2,
+      "total_valid_architecture_count": 2,
+      "total_complete_architectures_produced": 2,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9042858188249829,
+      "mean_common_score_regret": 0.08089428941704707,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 317.9684599960039
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 2,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.007557716647473474,
+      "total_branches_explored": 129,
+      "total_branches_pruned": 95,
+      "total_hard_pruned": 2,
+      "total_width_pruned": 93,
+      "total_h10_calls": 4,
+      "total_valid_architecture_count": 4,
+      "total_complete_architectures_produced": 4,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9042858188249829,
+      "mean_common_score_regret": 0.08089428941704707,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 177.1621463552929
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 4,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.012293766679552695,
+      "total_branches_explored": 243,
+      "total_branches_pruned": 175,
+      "total_hard_pruned": 4,
+      "total_width_pruned": 171,
+      "total_h10_calls": 8,
+      "total_valid_architecture_count": 8,
+      "total_complete_architectures_produced": 8,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9021221666501302,
+      "mean_common_score_regret": 0.08249173910991348,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 114.47352044406809
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 8,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.023475133328853797,
+      "total_branches_explored": 417,
+      "total_branches_pruned": 290,
+      "total_hard_pruned": 8,
+      "total_width_pruned": 282,
+      "total_h10_calls": 16,
+      "total_valid_architecture_count": 16,
+      "total_complete_architectures_produced": 16,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9100819928453114,
+      "mean_common_score_regret": 0.07608300495280546,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 61.04012035230428
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 16,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.04756436663834999,
+      "total_branches_explored": 729,
+      "total_branches_pruned": 492,
+      "total_hard_pruned": 18,
+      "total_width_pruned": 474,
+      "total_h10_calls": 30,
+      "total_valid_architecture_count": 30,
+      "total_complete_architectures_produced": 30,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9045961124241872,
+      "mean_common_score_regret": 0.08049987893655558,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 29.77919275778316
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 32,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.10297038330463693,
+      "total_branches_explored": 1317,
+      "total_branches_pruned": 872,
+      "total_hard_pruned": 44,
+      "total_width_pruned": 828,
+      "total_h10_calls": 58,
+      "total_valid_architecture_count": 58,
+      "total_complete_architectures_produced": 58,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9045961124241872,
+      "mean_common_score_regret": 0.08049987893655558,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 13.698493189838985
+    },
+    {
+      "requested_top_k": 10,
+      "beam_width": 1,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.004447099985554814,
+      "total_branches_explored": 102,
+      "total_branches_pruned": 85,
+      "total_hard_pruned": 1,
+      "total_width_pruned": 84,
+      "total_h10_calls": 2,
+      "total_valid_architecture_count": 2,
+      "total_complete_architectures_produced": 2,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9435572578173308,
+      "mean_common_score_regret": 0.047638627426795976,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 1349.3288377401889
+    },
+    {
+      "requested_top_k": 10,
+      "beam_width": 2,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.007948033337015659,
+      "total_branches_explored": 174,
+      "total_branches_pruned": 140,
+      "total_hard_pruned": 2,
+      "total_width_pruned": 138,
+      "total_h10_calls": 4,
+      "total_valid_architecture_count": 4,
+      "total_complete_architectures_produced": 4,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9435572578173308,
+      "mean_common_score_regret": 0.047638627426795976,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 768.016424325273
+    },
+    {
+      "requested_top_k": 10,
+      "beam_width": 4,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.016896383351801585,
+      "total_branches_explored": 318,
+      "total_branches_pruned": 250,
+      "total_hard_pruned": 4,
+      "total_width_pruned": 246,
+      "total_h10_calls": 8,
+      "total_valid_architecture_count": 8,
+      "total_complete_architectures_produced": 8,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9395757063924441,
+      "mean_common_score_regret": 0.05086039803249032,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 385.75277137699567
+    },
+    {
+      "requested_top_k": 10,
+      "beam_width": 8,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.03361248329747468,
+      "total_branches_explored": 606,
+      "total_branches_pruned": 470,
+      "total_hard_pruned": 8,
+      "total_width_pruned": 462,
+      "total_h10_calls": 16,
+      "total_valid_architecture_count": 16,
+      "total_complete_architectures_produced": 16,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9439623460660953,
+      "mean_common_score_regret": 0.04726076523516842,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 191.68701747601918
+    },
+    {
+      "requested_top_k": 10,
+      "beam_width": 16,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.07059546662882592,
+      "total_branches_explored": 1074,
+      "total_branches_pruned": 822,
+      "total_hard_pruned": 18,
+      "total_width_pruned": 804,
+      "total_h10_calls": 30,
+      "total_valid_architecture_count": 30,
+      "total_complete_architectures_produced": 30,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.938164232576447,
+      "mean_common_score_regret": 0.0520186393786265,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 91.06306396420992
+    },
+    {
+      "requested_top_k": 10,
+      "beam_width": 32,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.1464328666916117,
+      "total_branches_explored": 1938,
+      "total_branches_pruned": 1466,
+      "total_hard_pruned": 45,
+      "total_width_pruned": 1421,
+      "total_h10_calls": 58,
+      "total_valid_architecture_count": 58,
+      "total_complete_architectures_produced": 58,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.938164232576447,
+      "mean_common_score_regret": 0.0520186393786265,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 42.33720109128965
+    },
+    {
+      "requested_top_k": 20,
+      "beam_width": 1,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.006354683331058671,
+      "total_branches_explored": 162,
+      "total_branches_pruned": 145,
+      "total_hard_pruned": 1,
+      "total_width_pruned": 144,
+      "total_h10_calls": 2,
+      "total_valid_architecture_count": 2,
+      "total_complete_architectures_produced": 2,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9260925161135426,
+      "mean_common_score_regret": 0.06232004920094647,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 5485.547756810666
+    },
+    {
+      "requested_top_k": 20,
+      "beam_width": 2,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.010964799982806047,
+      "total_branches_explored": 264,
+      "total_branches_pruned": 230,
+      "total_hard_pruned": 2,
+      "total_width_pruned": 228,
+      "total_h10_calls": 4,
+      "total_valid_architecture_count": 4,
+      "total_complete_architectures_produced": 4,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9260925161135426,
+      "mean_common_score_regret": 0.06232004920094647,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 3211.8107693594625
+    },
+    {
+      "requested_top_k": 20,
+      "beam_width": 4,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.02120418332439537,
+      "total_branches_explored": 468,
+      "total_branches_pruned": 400,
+      "total_hard_pruned": 4,
+      "total_width_pruned": 396,
+      "total_h10_calls": 8,
+      "total_valid_architecture_count": 8,
+      "total_complete_architectures_produced": 8,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9207607834160965,
+      "mean_common_score_regret": 0.06676213439771728,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 1660.2715235034032
+    },
+    {
+      "requested_top_k": 20,
+      "beam_width": 8,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.041445399983786047,
+      "total_branches_explored": 876,
+      "total_branches_pruned": 740,
+      "total_hard_pruned": 8,
+      "total_width_pruned": 732,
+      "total_h10_calls": 16,
+      "total_valid_architecture_count": 16,
+      "total_complete_architectures_produced": 16,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9215966143477063,
+      "mean_common_score_regret": 0.06606428200480519,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 858.2477008582367
+    },
+    {
+      "requested_top_k": 20,
+      "beam_width": 16,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.08786319997549678,
+      "total_branches_explored": 1692,
+      "total_branches_pruned": 1422,
+      "total_hard_pruned": 18,
+      "total_width_pruned": 1404,
+      "total_h10_calls": 30,
+      "total_valid_architecture_count": 30,
+      "total_complete_architectures_produced": 30,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9152565090391048,
+      "mean_common_score_regret": 0.07135776600210075,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 400.3587987692205
+    },
+    {
+      "requested_top_k": 20,
+      "beam_width": 32,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.1968233833516327,
+      "total_branches_explored": 3108,
+      "total_branches_pruned": 2606,
+      "total_hard_pruned": 45,
+      "total_width_pruned": 2561,
+      "total_h10_calls": 58,
+      "total_valid_architecture_count": 58,
+      "total_complete_architectures_produced": 58,
+      "quality_comparisons": 2,
+      "mean_relative_quality": 0.9152565090391048,
+      "mean_common_score_regret": 0.07135776600210075,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 177.95395313787995
+    },
+    {
+      "requested_top_k": 50,
+      "beam_width": 1,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.010904333360182742,
+      "total_branches_explored": 342,
+      "total_branches_pruned": 325,
+      "total_hard_pruned": 2,
+      "total_width_pruned": 323,
+      "total_h10_calls": 2,
+      "total_valid_architecture_count": 2,
+      "total_complete_architectures_produced": 2,
+      "quality_comparisons": 0,
+      "mean_relative_quality": null,
+      "mean_common_score_regret": null,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": null
+    },
+    {
+      "requested_top_k": 50,
+      "beam_width": 2,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.01962278337062647,
+      "total_branches_explored": 534,
+      "total_branches_pruned": 500,
+      "total_hard_pruned": 4,
+      "total_width_pruned": 496,
+      "total_h10_calls": 4,
+      "total_valid_architecture_count": 4,
+      "total_complete_architectures_produced": 4,
+      "quality_comparisons": 0,
+      "mean_relative_quality": null,
+      "mean_common_score_regret": null,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": null
+    },
+    {
+      "requested_top_k": 50,
+      "beam_width": 4,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.036292583332397044,
+      "total_branches_explored": 918,
+      "total_branches_pruned": 850,
+      "total_hard_pruned": 8,
+      "total_width_pruned": 842,
+      "total_h10_calls": 8,
+      "total_valid_architecture_count": 8,
+      "total_complete_architectures_produced": 8,
+      "quality_comparisons": 0,
+      "mean_relative_quality": null,
+      "mean_common_score_regret": null,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": null
+    },
+    {
+      "requested_top_k": 50,
+      "beam_width": 8,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.07187633332796395,
+      "total_branches_explored": 1686,
+      "total_branches_pruned": 1550,
+      "total_hard_pruned": 16,
+      "total_width_pruned": 1534,
+      "total_h10_calls": 16,
+      "total_valid_architecture_count": 16,
+      "total_complete_architectures_produced": 16,
+      "quality_comparisons": 0,
+      "mean_relative_quality": null,
+      "mean_common_score_regret": null,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": null
+    },
+    {
+      "requested_top_k": 50,
+      "beam_width": 16,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.15535268331101784,
+      "total_branches_explored": 3222,
+      "total_branches_pruned": 2952,
+      "total_hard_pruned": 34,
+      "total_width_pruned": 2918,
+      "total_h10_calls": 30,
+      "total_valid_architecture_count": 30,
+      "total_complete_architectures_produced": 30,
+      "quality_comparisons": 0,
+      "mean_relative_quality": null,
+      "mean_common_score_regret": null,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": null
+    },
+    {
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "cases": 3,
+      "errors": 0,
+      "feasible_solution_rate": 0.6666666666666666,
+      "mean_runtime_seconds": 0.3918354666675441,
+      "total_branches_explored": 6294,
+      "total_branches_pruned": 5756,
+      "total_hard_pruned": 77,
+      "total_width_pruned": 5679,
+      "total_h10_calls": 58,
+      "total_valid_architecture_count": 58,
+      "total_complete_architectures_produced": 58,
+      "quality_comparisons": 0,
+      "mean_relative_quality": null,
+      "mean_common_score_regret": null,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": null
+    }
+  ],
+  "validated_example": {
+    "case_id": "REQ_000001",
+    "requested_top_k": 5,
+    "beam_width": 1,
+    "requirements": {
+      "MDT_requirement": {
+        "priority": "low",
+        "priority_basis": "normalized_metadata_intensity",
+        "required_total_iops": 11644,
+        "required_read_iops": 6986,
+        "required_write_iops": 4658,
+        "latency_requirement": "moderate",
+        "required_metadata_capacity_tib": 0.002019204,
+        "endurance_requirement": "medium",
+        "reliability_requirement": "high",
+        "ha_required": true
+      },
+      "OST_requirement": {
+        "priority": "low",
+        "priority_basis": "normalized_data_intensity",
+        "required_usable_capacity_tib": 775.5,
+        "required_read_bandwidth_gbps": 31.25,
+        "required_write_bandwidth_gbps": 20.0,
+        "required_total_bandwidth_gbps": 51.25,
+        "throughput_requirement": "low",
+        "input_bandwidth_level": "low",
+        "data_pressure": "low",
+        "access_pattern": "mixed",
+        "file_size_class": "medium_files",
+        "reliability_requirement": "high",
+        "ha_required": true
+      },
+      "constraints": {
+        "ha_required": true,
+        "max_budget_usd": 225005.0,
+        "max_power_w": 9016.0
+      },
+      "preferences": {
+        "performance_priority": 0.406,
+        "cost_priority": 0.176,
+        "power_priority": 0.261,
+        "reliability_priority": 0.157
+      },
+      "workload_analysis": {
+        "workload_type": "balanced",
+        "metadata_score": 0.145706,
+        "data_score": 0.011838,
+        "score_difference": 0.133868,
+        "file_size_class": "medium_files",
+        "access_type": "mixed",
+        "parallelism_level": "low",
+        "bandwidth_level": "low"
+      },
+      "role_analysis": {
+        "role_dominance": {
+          "primary_role": "BALANCED",
+          "secondary_role": "mixed"
+        },
+        "absolute_importance": {
+          "mdt_importance": "low",
+          "ost_importance": "low"
+        },
+        "interpretation": "La dominance compare MDT et OST ; l'importance mesure chaque plan indépendamment."
+      }
+    },
+    "architecture": {
+      "architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+      "case_id": "REQ_000001",
+      "state": {
+        "schema_version": "1.1",
+        "case_id": "REQ_000001",
+        "stage": "COMPLETE",
+        "source": {
+          "handoff_schema_version": "1.0",
+          "requested_top_k": 5,
+          "ranking_provenance": {
+            "mdt": {
+              "model_family": "LightGBM",
+              "model_type": "LGBMRanker",
+              "model_seed": 168,
+              "feature_count": 49,
+              "feasible_candidate_count": 148
+            },
+            "ost": {
+              "model_family": "LightGBM",
+              "model_type": "LGBMRanker",
+              "model_seed": 84,
+              "feature_count": 52,
+              "feasible_candidate_count": 137
+            },
+            "ost_diversification": {
+              "global_top_count": 4,
+              "diversification_pool_size": 40,
+              "maximum_specialized_ml_rank": 11,
+              "media_distribution": {
+                "SSD": 4,
+                "HDD": 1
+              }
+            }
+          }
+        },
+        "requirements": {
+          "MDT_requirement": {
+            "priority": "low",
+            "priority_basis": "normalized_metadata_intensity",
+            "required_total_iops": 11644,
+            "required_read_iops": 6986,
+            "required_write_iops": 4658,
+            "latency_requirement": "moderate",
+            "required_metadata_capacity_tib": 0.002019204,
+            "endurance_requirement": "medium",
+            "reliability_requirement": "high",
+            "ha_required": true
+          },
+          "OST_requirement": {
+            "priority": "low",
+            "priority_basis": "normalized_data_intensity",
+            "required_usable_capacity_tib": 775.5,
+            "required_read_bandwidth_gbps": 31.25,
+            "required_write_bandwidth_gbps": 20.0,
+            "required_total_bandwidth_gbps": 51.25,
+            "throughput_requirement": "low",
+            "input_bandwidth_level": "low",
+            "data_pressure": "low",
+            "access_pattern": "mixed",
+            "file_size_class": "medium_files",
+            "reliability_requirement": "high",
+            "ha_required": true
+          },
+          "constraints": {
+            "ha_required": true,
+            "max_budget_usd": 225005.0,
+            "max_power_w": 9016.0
+          },
+          "preferences": {
+            "performance_priority": 0.406,
+            "cost_priority": 0.176,
+            "power_priority": 0.261,
+            "reliability_priority": 0.157
+          },
+          "workload_analysis": {
+            "workload_type": "balanced",
+            "metadata_score": 0.145706,
+            "data_score": 0.011838,
+            "score_difference": 0.133868,
+            "file_size_class": "medium_files",
+            "access_type": "mixed",
+            "parallelism_level": "low",
+            "bandwidth_level": "low"
+          },
+          "role_analysis": {
+            "role_dominance": {
+              "primary_role": "BALANCED",
+              "secondary_role": "mixed"
+            },
+            "absolute_importance": {
+              "mdt_importance": "low",
+              "ost_importance": "low"
+            },
+            "interpretation": "La dominance compare MDT et OST ; l'importance mesure chaque plan indépendamment."
+          }
+        },
+        "selected": {
+          "mdt_drive": {
+            "drive_id": "DRV_000030",
+            "drive_name": "KCD81VUG800G",
+            "manufacturer": "Kioxia",
+            "series": "CD8-V",
+            "media_type": "SSD",
+            "catalog_id": "6a5970807f78be22b1622a8d",
+            "model_number": "KCD81VUG800G"
+          },
+          "ost_drive": {
+            "drive_id": "DRV_000135",
+            "drive_name": "SBFPF2BV614TOP1",
+            "manufacturer": "Solidigm",
+            "series": "D5-P5336",
+            "media_type": "SSD",
+            "catalog_id": "6a597080a85469f497567ce4",
+            "model_number": "SBFPF2BV614TOP1"
+          },
+          "mdt_protection": {
+            "role": "MDT",
+            "drive_id": "DRV_000030",
+            "protection_profile_id": "PROT_RAID6_10",
+            "raid_level": "RAID6",
+            "raw_minimum_drive_count": 1,
+            "group_count": 1,
+            "group_size": 10,
+            "data_drives_per_group": 8,
+            "parity_drives_per_group": 2,
+            "mirror_copies": 1,
+            "physical_drive_count": 10,
+            "counts_basis": {
+              "lower_bound": 1,
+              "capacity": 1,
+              "read_iops": 1,
+              "write_iops": 1
+            },
+            "per_drive": {
+              "capacity_tib": 0.727596,
+              "read_iops": 1000000.0,
+              "write_iops": 160000.0
+            },
+            "provided": {
+              "usable_capacity_tib": 5.820768,
+              "read_iops": 9200000.0,
+              "write_iops": 870400.0000000001
+            },
+            "requirements": {
+              "usable_capacity_tib": 0.002019204,
+              "read_iops": 6986.0,
+              "write_iops": 4658.0
+            },
+            "satisfied": {
+              "capacity": true,
+              "read_iops": true,
+              "write_iops": true
+            },
+            "fault_tolerance_drives_per_group": 2,
+            "per_drive_cost_usd": 245.0,
+            "per_drive_power_w": 11.0,
+            "protected_drive_cost_usd": 2450.0,
+            "protected_drive_power_w": 110.0
+          },
+          "ost_protection": {
+            "role": "OST",
+            "drive_id": "DRV_000135",
+            "protection_profile_id": "PROT_RAID6_12",
+            "raid_level": "RAID6",
+            "raw_minimum_drive_count": 14,
+            "group_count": 2,
+            "group_size": 12,
+            "data_drives_per_group": 10,
+            "parity_drives_per_group": 2,
+            "mirror_copies": 1,
+            "physical_drive_count": 24,
+            "counts_basis": {
+              "lower_bound": 2,
+              "capacity": 2,
+              "read_bandwidth": 1,
+              "write_bandwidth": 2,
+              "total_bandwidth": 1
+            },
+            "per_drive": {
+              "capacity_tib": 55.879354,
+              "read_bandwidth_gb_s": 7.0,
+              "write_bandwidth_gb_s": 3.0
+            },
+            "provided": {
+              "usable_capacity_tib": 1117.58708,
+              "read_bandwidth_gb_s": 154.56,
+              "write_bandwidth_gb_s": 39.6,
+              "total_bandwidth_gb_s": 194.16
+            },
+            "requirements": {
+              "usable_capacity_tib": 775.5,
+              "read_bandwidth_gb_s": 31.25,
+              "write_bandwidth_gb_s": 20.0,
+              "total_bandwidth_gb_s": 51.25
+            },
+            "satisfied": {
+              "capacity": true,
+              "read_bandwidth": true,
+              "write_bandwidth": true,
+              "total_bandwidth": true
+            },
+            "fault_tolerance_drives_per_group": 2,
+            "per_drive_cost_usd": 4665.0,
+            "per_drive_power_w": 24.0,
+            "protected_drive_cost_usd": 111960.0,
+            "protected_drive_power_w": 576.0
+          },
+          "mdt_hardware_path": {
+            "compatible": true,
+            "role": "MDT",
+            "attachment_mode": "ENCLOSURE",
+            "drive_id": "DRV_000030",
+            "protection_profile_id": "PROT_RAID6_10",
+            "server_id": "SRV_DUALROLE_01",
+            "controller_id": "CTRL_NVME_G4X16_01",
+            "enclosure_id": "ENC_NVME_24XU2_01",
+            "network_id": "NET_ETH100_01",
+            "ha_profile_id": "HA_ACTIVE_ACTIVE",
+            "minimum_resources": {
+              "physical_drive_count": 10,
+              "server_count": 2,
+              "controller_count": 2,
+              "enclosure_count": 1,
+              "network_adapter_count": 2
+            },
+            "bandwidth": {
+              "required_gb_s": 0.0,
+              "controller_total_gb_s": 63.0,
+              "network_total_gb_s": 45.0
+            },
+            "component_cost_lower_bound_usd": 34200.0,
+            "component_power_lower_bound_w": 2396.0,
+            "violations": []
+          },
+          "ost_hardware_path": {
+            "compatible": true,
+            "role": "OST",
+            "attachment_mode": "ENCLOSURE",
+            "drive_id": "DRV_000135",
+            "protection_profile_id": "PROT_RAID6_12",
+            "server_id": "SRV_DUALROLE_01",
+            "controller_id": "CTRL_NVME_G4X16_01",
+            "enclosure_id": "ENC_NVME_24XU2_01",
+            "network_id": "NET_ETH100_01",
+            "ha_profile_id": "HA_ACTIVE_ACTIVE",
+            "minimum_resources": {
+              "physical_drive_count": 24,
+              "server_count": 2,
+              "controller_count": 2,
+              "enclosure_count": 1,
+              "network_adapter_count": 3
+            },
+            "bandwidth": {
+              "required_gb_s": 51.25,
+              "controller_total_gb_s": 63.0,
+              "network_total_gb_s": 67.5
+            },
+            "component_cost_lower_bound_usd": 35050.0,
+            "component_power_lower_bound_w": 2424.0,
+            "violations": []
+          }
+        },
+        "counts": {
+          "mdt_physical_drives": 10,
+          "ost_physical_drives": 24,
+          "mdt_count": 1,
+          "ost_count": 2,
+          "mds_count": 2,
+          "oss_count": 2,
+          "mdt_controller_count": 2,
+          "ost_controller_count": 2,
+          "mdt_enclosure_count": 1,
+          "ost_enclosure_count": 1,
+          "mdt_network_adapter_count": 2,
+          "ost_network_adapter_count": 3
+        },
+        "performance": {
+          "metadata_capacity_tib": 5.820768,
+          "mdt_read_iops": 9200000.0,
+          "mdt_write_iops": 870400.0000000001,
+          "ost_usable_capacity_tib": 1117.58708,
+          "ost_read_bandwidth_gb_s": 154.56,
+          "ost_write_bandwidth_gb_s": 39.6,
+          "ost_total_bandwidth_gb_s": 194.16
+        },
+        "cost_power": {
+          "mdt_drive_cost_usd": 2450.0,
+          "ost_drive_cost_usd": 111960.0,
+          "mdt_hardware_cost_usd": 34200.0,
+          "ost_hardware_cost_usd": 35050.0,
+          "total_cost_usd": 183660.0,
+          "mdt_drive_power_w": 110.0,
+          "ost_drive_power_w": 576.0,
+          "mdt_hardware_power_w": 2396.0,
+          "ost_hardware_power_w": 2424.0,
+          "total_power_w": 5506.0
+        },
+        "validation": {
+          "is_complete": true,
+          "is_valid": true,
+          "status": "VALIDATED",
+          "violations": [],
+          "full_validator_policy_id": "FULL_ARCH_VALIDATOR_V1"
+        },
+        "trace": [
+          {
+            "sequence": 1,
+            "transition": "select_drives",
+            "stage": "DRIVES_SELECTED",
+            "details": {
+              "mdt_drive_id": "DRV_000030",
+              "ost_drive_id": "DRV_000135"
+            }
+          },
+          {
+            "sequence": 2,
+            "transition": "select_protection",
+            "stage": "PROTECTION_SELECTED",
+            "details": {
+              "mdt_profile": "PROT_RAID6_10",
+              "ost_profile": "PROT_RAID6_12",
+              "mdt_physical_drives": 10,
+              "ost_physical_drives": 24
+            }
+          },
+          {
+            "sequence": 3,
+            "transition": "select_servers",
+            "stage": "SERVERS_SELECTED",
+            "details": {
+              "mds_server_id": "SRV_DUALROLE_01",
+              "oss_server_id": "SRV_DUALROLE_01",
+              "mds_count": 2,
+              "oss_count": 2
+            }
+          },
+          {
+            "sequence": 4,
+            "transition": "select_storage_fabric",
+            "stage": "ENCLOSURES_SELECTED",
+            "details": {
+              "mdt_controller_id": "CTRL_NVME_G4X16_01",
+              "ost_controller_id": "CTRL_NVME_G4X16_01",
+              "mdt_enclosure_id": "ENC_NVME_24XU2_01",
+              "ost_enclosure_id": "ENC_NVME_24XU2_01"
+            }
+          },
+          {
+            "sequence": 5,
+            "transition": "select_network_and_ha",
+            "stage": "NETWORK_SELECTED",
+            "details": {
+              "mdt_network_id": "NET_ETH100_01",
+              "ost_network_id": "NET_ETH100_01",
+              "mdt_ha_profile_id": "HA_ACTIVE_ACTIVE",
+              "ost_ha_profile_id": "HA_ACTIVE_ACTIVE"
+            }
+          },
+          {
+            "sequence": 6,
+            "transition": "finalize_state",
+            "stage": "COMPLETE",
+            "details": {
+              "total_cost_usd": 183660.0,
+              "total_power_w": 5506.0
+            }
+          }
+        ]
+      },
+      "h9": {
+        "schema_version": "1.0",
+        "scoring_policy_id": "ARCH_SCORE_POLICY_V1",
+        "architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+        "case_id": "REQ_000001",
+        "generation_index": 1,
+        "pre_h10_hard_snapshot_passed": true,
+        "score": 0.8899662803176568,
+        "score_direction": "higher_is_better",
+        "components": {
+          "performance": 0.7612059449531777,
+          "cost": 1.0,
+          "power": 1.0,
+          "reliability": 0.9166666666666666
+        },
+        "weighted_contributions": {
+          "performance": 0.30904961365099015,
+          "cost": 0.176,
+          "power": 0.261,
+          "reliability": 0.14391666666666666
+        },
+        "preference_weights": {
+          "performance_priority": 0.406,
+          "cost_priority": 0.176,
+          "power_priority": 0.261,
+          "reliability_priority": 0.157
+        },
+        "performance_explainability": {
+          "score": 0.7612059449531777,
+          "metrics": {
+            "mdt_capacity": {
+              "active": true,
+              "required": 0.002019204,
+              "provided": 5.820768,
+              "ratio": 2882.7042735652267,
+              "headroom_score": 0.9996531035079907,
+              "satisfied": true
+            },
+            "mdt_read_iops": {
+              "active": true,
+              "required": 6986.0,
+              "provided": 9200000.0,
+              "ratio": 1316.9195533924992,
+              "headroom_score": 0.999240652173913,
+              "satisfied": true
+            },
+            "mdt_write_iops": {
+              "active": true,
+              "required": 4658.0,
+              "provided": 870400.0000000001,
+              "ratio": 186.86131386861317,
+              "headroom_score": 0.9946484375,
+              "satisfied": true
+            },
+            "ost_capacity": {
+              "active": true,
+              "required": 775.5,
+              "provided": 1117.58708,
+              "ratio": 1.4411180915538362,
+              "headroom_score": 0.3060943403175348,
+              "satisfied": true
+            },
+            "ost_read_bandwidth": {
+              "active": true,
+              "required": 31.25,
+              "provided": 154.56,
+              "ratio": 4.94592,
+              "headroom_score": 0.7978131469979296,
+              "satisfied": true
+            },
+            "ost_write_bandwidth": {
+              "active": true,
+              "required": 20.0,
+              "provided": 39.6,
+              "ratio": 1.98,
+              "headroom_score": 0.4949494949494949,
+              "satisfied": true
+            },
+            "ost_total_bandwidth": {
+              "active": true,
+              "required": 51.25,
+              "provided": 194.16,
+              "ratio": 3.7884878048780486,
+              "headroom_score": 0.7360424392253812,
+              "satisfied": true
+            }
+          },
+          "all_requirements_satisfied": true
+        },
+        "reliability_explainability": {
+          "score": 0.9166666666666666,
+          "drive_score": 0.7499999999999998,
+          "drive_evidence": {
+            "mdt": {
+              "score": 0.6666666666666666,
+              "coverage": 1.0,
+              "media_type": "SSD",
+              "evidence": {
+                "endurance_dwpd": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 3.0,
+                  "score": 0.0
+                },
+                "mtbf_hours": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 2500000.0,
+                  "score": 1.0
+                },
+                "warranty_years": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 5.0,
+                  "score": 1.0
+                },
+                "workload_rating_tb_per_year": {
+                  "applicable": false,
+                  "known": false,
+                  "raw_value": null,
+                  "score": null
+                }
+              },
+              "semantics": "numeric evidence normalized within role + media family; missing applicable evidence receives no reliability credit"
+            },
+            "ost": {
+              "score": 0.8333333333333329,
+              "coverage": 1.0,
+              "media_type": "SSD",
+              "evidence": {
+                "endurance_dwpd": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 0.58,
+                  "score": 0.4999999999999986
+                },
+                "mtbf_hours": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 2000000.0,
+                  "score": 1.0
+                },
+                "warranty_years": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 5.0,
+                  "score": 1.0
+                },
+                "workload_rating_tb_per_year": {
+                  "applicable": false,
+                  "known": false,
+                  "raw_value": null,
+                  "score": null
+                }
+              },
+              "semantics": "numeric evidence normalized within role + media family; missing applicable evidence receives no reliability credit"
+            }
+          },
+          "protection_score": 1.0,
+          "ha_score": 1.0,
+          "fault_tolerance_normalizer": 2.0,
+          "semantics": "reference proxy score; not a failure probability or vendor reliability prediction"
+        },
+        "cost_power": {
+          "total_cost_usd": 183660.0,
+          "total_power_w": 5506.0,
+          "cost_normalization": {
+            "minimum": 183660.0,
+            "maximum": 183660.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power_normalization": {
+            "minimum": 5506.0,
+            "maximum": 5506.0,
+            "higher_score_means": "lower_power"
+          }
+        },
+        "hard_constraint_snapshot": {
+          "checks": {
+            "performance_requirements": true,
+            "budget_lower_bound": true,
+            "power_lower_bound": true
+          },
+          "passed": true,
+          "budget": {
+            "maximum_usd": 225005.0,
+            "architecture_lower_bound_usd": 183660.0,
+            "satisfied": true
+          },
+          "power": {
+            "maximum_w": 9016.0,
+            "architecture_lower_bound_w": 5506.0,
+            "satisfied": true
+          },
+          "semantics": "pre-score snapshot only; H10 remains the independent full deterministic validator"
+        },
+        "full_validator_applied": false,
+        "beam_search_applied": false,
+        "state_validation_status_preserved": "PENDING_FULL_VALIDATOR",
+        "rank": 1
+      },
+      "h10": {
+        "schema_version": "1.0",
+        "validator_policy_id": "FULL_ARCH_VALIDATOR_V1",
+        "architecture_id": "ARCH_REQ_000001_6812651f4ae27e8f",
+        "case_id": "REQ_000001",
+        "valid": true,
+        "decision": "VALID",
+        "violation_count": 0,
+        "violation_categories": {},
+        "violations": [],
+        "hard_requirements": {
+          "mdt_requirements_satisfied": true,
+          "ost_requirements_satisfied": true,
+          "budget": {
+            "maximum_usd": 225005.0,
+            "recomputed_total_usd": 183660.0,
+            "satisfied": true
+          },
+          "power": {
+            "maximum_w": 9016.0,
+            "recomputed_total_w": 5506.0,
+            "satisfied": true
+          },
+          "ha": {
+            "required": true,
+            "mdt_satisfied": true,
+            "ost_satisfied": true
+          }
+        },
+        "recomputed": {
+          "mdt_protection": {
+            "role": "MDT",
+            "drive_id": "DRV_000030",
+            "protection_profile_id": "PROT_RAID6_10",
+            "raid_level": "RAID6",
+            "raw_minimum_drive_count": 1,
+            "group_count": 1,
+            "group_size": 10,
+            "data_drives_per_group": 8,
+            "parity_drives_per_group": 2,
+            "mirror_copies": 1,
+            "physical_drive_count": 10,
+            "counts_basis": {
+              "lower_bound": 1,
+              "capacity": 1,
+              "read_iops": 1,
+              "write_iops": 1
+            },
+            "per_drive": {
+              "capacity_tib": 0.727596,
+              "read_iops": 1000000.0,
+              "write_iops": 160000.0
+            },
+            "provided": {
+              "usable_capacity_tib": 5.820768,
+              "read_iops": 9200000.0,
+              "write_iops": 870400.0000000001
+            },
+            "requirements": {
+              "usable_capacity_tib": 0.002019204,
+              "read_iops": 6986.0,
+              "write_iops": 4658.0
+            },
+            "satisfied": {
+              "capacity": true,
+              "read_iops": true,
+              "write_iops": true
+            },
+            "fault_tolerance_drives_per_group": 2,
+            "per_drive_cost_usd": 245.0,
+            "per_drive_power_w": 11.0,
+            "protected_drive_cost_usd": 2450.0,
+            "protected_drive_power_w": 110.0
+          },
+          "ost_protection": {
+            "role": "OST",
+            "drive_id": "DRV_000135",
+            "protection_profile_id": "PROT_RAID6_12",
+            "raid_level": "RAID6",
+            "raw_minimum_drive_count": 14,
+            "group_count": 2,
+            "group_size": 12,
+            "data_drives_per_group": 10,
+            "parity_drives_per_group": 2,
+            "mirror_copies": 1,
+            "physical_drive_count": 24,
+            "counts_basis": {
+              "lower_bound": 2,
+              "capacity": 2,
+              "read_bandwidth": 1,
+              "write_bandwidth": 2,
+              "total_bandwidth": 1
+            },
+            "per_drive": {
+              "capacity_tib": 55.879354,
+              "read_bandwidth_gb_s": 7.0,
+              "write_bandwidth_gb_s": 3.0
+            },
+            "provided": {
+              "usable_capacity_tib": 1117.58708,
+              "read_bandwidth_gb_s": 154.56,
+              "write_bandwidth_gb_s": 39.6,
+              "total_bandwidth_gb_s": 194.16
+            },
+            "requirements": {
+              "usable_capacity_tib": 775.5,
+              "read_bandwidth_gb_s": 31.25,
+              "write_bandwidth_gb_s": 20.0,
+              "total_bandwidth_gb_s": 51.25
+            },
+            "satisfied": {
+              "capacity": true,
+              "read_bandwidth": true,
+              "write_bandwidth": true,
+              "total_bandwidth": true
+            },
+            "fault_tolerance_drives_per_group": 2,
+            "per_drive_cost_usd": 4665.0,
+            "per_drive_power_w": 24.0,
+            "protected_drive_cost_usd": 111960.0,
+            "protected_drive_power_w": 576.0
+          },
+          "mdt_hardware_path": {
+            "compatible": true,
+            "role": "MDT",
+            "attachment_mode": "ENCLOSURE",
+            "drive_id": "DRV_000030",
+            "protection_profile_id": "PROT_RAID6_10",
+            "server_id": "SRV_DUALROLE_01",
+            "controller_id": "CTRL_NVME_G4X16_01",
+            "enclosure_id": "ENC_NVME_24XU2_01",
+            "network_id": "NET_ETH100_01",
+            "ha_profile_id": "HA_ACTIVE_ACTIVE",
+            "minimum_resources": {
+              "physical_drive_count": 10,
+              "server_count": 2,
+              "controller_count": 2,
+              "enclosure_count": 1,
+              "network_adapter_count": 2
+            },
+            "bandwidth": {
+              "required_gb_s": 0.0,
+              "controller_total_gb_s": 63.0,
+              "network_total_gb_s": 45.0
+            },
+            "component_cost_lower_bound_usd": 34200.0,
+            "component_power_lower_bound_w": 2396.0,
+            "violations": []
+          },
+          "ost_hardware_path": {
+            "compatible": true,
+            "role": "OST",
+            "attachment_mode": "ENCLOSURE",
+            "drive_id": "DRV_000135",
+            "protection_profile_id": "PROT_RAID6_12",
+            "server_id": "SRV_DUALROLE_01",
+            "controller_id": "CTRL_NVME_G4X16_01",
+            "enclosure_id": "ENC_NVME_24XU2_01",
+            "network_id": "NET_ETH100_01",
+            "ha_profile_id": "HA_ACTIVE_ACTIVE",
+            "minimum_resources": {
+              "physical_drive_count": 24,
+              "server_count": 2,
+              "controller_count": 2,
+              "enclosure_count": 1,
+              "network_adapter_count": 3
+            },
+            "bandwidth": {
+              "required_gb_s": 51.25,
+              "controller_total_gb_s": 63.0,
+              "network_total_gb_s": 67.5
+            },
+            "component_cost_lower_bound_usd": 35050.0,
+            "component_power_lower_bound_w": 2424.0,
+            "violations": []
+          },
+          "aggregates": {
+            "counts": {
+              "mdt_physical_drives": 10,
+              "ost_physical_drives": 24,
+              "mdt_count": 1,
+              "ost_count": 2,
+              "mds_count": 2,
+              "oss_count": 2,
+              "mdt_controller_count": 2,
+              "ost_controller_count": 2,
+              "mdt_enclosure_count": 1,
+              "ost_enclosure_count": 1,
+              "mdt_network_adapter_count": 2,
+              "ost_network_adapter_count": 3
+            },
+            "performance": {
+              "metadata_capacity_tib": 5.820768,
+              "mdt_read_iops": 9200000.0,
+              "mdt_write_iops": 870400.0000000001,
+              "ost_usable_capacity_tib": 1117.58708,
+              "ost_read_bandwidth_gb_s": 154.56,
+              "ost_write_bandwidth_gb_s": 39.6,
+              "ost_total_bandwidth_gb_s": 194.16
+            },
+            "cost_power": {
+              "mdt_drive_cost_usd": 2450.0,
+              "ost_drive_cost_usd": 111960.0,
+              "mdt_hardware_cost_usd": 34200.0,
+              "ost_hardware_cost_usd": 35050.0,
+              "mdt_drive_power_w": 110.0,
+              "ost_drive_power_w": 576.0,
+              "mdt_hardware_power_w": 2396.0,
+              "ost_hardware_power_w": 2424.0,
+              "total_cost_usd": 183660.0,
+              "total_power_w": 5506.0
+            }
+          }
+        },
+        "validated_state": {
+          "schema_version": "1.1",
+          "case_id": "REQ_000001",
+          "stage": "COMPLETE",
+          "source": {
+            "handoff_schema_version": "1.0",
+            "requested_top_k": 5,
+            "ranking_provenance": {
+              "mdt": {
+                "model_family": "LightGBM",
+                "model_type": "LGBMRanker",
+                "model_seed": 168,
+                "feature_count": 49,
+                "feasible_candidate_count": 148
+              },
+              "ost": {
+                "model_family": "LightGBM",
+                "model_type": "LGBMRanker",
+                "model_seed": 84,
+                "feature_count": 52,
+                "feasible_candidate_count": 137
+              },
+              "ost_diversification": {
+                "global_top_count": 4,
+                "diversification_pool_size": 40,
+                "maximum_specialized_ml_rank": 11,
+                "media_distribution": {
+                  "SSD": 4,
+                  "HDD": 1
+                }
+              }
+            }
+          },
+          "requirements": {
+            "MDT_requirement": {
+              "priority": "low",
+              "priority_basis": "normalized_metadata_intensity",
+              "required_total_iops": 11644,
+              "required_read_iops": 6986,
+              "required_write_iops": 4658,
+              "latency_requirement": "moderate",
+              "required_metadata_capacity_tib": 0.002019204,
+              "endurance_requirement": "medium",
+              "reliability_requirement": "high",
+              "ha_required": true
+            },
+            "OST_requirement": {
+              "priority": "low",
+              "priority_basis": "normalized_data_intensity",
+              "required_usable_capacity_tib": 775.5,
+              "required_read_bandwidth_gbps": 31.25,
+              "required_write_bandwidth_gbps": 20.0,
+              "required_total_bandwidth_gbps": 51.25,
+              "throughput_requirement": "low",
+              "input_bandwidth_level": "low",
+              "data_pressure": "low",
+              "access_pattern": "mixed",
+              "file_size_class": "medium_files",
+              "reliability_requirement": "high",
+              "ha_required": true
+            },
+            "constraints": {
+              "ha_required": true,
+              "max_budget_usd": 225005.0,
+              "max_power_w": 9016.0
+            },
+            "preferences": {
+              "performance_priority": 0.406,
+              "cost_priority": 0.176,
+              "power_priority": 0.261,
+              "reliability_priority": 0.157
+            },
+            "workload_analysis": {
+              "workload_type": "balanced",
+              "metadata_score": 0.145706,
+              "data_score": 0.011838,
+              "score_difference": 0.133868,
+              "file_size_class": "medium_files",
+              "access_type": "mixed",
+              "parallelism_level": "low",
+              "bandwidth_level": "low"
+            },
+            "role_analysis": {
+              "role_dominance": {
+                "primary_role": "BALANCED",
+                "secondary_role": "mixed"
+              },
+              "absolute_importance": {
+                "mdt_importance": "low",
+                "ost_importance": "low"
+              },
+              "interpretation": "La dominance compare MDT et OST ; l'importance mesure chaque plan indépendamment."
+            }
+          },
+          "selected": {
+            "mdt_drive": {
+              "drive_id": "DRV_000030",
+              "drive_name": "KCD81VUG800G",
+              "manufacturer": "Kioxia",
+              "series": "CD8-V",
+              "media_type": "SSD",
+              "catalog_id": "6a5970807f78be22b1622a8d",
+              "model_number": "KCD81VUG800G"
+            },
+            "ost_drive": {
+              "drive_id": "DRV_000135",
+              "drive_name": "SBFPF2BV614TOP1",
+              "manufacturer": "Solidigm",
+              "series": "D5-P5336",
+              "media_type": "SSD",
+              "catalog_id": "6a597080a85469f497567ce4",
+              "model_number": "SBFPF2BV614TOP1"
+            },
+            "mdt_protection": {
+              "role": "MDT",
+              "drive_id": "DRV_000030",
+              "protection_profile_id": "PROT_RAID6_10",
+              "raid_level": "RAID6",
+              "raw_minimum_drive_count": 1,
+              "group_count": 1,
+              "group_size": 10,
+              "data_drives_per_group": 8,
+              "parity_drives_per_group": 2,
+              "mirror_copies": 1,
+              "physical_drive_count": 10,
+              "counts_basis": {
+                "lower_bound": 1,
+                "capacity": 1,
+                "read_iops": 1,
+                "write_iops": 1
+              },
+              "per_drive": {
+                "capacity_tib": 0.727596,
+                "read_iops": 1000000.0,
+                "write_iops": 160000.0
+              },
+              "provided": {
+                "usable_capacity_tib": 5.820768,
+                "read_iops": 9200000.0,
+                "write_iops": 870400.0000000001
+              },
+              "requirements": {
+                "usable_capacity_tib": 0.002019204,
+                "read_iops": 6986.0,
+                "write_iops": 4658.0
+              },
+              "satisfied": {
+                "capacity": true,
+                "read_iops": true,
+                "write_iops": true
+              },
+              "fault_tolerance_drives_per_group": 2,
+              "per_drive_cost_usd": 245.0,
+              "per_drive_power_w": 11.0,
+              "protected_drive_cost_usd": 2450.0,
+              "protected_drive_power_w": 110.0
+            },
+            "ost_protection": {
+              "role": "OST",
+              "drive_id": "DRV_000135",
+              "protection_profile_id": "PROT_RAID6_12",
+              "raid_level": "RAID6",
+              "raw_minimum_drive_count": 14,
+              "group_count": 2,
+              "group_size": 12,
+              "data_drives_per_group": 10,
+              "parity_drives_per_group": 2,
+              "mirror_copies": 1,
+              "physical_drive_count": 24,
+              "counts_basis": {
+                "lower_bound": 2,
+                "capacity": 2,
+                "read_bandwidth": 1,
+                "write_bandwidth": 2,
+                "total_bandwidth": 1
+              },
+              "per_drive": {
+                "capacity_tib": 55.879354,
+                "read_bandwidth_gb_s": 7.0,
+                "write_bandwidth_gb_s": 3.0
+              },
+              "provided": {
+                "usable_capacity_tib": 1117.58708,
+                "read_bandwidth_gb_s": 154.56,
+                "write_bandwidth_gb_s": 39.6,
+                "total_bandwidth_gb_s": 194.16
+              },
+              "requirements": {
+                "usable_capacity_tib": 775.5,
+                "read_bandwidth_gb_s": 31.25,
+                "write_bandwidth_gb_s": 20.0,
+                "total_bandwidth_gb_s": 51.25
+              },
+              "satisfied": {
+                "capacity": true,
+                "read_bandwidth": true,
+                "write_bandwidth": true,
+                "total_bandwidth": true
+              },
+              "fault_tolerance_drives_per_group": 2,
+              "per_drive_cost_usd": 4665.0,
+              "per_drive_power_w": 24.0,
+              "protected_drive_cost_usd": 111960.0,
+              "protected_drive_power_w": 576.0
+            },
+            "mdt_hardware_path": {
+              "compatible": true,
+              "role": "MDT",
+              "attachment_mode": "ENCLOSURE",
+              "drive_id": "DRV_000030",
+              "protection_profile_id": "PROT_RAID6_10",
+              "server_id": "SRV_DUALROLE_01",
+              "controller_id": "CTRL_NVME_G4X16_01",
+              "enclosure_id": "ENC_NVME_24XU2_01",
+              "network_id": "NET_ETH100_01",
+              "ha_profile_id": "HA_ACTIVE_ACTIVE",
+              "minimum_resources": {
+                "physical_drive_count": 10,
+                "server_count": 2,
+                "controller_count": 2,
+                "enclosure_count": 1,
+                "network_adapter_count": 2
+              },
+              "bandwidth": {
+                "required_gb_s": 0.0,
+                "controller_total_gb_s": 63.0,
+                "network_total_gb_s": 45.0
+              },
+              "component_cost_lower_bound_usd": 34200.0,
+              "component_power_lower_bound_w": 2396.0,
+              "violations": []
+            },
+            "ost_hardware_path": {
+              "compatible": true,
+              "role": "OST",
+              "attachment_mode": "ENCLOSURE",
+              "drive_id": "DRV_000135",
+              "protection_profile_id": "PROT_RAID6_12",
+              "server_id": "SRV_DUALROLE_01",
+              "controller_id": "CTRL_NVME_G4X16_01",
+              "enclosure_id": "ENC_NVME_24XU2_01",
+              "network_id": "NET_ETH100_01",
+              "ha_profile_id": "HA_ACTIVE_ACTIVE",
+              "minimum_resources": {
+                "physical_drive_count": 24,
+                "server_count": 2,
+                "controller_count": 2,
+                "enclosure_count": 1,
+                "network_adapter_count": 3
+              },
+              "bandwidth": {
+                "required_gb_s": 51.25,
+                "controller_total_gb_s": 63.0,
+                "network_total_gb_s": 67.5
+              },
+              "component_cost_lower_bound_usd": 35050.0,
+              "component_power_lower_bound_w": 2424.0,
+              "violations": []
+            }
+          },
+          "counts": {
+            "mdt_physical_drives": 10,
+            "ost_physical_drives": 24,
+            "mdt_count": 1,
+            "ost_count": 2,
+            "mds_count": 2,
+            "oss_count": 2,
+            "mdt_controller_count": 2,
+            "ost_controller_count": 2,
+            "mdt_enclosure_count": 1,
+            "ost_enclosure_count": 1,
+            "mdt_network_adapter_count": 2,
+            "ost_network_adapter_count": 3
+          },
+          "performance": {
+            "metadata_capacity_tib": 5.820768,
+            "mdt_read_iops": 9200000.0,
+            "mdt_write_iops": 870400.0000000001,
+            "ost_usable_capacity_tib": 1117.58708,
+            "ost_read_bandwidth_gb_s": 154.56,
+            "ost_write_bandwidth_gb_s": 39.6,
+            "ost_total_bandwidth_gb_s": 194.16
+          },
+          "cost_power": {
+            "mdt_drive_cost_usd": 2450.0,
+            "ost_drive_cost_usd": 111960.0,
+            "mdt_hardware_cost_usd": 34200.0,
+            "ost_hardware_cost_usd": 35050.0,
+            "total_cost_usd": 183660.0,
+            "mdt_drive_power_w": 110.0,
+            "ost_drive_power_w": 576.0,
+            "mdt_hardware_power_w": 2396.0,
+            "ost_hardware_power_w": 2424.0,
+            "total_power_w": 5506.0
+          },
+          "validation": {
+            "is_complete": true,
+            "is_valid": true,
+            "status": "VALIDATED",
+            "violations": [],
+            "full_validator_policy_id": "FULL_ARCH_VALIDATOR_V1"
+          },
+          "trace": [
+            {
+              "sequence": 1,
+              "transition": "select_drives",
+              "stage": "DRIVES_SELECTED",
+              "details": {
+                "mdt_drive_id": "DRV_000030",
+                "ost_drive_id": "DRV_000135"
+              }
+            },
+            {
+              "sequence": 2,
+              "transition": "select_protection",
+              "stage": "PROTECTION_SELECTED",
+              "details": {
+                "mdt_profile": "PROT_RAID6_10",
+                "ost_profile": "PROT_RAID6_12",
+                "mdt_physical_drives": 10,
+                "ost_physical_drives": 24
+              }
+            },
+            {
+              "sequence": 3,
+              "transition": "select_servers",
+              "stage": "SERVERS_SELECTED",
+              "details": {
+                "mds_server_id": "SRV_DUALROLE_01",
+                "oss_server_id": "SRV_DUALROLE_01",
+                "mds_count": 2,
+                "oss_count": 2
+              }
+            },
+            {
+              "sequence": 4,
+              "transition": "select_storage_fabric",
+              "stage": "ENCLOSURES_SELECTED",
+              "details": {
+                "mdt_controller_id": "CTRL_NVME_G4X16_01",
+                "ost_controller_id": "CTRL_NVME_G4X16_01",
+                "mdt_enclosure_id": "ENC_NVME_24XU2_01",
+                "ost_enclosure_id": "ENC_NVME_24XU2_01"
+              }
+            },
+            {
+              "sequence": 5,
+              "transition": "select_network_and_ha",
+              "stage": "NETWORK_SELECTED",
+              "details": {
+                "mdt_network_id": "NET_ETH100_01",
+                "ost_network_id": "NET_ETH100_01",
+                "mdt_ha_profile_id": "HA_ACTIVE_ACTIVE",
+                "ost_ha_profile_id": "HA_ACTIVE_ACTIVE"
+              }
+            },
+            {
+              "sequence": 6,
+              "transition": "finalize_state",
+              "stage": "COMPLETE",
+              "details": {
+                "total_cost_usd": 183660.0,
+                "total_power_w": 5506.0
+              }
+            }
+          ]
+        },
+        "scoring_required": false,
+        "beam_search_applied": false
+      },
+      "search_provenance": {
+        "beam_heuristic": 0.7741210959103381,
+        "trace": [
+          {
+            "branch_id": 1,
+            "parent_branch_id": 0,
+            "depth": 1,
+            "search_stage": "MDT_DRIVE",
+            "drive_id": "DRV_000030",
+            "selection_rank": 1,
+            "ml_rank": 1,
+            "selection_reasons": [
+              "ml_top_k"
+            ],
+            "protection_profile_id": null,
+            "protection_catalog_index": null,
+            "hardware_path_index": null,
+            "physical_stage": "EMPTY",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.5773678917963092,
+              "components": {
+                "ranking": 1.0,
+                "performance": 0.0,
+                "cost": 0.998912319644839,
+                "power": 0.9987814334773457,
+                "reliability": 0.0
+              },
+              "lower_bounds": {
+                "cost_usd": 245.0,
+                "power_w": 11.0
+              }
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 10,
+            "parent_branch_id": 1,
+            "depth": 2,
+            "search_stage": "MDT_PROTECTION",
+            "drive_id": "DRV_000030",
+            "selection_rank": 1,
+            "ml_rank": 1,
+            "selection_reasons": [
+              "ml_top_k"
+            ],
+            "protection_profile_id": "PROT_RAID6_10",
+            "protection_catalog_index": 5,
+            "hardware_path_index": null,
+            "physical_stage": "EMPTY",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.9563132454517419,
+              "components": {
+                "ranking": 1.0,
+                "performance": 0.9978473977273014,
+                "cost": 0.9892286386318173,
+                "power": 0.987946526408065,
+                "reliability": 0.6666666666666666
+              },
+              "lower_bounds": {
+                "cost_usd": 2450.0,
+                "power_w": 110.0
+              }
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 12,
+            "parent_branch_id": 10,
+            "depth": 3,
+            "search_stage": "MDT_HARDWARE",
+            "drive_id": "DRV_000030",
+            "selection_rank": 1,
+            "ml_rank": 1,
+            "selection_reasons": [
+              "ml_top_k"
+            ],
+            "protection_profile_id": "PROT_RAID6_10",
+            "protection_catalog_index": 5,
+            "hardware_path_index": 1,
+            "physical_stage": "EMPTY",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.9186552702273179,
+              "components": {
+                "ranking": 1.0,
+                "performance": 0.9978473977273014,
+                "cost": 0.8599300605759492,
+                "power": 0.7825030376670717,
+                "reliability": 0.8333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 36650.0,
+                "power_w": 2506.0
+              }
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 13,
+            "parent_branch_id": 12,
+            "depth": 4,
+            "search_stage": "OST_DRIVE",
+            "drive_id": "DRV_000135",
+            "selection_rank": 1,
+            "ml_rank": 1,
+            "selection_reasons": [
+              "global_ml_top",
+              "best_ssd_ml"
+            ],
+            "protection_profile_id": null,
+            "protection_catalog_index": null,
+            "hardware_path_index": null,
+            "physical_stage": "DRIVES_SELECTED",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.8916416724343884,
+              "components": {
+                "ranking": 1.0,
+                "performance": 0.9978473977273014,
+                "cost": 0.6881623415350266,
+                "power": 0.7603305785123966,
+                "reliability": 0.8333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 101960.0,
+                "power_w": 2842.0
+              }
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 23,
+            "parent_branch_id": 13,
+            "depth": 5,
+            "search_stage": "OST_PROTECTION",
+            "drive_id": "DRV_000135",
+            "selection_rank": 1,
+            "ml_rank": 1,
+            "selection_reasons": [
+              "global_ml_top",
+              "best_ssd_ml"
+            ],
+            "protection_profile_id": "PROT_RAID6_12",
+            "protection_catalog_index": 6,
+            "hardware_path_index": null,
+            "physical_stage": "PROTECTION_SELECTED",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.7987480357226888,
+              "components": {
+                "ranking": 1.0,
+                "performance": 0.7612059449531777,
+                "cost": 0.6022375975268659,
+                "power": 0.7452471482889734,
+                "reliability": 0.7777777777777777
+              },
+              "lower_bounds": {
+                "cost_usd": 148610.0,
+                "power_w": 3082.0
+              }
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 24,
+            "parent_branch_id": 23,
+            "depth": 6,
+            "search_stage": "OST_HARDWARE",
+            "drive_id": "DRV_000135",
+            "selection_rank": 1,
+            "ml_rank": 1,
+            "selection_reasons": [
+              "global_ml_top",
+              "best_ssd_ml"
+            ],
+            "protection_profile_id": "PROT_RAID6_12",
+            "protection_catalog_index": 6,
+            "hardware_path_index": 1,
+            "physical_stage": "PROTECTION_SELECTED",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.7741210959103381,
+              "components": {
+                "ranking": 1.0,
+                "performance": 0.7612059449531777,
+                "cost": 0.5505854428443836,
+                "power": 0.6208511224349264,
+                "reliability": 0.8333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 183660.0,
+                "power_w": 5506.0
+              }
+            },
+            "beam_rank": 1
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,3982 @@
+{
+  "schema_version": "1.0",
+  "purpose": "beam_search_k_b_benchmark",
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "source_sha256": {
+    "output\\lustre_architecture_dataset.json": "d8894082b2239899936022203276f2e7656005165b3cdb8fad9c7f2d31687ef1",
+    "data\\catalogue_drives_ready_final.json": "154e00cd4c26b91dd9dd201cb3888d63de49a3614b344868a462b1598d7d28b5",
+    "data\\hardware_catalog_reference_v1.json": "a0ddc5334ce49d4a69f0940224dc97e77805f728815ce4139cd6667707d1cd4a",
+    "evaluation\\architecture\\beam_search\\benchmark_beam_search.py": "0ecae37f8aa2904649895d5c15cd4fe95a3d975922107fddb6eed4b88e1dbab6",
+    "src\\full_architecture\\beam_search.py": "0e583802bb9ac9c265c07a95ef8e2daf31ef90ef8fe43e7077459659bc09cd28"
+  },
+  "config": {
+    "case_ids": [
+      "REQ_000003"
+    ],
+    "top_k_values": [
+      5
+    ],
+    "beam_widths": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      1024
+    ],
+    "max_paths_per_variant": 1,
+    "exhaustive_max_pairs": 20000,
+    "repeats": 2
+  },
+  "ranking_times": [
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "seconds": 1.5744855001103133
+    }
+  ],
+  "baselines": [
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "potential_pairs": 900,
+      "role_option_counts": {
+        "mdt": 30,
+        "ost": 30
+      },
+      "preflight_seconds": 0.004049599985592067,
+      "status": "COMPLETE",
+      "runtime_seconds": 1.3870071000419557,
+      "architectures_explored": 900,
+      "h10_calls": 900,
+      "valid_count": 90,
+      "best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+      "best_h9_score": 0.8313385809399926
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.006667850015219301,
+      "runtime_samples_seconds": [
+        0.006862499983981252,
+        0.00647320004645735
+      ],
+      "branches_created": 154,
+      "branches_explored": 154,
+      "branches_pruned": 45,
+      "hard_pruned": 34,
+      "width_pruned": 11,
+      "pruning_reason_counts": {
+        "beam_width_limit": 11,
+        "budget_lower_bound_exceeded": 9,
+        "no_compatible_completion": 7,
+        "power_lower_bound_exceeded": 24
+      },
+      "h5_calls": 60,
+      "h6_calls": 60,
+      "max_active_states": 1,
+      "complete_architectures_produced": 1,
+      "h10_calls": 1,
+      "valid_architecture_count": 1,
+      "best_architecture_id": "ARCH_REQ_000003_9313c45a479ea59e",
+      "local_final_h9_score": 0.8389536538309897,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8103938433477719,
+        "exhaustive_best_h9_score": 0.8313385809399926,
+        "common_score_regret": 0.020944737592220708,
+        "relative_quality": 0.9748060079582274,
+        "exhaustive_valid_rank": 11,
+        "exhaustive_pool_rank": 11,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "beam_architecture_id": "ARCH_REQ_000003_9313c45a479ea59e",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.011111111111111112,
+        "retained_best_in_common_pool": "ARCH_REQ_000003_9313c45a479ea59e",
+        "search_common_score_regret": 0.020944737592220708,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4695280.0,
+            "maximum": 9410540.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 500548.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 5169310.0,
+            "maximum": 5169310.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33241.0,
+            "maximum": 33241.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        }
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9988888888888889,
+      "exhaustive_runtime_seconds": 1.3870071000419557,
+      "speedup": 208.01414202121012,
+      "main_search_branches_created": 24,
+      "lookahead_branches_created": 130,
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      },
+      "search_trace": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 4,
+          "pruning_reason_counts": {
+            "beam_width_limit": 4
+          },
+          "retained": 1,
+          "best_retained_score": 0.5731281441294137,
+          "worst_retained_score": 0.5731281441294137,
+          "diversity": {
+            "mdt_drives": 1,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 1,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 1,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 6,
+          "hard_pruned": 0,
+          "width_pruned": 5,
+          "pruning_reason_counts": {
+            "beam_width_limit": 5
+          },
+          "retained": 1,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5727280426533545,
+          "diversity": {
+            "mdt_drives": 1,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 1,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 1,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 1,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 1,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5727280426533545,
+          "diversity": {
+            "mdt_drives": 1,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 1,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 1,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 1,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 5,
+          "hard_pruned": 4,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 4
+          },
+          "retained": 1,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5727280426533545,
+          "diversity": {
+            "mdt_drives": 1,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 1,
+            "ost_drives": 1,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 1,
+            "cost_usd_deciles_of_limit": [
+              4
+            ],
+            "distinct_power_w": 1,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 6,
+          "hard_pruned": 3,
+          "width_pruned": 2,
+          "pruning_reason_counts": {
+            "beam_width_limit": 2,
+            "no_compatible_completion": 3
+          },
+          "retained": 1,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5727280426533545,
+          "diversity": {
+            "mdt_drives": 1,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 1,
+            "ost_drives": 1,
+            "ost_protections": 1,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 1,
+            "cost_usd_deciles_of_limit": [
+              5
+            ],
+            "distinct_power_w": 1,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 1,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 1,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5727280426533545,
+          "diversity": {
+            "mdt_drives": 1,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 1,
+            "ost_drives": 1,
+            "ost_protections": 1,
+            "ost_hardware_paths": 1,
+            "distinct_cost_usd": 1,
+            "cost_usd_deciles_of_limit": [
+              6
+            ],
+            "distinct_power_w": 1,
+            "power_w_deciles_of_limit": [
+              2
+            ]
+          }
+        }
+      ],
+      "lookahead_trace": [
+        {
+          "search_stage": "LOOKAHEAD_MDT",
+          "branches_created": 65,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "role_options": 30,
+          "prefix_envelopes": 66
+        },
+        {
+          "search_stage": "LOOKAHEAD_OST",
+          "branches_created": 65,
+          "hard_pruned": 27,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 9,
+            "power_lower_bound_exceeded": 24
+          },
+          "role_options": 3,
+          "prefix_envelopes": 8
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 2,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.00863319996278733,
+      "runtime_samples_seconds": [
+        0.00865249999333173,
+        0.00861389993224293
+      ],
+      "branches_created": 173,
+      "branches_explored": 173,
+      "branches_pruned": 58,
+      "hard_pruned": 41,
+      "width_pruned": 17,
+      "pruning_reason_counts": {
+        "beam_width_limit": 17,
+        "budget_lower_bound_exceeded": 9,
+        "no_compatible_completion": 14,
+        "power_lower_bound_exceeded": 24
+      },
+      "h5_calls": 60,
+      "h6_calls": 60,
+      "max_active_states": 2,
+      "complete_architectures_produced": 2,
+      "h10_calls": 2,
+      "valid_architecture_count": 2,
+      "best_architecture_id": "ARCH_REQ_000003_e0c86e96cce16032",
+      "local_final_h9_score": 0.5946090788354746,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8112226299972733,
+        "exhaustive_best_h9_score": 0.8313385809399926,
+        "common_score_regret": 0.02011595094271923,
+        "relative_quality": 0.9758029382926339,
+        "exhaustive_valid_rank": 5,
+        "exhaustive_pool_rank": 5,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "beam_architecture_id": "ARCH_REQ_000003_e0c86e96cce16032",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 2,
+        "exhaustive_valid_recall": 0.022222222222222223,
+        "retained_best_in_common_pool": "ARCH_REQ_000003_e0c86e96cce16032",
+        "search_common_score_regret": 0.02011595094271923,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4695280.0,
+            "maximum": 9410540.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 500548.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 5165950.0,
+            "maximum": 5169310.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33241.0,
+            "maximum": 33295.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        }
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9977777777777778,
+      "exhaustive_runtime_seconds": 1.3870071000419557,
+      "speedup": 160.65967497805346,
+      "main_search_branches_created": 43,
+      "lookahead_branches_created": 130,
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      },
+      "search_trace": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 3,
+          "pruning_reason_counts": {
+            "beam_width_limit": 3
+          },
+          "retained": 2,
+          "best_retained_score": 0.5731281441294137,
+          "worst_retained_score": 0.5730712629451953,
+          "diversity": {
+            "mdt_drives": 2,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 2,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 2,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 12,
+          "hard_pruned": 0,
+          "width_pruned": 10,
+          "pruning_reason_counts": {
+            "beam_width_limit": 10
+          },
+          "retained": 2,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5726502521120103,
+          "diversity": {
+            "mdt_drives": 2,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 2,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 2,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 2,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 2,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5726502521120103,
+          "diversity": {
+            "mdt_drives": 2,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 1,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 2,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 2,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 10,
+          "hard_pruned": 8,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 8
+          },
+          "retained": 2,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5726502521120103,
+          "diversity": {
+            "mdt_drives": 2,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 1,
+            "ost_drives": 1,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 2,
+            "cost_usd_deciles_of_limit": [
+              4
+            ],
+            "distinct_power_w": 2,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 12,
+          "hard_pruned": 6,
+          "width_pruned": 4,
+          "pruning_reason_counts": {
+            "beam_width_limit": 4,
+            "no_compatible_completion": 6
+          },
+          "retained": 2,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5726502521120103,
+          "diversity": {
+            "mdt_drives": 2,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 1,
+            "ost_drives": 1,
+            "ost_protections": 1,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 2,
+            "cost_usd_deciles_of_limit": [
+              5
+            ],
+            "distinct_power_w": 2,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 2,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 2,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5726502521120103,
+          "diversity": {
+            "mdt_drives": 2,
+            "mdt_protections": 1,
+            "mdt_hardware_paths": 1,
+            "ost_drives": 1,
+            "ost_protections": 1,
+            "ost_hardware_paths": 1,
+            "distinct_cost_usd": 2,
+            "cost_usd_deciles_of_limit": [
+              6
+            ],
+            "distinct_power_w": 2,
+            "power_w_deciles_of_limit": [
+              2
+            ]
+          }
+        }
+      ],
+      "lookahead_trace": [
+        {
+          "search_stage": "LOOKAHEAD_MDT",
+          "branches_created": 65,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "role_options": 30,
+          "prefix_envelopes": 66
+        },
+        {
+          "search_stage": "LOOKAHEAD_OST",
+          "branches_created": 65,
+          "hard_pruned": 27,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 9,
+            "power_lower_bound_exceeded": 24
+          },
+          "role_options": 3,
+          "prefix_envelopes": 8
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.013237900042440742,
+      "runtime_samples_seconds": [
+        0.013256800011731684,
+        0.0132190000731498
+      ],
+      "branches_created": 211,
+      "branches_explored": 211,
+      "branches_pruned": 84,
+      "hard_pruned": 55,
+      "width_pruned": 29,
+      "pruning_reason_counts": {
+        "beam_width_limit": 29,
+        "budget_lower_bound_exceeded": 9,
+        "no_compatible_completion": 28,
+        "power_lower_bound_exceeded": 24
+      },
+      "h5_calls": 60,
+      "h6_calls": 60,
+      "max_active_states": 4,
+      "complete_architectures_produced": 4,
+      "h10_calls": 4,
+      "valid_architecture_count": 4,
+      "best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+      "local_final_h9_score": 0.81933317485888,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8313385809399926,
+        "exhaustive_best_h9_score": 0.8313385809399926,
+        "common_score_regret": 0.0,
+        "relative_quality": 1.0,
+        "exhaustive_valid_rank": 1,
+        "exhaustive_pool_rank": 1,
+        "best_id_matched": true,
+        "did_beam_find_exhaustive_best": true,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "beam_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "best_score_matched": true,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 4,
+        "exhaustive_valid_recall": 0.044444444444444446,
+        "retained_best_in_common_pool": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4695280.0,
+            "maximum": 9410540.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 500548.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 5165270.0,
+            "maximum": 5169310.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33216.0,
+            "maximum": 33295.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        }
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9955555555555555,
+      "exhaustive_runtime_seconds": 1.3870071000419557,
+      "speedup": 104.77546254279058,
+      "main_search_branches_created": 81,
+      "lookahead_branches_created": 130,
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      },
+      "search_trace": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 1,
+          "pruning_reason_counts": {
+            "beam_width_limit": 1
+          },
+          "retained": 4,
+          "best_retained_score": 0.5731281441294137,
+          "worst_retained_score": 0.5728796235716416,
+          "diversity": {
+            "mdt_drives": 4,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 4,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 3,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 24,
+          "hard_pruned": 0,
+          "width_pruned": 20,
+          "pruning_reason_counts": {
+            "beam_width_limit": 20
+          },
+          "retained": 4,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.572601645584443,
+          "diversity": {
+            "mdt_drives": 3,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 4,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 4,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 4,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.572601645584443,
+          "diversity": {
+            "mdt_drives": 3,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 3,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 4,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 20,
+          "hard_pruned": 16,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 16
+          },
+          "retained": 4,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.572601645584443,
+          "diversity": {
+            "mdt_drives": 3,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 3,
+            "ost_drives": 1,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 4,
+            "cost_usd_deciles_of_limit": [
+              4
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 24,
+          "hard_pruned": 12,
+          "width_pruned": 8,
+          "pruning_reason_counts": {
+            "beam_width_limit": 8,
+            "no_compatible_completion": 12
+          },
+          "retained": 4,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.572601645584443,
+          "diversity": {
+            "mdt_drives": 3,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 3,
+            "ost_drives": 1,
+            "ost_protections": 1,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 4,
+            "cost_usd_deciles_of_limit": [
+              5
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 4,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 4,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.572601645584443,
+          "diversity": {
+            "mdt_drives": 3,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 3,
+            "ost_drives": 1,
+            "ost_protections": 1,
+            "ost_hardware_paths": 1,
+            "distinct_cost_usd": 4,
+            "cost_usd_deciles_of_limit": [
+              6
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              2
+            ]
+          }
+        }
+      ],
+      "lookahead_trace": [
+        {
+          "search_stage": "LOOKAHEAD_MDT",
+          "branches_created": 65,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "role_options": 30,
+          "prefix_envelopes": 66
+        },
+        {
+          "search_stage": "LOOKAHEAD_OST",
+          "branches_created": 65,
+          "hard_pruned": 27,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 9,
+            "power_lower_bound_exceeded": 24
+          },
+          "role_options": 3,
+          "prefix_envelopes": 8
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 8,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.02215269999578595,
+      "runtime_samples_seconds": [
+        0.02210689999628812,
+        0.022198499995283782
+      ],
+      "branches_created": 269,
+      "branches_explored": 269,
+      "branches_pruned": 121,
+      "hard_pruned": 83,
+      "width_pruned": 38,
+      "pruning_reason_counts": {
+        "beam_width_limit": 38,
+        "budget_lower_bound_exceeded": 9,
+        "no_compatible_completion": 56,
+        "power_lower_bound_exceeded": 24
+      },
+      "h5_calls": 60,
+      "h6_calls": 60,
+      "max_active_states": 8,
+      "complete_architectures_produced": 8,
+      "h10_calls": 8,
+      "valid_architecture_count": 8,
+      "best_architecture_id": "ARCH_REQ_000003_2b1ec48008ff9e33",
+      "local_final_h9_score": 0.7976089131423045,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8112115409573316,
+        "exhaustive_best_h9_score": 0.8313385809399926,
+        "common_score_regret": 0.020127039982660966,
+        "relative_quality": 0.9757895995156349,
+        "exhaustive_valid_rank": 6,
+        "exhaustive_pool_rank": 6,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "beam_architecture_id": "ARCH_REQ_000003_2b1ec48008ff9e33",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 8,
+        "exhaustive_valid_recall": 0.08888888888888889,
+        "retained_best_in_common_pool": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.020127039982660966,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4695280.0,
+            "maximum": 9410540.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 500548.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 5161850.0,
+            "maximum": 5169310.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33201.0,
+            "maximum": 33295.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        }
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9911111111111112,
+      "exhaustive_runtime_seconds": 1.3870071000419557,
+      "speedup": 62.61119864873367,
+      "main_search_branches_created": 139,
+      "lookahead_branches_created": 130,
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      },
+      "search_trace": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 5,
+          "best_retained_score": 0.5731281441294137,
+          "worst_retained_score": 0.5728147622447094,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 5,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 22,
+          "pruning_reason_counts": {
+            "beam_width_limit": 22
+          },
+          "retained": 8,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5724320898374462,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 8,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 7,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 8,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 8,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5724320898374462,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 4,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 8,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 7,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 40,
+          "hard_pruned": 32,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 32
+          },
+          "retained": 8,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5724320898374462,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 4,
+            "ost_drives": 1,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 8,
+            "cost_usd_deciles_of_limit": [
+              4
+            ],
+            "distinct_power_w": 7,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 48,
+          "hard_pruned": 24,
+          "width_pruned": 16,
+          "pruning_reason_counts": {
+            "beam_width_limit": 16,
+            "no_compatible_completion": 24
+          },
+          "retained": 8,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5724320898374462,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 4,
+            "ost_drives": 1,
+            "ost_protections": 1,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 8,
+            "cost_usd_deciles_of_limit": [
+              5
+            ],
+            "distinct_power_w": 7,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 8,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 8,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5724320898374462,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 4,
+            "ost_drives": 1,
+            "ost_protections": 1,
+            "ost_hardware_paths": 1,
+            "distinct_cost_usd": 8,
+            "cost_usd_deciles_of_limit": [
+              6
+            ],
+            "distinct_power_w": 7,
+            "power_w_deciles_of_limit": [
+              2
+            ]
+          }
+        }
+      ],
+      "lookahead_trace": [
+        {
+          "search_stage": "LOOKAHEAD_MDT",
+          "branches_created": 65,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "role_options": 30,
+          "prefix_envelopes": 66
+        },
+        {
+          "search_stage": "LOOKAHEAD_OST",
+          "branches_created": 65,
+          "hard_pruned": 27,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 9,
+            "power_lower_bound_exceeded": 24
+          },
+          "role_options": 3,
+          "prefix_envelopes": 8
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.04141000006347895,
+      "runtime_samples_seconds": [
+        0.04024840006604791,
+        0.042571600060909986
+      ],
+      "branches_created": 373,
+      "branches_explored": 373,
+      "branches_pruned": 185,
+      "hard_pruned": 139,
+      "width_pruned": 46,
+      "pruning_reason_counts": {
+        "beam_width_limit": 46,
+        "budget_lower_bound_exceeded": 9,
+        "no_compatible_completion": 112,
+        "power_lower_bound_exceeded": 24
+      },
+      "h5_calls": 60,
+      "h6_calls": 60,
+      "max_active_states": 16,
+      "complete_architectures_produced": 16,
+      "h10_calls": 16,
+      "valid_architecture_count": 16,
+      "best_architecture_id": "ARCH_REQ_000003_d069b0d787cb156c",
+      "local_final_h9_score": 0.8504064633047622,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8312160829581597,
+        "exhaustive_best_h9_score": 0.8313385809399926,
+        "common_score_regret": 0.00012249798183283644,
+        "relative_quality": 0.9998526497089858,
+        "exhaustive_valid_rank": 2,
+        "exhaustive_pool_rank": 2,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "beam_architecture_id": "ARCH_REQ_000003_d069b0d787cb156c",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 16,
+        "exhaustive_valid_recall": 0.17777777777777778,
+        "retained_best_in_common_pool": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.00012249798183283644,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4695280.0,
+            "maximum": 9410540.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 500548.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 5160960.0,
+            "maximum": 5315300.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33191.0,
+            "maximum": 33837.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        }
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9822222222222222,
+      "exhaustive_runtime_seconds": 1.3870071000419557,
+      "speedup": 33.49449644809854,
+      "main_search_branches_created": 243,
+      "lookahead_branches_created": 130,
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      },
+      "search_trace": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 5,
+          "best_retained_score": 0.5731281441294137,
+          "worst_retained_score": 0.5728147622447094,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 5,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 14,
+          "pruning_reason_counts": {
+            "beam_width_limit": 14
+          },
+          "retained": 16,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5555686900621969,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 4,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 16,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 13,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 16,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 16,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5555686900621969,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 4,
+            "mdt_hardware_paths": 7,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 16,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 13,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 80,
+          "hard_pruned": 64,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 64
+          },
+          "retained": 16,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5555686900621969,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 4,
+            "mdt_hardware_paths": 7,
+            "ost_drives": 1,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 16,
+            "cost_usd_deciles_of_limit": [
+              4
+            ],
+            "distinct_power_w": 13,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 96,
+          "hard_pruned": 48,
+          "width_pruned": 32,
+          "pruning_reason_counts": {
+            "beam_width_limit": 32,
+            "no_compatible_completion": 48
+          },
+          "retained": 16,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5698120665205546,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 4,
+            "ost_drives": 1,
+            "ost_protections": 2,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 16,
+            "cost_usd_deciles_of_limit": [
+              5
+            ],
+            "distinct_power_w": 13,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 16,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 16,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5698120665205546,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 2,
+            "mdt_hardware_paths": 4,
+            "ost_drives": 1,
+            "ost_protections": 2,
+            "ost_hardware_paths": 2,
+            "distinct_cost_usd": 16,
+            "cost_usd_deciles_of_limit": [
+              6
+            ],
+            "distinct_power_w": 13,
+            "power_w_deciles_of_limit": [
+              2
+            ]
+          }
+        }
+      ],
+      "lookahead_trace": [
+        {
+          "search_stage": "LOOKAHEAD_MDT",
+          "branches_created": 65,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "role_options": 30,
+          "prefix_envelopes": 66
+        },
+        {
+          "search_stage": "LOOKAHEAD_OST",
+          "branches_created": 65,
+          "hard_pruned": 27,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 9,
+            "power_lower_bound_exceeded": 24
+          },
+          "role_options": 3,
+          "prefix_envelopes": 8
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.07657959999050945,
+      "runtime_samples_seconds": [
+        0.07648759998846799,
+        0.07667159999255091
+      ],
+      "branches_created": 557,
+      "branches_explored": 557,
+      "branches_pruned": 295,
+      "hard_pruned": 237,
+      "width_pruned": 58,
+      "pruning_reason_counts": {
+        "beam_width_limit": 58,
+        "budget_lower_bound_exceeded": 9,
+        "no_compatible_completion": 210,
+        "power_lower_bound_exceeded": 24
+      },
+      "h5_calls": 60,
+      "h6_calls": 60,
+      "max_active_states": 32,
+      "complete_architectures_produced": 32,
+      "h10_calls": 32,
+      "valid_architecture_count": 32,
+      "best_architecture_id": "ARCH_REQ_000003_5cc79136bc6700f8",
+      "local_final_h9_score": 0.8260797065483494,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7982907022458036,
+        "exhaustive_best_h9_score": 0.8313385809399926,
+        "common_score_regret": 0.033047878694189015,
+        "relative_quality": 0.9602473896293592,
+        "exhaustive_valid_rank": 22,
+        "exhaustive_pool_rank": 22,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "beam_architecture_id": "ARCH_REQ_000003_5cc79136bc6700f8",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 32,
+        "exhaustive_valid_recall": 0.35555555555555557,
+        "retained_best_in_common_pool": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.033047878694189015,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4695280.0,
+            "maximum": 9410540.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 500548.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 5158030.0,
+            "maximum": 5315300.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33062.0,
+            "maximum": 33837.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        }
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9644444444444444,
+      "exhaustive_runtime_seconds": 1.3870071000419557,
+      "speedup": 18.111965852705527,
+      "main_search_branches_created": 427,
+      "lookahead_branches_created": 130,
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      },
+      "search_trace": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 5,
+          "best_retained_score": 0.5731281441294137,
+          "worst_retained_score": 0.5728147622447094,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 5,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 150,
+          "hard_pruned": 120,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 120
+          },
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 1,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              4
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 180,
+          "hard_pruned": 90,
+          "width_pruned": 58,
+          "pruning_reason_counts": {
+            "beam_width_limit": 58,
+            "no_compatible_completion": 90
+          },
+          "retained": 32,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5546259164282392,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 5,
+            "mdt_hardware_paths": 8,
+            "ost_drives": 1,
+            "ost_protections": 2,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 29,
+            "cost_usd_deciles_of_limit": [
+              5
+            ],
+            "distinct_power_w": 23,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 32,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 32,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5546259164282392,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 5,
+            "mdt_hardware_paths": 8,
+            "ost_drives": 1,
+            "ost_protections": 2,
+            "ost_hardware_paths": 2,
+            "distinct_cost_usd": 29,
+            "cost_usd_deciles_of_limit": [
+              6
+            ],
+            "distinct_power_w": 23,
+            "power_w_deciles_of_limit": [
+              2
+            ]
+          }
+        }
+      ],
+      "lookahead_trace": [
+        {
+          "search_stage": "LOOKAHEAD_MDT",
+          "branches_created": 65,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "role_options": 30,
+          "prefix_envelopes": 66
+        },
+        {
+          "search_stage": "LOOKAHEAD_OST",
+          "branches_created": 65,
+          "hard_pruned": 27,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 9,
+            "power_lower_bound_exceeded": 24
+          },
+          "role_options": 3,
+          "prefix_envelopes": 8
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 64,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.12877225002739578,
+      "runtime_samples_seconds": [
+        0.12778990005608648,
+        0.1297545999987051
+      ],
+      "branches_created": 589,
+      "branches_explored": 589,
+      "branches_pruned": 263,
+      "hard_pruned": 237,
+      "width_pruned": 26,
+      "pruning_reason_counts": {
+        "beam_width_limit": 26,
+        "budget_lower_bound_exceeded": 9,
+        "no_compatible_completion": 210,
+        "power_lower_bound_exceeded": 24
+      },
+      "h5_calls": 60,
+      "h6_calls": 60,
+      "max_active_states": 64,
+      "complete_architectures_produced": 64,
+      "h10_calls": 64,
+      "valid_architecture_count": 64,
+      "best_architecture_id": "ARCH_REQ_000003_d069b0d787cb156c",
+      "local_final_h9_score": 0.8400577549412159,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8312160829581597,
+        "exhaustive_best_h9_score": 0.8313385809399926,
+        "common_score_regret": 0.00012249798183283644,
+        "relative_quality": 0.9998526497089858,
+        "exhaustive_valid_rank": 2,
+        "exhaustive_pool_rank": 2,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "beam_architecture_id": "ARCH_REQ_000003_d069b0d787cb156c",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 64,
+        "exhaustive_valid_recall": 0.7111111111111111,
+        "retained_best_in_common_pool": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.00012249798183283644,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4695280.0,
+            "maximum": 9410540.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 500548.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 5156000.0,
+            "maximum": 5664860.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 35788.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        }
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9288888888888889,
+      "exhaustive_runtime_seconds": 1.3870071000419557,
+      "speedup": 10.771009279925414,
+      "main_search_branches_created": 459,
+      "lookahead_branches_created": 130,
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      },
+      "search_trace": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 5,
+          "best_retained_score": 0.5731281441294137,
+          "worst_retained_score": 0.5728147622447094,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 5,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 150,
+          "hard_pruned": 120,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 120
+          },
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 1,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              4
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 180,
+          "hard_pruned": 90,
+          "width_pruned": 26,
+          "pruning_reason_counts": {
+            "beam_width_limit": 26,
+            "no_compatible_completion": 90
+          },
+          "retained": 64,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5474364723434972,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 1,
+            "ost_protections": 3,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 54,
+            "cost_usd_deciles_of_limit": [
+              5,
+              6
+            ],
+            "distinct_power_w": 44,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 64,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 64,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5474364723434972,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 1,
+            "ost_protections": 3,
+            "ost_hardware_paths": 3,
+            "distinct_cost_usd": 54,
+            "cost_usd_deciles_of_limit": [
+              6
+            ],
+            "distinct_power_w": 44,
+            "power_w_deciles_of_limit": [
+              2,
+              3
+            ]
+          }
+        }
+      ],
+      "lookahead_trace": [
+        {
+          "search_stage": "LOOKAHEAD_MDT",
+          "branches_created": 65,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "role_options": 30,
+          "prefix_envelopes": 66
+        },
+        {
+          "search_stage": "LOOKAHEAD_OST",
+          "branches_created": 65,
+          "hard_pruned": 27,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 9,
+            "power_lower_bound_exceeded": 24
+          },
+          "role_options": 3,
+          "prefix_envelopes": 8
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000003",
+      "requested_top_k": 5,
+      "actual_top_k": {
+        "mdt": 5,
+        "ost": 5
+      },
+      "beam_width": 1024,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_seconds": 0.17180229997029528,
+      "runtime_samples_seconds": [
+        0.17532329994719476,
+        0.1682812999933958
+      ],
+      "branches_created": 615,
+      "branches_explored": 615,
+      "branches_pruned": 237,
+      "hard_pruned": 237,
+      "width_pruned": 0,
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 9,
+        "no_compatible_completion": 210,
+        "power_lower_bound_exceeded": 24
+      },
+      "h5_calls": 60,
+      "h6_calls": 60,
+      "max_active_states": 90,
+      "complete_architectures_produced": 90,
+      "h10_calls": 90,
+      "valid_architecture_count": 90,
+      "best_architecture_id": "ARCH_REQ_000003_d069b0d787cb156c",
+      "local_final_h9_score": 0.8400577549412159,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8312160829581597,
+        "exhaustive_best_h9_score": 0.8313385809399926,
+        "common_score_regret": 0.00012249798183283644,
+        "relative_quality": 0.9998526497089858,
+        "exhaustive_valid_rank": 2,
+        "exhaustive_pool_rank": 2,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "beam_architecture_id": "ARCH_REQ_000003_d069b0d787cb156c",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 90,
+        "exhaustive_valid_recall": 1.0,
+        "retained_best_in_common_pool": "ARCH_REQ_000003_d6d34b86f177b1cd",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.00012249798183283644,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4695280.0,
+            "maximum": 9410540.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 500548.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 5156000.0,
+            "maximum": 5664860.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 33032.0,
+            "maximum": 35788.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        }
+      },
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_potential_pairs": 900,
+      "materialization_reduction": 0.9,
+      "exhaustive_runtime_seconds": 1.3870071000419557,
+      "speedup": 8.073274340807837,
+      "main_search_branches_created": 485,
+      "lookahead_branches_created": 130,
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      },
+      "search_trace": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 5,
+          "best_retained_score": 0.5731281441294137,
+          "worst_retained_score": 0.5728147622447094,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 5,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 4,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 0,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 0,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              0
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              0
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 150,
+          "hard_pruned": 120,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 120
+          },
+          "retained": 30,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.55000039192449,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 1,
+            "ost_protections": 0,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 25,
+            "cost_usd_deciles_of_limit": [
+              4
+            ],
+            "distinct_power_w": 20,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 180,
+          "hard_pruned": 90,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "no_compatible_completion": 90
+          },
+          "retained": 90,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5249039907203663,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 1,
+            "ost_protections": 3,
+            "ost_hardware_paths": 0,
+            "distinct_cost_usd": 75,
+            "cost_usd_deciles_of_limit": [
+              5,
+              6
+            ],
+            "distinct_power_w": 60,
+            "power_w_deciles_of_limit": [
+              1
+            ]
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 90,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 90,
+          "best_retained_score": 0.5727280426533545,
+          "worst_retained_score": 0.5249039907203663,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "ost_drives": 1,
+            "ost_protections": 3,
+            "ost_hardware_paths": 3,
+            "distinct_cost_usd": 75,
+            "cost_usd_deciles_of_limit": [
+              6
+            ],
+            "distinct_power_w": 60,
+            "power_w_deciles_of_limit": [
+              2,
+              3
+            ]
+          }
+        }
+      ],
+      "lookahead_trace": [
+        {
+          "search_stage": "LOOKAHEAD_MDT",
+          "branches_created": 65,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "role_options": 30,
+          "prefix_envelopes": 66
+        },
+        {
+          "search_stage": "LOOKAHEAD_OST",
+          "branches_created": 65,
+          "hard_pruned": 27,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 9,
+            "power_lower_bound_exceeded": 24
+          },
+          "role_options": 3,
+          "prefix_envelopes": 8
+        }
+      ]
+    }
+  ],
+  "aggregates": [
+    {
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "cases": 1,
+      "errors": 0,
+      "feasible_solution_rate": 1.0,
+      "mean_runtime_seconds": 0.006667850015219301,
+      "total_branches_explored": 154,
+      "total_branches_pruned": 45,
+      "total_hard_pruned": 34,
+      "total_width_pruned": 11,
+      "total_h10_calls": 1,
+      "total_valid_architecture_count": 1,
+      "total_complete_architectures_produced": 1,
+      "quality_comparisons": 1,
+      "mean_relative_quality": 0.9748060079582274,
+      "mean_common_score_regret": 0.020944737592220708,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 208.01414202121012
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 2,
+      "cases": 1,
+      "errors": 0,
+      "feasible_solution_rate": 1.0,
+      "mean_runtime_seconds": 0.00863319996278733,
+      "total_branches_explored": 173,
+      "total_branches_pruned": 58,
+      "total_hard_pruned": 41,
+      "total_width_pruned": 17,
+      "total_h10_calls": 2,
+      "total_valid_architecture_count": 2,
+      "total_complete_architectures_produced": 2,
+      "quality_comparisons": 1,
+      "mean_relative_quality": 0.9758029382926339,
+      "mean_common_score_regret": 0.02011595094271923,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 160.65967497805346
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 4,
+      "cases": 1,
+      "errors": 0,
+      "feasible_solution_rate": 1.0,
+      "mean_runtime_seconds": 0.013237900042440742,
+      "total_branches_explored": 211,
+      "total_branches_pruned": 84,
+      "total_hard_pruned": 55,
+      "total_width_pruned": 29,
+      "total_h10_calls": 4,
+      "total_valid_architecture_count": 4,
+      "total_complete_architectures_produced": 4,
+      "quality_comparisons": 1,
+      "mean_relative_quality": 1.0,
+      "mean_common_score_regret": 0.0,
+      "best_id_matches": 1,
+      "best_score_matches": 1,
+      "mean_speedup": 104.77546254279058
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 8,
+      "cases": 1,
+      "errors": 0,
+      "feasible_solution_rate": 1.0,
+      "mean_runtime_seconds": 0.02215269999578595,
+      "total_branches_explored": 269,
+      "total_branches_pruned": 121,
+      "total_hard_pruned": 83,
+      "total_width_pruned": 38,
+      "total_h10_calls": 8,
+      "total_valid_architecture_count": 8,
+      "total_complete_architectures_produced": 8,
+      "quality_comparisons": 1,
+      "mean_relative_quality": 0.9757895995156349,
+      "mean_common_score_regret": 0.020127039982660966,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 62.61119864873367
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 16,
+      "cases": 1,
+      "errors": 0,
+      "feasible_solution_rate": 1.0,
+      "mean_runtime_seconds": 0.04141000006347895,
+      "total_branches_explored": 373,
+      "total_branches_pruned": 185,
+      "total_hard_pruned": 139,
+      "total_width_pruned": 46,
+      "total_h10_calls": 16,
+      "total_valid_architecture_count": 16,
+      "total_complete_architectures_produced": 16,
+      "quality_comparisons": 1,
+      "mean_relative_quality": 0.9998526497089858,
+      "mean_common_score_regret": 0.00012249798183283644,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 33.49449644809854
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 32,
+      "cases": 1,
+      "errors": 0,
+      "feasible_solution_rate": 1.0,
+      "mean_runtime_seconds": 0.07657959999050945,
+      "total_branches_explored": 557,
+      "total_branches_pruned": 295,
+      "total_hard_pruned": 237,
+      "total_width_pruned": 58,
+      "total_h10_calls": 32,
+      "total_valid_architecture_count": 32,
+      "total_complete_architectures_produced": 32,
+      "quality_comparisons": 1,
+      "mean_relative_quality": 0.9602473896293592,
+      "mean_common_score_regret": 0.033047878694189015,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 18.111965852705527
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 64,
+      "cases": 1,
+      "errors": 0,
+      "feasible_solution_rate": 1.0,
+      "mean_runtime_seconds": 0.12877225002739578,
+      "total_branches_explored": 589,
+      "total_branches_pruned": 263,
+      "total_hard_pruned": 237,
+      "total_width_pruned": 26,
+      "total_h10_calls": 64,
+      "total_valid_architecture_count": 64,
+      "total_complete_architectures_produced": 64,
+      "quality_comparisons": 1,
+      "mean_relative_quality": 0.9998526497089858,
+      "mean_common_score_regret": 0.00012249798183283644,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 10.771009279925414
+    },
+    {
+      "requested_top_k": 5,
+      "beam_width": 1024,
+      "cases": 1,
+      "errors": 0,
+      "feasible_solution_rate": 1.0,
+      "mean_runtime_seconds": 0.17180229997029528,
+      "total_branches_explored": 615,
+      "total_branches_pruned": 237,
+      "total_hard_pruned": 237,
+      "total_width_pruned": 0,
+      "total_h10_calls": 90,
+      "total_valid_architecture_count": 90,
+      "total_complete_architectures_produced": 90,
+      "quality_comparisons": 1,
+      "mean_relative_quality": 0.9998526497089858,
+      "mean_common_score_regret": 0.00012249798183283644,
+      "best_id_matches": 0,
+      "best_score_matches": 0,
+      "mean_speedup": 8.073274340807837
+    }
+  ],
+  "validated_example": {
+    "case_id": "REQ_000003",
+    "requested_top_k": 5,
+    "beam_width": 1,
+    "requirements": {
+      "MDT_requirement": {
+        "priority": "low",
+        "priority_basis": "normalized_metadata_intensity",
+        "required_total_iops": 567310,
+        "required_read_iops": 453848,
+        "required_write_iops": 113462,
+        "latency_requirement": "moderate",
+        "required_metadata_capacity_tib": 0.01901783,
+        "endurance_requirement": "standard",
+        "reliability_requirement": "medium",
+        "ha_required": false
+      },
+      "OST_requirement": {
+        "priority": "medium",
+        "priority_basis": "normalized_data_intensity",
+        "required_usable_capacity_tib": 56238.75,
+        "required_read_bandwidth_gbps": 40.0,
+        "required_write_bandwidth_gbps": 10.0,
+        "required_total_bandwidth_gbps": 50.0,
+        "throughput_requirement": "low",
+        "input_bandwidth_level": "low",
+        "data_pressure": "low",
+        "access_pattern": "mixed",
+        "file_size_class": "medium_files",
+        "reliability_requirement": "medium",
+        "ha_required": false
+      },
+      "constraints": {
+        "ha_required": false,
+        "max_budget_usd": 8420337.0,
+        "max_power_w": 117207.0
+      },
+      "preferences": {
+        "performance_priority": 0.096,
+        "cost_priority": 0.283,
+        "power_priority": 0.245,
+        "reliability_priority": 0.376
+      },
+      "workload_analysis": {
+        "workload_type": "data_heavy",
+        "metadata_score": 0.079352,
+        "data_score": 0.312191,
+        "score_difference": -0.232839,
+        "file_size_class": "medium_files",
+        "access_type": "mixed",
+        "parallelism_level": "high",
+        "bandwidth_level": "low"
+      },
+      "role_analysis": {
+        "role_dominance": {
+          "primary_role": "OST",
+          "secondary_role": "data"
+        },
+        "absolute_importance": {
+          "mdt_importance": "low",
+          "ost_importance": "medium"
+        },
+        "interpretation": "La dominance compare MDT et OST ; l'importance mesure chaque plan indépendamment."
+      }
+    },
+    "architecture": {
+      "architecture_id": "ARCH_REQ_000003_9313c45a479ea59e",
+      "case_id": "REQ_000003",
+      "state": {
+        "schema_version": "1.1",
+        "case_id": "REQ_000003",
+        "stage": "COMPLETE",
+        "source": {
+          "handoff_schema_version": "1.0",
+          "requested_top_k": 5,
+          "ranking_provenance": {
+            "mdt": {
+              "model_family": "LightGBM",
+              "model_type": "LGBMRanker",
+              "model_seed": 168,
+              "feature_count": 49,
+              "feasible_candidate_count": 176
+            },
+            "ost": {
+              "model_family": "LightGBM",
+              "model_type": "LGBMRanker",
+              "model_seed": 84,
+              "feature_count": 52,
+              "feasible_candidate_count": 76
+            },
+            "ost_diversification": {
+              "global_top_count": 4,
+              "diversification_pool_size": 40,
+              "maximum_specialized_ml_rank": 39,
+              "media_distribution": {
+                "HDD": 4,
+                "SSD": 1
+              }
+            }
+          }
+        },
+        "requirements": {
+          "MDT_requirement": {
+            "priority": "low",
+            "priority_basis": "normalized_metadata_intensity",
+            "required_total_iops": 567310,
+            "required_read_iops": 453848,
+            "required_write_iops": 113462,
+            "latency_requirement": "moderate",
+            "required_metadata_capacity_tib": 0.01901783,
+            "endurance_requirement": "standard",
+            "reliability_requirement": "medium",
+            "ha_required": false
+          },
+          "OST_requirement": {
+            "priority": "medium",
+            "priority_basis": "normalized_data_intensity",
+            "required_usable_capacity_tib": 56238.75,
+            "required_read_bandwidth_gbps": 40.0,
+            "required_write_bandwidth_gbps": 10.0,
+            "required_total_bandwidth_gbps": 50.0,
+            "throughput_requirement": "low",
+            "input_bandwidth_level": "low",
+            "data_pressure": "low",
+            "access_pattern": "mixed",
+            "file_size_class": "medium_files",
+            "reliability_requirement": "medium",
+            "ha_required": false
+          },
+          "constraints": {
+            "ha_required": false,
+            "max_budget_usd": 8420337.0,
+            "max_power_w": 117207.0
+          },
+          "preferences": {
+            "performance_priority": 0.096,
+            "cost_priority": 0.283,
+            "power_priority": 0.245,
+            "reliability_priority": 0.376
+          },
+          "workload_analysis": {
+            "workload_type": "data_heavy",
+            "metadata_score": 0.079352,
+            "data_score": 0.312191,
+            "score_difference": -0.232839,
+            "file_size_class": "medium_files",
+            "access_type": "mixed",
+            "parallelism_level": "high",
+            "bandwidth_level": "low"
+          },
+          "role_analysis": {
+            "role_dominance": {
+              "primary_role": "OST",
+              "secondary_role": "data"
+            },
+            "absolute_importance": {
+              "mdt_importance": "low",
+              "ost_importance": "medium"
+            },
+            "interpretation": "La dominance compare MDT et OST ; l'importance mesure chaque plan indépendamment."
+          }
+        },
+        "selected": {
+          "mdt_drive": {
+            "drive_id": "DRV_000023",
+            "drive_name": "Samsung PM9D3a 3.84TB (MZWL63T8HFLT-00AW7)",
+            "manufacturer": "Samsung",
+            "series": "PM9D3a",
+            "media_type": "SSD",
+            "catalog_id": "69a952595511c60848cb7749",
+            "model_number": "MZWL63T8HFLT-00AW7"
+          },
+          "ost_drive": {
+            "drive_id": "DRV_000137",
+            "drive_name": "SBFPF2BV0P12001",
+            "manufacturer": "Solidigm",
+            "series": "D5-P5336",
+            "media_type": "SSD",
+            "catalog_id": "6a5970807a075c726455e56b",
+            "model_number": "SBFPF2BV0P12001"
+          },
+          "mdt_protection": {
+            "role": "MDT",
+            "drive_id": "DRV_000023",
+            "protection_profile_id": "PROT_RAID6_12",
+            "raid_level": "RAID6",
+            "raw_minimum_drive_count": 1,
+            "group_count": 1,
+            "group_size": 12,
+            "data_drives_per_group": 10,
+            "parity_drives_per_group": 2,
+            "mirror_copies": 1,
+            "physical_drive_count": 12,
+            "counts_basis": {
+              "lower_bound": 1,
+              "capacity": 1,
+              "read_iops": 1,
+              "write_iops": 1
+            },
+            "per_drive": {
+              "capacity_tib": 3.49246,
+              "read_iops": 2000000.0,
+              "write_iops": 400000.0
+            },
+            "provided": {
+              "usable_capacity_tib": 34.9246,
+              "read_iops": 22080000.0,
+              "write_iops": 2640000.0
+            },
+            "requirements": {
+              "usable_capacity_tib": 0.01901783,
+              "read_iops": 453848.0,
+              "write_iops": 113462.0
+            },
+            "satisfied": {
+              "capacity": true,
+              "read_iops": true,
+              "write_iops": true
+            },
+            "fault_tolerance_drives_per_group": 2,
+            "per_drive_cost_usd": 1000.0,
+            "per_drive_power_w": 12.5,
+            "protected_drive_cost_usd": 12000.0,
+            "protected_drive_power_w": 150.0
+          },
+          "ost_protection": {
+            "role": "OST",
+            "drive_id": "DRV_000137",
+            "protection_profile_id": "PROT_RAID6_12",
+            "raid_level": "RAID6",
+            "raw_minimum_drive_count": 504,
+            "group_count": 51,
+            "group_size": 12,
+            "data_drives_per_group": 10,
+            "parity_drives_per_group": 2,
+            "mirror_copies": 1,
+            "physical_drive_count": 612,
+            "counts_basis": {
+              "lower_bound": 42,
+              "capacity": 51,
+              "read_bandwidth": 1,
+              "write_bandwidth": 1,
+              "total_bandwidth": 1
+            },
+            "per_drive": {
+              "capacity_tib": 111.758709,
+              "read_bandwidth_gb_s": 7.0,
+              "write_bandwidth_gb_s": 3.0
+            },
+            "provided": {
+              "usable_capacity_tib": 56996.94159,
+              "read_bandwidth_gb_s": 3941.28,
+              "write_bandwidth_gb_s": 1009.8000000000001,
+              "total_bandwidth_gb_s": 4951.08
+            },
+            "requirements": {
+              "usable_capacity_tib": 56238.75,
+              "read_bandwidth_gb_s": 40.0,
+              "write_bandwidth_gb_s": 10.0,
+              "total_bandwidth_gb_s": 50.0
+            },
+            "satisfied": {
+              "capacity": true,
+              "read_bandwidth": true,
+              "write_bandwidth": true,
+              "total_bandwidth": true
+            },
+            "fault_tolerance_drives_per_group": 2,
+            "per_drive_cost_usd": 7955.0,
+            "per_drive_power_w": 24.0,
+            "protected_drive_cost_usd": 4868460.0,
+            "protected_drive_power_w": 14688.0
+          },
+          "mdt_hardware_path": {
+            "compatible": true,
+            "role": "MDT",
+            "attachment_mode": "DIRECT",
+            "drive_id": "DRV_000023",
+            "protection_profile_id": "PROT_RAID6_12",
+            "server_id": "SRV_DUALROLE_01",
+            "controller_id": "CTRL_NVME_G5X16_01",
+            "enclosure_id": null,
+            "network_id": "NET_ETH100_01",
+            "ha_profile_id": "HA_NONE",
+            "minimum_resources": {
+              "physical_drive_count": 12,
+              "server_count": 1,
+              "controller_count": 2,
+              "enclosure_count": 0,
+              "network_adapter_count": 1
+            },
+            "bandwidth": {
+              "required_gb_s": 0.0,
+              "controller_total_gb_s": 126.0,
+              "network_total_gb_s": 22.5
+            },
+            "component_cost_lower_bound_usd": 12050.0,
+            "component_power_lower_bound_w": 808.0,
+            "violations": []
+          },
+          "ost_hardware_path": {
+            "compatible": true,
+            "role": "OST",
+            "attachment_mode": "DIRECT",
+            "drive_id": "DRV_000137",
+            "protection_profile_id": "PROT_RAID6_12",
+            "server_id": "SRV_DUALROLE_01",
+            "controller_id": "CTRL_NVME_G4X16_01",
+            "enclosure_id": null,
+            "network_id": "NET_ETH100_01",
+            "ha_profile_id": "HA_NONE",
+            "minimum_resources": {
+              "physical_drive_count": 612,
+              "server_count": 20,
+              "controller_count": 77,
+              "enclosure_count": 0,
+              "network_adapter_count": 20
+            },
+            "bandwidth": {
+              "required_gb_s": 50.0,
+              "controller_total_gb_s": 2425.5,
+              "network_total_gb_s": 450.0
+            },
+            "component_cost_lower_bound_usd": 276800.0,
+            "component_power_lower_bound_w": 17595.0,
+            "violations": []
+          }
+        },
+        "counts": {
+          "mdt_physical_drives": 12,
+          "ost_physical_drives": 612,
+          "mdt_count": 1,
+          "ost_count": 51,
+          "mds_count": 1,
+          "oss_count": 20,
+          "mdt_controller_count": 2,
+          "ost_controller_count": 77,
+          "mdt_enclosure_count": 0,
+          "ost_enclosure_count": 0,
+          "mdt_network_adapter_count": 1,
+          "ost_network_adapter_count": 20
+        },
+        "performance": {
+          "metadata_capacity_tib": 34.9246,
+          "mdt_read_iops": 22080000.0,
+          "mdt_write_iops": 2640000.0,
+          "ost_usable_capacity_tib": 56996.94159,
+          "ost_read_bandwidth_gb_s": 3941.28,
+          "ost_write_bandwidth_gb_s": 1009.8000000000001,
+          "ost_total_bandwidth_gb_s": 4951.08
+        },
+        "cost_power": {
+          "mdt_drive_cost_usd": 12000.0,
+          "ost_drive_cost_usd": 4868460.0,
+          "mdt_hardware_cost_usd": 12050.0,
+          "ost_hardware_cost_usd": 276800.0,
+          "total_cost_usd": 5169310.0,
+          "mdt_drive_power_w": 150.0,
+          "ost_drive_power_w": 14688.0,
+          "mdt_hardware_power_w": 808.0,
+          "ost_hardware_power_w": 17595.0,
+          "total_power_w": 33241.0
+        },
+        "validation": {
+          "is_complete": true,
+          "is_valid": true,
+          "status": "VALIDATED",
+          "violations": [],
+          "full_validator_policy_id": "FULL_ARCH_VALIDATOR_V1"
+        },
+        "trace": [
+          {
+            "sequence": 1,
+            "transition": "select_drives",
+            "stage": "DRIVES_SELECTED",
+            "details": {
+              "mdt_drive_id": "DRV_000023",
+              "ost_drive_id": "DRV_000137"
+            }
+          },
+          {
+            "sequence": 2,
+            "transition": "select_protection",
+            "stage": "PROTECTION_SELECTED",
+            "details": {
+              "mdt_profile": "PROT_RAID6_12",
+              "ost_profile": "PROT_RAID6_12",
+              "mdt_physical_drives": 12,
+              "ost_physical_drives": 612
+            }
+          },
+          {
+            "sequence": 3,
+            "transition": "select_servers",
+            "stage": "SERVERS_SELECTED",
+            "details": {
+              "mds_server_id": "SRV_DUALROLE_01",
+              "oss_server_id": "SRV_DUALROLE_01",
+              "mds_count": 1,
+              "oss_count": 20
+            }
+          },
+          {
+            "sequence": 4,
+            "transition": "select_storage_fabric",
+            "stage": "ENCLOSURES_SELECTED",
+            "details": {
+              "mdt_controller_id": "CTRL_NVME_G5X16_01",
+              "ost_controller_id": "CTRL_NVME_G4X16_01",
+              "mdt_enclosure_id": null,
+              "ost_enclosure_id": null
+            }
+          },
+          {
+            "sequence": 5,
+            "transition": "select_network_and_ha",
+            "stage": "NETWORK_SELECTED",
+            "details": {
+              "mdt_network_id": "NET_ETH100_01",
+              "ost_network_id": "NET_ETH100_01",
+              "mdt_ha_profile_id": "HA_NONE",
+              "ost_ha_profile_id": "HA_NONE"
+            }
+          },
+          {
+            "sequence": 6,
+            "transition": "finalize_state",
+            "stage": "COMPLETE",
+            "details": {
+              "total_cost_usd": 5169310.0,
+              "total_power_w": 33241.0
+            }
+          }
+        ]
+      },
+      "h9": {
+        "schema_version": "1.0",
+        "scoring_policy_id": "ARCH_SCORE_POLICY_V1",
+        "architecture_id": "ARCH_REQ_000003_9313c45a479ea59e",
+        "case_id": "REQ_000003",
+        "generation_index": 1,
+        "pre_h10_hard_snapshot_passed": true,
+        "score": 0.8389536538309897,
+        "score_direction": "higher_is_better",
+        "components": {
+          "performance": 0.8455820422209583,
+          "cost": 1.0,
+          "power": 1.0,
+          "reliability": 0.611111111111111
+        },
+        "weighted_contributions": {
+          "performance": 0.081175876053212,
+          "cost": 0.283,
+          "power": 0.245,
+          "reliability": 0.22977777777777775
+        },
+        "preference_weights": {
+          "performance_priority": 0.096,
+          "cost_priority": 0.283,
+          "power_priority": 0.245,
+          "reliability_priority": 0.376
+        },
+        "performance_explainability": {
+          "score": 0.8455820422209583,
+          "metrics": {
+            "mdt_capacity": {
+              "active": true,
+              "required": 0.01901783,
+              "provided": 34.9246,
+              "ratio": 1836.4135130033237,
+              "headroom_score": 0.9994554603345492,
+              "satisfied": true
+            },
+            "mdt_read_iops": {
+              "active": true,
+              "required": 453848.0,
+              "provided": 22080000.0,
+              "ratio": 48.65064955667977,
+              "headroom_score": 0.9794452898550725,
+              "satisfied": true
+            },
+            "mdt_write_iops": {
+              "active": true,
+              "required": 113462.0,
+              "provided": 2640000.0,
+              "ratio": 23.267701961890324,
+              "headroom_score": 0.9570219696969697,
+              "satisfied": true
+            },
+            "ost_capacity": {
+              "active": true,
+              "required": 56238.75,
+              "provided": 56996.94159,
+              "ratio": 1.0134816579315864,
+              "headroom_score": 0.013302320595619865,
+              "satisfied": true
+            },
+            "ost_read_bandwidth": {
+              "active": true,
+              "required": 40.0,
+              "provided": 3941.28,
+              "ratio": 98.53200000000001,
+              "headroom_score": 0.9898510128689156,
+              "satisfied": true
+            },
+            "ost_write_bandwidth": {
+              "active": true,
+              "required": 10.0,
+              "provided": 1009.8000000000001,
+              "ratio": 100.98,
+              "headroom_score": 0.9900970489205784,
+              "satisfied": true
+            },
+            "ost_total_bandwidth": {
+              "active": true,
+              "required": 50.0,
+              "provided": 4951.08,
+              "ratio": 99.02159999999999,
+              "headroom_score": 0.9899011932750026,
+              "satisfied": true
+            }
+          },
+          "all_requirements_satisfied": true
+        },
+        "reliability_explainability": {
+          "score": 0.611111111111111,
+          "drive_score": 0.8333333333333333,
+          "drive_evidence": {
+            "mdt": {
+              "score": 0.6666666666666666,
+              "coverage": 1.0,
+              "media_type": "SSD",
+              "evidence": {
+                "endurance_dwpd": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 1.0,
+                  "score": 0.0
+                },
+                "mtbf_hours": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 2500000.0,
+                  "score": 1.0
+                },
+                "warranty_years": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 5.0,
+                  "score": 1.0
+                },
+                "workload_rating_tb_per_year": {
+                  "applicable": false,
+                  "known": false,
+                  "raw_value": null,
+                  "score": null
+                }
+              },
+              "semantics": "numeric evidence normalized within role + media family; missing applicable evidence receives no reliability credit"
+            },
+            "ost": {
+              "score": 1.0,
+              "coverage": 1.0,
+              "media_type": "SSD",
+              "evidence": {
+                "endurance_dwpd": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 0.6,
+                  "score": 1.0
+                },
+                "mtbf_hours": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 2000000.0,
+                  "score": 1.0
+                },
+                "warranty_years": {
+                  "applicable": true,
+                  "known": true,
+                  "raw_value": 5.0,
+                  "score": 1.0
+                },
+                "workload_rating_tb_per_year": {
+                  "applicable": false,
+                  "known": false,
+                  "raw_value": null,
+                  "score": null
+                }
+              },
+              "semantics": "numeric evidence normalized within role + media family; missing applicable evidence receives no reliability credit"
+            }
+          },
+          "protection_score": 1.0,
+          "ha_score": 0.0,
+          "fault_tolerance_normalizer": 2.0,
+          "semantics": "reference proxy score; not a failure probability or vendor reliability prediction"
+        },
+        "cost_power": {
+          "total_cost_usd": 5169310.0,
+          "total_power_w": 33241.0,
+          "cost_normalization": {
+            "minimum": 5169310.0,
+            "maximum": 5169310.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power_normalization": {
+            "minimum": 33241.0,
+            "maximum": 33241.0,
+            "higher_score_means": "lower_power"
+          }
+        },
+        "hard_constraint_snapshot": {
+          "checks": {
+            "performance_requirements": true,
+            "budget_lower_bound": true,
+            "power_lower_bound": true
+          },
+          "passed": true,
+          "budget": {
+            "maximum_usd": 8420337.0,
+            "architecture_lower_bound_usd": 5169310.0,
+            "satisfied": true
+          },
+          "power": {
+            "maximum_w": 117207.0,
+            "architecture_lower_bound_w": 33241.0,
+            "satisfied": true
+          },
+          "semantics": "pre-score snapshot only; H10 remains the independent full deterministic validator"
+        },
+        "full_validator_applied": false,
+        "beam_search_applied": false,
+        "state_validation_status_preserved": "PENDING_FULL_VALIDATOR",
+        "rank": 1
+      },
+      "h10": {
+        "schema_version": "1.0",
+        "validator_policy_id": "FULL_ARCH_VALIDATOR_V1",
+        "architecture_id": "ARCH_REQ_000003_9313c45a479ea59e",
+        "case_id": "REQ_000003",
+        "valid": true,
+        "decision": "VALID",
+        "violation_count": 0,
+        "violation_categories": {},
+        "violations": [],
+        "hard_requirements": {
+          "mdt_requirements_satisfied": true,
+          "ost_requirements_satisfied": true,
+          "budget": {
+            "maximum_usd": 8420337.0,
+            "recomputed_total_usd": 5169310.0,
+            "satisfied": true
+          },
+          "power": {
+            "maximum_w": 117207.0,
+            "recomputed_total_w": 33241.0,
+            "satisfied": true
+          },
+          "ha": {
+            "required": false,
+            "mdt_satisfied": true,
+            "ost_satisfied": true
+          }
+        },
+        "recomputed": {
+          "mdt_protection": {
+            "role": "MDT",
+            "drive_id": "DRV_000023",
+            "protection_profile_id": "PROT_RAID6_12",
+            "raid_level": "RAID6",
+            "raw_minimum_drive_count": 1,
+            "group_count": 1,
+            "group_size": 12,
+            "data_drives_per_group": 10,
+            "parity_drives_per_group": 2,
+            "mirror_copies": 1,
+            "physical_drive_count": 12,
+            "counts_basis": {
+              "lower_bound": 1,
+              "capacity": 1,
+              "read_iops": 1,
+              "write_iops": 1
+            },
+            "per_drive": {
+              "capacity_tib": 3.49246,
+              "read_iops": 2000000.0,
+              "write_iops": 400000.0
+            },
+            "provided": {
+              "usable_capacity_tib": 34.9246,
+              "read_iops": 22080000.0,
+              "write_iops": 2640000.0
+            },
+            "requirements": {
+              "usable_capacity_tib": 0.01901783,
+              "read_iops": 453848.0,
+              "write_iops": 113462.0
+            },
+            "satisfied": {
+              "capacity": true,
+              "read_iops": true,
+              "write_iops": true
+            },
+            "fault_tolerance_drives_per_group": 2,
+            "per_drive_cost_usd": 1000.0,
+            "per_drive_power_w": 12.5,
+            "protected_drive_cost_usd": 12000.0,
+            "protected_drive_power_w": 150.0
+          },
+          "ost_protection": {
+            "role": "OST",
+            "drive_id": "DRV_000137",
+            "protection_profile_id": "PROT_RAID6_12",
+            "raid_level": "RAID6",
+            "raw_minimum_drive_count": 504,
+            "group_count": 51,
+            "group_size": 12,
+            "data_drives_per_group": 10,
+            "parity_drives_per_group": 2,
+            "mirror_copies": 1,
+            "physical_drive_count": 612,
+            "counts_basis": {
+              "lower_bound": 42,
+              "capacity": 51,
+              "read_bandwidth": 1,
+              "write_bandwidth": 1,
+              "total_bandwidth": 1
+            },
+            "per_drive": {
+              "capacity_tib": 111.758709,
+              "read_bandwidth_gb_s": 7.0,
+              "write_bandwidth_gb_s": 3.0
+            },
+            "provided": {
+              "usable_capacity_tib": 56996.94159,
+              "read_bandwidth_gb_s": 3941.28,
+              "write_bandwidth_gb_s": 1009.8000000000001,
+              "total_bandwidth_gb_s": 4951.08
+            },
+            "requirements": {
+              "usable_capacity_tib": 56238.75,
+              "read_bandwidth_gb_s": 40.0,
+              "write_bandwidth_gb_s": 10.0,
+              "total_bandwidth_gb_s": 50.0
+            },
+            "satisfied": {
+              "capacity": true,
+              "read_bandwidth": true,
+              "write_bandwidth": true,
+              "total_bandwidth": true
+            },
+            "fault_tolerance_drives_per_group": 2,
+            "per_drive_cost_usd": 7955.0,
+            "per_drive_power_w": 24.0,
+            "protected_drive_cost_usd": 4868460.0,
+            "protected_drive_power_w": 14688.0
+          },
+          "mdt_hardware_path": {
+            "compatible": true,
+            "role": "MDT",
+            "attachment_mode": "DIRECT",
+            "drive_id": "DRV_000023",
+            "protection_profile_id": "PROT_RAID6_12",
+            "server_id": "SRV_DUALROLE_01",
+            "controller_id": "CTRL_NVME_G5X16_01",
+            "enclosure_id": null,
+            "network_id": "NET_ETH100_01",
+            "ha_profile_id": "HA_NONE",
+            "minimum_resources": {
+              "physical_drive_count": 12,
+              "server_count": 1,
+              "controller_count": 2,
+              "enclosure_count": 0,
+              "network_adapter_count": 1
+            },
+            "bandwidth": {
+              "required_gb_s": 0.0,
+              "controller_total_gb_s": 126.0,
+              "network_total_gb_s": 22.5
+            },
+            "component_cost_lower_bound_usd": 12050.0,
+            "component_power_lower_bound_w": 808.0,
+            "violations": []
+          },
+          "ost_hardware_path": {
+            "compatible": true,
+            "role": "OST",
+            "attachment_mode": "DIRECT",
+            "drive_id": "DRV_000137",
+            "protection_profile_id": "PROT_RAID6_12",
+            "server_id": "SRV_DUALROLE_01",
+            "controller_id": "CTRL_NVME_G4X16_01",
+            "enclosure_id": null,
+            "network_id": "NET_ETH100_01",
+            "ha_profile_id": "HA_NONE",
+            "minimum_resources": {
+              "physical_drive_count": 612,
+              "server_count": 20,
+              "controller_count": 77,
+              "enclosure_count": 0,
+              "network_adapter_count": 20
+            },
+            "bandwidth": {
+              "required_gb_s": 50.0,
+              "controller_total_gb_s": 2425.5,
+              "network_total_gb_s": 450.0
+            },
+            "component_cost_lower_bound_usd": 276800.0,
+            "component_power_lower_bound_w": 17595.0,
+            "violations": []
+          },
+          "aggregates": {
+            "counts": {
+              "mdt_physical_drives": 12,
+              "ost_physical_drives": 612,
+              "mdt_count": 1,
+              "ost_count": 51,
+              "mds_count": 1,
+              "oss_count": 20,
+              "mdt_controller_count": 2,
+              "ost_controller_count": 77,
+              "mdt_enclosure_count": 0,
+              "ost_enclosure_count": 0,
+              "mdt_network_adapter_count": 1,
+              "ost_network_adapter_count": 20
+            },
+            "performance": {
+              "metadata_capacity_tib": 34.9246,
+              "mdt_read_iops": 22080000.0,
+              "mdt_write_iops": 2640000.0,
+              "ost_usable_capacity_tib": 56996.94159,
+              "ost_read_bandwidth_gb_s": 3941.28,
+              "ost_write_bandwidth_gb_s": 1009.8000000000001,
+              "ost_total_bandwidth_gb_s": 4951.08
+            },
+            "cost_power": {
+              "mdt_drive_cost_usd": 12000.0,
+              "ost_drive_cost_usd": 4868460.0,
+              "mdt_hardware_cost_usd": 12050.0,
+              "ost_hardware_cost_usd": 276800.0,
+              "mdt_drive_power_w": 150.0,
+              "ost_drive_power_w": 14688.0,
+              "mdt_hardware_power_w": 808.0,
+              "ost_hardware_power_w": 17595.0,
+              "total_cost_usd": 5169310.0,
+              "total_power_w": 33241.0
+            }
+          }
+        },
+        "validated_state": {
+          "schema_version": "1.1",
+          "case_id": "REQ_000003",
+          "stage": "COMPLETE",
+          "source": {
+            "handoff_schema_version": "1.0",
+            "requested_top_k": 5,
+            "ranking_provenance": {
+              "mdt": {
+                "model_family": "LightGBM",
+                "model_type": "LGBMRanker",
+                "model_seed": 168,
+                "feature_count": 49,
+                "feasible_candidate_count": 176
+              },
+              "ost": {
+                "model_family": "LightGBM",
+                "model_type": "LGBMRanker",
+                "model_seed": 84,
+                "feature_count": 52,
+                "feasible_candidate_count": 76
+              },
+              "ost_diversification": {
+                "global_top_count": 4,
+                "diversification_pool_size": 40,
+                "maximum_specialized_ml_rank": 39,
+                "media_distribution": {
+                  "HDD": 4,
+                  "SSD": 1
+                }
+              }
+            }
+          },
+          "requirements": {
+            "MDT_requirement": {
+              "priority": "low",
+              "priority_basis": "normalized_metadata_intensity",
+              "required_total_iops": 567310,
+              "required_read_iops": 453848,
+              "required_write_iops": 113462,
+              "latency_requirement": "moderate",
+              "required_metadata_capacity_tib": 0.01901783,
+              "endurance_requirement": "standard",
+              "reliability_requirement": "medium",
+              "ha_required": false
+            },
+            "OST_requirement": {
+              "priority": "medium",
+              "priority_basis": "normalized_data_intensity",
+              "required_usable_capacity_tib": 56238.75,
+              "required_read_bandwidth_gbps": 40.0,
+              "required_write_bandwidth_gbps": 10.0,
+              "required_total_bandwidth_gbps": 50.0,
+              "throughput_requirement": "low",
+              "input_bandwidth_level": "low",
+              "data_pressure": "low",
+              "access_pattern": "mixed",
+              "file_size_class": "medium_files",
+              "reliability_requirement": "medium",
+              "ha_required": false
+            },
+            "constraints": {
+              "ha_required": false,
+              "max_budget_usd": 8420337.0,
+              "max_power_w": 117207.0
+            },
+            "preferences": {
+              "performance_priority": 0.096,
+              "cost_priority": 0.283,
+              "power_priority": 0.245,
+              "reliability_priority": 0.376
+            },
+            "workload_analysis": {
+              "workload_type": "data_heavy",
+              "metadata_score": 0.079352,
+              "data_score": 0.312191,
+              "score_difference": -0.232839,
+              "file_size_class": "medium_files",
+              "access_type": "mixed",
+              "parallelism_level": "high",
+              "bandwidth_level": "low"
+            },
+            "role_analysis": {
+              "role_dominance": {
+                "primary_role": "OST",
+                "secondary_role": "data"
+              },
+              "absolute_importance": {
+                "mdt_importance": "low",
+                "ost_importance": "medium"
+              },
+              "interpretation": "La dominance compare MDT et OST ; l'importance mesure chaque plan indépendamment."
+            }
+          },
+          "selected": {
+            "mdt_drive": {
+              "drive_id": "DRV_000023",
+              "drive_name": "Samsung PM9D3a 3.84TB (MZWL63T8HFLT-00AW7)",
+              "manufacturer": "Samsung",
+              "series": "PM9D3a",
+              "media_type": "SSD",
+              "catalog_id": "69a952595511c60848cb7749",
+              "model_number": "MZWL63T8HFLT-00AW7"
+            },
+            "ost_drive": {
+              "drive_id": "DRV_000137",
+              "drive_name": "SBFPF2BV0P12001",
+              "manufacturer": "Solidigm",
+              "series": "D5-P5336",
+              "media_type": "SSD",
+              "catalog_id": "6a5970807a075c726455e56b",
+              "model_number": "SBFPF2BV0P12001"
+            },
+            "mdt_protection": {
+              "role": "MDT",
+              "drive_id": "DRV_000023",
+              "protection_profile_id": "PROT_RAID6_12",
+              "raid_level": "RAID6",
+              "raw_minimum_drive_count": 1,
+              "group_count": 1,
+              "group_size": 12,
+              "data_drives_per_group": 10,
+              "parity_drives_per_group": 2,
+              "mirror_copies": 1,
+              "physical_drive_count": 12,
+              "counts_basis": {
+                "lower_bound": 1,
+                "capacity": 1,
+                "read_iops": 1,
+                "write_iops": 1
+              },
+              "per_drive": {
+                "capacity_tib": 3.49246,
+                "read_iops": 2000000.0,
+                "write_iops": 400000.0
+              },
+              "provided": {
+                "usable_capacity_tib": 34.9246,
+                "read_iops": 22080000.0,
+                "write_iops": 2640000.0
+              },
+              "requirements": {
+                "usable_capacity_tib": 0.01901783,
+                "read_iops": 453848.0,
+                "write_iops": 113462.0
+              },
+              "satisfied": {
+                "capacity": true,
+                "read_iops": true,
+                "write_iops": true
+              },
+              "fault_tolerance_drives_per_group": 2,
+              "per_drive_cost_usd": 1000.0,
+              "per_drive_power_w": 12.5,
+              "protected_drive_cost_usd": 12000.0,
+              "protected_drive_power_w": 150.0
+            },
+            "ost_protection": {
+              "role": "OST",
+              "drive_id": "DRV_000137",
+              "protection_profile_id": "PROT_RAID6_12",
+              "raid_level": "RAID6",
+              "raw_minimum_drive_count": 504,
+              "group_count": 51,
+              "group_size": 12,
+              "data_drives_per_group": 10,
+              "parity_drives_per_group": 2,
+              "mirror_copies": 1,
+              "physical_drive_count": 612,
+              "counts_basis": {
+                "lower_bound": 42,
+                "capacity": 51,
+                "read_bandwidth": 1,
+                "write_bandwidth": 1,
+                "total_bandwidth": 1
+              },
+              "per_drive": {
+                "capacity_tib": 111.758709,
+                "read_bandwidth_gb_s": 7.0,
+                "write_bandwidth_gb_s": 3.0
+              },
+              "provided": {
+                "usable_capacity_tib": 56996.94159,
+                "read_bandwidth_gb_s": 3941.28,
+                "write_bandwidth_gb_s": 1009.8000000000001,
+                "total_bandwidth_gb_s": 4951.08
+              },
+              "requirements": {
+                "usable_capacity_tib": 56238.75,
+                "read_bandwidth_gb_s": 40.0,
+                "write_bandwidth_gb_s": 10.0,
+                "total_bandwidth_gb_s": 50.0
+              },
+              "satisfied": {
+                "capacity": true,
+                "read_bandwidth": true,
+                "write_bandwidth": true,
+                "total_bandwidth": true
+              },
+              "fault_tolerance_drives_per_group": 2,
+              "per_drive_cost_usd": 7955.0,
+              "per_drive_power_w": 24.0,
+              "protected_drive_cost_usd": 4868460.0,
+              "protected_drive_power_w": 14688.0
+            },
+            "mdt_hardware_path": {
+              "compatible": true,
+              "role": "MDT",
+              "attachment_mode": "DIRECT",
+              "drive_id": "DRV_000023",
+              "protection_profile_id": "PROT_RAID6_12",
+              "server_id": "SRV_DUALROLE_01",
+              "controller_id": "CTRL_NVME_G5X16_01",
+              "enclosure_id": null,
+              "network_id": "NET_ETH100_01",
+              "ha_profile_id": "HA_NONE",
+              "minimum_resources": {
+                "physical_drive_count": 12,
+                "server_count": 1,
+                "controller_count": 2,
+                "enclosure_count": 0,
+                "network_adapter_count": 1
+              },
+              "bandwidth": {
+                "required_gb_s": 0.0,
+                "controller_total_gb_s": 126.0,
+                "network_total_gb_s": 22.5
+              },
+              "component_cost_lower_bound_usd": 12050.0,
+              "component_power_lower_bound_w": 808.0,
+              "violations": []
+            },
+            "ost_hardware_path": {
+              "compatible": true,
+              "role": "OST",
+              "attachment_mode": "DIRECT",
+              "drive_id": "DRV_000137",
+              "protection_profile_id": "PROT_RAID6_12",
+              "server_id": "SRV_DUALROLE_01",
+              "controller_id": "CTRL_NVME_G4X16_01",
+              "enclosure_id": null,
+              "network_id": "NET_ETH100_01",
+              "ha_profile_id": "HA_NONE",
+              "minimum_resources": {
+                "physical_drive_count": 612,
+                "server_count": 20,
+                "controller_count": 77,
+                "enclosure_count": 0,
+                "network_adapter_count": 20
+              },
+              "bandwidth": {
+                "required_gb_s": 50.0,
+                "controller_total_gb_s": 2425.5,
+                "network_total_gb_s": 450.0
+              },
+              "component_cost_lower_bound_usd": 276800.0,
+              "component_power_lower_bound_w": 17595.0,
+              "violations": []
+            }
+          },
+          "counts": {
+            "mdt_physical_drives": 12,
+            "ost_physical_drives": 612,
+            "mdt_count": 1,
+            "ost_count": 51,
+            "mds_count": 1,
+            "oss_count": 20,
+            "mdt_controller_count": 2,
+            "ost_controller_count": 77,
+            "mdt_enclosure_count": 0,
+            "ost_enclosure_count": 0,
+            "mdt_network_adapter_count": 1,
+            "ost_network_adapter_count": 20
+          },
+          "performance": {
+            "metadata_capacity_tib": 34.9246,
+            "mdt_read_iops": 22080000.0,
+            "mdt_write_iops": 2640000.0,
+            "ost_usable_capacity_tib": 56996.94159,
+            "ost_read_bandwidth_gb_s": 3941.28,
+            "ost_write_bandwidth_gb_s": 1009.8000000000001,
+            "ost_total_bandwidth_gb_s": 4951.08
+          },
+          "cost_power": {
+            "mdt_drive_cost_usd": 12000.0,
+            "ost_drive_cost_usd": 4868460.0,
+            "mdt_hardware_cost_usd": 12050.0,
+            "ost_hardware_cost_usd": 276800.0,
+            "total_cost_usd": 5169310.0,
+            "mdt_drive_power_w": 150.0,
+            "ost_drive_power_w": 14688.0,
+            "mdt_hardware_power_w": 808.0,
+            "ost_hardware_power_w": 17595.0,
+            "total_power_w": 33241.0
+          },
+          "validation": {
+            "is_complete": true,
+            "is_valid": true,
+            "status": "VALIDATED",
+            "violations": [],
+            "full_validator_policy_id": "FULL_ARCH_VALIDATOR_V1"
+          },
+          "trace": [
+            {
+              "sequence": 1,
+              "transition": "select_drives",
+              "stage": "DRIVES_SELECTED",
+              "details": {
+                "mdt_drive_id": "DRV_000023",
+                "ost_drive_id": "DRV_000137"
+              }
+            },
+            {
+              "sequence": 2,
+              "transition": "select_protection",
+              "stage": "PROTECTION_SELECTED",
+              "details": {
+                "mdt_profile": "PROT_RAID6_12",
+                "ost_profile": "PROT_RAID6_12",
+                "mdt_physical_drives": 12,
+                "ost_physical_drives": 612
+              }
+            },
+            {
+              "sequence": 3,
+              "transition": "select_servers",
+              "stage": "SERVERS_SELECTED",
+              "details": {
+                "mds_server_id": "SRV_DUALROLE_01",
+                "oss_server_id": "SRV_DUALROLE_01",
+                "mds_count": 1,
+                "oss_count": 20
+              }
+            },
+            {
+              "sequence": 4,
+              "transition": "select_storage_fabric",
+              "stage": "ENCLOSURES_SELECTED",
+              "details": {
+                "mdt_controller_id": "CTRL_NVME_G5X16_01",
+                "ost_controller_id": "CTRL_NVME_G4X16_01",
+                "mdt_enclosure_id": null,
+                "ost_enclosure_id": null
+              }
+            },
+            {
+              "sequence": 5,
+              "transition": "select_network_and_ha",
+              "stage": "NETWORK_SELECTED",
+              "details": {
+                "mdt_network_id": "NET_ETH100_01",
+                "ost_network_id": "NET_ETH100_01",
+                "mdt_ha_profile_id": "HA_NONE",
+                "ost_ha_profile_id": "HA_NONE"
+              }
+            },
+            {
+              "sequence": 6,
+              "transition": "finalize_state",
+              "stage": "COMPLETE",
+              "details": {
+                "total_cost_usd": 5169310.0,
+                "total_power_w": 33241.0
+              }
+            }
+          ]
+        },
+        "scoring_required": false,
+        "beam_search_applied": false
+      },
+      "search_provenance": {
+        "beam_heuristic": 0.5727280426533545,
+        "trace": [
+          {
+            "branch_id": 4,
+            "parent_branch_id": 0,
+            "depth": 1,
+            "search_stage": "MDT_DRIVE",
+            "drive_id": "DRV_000023",
+            "selection_rank": 4,
+            "ml_rank": 4,
+            "selection_reasons": [
+              "ml_top_k"
+            ],
+            "protection_profile_id": null,
+            "protection_catalog_index": null,
+            "hardware_path_index": null,
+            "physical_stage": "EMPTY",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.5731281441294137,
+              "components": {
+                "ranking": 0.225,
+                "performance": 0.8455820422209582,
+                "cost": 0.6201525912024196,
+                "power": 0.7800642915615661,
+                "reliability": 0.3333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 5157510.0,
+                "power_w": 33046.0
+              },
+              "completion_option_counts": [
+                6,
+                3
+              ],
+              "semantics": "optimistic componentwise completion; not H9 or validity"
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 11,
+            "parent_branch_id": 4,
+            "depth": 2,
+            "search_stage": "MDT_PROTECTION",
+            "drive_id": "DRV_000023",
+            "selection_rank": 4,
+            "ml_rank": 4,
+            "selection_reasons": [
+              "ml_top_k"
+            ],
+            "protection_profile_id": "PROT_RAID6_12",
+            "protection_catalog_index": 6,
+            "hardware_path_index": null,
+            "physical_stage": "EMPTY",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.5727280426533545,
+              "components": {
+                "ranking": 0.225,
+                "performance": 0.8455820422209582,
+                "cost": 0.6196141077100825,
+                "power": 0.7790532276932894,
+                "reliability": 0.3333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 5169310.0,
+                "power_w": 33241.0
+              },
+              "completion_option_counts": [
+                1,
+                3
+              ],
+              "semantics": "optimistic componentwise completion; not H9 or validity"
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 12,
+            "parent_branch_id": 11,
+            "depth": 3,
+            "search_stage": "MDT_HARDWARE",
+            "drive_id": "DRV_000023",
+            "selection_rank": 4,
+            "ml_rank": 4,
+            "selection_reasons": [
+              "ml_top_k"
+            ],
+            "protection_profile_id": "PROT_RAID6_12",
+            "protection_catalog_index": 6,
+            "hardware_path_index": 1,
+            "physical_stage": "EMPTY",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.5727280426533545,
+              "components": {
+                "ranking": 0.225,
+                "performance": 0.8455820422209582,
+                "cost": 0.6196141077100825,
+                "power": 0.7790532276932894,
+                "reliability": 0.3333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 5169310.0,
+                "power_w": 33241.0
+              },
+              "completion_option_counts": [
+                1,
+                3
+              ],
+              "semantics": "optimistic componentwise completion; not H9 or validity"
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 17,
+            "parent_branch_id": 12,
+            "depth": 4,
+            "search_stage": "OST_DRIVE",
+            "drive_id": "DRV_000137",
+            "selection_rank": 5,
+            "ml_rank": 39,
+            "selection_reasons": [
+              "best_ssd_ml",
+              "highest_capacity",
+              "highest_sequential_read",
+              "best_power_per_tib"
+            ],
+            "protection_profile_id": null,
+            "protection_catalog_index": null,
+            "hardware_path_index": null,
+            "physical_stage": "DRIVES_SELECTED",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.5727280426533545,
+              "components": {
+                "ranking": 0.225,
+                "performance": 0.8455820422209582,
+                "cost": 0.6196141077100825,
+                "power": 0.7790532276932894,
+                "reliability": 0.3333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 5169310.0,
+                "power_w": 33241.0
+              },
+              "completion_option_counts": [
+                1,
+                3
+              ],
+              "semantics": "optimistic componentwise completion; not H9 or validity"
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 23,
+            "parent_branch_id": 17,
+            "depth": 5,
+            "search_stage": "OST_PROTECTION",
+            "drive_id": "DRV_000137",
+            "selection_rank": 5,
+            "ml_rank": 39,
+            "selection_reasons": [
+              "best_ssd_ml",
+              "highest_capacity",
+              "highest_sequential_read",
+              "best_power_per_tib"
+            ],
+            "protection_profile_id": "PROT_RAID6_12",
+            "protection_catalog_index": 6,
+            "hardware_path_index": null,
+            "physical_stage": "PROTECTION_SELECTED",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.5727280426533545,
+              "components": {
+                "ranking": 0.225,
+                "performance": 0.8455820422209582,
+                "cost": 0.6196141077100825,
+                "power": 0.7790532276932894,
+                "reliability": 0.3333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 5169310.0,
+                "power_w": 33241.0
+              },
+              "completion_option_counts": [
+                1,
+                1
+              ],
+              "semantics": "optimistic componentwise completion; not H9 or validity"
+            },
+            "beam_rank": 1
+          },
+          {
+            "branch_id": 24,
+            "parent_branch_id": 23,
+            "depth": 6,
+            "search_stage": "OST_HARDWARE",
+            "drive_id": "DRV_000137",
+            "selection_rank": 5,
+            "ml_rank": 39,
+            "selection_reasons": [
+              "best_ssd_ml",
+              "highest_capacity",
+              "highest_sequential_read",
+              "best_power_per_tib"
+            ],
+            "protection_profile_id": "PROT_RAID6_12",
+            "protection_catalog_index": 6,
+            "hardware_path_index": 1,
+            "physical_stage": "PROTECTION_SELECTED",
+            "physical_validation_status": "PENDING_FULL_VALIDATOR",
+            "heuristic": {
+              "score": 0.5727280426533545,
+              "components": {
+                "ranking": 0.225,
+                "performance": 0.8455820422209582,
+                "cost": 0.6196141077100825,
+                "power": 0.7790532276932894,
+                "reliability": 0.3333333333333333
+              },
+              "lower_bounds": {
+                "cost_usd": 5169310.0,
+                "power_w": 33241.0
+              },
+              "completion_option_counts": [
+                1,
+                1
+              ],
+              "semantics": "optimistic componentwise completion; not H9 or validity"
+            },
+            "beam_rank": 1
+          }
+        ]
+      }
+    }
+  }
+}

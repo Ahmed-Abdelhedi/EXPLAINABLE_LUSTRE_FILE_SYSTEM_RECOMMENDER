@@ -1,0 +1,2656 @@
+{
+  "method": "Frozen public per-role enumeration and feasibility_coverage.analyze_case_feasibility_domain; scalar cost/power check, at most one COMPLETE/H10 witness, no H9 pool or quality approximation.",
+  "scope": "Same Top-K, same max_paths_per_variant as the campaign. Domain infeasibility does not imply global infeasibility.",
+  "audited_case_k_groups": 44,
+  "missing_configurations": 220,
+  "classification_counts": {
+    "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED": 11,
+    "POWER_LOWER_BOUND_EXCEEDS": 16,
+    "JOINT_BUDGET_POWER_CONFLICT": 10,
+    "FEASIBLE_PAIR_EXISTS": 1,
+    "BUDGET_LOWER_BOUND_EXCEEDS": 6
+  },
+  "feasible_missed_groups": 1,
+  "cases": [
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000220",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 3995688.0,
+          "maximum_power_w": 63334.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 5639340.0,
+          "minimum_total_power_w": 247931.0,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000220",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 6.456156199914403
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 60,
+        "potential_pairs": 3600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000220",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 60,
+          "potential_pairs": 3600
+        },
+        "limits": {
+          "maximum_budget_usd": 3995688.0,
+          "maximum_power_w": 63334.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3600,
+          "potential_pair_count": 3600,
+          "minimum_total_cost_usd": 5583540.0,
+          "minimum_total_power_w": 247931.0,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000220",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.42761320003774017
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 120,
+        "potential_pairs": 14400
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000220",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 120,
+          "potential_pairs": 14400
+        },
+        "limits": {
+          "maximum_budget_usd": 3995688.0,
+          "maximum_power_w": 63334.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 14400,
+          "potential_pair_count": 14400,
+          "minimum_total_cost_usd": 5583540.0,
+          "minimum_total_power_w": 247931.0,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000220",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.48848209995776415
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 276,
+        "potential_pairs": 82800
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000220",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 276,
+          "potential_pairs": 82800
+        },
+        "limits": {
+          "maximum_budget_usd": 3995688.0,
+          "maximum_power_w": 63334.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 82800,
+          "potential_pair_count": 82800,
+          "minimum_total_cost_usd": 5583140.0,
+          "minimum_total_power_w": 247924.0,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000220",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.6717619000701234
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000221",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 11204133.0,
+          "maximum_power_w": 188987.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 8037540.0,
+          "minimum_total_power_w": 242401.2,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000221",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.40147879999130964
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 60,
+        "potential_pairs": 3600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000221",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 60,
+          "potential_pairs": 3600
+        },
+        "limits": {
+          "maximum_budget_usd": 11204133.0,
+          "maximum_power_w": 188987.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3600,
+          "potential_pair_count": 3600,
+          "minimum_total_cost_usd": 7718900.0,
+          "minimum_total_power_w": 238237.2,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000221",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4457270000129938
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 120,
+        "potential_pairs": 14400
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000221",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 120,
+          "potential_pairs": 14400
+        },
+        "limits": {
+          "maximum_budget_usd": 11204133.0,
+          "maximum_power_w": 188987.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 14400,
+          "potential_pair_count": 14400,
+          "minimum_total_cost_usd": 7714500.0,
+          "minimum_total_power_w": 134613.0,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000221",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5209795000264421
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 300,
+        "potential_pairs": 90000
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000221",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 300,
+          "potential_pairs": 90000
+        },
+        "limits": {
+          "maximum_budget_usd": 11204133.0,
+          "maximum_power_w": 188987.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 90000,
+          "potential_pair_count": 90000,
+          "minimum_total_cost_usd": 7712220.0,
+          "minimum_total_power_w": 134087.0,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000221",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.8046770000364631
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000267",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 3060580.0,
+          "maximum_power_w": 94897.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 3000450.0,
+          "minimum_total_power_w": 85625.6,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000267",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.39283959998283535
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 60,
+        "potential_pairs": 3600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000267",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 60,
+          "potential_pairs": 3600
+        },
+        "limits": {
+          "maximum_budget_usd": 3060580.0,
+          "maximum_power_w": 94897.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3600,
+          "potential_pair_count": 3600,
+          "minimum_total_cost_usd": 3000450.0,
+          "minimum_total_power_w": 85625.6,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000267",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5633708999957889
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 120,
+        "potential_pairs": 14400
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000267",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 120,
+          "potential_pairs": 14400
+        },
+        "limits": {
+          "maximum_budget_usd": 3060580.0,
+          "maximum_power_w": 94897.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 14400,
+          "potential_pair_count": 14400,
+          "minimum_total_cost_usd": 2930770.0,
+          "minimum_total_power_w": 85585.6,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000267",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5114346001064405
+    },
+    {
+      "classification": "FEASIBLE_PAIR_EXISTS",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 300,
+        "potential_pairs": 90000
+      },
+      "domain_proven_infeasible": false,
+      "recovered_valid_architecture": true,
+      "recovered_architecture_id": "ARCH_REQ_000267_e62f7c71ba739177",
+      "h10_calls": 1,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000267",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 300,
+          "potential_pairs": 90000
+        },
+        "limits": {
+          "maximum_budget_usd": 3060580.0,
+          "maximum_power_w": 94897.0
+        },
+        "search": {
+          "found": true,
+          "mdt_option_index": 259,
+          "ost_option_index": 12,
+          "total_cost_usd": 3030960.0,
+          "total_power_w": 94430.0,
+          "pairs_examined": 77412,
+          "potential_pair_count": 90000,
+          "minimum_total_cost_usd": 2921480.0,
+          "minimum_total_power_w": 85029.6,
+          "classification": "FEASIBLE_PAIR_EXISTS"
+        },
+        "recovered_valid_architecture": true,
+        "recovered_architecture_id": "ARCH_REQ_000267_e62f7c71ba739177",
+        "h10_decision": "VALID",
+        "h10_violation_codes": [],
+        "coverage_interpretation": "RECOVERED_BY_REMOVING_ROLE_OPTION_CAP"
+      },
+      "case_id": "REQ_000267",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.8900983000639826
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 24,
+        "potential_pairs": 720
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000291",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 24,
+          "potential_pairs": 720
+        },
+        "limits": {
+          "maximum_budget_usd": 23171708.0,
+          "maximum_power_w": 157206.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 720,
+          "potential_pair_count": 720,
+          "minimum_total_cost_usd": 8834270.0,
+          "minimum_total_power_w": 138382.0,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000291",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.44992189994081855
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000323",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 21336346.0,
+          "maximum_power_w": 100941.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 7361960.0,
+          "minimum_total_power_w": 117403.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000323",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4006408000132069
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 54,
+        "potential_pairs": 3240
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000323",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 54,
+          "potential_pairs": 3240
+        },
+        "limits": {
+          "maximum_budget_usd": 21336346.0,
+          "maximum_power_w": 100941.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3240,
+          "potential_pair_count": 3240,
+          "minimum_total_cost_usd": 7360060.0,
+          "minimum_total_power_w": 117403.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000323",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5965463999891654
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 114,
+        "potential_pairs": 13680
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000323",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 114,
+          "potential_pairs": 13680
+        },
+        "limits": {
+          "maximum_budget_usd": 21336346.0,
+          "maximum_power_w": 100941.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 13680,
+          "potential_pair_count": 13680,
+          "minimum_total_cost_usd": 7210400.0,
+          "minimum_total_power_w": 117390.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000323",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5587537999963388
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 228,
+        "potential_pairs": 68400
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000323",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 228,
+          "potential_pairs": 68400
+        },
+        "limits": {
+          "maximum_budget_usd": 21336346.0,
+          "maximum_power_w": 100941.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 68400,
+          "potential_pair_count": 68400,
+          "minimum_total_cost_usd": 7193460.0,
+          "minimum_total_power_w": 116370.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000323",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.9926734000910074
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 24,
+        "potential_pairs": 720
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000366",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 24,
+          "potential_pairs": 720
+        },
+        "limits": {
+          "maximum_budget_usd": 3442705.0,
+          "maximum_power_w": 50529.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 720,
+          "potential_pair_count": 720,
+          "minimum_total_cost_usd": 2171970.0,
+          "minimum_total_power_w": 96460.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000366",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.47470590006560087
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 54,
+        "potential_pairs": 3240
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000366",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 54,
+          "potential_pairs": 3240
+        },
+        "limits": {
+          "maximum_budget_usd": 3442705.0,
+          "maximum_power_w": 50529.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3240,
+          "potential_pair_count": 3240,
+          "minimum_total_cost_usd": 2169910.0,
+          "minimum_total_power_w": 96452.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000366",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5155774999875575
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000391",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 3352346.0,
+          "maximum_power_w": 146335.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 5286510.0,
+          "minimum_total_power_w": 255238.0,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000391",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4255321999080479
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 60,
+        "potential_pairs": 3600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000391",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 60,
+          "potential_pairs": 3600
+        },
+        "limits": {
+          "maximum_budget_usd": 3352346.0,
+          "maximum_power_w": 146335.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3600,
+          "potential_pair_count": 3600,
+          "minimum_total_cost_usd": 4951070.0,
+          "minimum_total_power_w": 217641.6,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000391",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.42317399999592453
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 120,
+        "potential_pairs": 14400
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000391",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 120,
+          "potential_pairs": 14400
+        },
+        "limits": {
+          "maximum_budget_usd": 3352346.0,
+          "maximum_power_w": 146335.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 14400,
+          "potential_pair_count": 14400,
+          "minimum_total_cost_usd": 4900510.0,
+          "minimum_total_power_w": 217616.6,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000391",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4805355001008138
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 300,
+        "potential_pairs": 90000
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000391",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 300,
+          "potential_pairs": 90000
+        },
+        "limits": {
+          "maximum_budget_usd": 3352346.0,
+          "maximum_power_w": 146335.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 90000,
+          "potential_pair_count": 90000,
+          "minimum_total_cost_usd": 4899940.0,
+          "minimum_total_power_w": 217607.6,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000391",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.7391843000659719
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000637",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 12047981.0,
+          "maximum_power_w": 255837.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 14651560.0,
+          "minimum_total_power_w": 707138.0,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000637",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.45784680009819567
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 60,
+        "potential_pairs": 3600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000637",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 60,
+          "potential_pairs": 3600
+        },
+        "limits": {
+          "maximum_budget_usd": 12047981.0,
+          "maximum_power_w": 255837.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3600,
+          "potential_pair_count": 3600,
+          "minimum_total_cost_usd": 13702330.0,
+          "minimum_total_power_w": 601959.2,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000637",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4547394000692293
+    },
+    {
+      "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 120,
+        "potential_pairs": 14400
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000637",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 120,
+          "potential_pairs": 14400
+        },
+        "limits": {
+          "maximum_budget_usd": 12047981.0,
+          "maximum_power_w": 255837.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 14400,
+          "potential_pair_count": 14400,
+          "minimum_total_cost_usd": 13565010.0,
+          "minimum_total_power_w": 94953.0,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000637",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5071778000565246
+    },
+    {
+      "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 300,
+        "potential_pairs": 90000
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000637",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 300,
+          "potential_pairs": 90000
+        },
+        "limits": {
+          "maximum_budget_usd": 12047981.0,
+          "maximum_power_w": 255837.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 90000,
+          "potential_pair_count": 90000,
+          "minimum_total_cost_usd": 13564530.0,
+          "minimum_total_power_w": 94944.0,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000637",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.6886846000561491
+    },
+    {
+      "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 24,
+        "potential_pairs": 720
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000657",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 24,
+          "potential_pairs": 720
+        },
+        "limits": {
+          "maximum_budget_usd": 888314.0,
+          "maximum_power_w": 46897.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 720,
+          "potential_pair_count": 720,
+          "minimum_total_cost_usd": 928830.0,
+          "minimum_total_power_w": 56155.0,
+          "classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000657",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5004099999787286
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 54,
+        "potential_pairs": 3240
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000657",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 54,
+          "potential_pairs": 3240
+        },
+        "limits": {
+          "maximum_budget_usd": 888314.0,
+          "maximum_power_w": 46897.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3240,
+          "potential_pair_count": 3240,
+          "minimum_total_cost_usd": 833130.0,
+          "minimum_total_power_w": 47215.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000657",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5675706999609247
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000696",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 12342684.0,
+          "maximum_power_w": 169012.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 7726740.0,
+          "minimum_total_power_w": 123017.0,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000696",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.3793911000248045
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 60,
+        "potential_pairs": 3600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000696",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 60,
+          "potential_pairs": 3600
+        },
+        "limits": {
+          "maximum_budget_usd": 12342684.0,
+          "maximum_power_w": 169012.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3600,
+          "potential_pair_count": 3600,
+          "minimum_total_cost_usd": 7726740.0,
+          "minimum_total_power_w": 123017.0,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000696",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.444706300040707
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 120,
+        "potential_pairs": 14400
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000696",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 120,
+          "potential_pairs": 14400
+        },
+        "limits": {
+          "maximum_budget_usd": 12342684.0,
+          "maximum_power_w": 169012.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 14400,
+          "potential_pair_count": 14400,
+          "minimum_total_cost_usd": 7549900.0,
+          "minimum_total_power_w": 122997.0,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000696",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.498467699973844
+    },
+    {
+      "classification": "JOINT_BUDGET_POWER_CONFLICT",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 294,
+        "potential_pairs": 88200
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000696",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 294,
+          "potential_pairs": 88200
+        },
+        "limits": {
+          "maximum_budget_usd": 12342684.0,
+          "maximum_power_w": 169012.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 88200,
+          "potential_pair_count": 88200,
+          "minimum_total_cost_usd": 7548760.0,
+          "minimum_total_power_w": 122989.0,
+          "classification": "JOINT_BUDGET_POWER_CONFLICT"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000696",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.9169883999275044
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000857",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 7512180.0,
+          "maximum_power_w": 124537.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 3165740.0,
+          "minimum_total_power_w": 178903.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000857",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4534240000648424
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 18,
+        "potential_pairs": 540
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000989",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 18,
+          "potential_pairs": 540
+        },
+        "limits": {
+          "maximum_budget_usd": 254170.0,
+          "maximum_power_w": 5062.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 540,
+          "potential_pair_count": 540,
+          "minimum_total_cost_usd": 128160.0,
+          "minimum_total_power_w": 5226.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000989",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.6766681000590324
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 42,
+        "potential_pairs": 2520
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_000989",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 42,
+          "potential_pairs": 2520
+        },
+        "limits": {
+          "maximum_budget_usd": 254170.0,
+          "maximum_power_w": 5062.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 2520,
+          "potential_pair_count": 2520,
+          "minimum_total_cost_usd": 128160.0,
+          "minimum_total_power_w": 5226.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_000989",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.7393524000653997
+    },
+    {
+      "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_001042",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 50165.0,
+          "maximum_power_w": 11903.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 139680.0,
+          "minimum_total_power_w": 9196.0,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_001042",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4271292000776157
+    },
+    {
+      "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 30,
+        "potential_pairs": 1800
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_001042",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 30,
+          "potential_pairs": 1800
+        },
+        "limits": {
+          "maximum_budget_usd": 50165.0,
+          "maximum_power_w": 11903.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 1800,
+          "potential_pair_count": 1800,
+          "minimum_total_cost_usd": 129560.0,
+          "minimum_total_power_w": 8617.2,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_001042",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.3972853999584913
+    },
+    {
+      "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 30,
+        "potential_pairs": 3600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_001042",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 30,
+          "potential_pairs": 3600
+        },
+        "limits": {
+          "maximum_budget_usd": 50165.0,
+          "maximum_power_w": 11903.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3600,
+          "potential_pair_count": 3600,
+          "minimum_total_cost_usd": 129560.0,
+          "minimum_total_power_w": 8617.2,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_001042",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4304244000231847
+    },
+    {
+      "classification": "BUDGET_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 30,
+        "potential_pairs": 9000
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_001042",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 30,
+          "potential_pairs": 9000
+        },
+        "limits": {
+          "maximum_budget_usd": 50165.0,
+          "maximum_power_w": 11903.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 9000,
+          "potential_pair_count": 9000,
+          "minimum_total_cost_usd": 129272.34,
+          "minimum_total_power_w": 8616.0,
+          "classification": "BUDGET_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_001042",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5538856000639498
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 30,
+        "ost": 30,
+        "potential_pairs": 900
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_001078",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 30,
+          "ost": 30,
+          "potential_pairs": 900
+        },
+        "limits": {
+          "maximum_budget_usd": 10707525.0,
+          "maximum_power_w": 107199.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 900,
+          "potential_pair_count": 900,
+          "minimum_total_cost_usd": 6286430.0,
+          "minimum_total_power_w": 208940.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_001078",
+      "requested_top_k": 5,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.38100870000198483
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 60,
+        "ost": 60,
+        "potential_pairs": 3600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_001078",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 60,
+          "ost": 60,
+          "potential_pairs": 3600
+        },
+        "limits": {
+          "maximum_budget_usd": 10707525.0,
+          "maximum_power_w": 107199.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 3600,
+          "potential_pair_count": 3600,
+          "minimum_total_cost_usd": 6153410.0,
+          "minimum_total_power_w": 190223.2,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_001078",
+      "requested_top_k": 10,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.4775245999917388
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 120,
+        "ost": 120,
+        "potential_pairs": 14400
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_001078",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 120,
+          "ost": 120,
+          "potential_pairs": 14400
+        },
+        "limits": {
+          "maximum_budget_usd": 10707525.0,
+          "maximum_power_w": 107199.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 14400,
+          "potential_pair_count": 14400,
+          "minimum_total_cost_usd": 6151350.0,
+          "minimum_total_power_w": 108057.0,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_001078",
+      "requested_top_k": 20,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.5266969000222161
+    },
+    {
+      "classification": "POWER_LOWER_BOUND_EXCEEDS",
+      "option_counts": {
+        "mdt": 300,
+        "ost": 282,
+        "potential_pairs": 84600
+      },
+      "domain_proven_infeasible": true,
+      "recovered_valid_architecture": false,
+      "recovered_architecture_id": null,
+      "h10_calls": 0,
+      "detail": {
+        "schema_version": "1.0",
+        "policy_id": "H10B_FEASIBILITY_COVERAGE_V1",
+        "case_id": "REQ_001078",
+        "domain": {
+          "top_k_is_fixed_by_handoff": true,
+          "max_paths_per_variant": 1,
+          "max_role_options_removed": true,
+          "beam_search_applied": false,
+          "architecture_scoring_required": false
+        },
+        "option_counts": {
+          "mdt": 300,
+          "ost": 282,
+          "potential_pairs": 84600
+        },
+        "limits": {
+          "maximum_budget_usd": 10707525.0,
+          "maximum_power_w": 107199.0
+        },
+        "search": {
+          "found": false,
+          "mdt_option_index": null,
+          "ost_option_index": null,
+          "total_cost_usd": null,
+          "total_power_w": null,
+          "pairs_examined": 84600,
+          "potential_pair_count": 84600,
+          "minimum_total_cost_usd": 6142830.0,
+          "minimum_total_power_w": 107482.6,
+          "classification": "POWER_LOWER_BOUND_EXCEEDS"
+        },
+        "recovered_valid_architecture": false,
+        "recovered_architecture_id": null,
+        "h10_decision": null,
+        "h10_violation_codes": [],
+        "coverage_interpretation": "UNRESOLVED_WITH_FULL_ROLE_DOMAIN_AT_CURRENT_PATH_LIMIT"
+      },
+      "case_id": "REQ_001078",
+      "requested_top_k": 50,
+      "missing_widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "runtime_seconds": 0.9915120000950992
+    }
+  ]
+}

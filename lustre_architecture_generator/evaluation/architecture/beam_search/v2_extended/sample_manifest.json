@@ -1,0 +1,667 @@
+{
+  "source": "C:\\Users\\LENOVO\\Desktop\\internship\\version2\\lustre_architecture_generator\\output\\lustre_architecture_dataset.json",
+  "total_cases": 1200,
+  "eligible_cases": 1197,
+  "evaluated_cases": 50,
+  "excluded_development_ids": [
+    "REQ_000001",
+    "REQ_000002",
+    "REQ_000003"
+  ],
+  "method": "Numeric minima/maxima, then sorted round-robin over HA x budget tertile x power tertile x OST priority; within each stratum SHA256(case_id) order. No feasibility filtering.",
+  "nonempty_strata": 39,
+  "tertile_thresholds": {
+    "budget_usd": [
+      1291701.3333333333,
+      7672927.6666666595
+    ],
+    "power_w": [
+      27518.33333333333,
+      113085.33333333333
+    ],
+    "capacity_tib": [
+      6518.208333333333,
+      59348.5
+    ],
+    "throughput_gbps": [
+      77.5,
+      422.4999999999997
+    ],
+    "mdt_iops": [
+      93610.66666666667,
+      652574.9999999999
+    ]
+  },
+  "distributions": {
+    "population": {
+      "numeric": {
+        "budget_usd": {
+          "min": 50165.0,
+          "median": 3333593.0,
+          "max": 24996056.0,
+          "bands": {
+            "low": 400,
+            "high": 400,
+            "medium": 400
+          }
+        },
+        "power_w": {
+          "min": 5062.0,
+          "median": 56371.5,
+          "max": 299758.0,
+          "bands": {
+            "low": 400,
+            "high": 400,
+            "medium": 400
+          }
+        },
+        "capacity_tib": {
+          "min": 140.25,
+          "median": 18334.6875,
+          "max": 186628.125,
+          "bands": {
+            "low": 400,
+            "medium": 400,
+            "high": 400
+          }
+        },
+        "throughput_gbps": {
+          "min": 31.25,
+          "median": 166.875,
+          "max": 3307.5,
+          "bands": {
+            "low": 401,
+            "high": 400,
+            "medium": 399
+          }
+        },
+        "mdt_iops": {
+          "min": 2750,
+          "median": 267062.5,
+          "max": 7715138,
+          "bands": {
+            "low": 400,
+            "medium": 400,
+            "high": 400
+          }
+        }
+      },
+      "ha_required": {
+        "true": 815,
+        "false": 385
+      },
+      "ost_load": {
+        "low": 604,
+        "medium": 273,
+        "high": 282,
+        "critical": 41
+      }
+    },
+    "sample": {
+      "numeric": {
+        "budget_usd": {
+          "min": 50165.0,
+          "median": 5873499.5,
+          "max": 24996056.0,
+          "bands": {
+            "low": 12,
+            "high": 22,
+            "medium": 16
+          }
+        },
+        "power_w": {
+          "min": 5062.0,
+          "median": 97919.0,
+          "max": 299758.0,
+          "bands": {
+            "low": 13,
+            "medium": 17,
+            "high": 20
+          }
+        },
+        "capacity_tib": {
+          "min": 140.25,
+          "median": 28100.4375,
+          "max": 186628.125,
+          "bands": {
+            "low": 11,
+            "medium": 20,
+            "high": 19
+          }
+        },
+        "throughput_gbps": {
+          "min": 31.25,
+          "median": 231.25,
+          "max": 3307.5,
+          "bands": {
+            "low": 10,
+            "medium": 23,
+            "high": 17
+          }
+        },
+        "mdt_iops": {
+          "min": 2750,
+          "median": 438159.5,
+          "max": 7715138,
+          "bands": {
+            "low": 16,
+            "medium": 18,
+            "high": 16
+          }
+        }
+      },
+      "ha_required": {
+        "true": 26,
+        "false": 24
+      },
+      "ost_load": {
+        "low": 19,
+        "medium": 14,
+        "high": 11,
+        "critical": 6
+      }
+    }
+  },
+  "selected_cases": [
+    {
+      "case_id": "REQ_000007",
+      "budget_usd": 297731.0,
+      "power_w": 5541.0,
+      "capacity_tib": 752.375,
+      "throughput_gbps": 31.25,
+      "mdt_iops": 64260,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000015",
+      "budget_usd": 8925222.0,
+      "power_w": 92558.0,
+      "capacity_tib": 27024.0,
+      "throughput_gbps": 116.25,
+      "mdt_iops": 363250,
+      "ha_required": true,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000034",
+      "budget_usd": 467947.0,
+      "power_w": 12741.0,
+      "capacity_tib": 268.125,
+      "throughput_gbps": 87.5,
+      "mdt_iops": 6000,
+      "ha_required": false,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000208",
+      "budget_usd": 561087.0,
+      "power_w": 30805.0,
+      "capacity_tib": 3750.5,
+      "throughput_gbps": 60.0,
+      "mdt_iops": 179288,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000220",
+      "budget_usd": 3995688.0,
+      "power_w": 63334.0,
+      "capacity_tib": 67600.5,
+      "throughput_gbps": 147.5,
+      "mdt_iops": 282250,
+      "ha_required": false,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000221",
+      "budget_usd": 11204133.0,
+      "power_w": 188987.0,
+      "capacity_tib": 151481.25,
+      "throughput_gbps": 3043.75,
+      "mdt_iops": 2861460,
+      "ha_required": true,
+      "ost_load": "critical"
+    },
+    {
+      "case_id": "REQ_000249",
+      "budget_usd": 6629361.0,
+      "power_w": 146940.0,
+      "capacity_tib": 75960.625,
+      "throughput_gbps": 1180.0,
+      "mdt_iops": 610909,
+      "ha_required": true,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000267",
+      "budget_usd": 3060580.0,
+      "power_w": 94897.0,
+      "capacity_tib": 61522.5,
+      "throughput_gbps": 375.0,
+      "mdt_iops": 513000,
+      "ha_required": true,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000270",
+      "budget_usd": 16197765.0,
+      "power_w": 218707.0,
+      "capacity_tib": 168579.375,
+      "throughput_gbps": 3307.5,
+      "mdt_iops": 2626155,
+      "ha_required": false,
+      "ost_load": "critical"
+    },
+    {
+      "case_id": "REQ_000289",
+      "budget_usd": 21770073.0,
+      "power_w": 163900.0,
+      "capacity_tib": 139101.625,
+      "throughput_gbps": 2027.5,
+      "mdt_iops": 564250,
+      "ha_required": false,
+      "ost_load": "critical"
+    },
+    {
+      "case_id": "REQ_000291",
+      "budget_usd": 23171708.0,
+      "power_w": 157206.0,
+      "capacity_tib": 186628.125,
+      "throughput_gbps": 555.0,
+      "mdt_iops": 1446975,
+      "ha_required": true,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000323",
+      "budget_usd": 21336346.0,
+      "power_w": 100941.0,
+      "capacity_tib": 151318.375,
+      "throughput_gbps": 1160.0,
+      "mdt_iops": 1065875,
+      "ha_required": true,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000331",
+      "budget_usd": 4732629.0,
+      "power_w": 114153.0,
+      "capacity_tib": 75819.25,
+      "throughput_gbps": 197.5,
+      "mdt_iops": 428250,
+      "ha_required": true,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000338",
+      "budget_usd": 987462.0,
+      "power_w": 18247.0,
+      "capacity_tib": 4155.0,
+      "throughput_gbps": 56.25,
+      "mdt_iops": 64000,
+      "ha_required": true,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000366",
+      "budget_usd": 3442705.0,
+      "power_w": 50529.0,
+      "capacity_tib": 26082.875,
+      "throughput_gbps": 247.5,
+      "mdt_iops": 950775,
+      "ha_required": false,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000373",
+      "budget_usd": 1857569.0,
+      "power_w": 15505.0,
+      "capacity_tib": 14499.375,
+      "throughput_gbps": 190.0,
+      "mdt_iops": 55250,
+      "ha_required": false,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000386",
+      "budget_usd": 8397460.0,
+      "power_w": 127444.0,
+      "capacity_tib": 49495.875,
+      "throughput_gbps": 163.75,
+      "mdt_iops": 469350,
+      "ha_required": true,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000391",
+      "budget_usd": 3352346.0,
+      "power_w": 146335.0,
+      "capacity_tib": 59263.125,
+      "throughput_gbps": 1075.0,
+      "mdt_iops": 516375,
+      "ha_required": false,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000392",
+      "budget_usd": 7613377.0,
+      "power_w": 62798.0,
+      "capacity_tib": 42522.0,
+      "throughput_gbps": 1106.25,
+      "mdt_iops": 368125,
+      "ha_required": false,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000407",
+      "budget_usd": 5117638.0,
+      "power_w": 137412.0,
+      "capacity_tib": 51778.5,
+      "throughput_gbps": 195.0,
+      "mdt_iops": 538125,
+      "ha_required": false,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000432",
+      "budget_usd": 2391472.0,
+      "power_w": 35297.0,
+      "capacity_tib": 10312.5,
+      "throughput_gbps": 112.5,
+      "mdt_iops": 29750,
+      "ha_required": true,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000586",
+      "budget_usd": 1943147.0,
+      "power_w": 26466.0,
+      "capacity_tib": 5575.625,
+      "throughput_gbps": 65.0,
+      "mdt_iops": 51104,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000593",
+      "budget_usd": 259065.0,
+      "power_w": 11173.0,
+      "capacity_tib": 751.875,
+      "throughput_gbps": 65.0,
+      "mdt_iops": 24938,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000603",
+      "budget_usd": 108212.0,
+      "power_w": 5854.0,
+      "capacity_tib": 326.25,
+      "throughput_gbps": 53.75,
+      "mdt_iops": 2750,
+      "ha_required": false,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000637",
+      "budget_usd": 12047981.0,
+      "power_w": 255837.0,
+      "capacity_tib": 164454.375,
+      "throughput_gbps": 2835.0,
+      "mdt_iops": 961065,
+      "ha_required": false,
+      "ost_load": "critical"
+    },
+    {
+      "case_id": "REQ_000657",
+      "budget_usd": 888314.0,
+      "power_w": 46897.0,
+      "capacity_tib": 7556.25,
+      "throughput_gbps": 116.25,
+      "mdt_iops": 126525,
+      "ha_required": false,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000665",
+      "budget_usd": 21951386.0,
+      "power_w": 256556.0,
+      "capacity_tib": 130104.0,
+      "throughput_gbps": 345.0,
+      "mdt_iops": 1655742,
+      "ha_required": false,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000696",
+      "budget_usd": 12342684.0,
+      "power_w": 169012.0,
+      "capacity_tib": 158392.5,
+      "throughput_gbps": 1287.5,
+      "mdt_iops": 1419705,
+      "ha_required": true,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000738",
+      "budget_usd": 9981930.0,
+      "power_w": 106725.0,
+      "capacity_tib": 23246.25,
+      "throughput_gbps": 301.25,
+      "mdt_iops": 448069,
+      "ha_required": false,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000744",
+      "budget_usd": 12140493.0,
+      "power_w": 107214.0,
+      "capacity_tib": 130891.75,
+      "throughput_gbps": 215.0,
+      "mdt_iops": 1033500,
+      "ha_required": false,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000751",
+      "budget_usd": 732554.0,
+      "power_w": 36995.0,
+      "capacity_tib": 7341.125,
+      "throughput_gbps": 77.5,
+      "mdt_iops": 42500,
+      "ha_required": true,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000752",
+      "budget_usd": 2164288.0,
+      "power_w": 35155.0,
+      "capacity_tib": 12487.5,
+      "throughput_gbps": 202.5,
+      "mdt_iops": 69563,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000778",
+      "budget_usd": 1553958.0,
+      "power_w": 24427.0,
+      "capacity_tib": 15055.625,
+      "throughput_gbps": 113.75,
+      "mdt_iops": 91500,
+      "ha_required": true,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000794",
+      "budget_usd": 343335.0,
+      "power_w": 8072.0,
+      "capacity_tib": 140.25,
+      "throughput_gbps": 91.25,
+      "mdt_iops": 23625,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000831",
+      "budget_usd": 12891370.0,
+      "power_w": 125221.0,
+      "capacity_tib": 123933.0,
+      "throughput_gbps": 981.25,
+      "mdt_iops": 7715138,
+      "ha_required": false,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_000857",
+      "budget_usd": 7512180.0,
+      "power_w": 124537.0,
+      "capacity_tib": 29176.875,
+      "throughput_gbps": 471.25,
+      "mdt_iops": 464625,
+      "ha_required": false,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000881",
+      "budget_usd": 9285154.0,
+      "power_w": 120115.0,
+      "capacity_tib": 34087.5,
+      "throughput_gbps": 382.5,
+      "mdt_iops": 228125,
+      "ha_required": false,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000886",
+      "budget_usd": 4507548.0,
+      "power_w": 117260.0,
+      "capacity_tib": 17564.625,
+      "throughput_gbps": 33.75,
+      "mdt_iops": 1414035,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000914",
+      "budget_usd": 9433828.0,
+      "power_w": 87659.0,
+      "capacity_tib": 16095.75,
+      "throughput_gbps": 308.75,
+      "mdt_iops": 231366,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000957",
+      "budget_usd": 9799593.0,
+      "power_w": 118490.0,
+      "capacity_tib": 23649.0,
+      "throughput_gbps": 127.5,
+      "mdt_iops": 906488,
+      "ha_required": false,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_000981",
+      "budget_usd": 8467940.0,
+      "power_w": 61733.0,
+      "capacity_tib": 61491.0,
+      "throughput_gbps": 1150.0,
+      "mdt_iops": 323505,
+      "ha_required": false,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_000989",
+      "budget_usd": 254170.0,
+      "power_w": 5062.0,
+      "capacity_tib": 1267.5,
+      "throughput_gbps": 57.5,
+      "mdt_iops": 46058,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_001042",
+      "budget_usd": 50165.0,
+      "power_w": 11903.0,
+      "capacity_tib": 1127.5,
+      "throughput_gbps": 71.25,
+      "mdt_iops": 39460,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_001046",
+      "budget_usd": 24996056.0,
+      "power_w": 273780.0,
+      "capacity_tib": 122359.5,
+      "throughput_gbps": 762.5,
+      "mdt_iops": 1830465,
+      "ha_required": false,
+      "ost_load": "high"
+    },
+    {
+      "case_id": "REQ_001068",
+      "budget_usd": 2161264.0,
+      "power_w": 20582.0,
+      "capacity_tib": 15929.875,
+      "throughput_gbps": 262.5,
+      "mdt_iops": 83232,
+      "ha_required": false,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_001078",
+      "budget_usd": 10707525.0,
+      "power_w": 107199.0,
+      "capacity_tib": 120819.375,
+      "throughput_gbps": 2403.75,
+      "mdt_iops": 1085875,
+      "ha_required": true,
+      "ost_load": "critical"
+    },
+    {
+      "case_id": "REQ_001079",
+      "budget_usd": 15575130.0,
+      "power_w": 299758.0,
+      "capacity_tib": 75273.0,
+      "throughput_gbps": 1342.5,
+      "mdt_iops": 4713975,
+      "ha_required": true,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_001104",
+      "budget_usd": 8429415.0,
+      "power_w": 124746.0,
+      "capacity_tib": 17746.5,
+      "throughput_gbps": 251.25,
+      "mdt_iops": 842310,
+      "ha_required": true,
+      "ost_load": "low"
+    },
+    {
+      "case_id": "REQ_001162",
+      "budget_usd": 265596.0,
+      "power_w": 12251.0,
+      "capacity_tib": 809.25,
+      "throughput_gbps": 97.5,
+      "mdt_iops": 20375,
+      "ha_required": false,
+      "ost_load": "medium"
+    },
+    {
+      "case_id": "REQ_001194",
+      "budget_usd": 17011817.0,
+      "power_w": 102903.0,
+      "capacity_tib": 143676.0,
+      "throughput_gbps": 2822.5,
+      "mdt_iops": 627000,
+      "ha_required": false,
+      "ost_load": "critical"
+    }
+  ]
+}

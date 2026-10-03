@@ -1,0 +1,1310 @@
+{
+  "purpose": "offline_exhaustive_prefix_diagnosis_v1",
+  "case_id": "REQ_000003",
+  "requested_top_k": 5,
+  "max_paths_per_variant": 1,
+  "source_sha256": "7b700ca809b2f53ad0909c0fbca23bb90ae8320155f9ad8ef64ba974e11b548c",
+  "runs": [
+    {
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "levels": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 5,
+          "best_retained_score": 0.6459684052051893,
+          "worst_retained_score": 0.44595520493428426,
+          "viable_generated": 5,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 5,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "distinct_costs": 5,
+            "distinct_powers": 4,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 2,
+            "score": 0.5209596548830706
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.9034696397178292,
+          "worst_retained_score": 0.6475125455858277,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 30,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 0,
+            "distinct_costs": 25,
+            "distinct_powers": 20,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 7,
+            "score": 0.7786409634469199
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.8079783499694638,
+          "worst_retained_score": 0.575605490571233,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 30,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "distinct_costs": 25,
+            "distinct_powers": 20,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 7,
+            "score": 0.6831501492856288
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 150,
+          "hard_pruned": 0,
+          "width_pruned": 118,
+          "pruning_reason_counts": {
+            "beam_width_limit": 118
+          },
+          "retained": 32,
+          "best_retained_score": 0.7434556820250345,
+          "worst_retained_score": 0.6321852438768035,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 30,
+          "viable_retained": 0,
+          "reachable_valid_architectures": 0,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 7,
+            "distinct_costs": 28,
+            "distinct_powers": 24,
+            "cost_deciles_of_limit": [
+              2
+            ],
+            "power_deciles_of_limit": [
+              1,
+              2
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "WIDTH_PRUNED",
+            "rank_before_width": 87,
+            "score": 0.5605307930504818
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 192,
+          "hard_pruned": 0,
+          "width_pruned": 160,
+          "pruning_reason_counts": {
+            "beam_width_limit": 160
+          },
+          "retained": 32,
+          "best_retained_score": 0.7543418728566003,
+          "worst_retained_score": 0.6885259897032636,
+          "viable_generated": 0,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 0,
+          "reachable_valid_architectures": 0,
+          "diversity": {
+            "mdt_drives": 2,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 5,
+            "distinct_costs": 25,
+            "distinct_powers": 25,
+            "cost_deciles_of_limit": [
+              2,
+              4
+            ],
+            "power_deciles_of_limit": [
+              2,
+              3
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "PARENT_ALREADY_LOST",
+            "rank_before_width": null,
+            "score": null
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 32,
+          "hard_pruned": 32,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 6,
+            "power_lower_bound_exceeded": 32
+          },
+          "retained": 0,
+          "best_retained_score": null,
+          "worst_retained_score": null,
+          "viable_generated": 0,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 0,
+          "reachable_valid_architectures": 0,
+          "diversity": {
+            "mdt_drives": 0,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "distinct_costs": 0,
+            "distinct_powers": 0,
+            "cost_deciles_of_limit": [],
+            "power_deciles_of_limit": []
+          },
+          "exhaustive_best_path": {
+            "status": "PARENT_ALREADY_LOST",
+            "rank_before_width": null,
+            "score": null
+          }
+        },
+        {
+          "search_stage": "COMPLETE",
+          "branches_created": 0,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "retained": 0,
+          "viable_retained": 0,
+          "best_retained_score": null,
+          "worst_retained_score": null,
+          "pruning_reason_counts": {}
+        },
+        {
+          "search_stage": "H10",
+          "branches_created": 0,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "retained": 0,
+          "viable_retained": 0,
+          "best_retained_score": null,
+          "worst_retained_score": null,
+          "pruning_reason_counts": {}
+        }
+      ],
+      "lookahead_trace": [],
+      "summary": {
+        "branches_created": 439,
+        "branches_explored": 439,
+        "branches_pruned": 310,
+        "hard_pruned": 32,
+        "width_pruned": 278,
+        "pruning_reason_counts": {
+          "beam_width_limit": 278,
+          "budget_lower_bound_exceeded": 6,
+          "power_lower_bound_exceeded": 32
+        },
+        "max_active_states": 32,
+        "max_selection_buffer": 33,
+        "h5_calls": 54,
+        "h6_calls": 38,
+        "complete_architectures_produced": 0,
+        "h10_calls": 0,
+        "valid_architecture_count": 0,
+        "search_seconds": 0.12942419992759824,
+        "best_architecture_id": null,
+        "best_final_h9_score": null
+      },
+      "exhaustive_valid_count": 90,
+      "exhaustive_best_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+      "best_path_first_loss": "OST_DRIVE",
+      "exhaustive_best_selected": {
+        "mdt_drive": {
+          "drive_id": "DRV_000085",
+          "drive_name": "KFL61HUL800G",
+          "manufacturer": "Kioxia",
+          "series": "FL6",
+          "media_type": "SSD",
+          "catalog_id": "6a597080171bf88d48fd3110",
+          "model_number": "KFL61HUL800G"
+        },
+        "ost_drive": {
+          "drive_id": "DRV_000137",
+          "drive_name": "SBFPF2BV0P12001",
+          "manufacturer": "Solidigm",
+          "series": "D5-P5336",
+          "media_type": "SSD",
+          "catalog_id": "6a5970807a075c726455e56b",
+          "model_number": "SBFPF2BV0P12001"
+        },
+        "mdt_protection": {
+          "role": "MDT",
+          "drive_id": "DRV_000085",
+          "protection_profile_id": "PROT_RAID6_12",
+          "raid_level": "RAID6",
+          "raw_minimum_drive_count": 1,
+          "group_count": 1,
+          "group_size": 12,
+          "data_drives_per_group": 10,
+          "parity_drives_per_group": 2,
+          "mirror_copies": 1,
+          "physical_drive_count": 12,
+          "counts_basis": {
+            "lower_bound": 1,
+            "capacity": 1,
+            "read_iops": 1,
+            "write_iops": 1
+          },
+          "per_drive": {
+            "capacity_tib": 0.727596,
+            "read_iops": 1480000.0,
+            "write_iops": 360000.0
+          },
+          "provided": {
+            "usable_capacity_tib": 7.27596,
+            "read_iops": 16339200.0,
+            "write_iops": 2376000.0
+          },
+          "requirements": {
+            "usable_capacity_tib": 0.01901783,
+            "read_iops": 453848.0,
+            "write_iops": 113462.0
+          },
+          "satisfied": {
+            "capacity": true,
+            "read_iops": true,
+            "write_iops": true
+          },
+          "fault_tolerance_drives_per_group": 2,
+          "per_drive_cost_usd": 730.0,
+          "per_drive_power_w": 14.0,
+          "protected_drive_cost_usd": 8760.0,
+          "protected_drive_power_w": 168.0
+        },
+        "ost_protection": {
+          "role": "OST",
+          "drive_id": "DRV_000137",
+          "protection_profile_id": "PROT_RAID6_12",
+          "raid_level": "RAID6",
+          "raw_minimum_drive_count": 504,
+          "group_count": 51,
+          "group_size": 12,
+          "data_drives_per_group": 10,
+          "parity_drives_per_group": 2,
+          "mirror_copies": 1,
+          "physical_drive_count": 612,
+          "counts_basis": {
+            "lower_bound": 42,
+            "capacity": 51,
+            "read_bandwidth": 1,
+            "write_bandwidth": 1,
+            "total_bandwidth": 1
+          },
+          "per_drive": {
+            "capacity_tib": 111.758709,
+            "read_bandwidth_gb_s": 7.0,
+            "write_bandwidth_gb_s": 3.0
+          },
+          "provided": {
+            "usable_capacity_tib": 56996.94159,
+            "read_bandwidth_gb_s": 3941.28,
+            "write_bandwidth_gb_s": 1009.8000000000001,
+            "total_bandwidth_gb_s": 4951.08
+          },
+          "requirements": {
+            "usable_capacity_tib": 56238.75,
+            "read_bandwidth_gb_s": 40.0,
+            "write_bandwidth_gb_s": 10.0,
+            "total_bandwidth_gb_s": 50.0
+          },
+          "satisfied": {
+            "capacity": true,
+            "read_bandwidth": true,
+            "write_bandwidth": true,
+            "total_bandwidth": true
+          },
+          "fault_tolerance_drives_per_group": 2,
+          "per_drive_cost_usd": 7955.0,
+          "per_drive_power_w": 24.0,
+          "protected_drive_cost_usd": 4868460.0,
+          "protected_drive_power_w": 14688.0
+        },
+        "mdt_hardware_path": {
+          "compatible": true,
+          "role": "MDT",
+          "attachment_mode": "DIRECT",
+          "drive_id": "DRV_000085",
+          "protection_profile_id": "PROT_RAID6_12",
+          "server_id": "SRV_DUALROLE_01",
+          "controller_id": "CTRL_NVME_G4X16_01",
+          "enclosure_id": null,
+          "network_id": "NET_ETH100_01",
+          "ha_profile_id": "HA_NONE",
+          "minimum_resources": {
+            "physical_drive_count": 12,
+            "server_count": 1,
+            "controller_count": 2,
+            "enclosure_count": 0,
+            "network_adapter_count": 1
+          },
+          "bandwidth": {
+            "required_gb_s": 0.0,
+            "controller_total_gb_s": 63.0,
+            "network_total_gb_s": 22.5
+          },
+          "component_cost_lower_bound_usd": 11250.0,
+          "component_power_lower_bound_w": 778.0,
+          "violations": []
+        },
+        "ost_hardware_path": {
+          "compatible": true,
+          "role": "OST",
+          "attachment_mode": "DIRECT",
+          "drive_id": "DRV_000137",
+          "protection_profile_id": "PROT_RAID6_12",
+          "server_id": "SRV_DUALROLE_01",
+          "controller_id": "CTRL_NVME_G4X16_01",
+          "enclosure_id": null,
+          "network_id": "NET_ETH100_01",
+          "ha_profile_id": "HA_NONE",
+          "minimum_resources": {
+            "physical_drive_count": 612,
+            "server_count": 20,
+            "controller_count": 77,
+            "enclosure_count": 0,
+            "network_adapter_count": 20
+          },
+          "bandwidth": {
+            "required_gb_s": 50.0,
+            "controller_total_gb_s": 2425.5,
+            "network_total_gb_s": 450.0
+          },
+          "component_cost_lower_bound_usd": 276800.0,
+          "component_power_lower_bound_w": 17595.0,
+          "violations": []
+        }
+      }
+    },
+    {
+      "beam_width": 128,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "levels": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 5,
+          "best_retained_score": 0.6459684052051893,
+          "worst_retained_score": 0.44595520493428426,
+          "viable_generated": 5,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 5,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "distinct_costs": 5,
+            "distinct_powers": 4,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 2,
+            "score": 0.5209596548830706
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.9034696397178292,
+          "worst_retained_score": 0.6475125455858277,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 30,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 0,
+            "distinct_costs": 25,
+            "distinct_powers": 20,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 7,
+            "score": 0.7786409634469199
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.8079783499694638,
+          "worst_retained_score": 0.575605490571233,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 30,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "distinct_costs": 25,
+            "distinct_powers": 20,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 7,
+            "score": 0.6831501492856288
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 150,
+          "hard_pruned": 0,
+          "width_pruned": 22,
+          "pruning_reason_counts": {
+            "beam_width_limit": 22
+          },
+          "retained": 128,
+          "best_retained_score": 0.7434556820250345,
+          "worst_retained_score": 0.5270716826969287,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 15,
+          "viable_retained": 15,
+          "reachable_valid_architectures": 45,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "distinct_costs": 107,
+            "distinct_powers": 86,
+            "cost_deciles_of_limit": [
+              2,
+              4
+            ],
+            "power_deciles_of_limit": [
+              1,
+              2
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 87,
+            "score": 0.5605307930504818
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 768,
+          "hard_pruned": 0,
+          "width_pruned": 640,
+          "pruning_reason_counts": {
+            "beam_width_limit": 640
+          },
+          "retained": 128,
+          "best_retained_score": 0.7543418728566003,
+          "worst_retained_score": 0.6398262297391504,
+          "viable_generated": 45,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 45,
+          "viable_retained": 0,
+          "reachable_valid_architectures": 0,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "distinct_costs": 92,
+            "distinct_powers": 84,
+            "cost_deciles_of_limit": [
+              2,
+              3,
+              4
+            ],
+            "power_deciles_of_limit": [
+              2,
+              3
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "WIDTH_PRUNED",
+            "rank_before_width": 416,
+            "score": 0.5699833575099614
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 128,
+          "hard_pruned": 128,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 24,
+            "power_lower_bound_exceeded": 128
+          },
+          "retained": 0,
+          "best_retained_score": null,
+          "worst_retained_score": null,
+          "viable_generated": 0,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 0,
+          "reachable_valid_architectures": 0,
+          "diversity": {
+            "mdt_drives": 0,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "distinct_costs": 0,
+            "distinct_powers": 0,
+            "cost_deciles_of_limit": [],
+            "power_deciles_of_limit": []
+          },
+          "exhaustive_best_path": {
+            "status": "PARENT_ALREADY_LOST",
+            "rank_before_width": null,
+            "score": null
+          }
+        },
+        {
+          "search_stage": "COMPLETE",
+          "branches_created": 0,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "retained": 0,
+          "viable_retained": 0,
+          "best_retained_score": null,
+          "worst_retained_score": null,
+          "pruning_reason_counts": {}
+        },
+        {
+          "search_stage": "H10",
+          "branches_created": 0,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "retained": 0,
+          "viable_retained": 0,
+          "best_retained_score": null,
+          "worst_retained_score": null,
+          "pruning_reason_counts": {}
+        }
+      ],
+      "lookahead_trace": [],
+      "summary": {
+        "branches_created": 1111,
+        "branches_explored": 1111,
+        "branches_pruned": 790,
+        "hard_pruned": 128,
+        "width_pruned": 662,
+        "pruning_reason_counts": {
+          "beam_width_limit": 662,
+          "budget_lower_bound_exceeded": 24,
+          "power_lower_bound_exceeded": 128
+        },
+        "max_active_states": 128,
+        "max_selection_buffer": 129,
+        "h5_calls": 60,
+        "h6_calls": 45,
+        "complete_architectures_produced": 0,
+        "h10_calls": 0,
+        "valid_architecture_count": 0,
+        "search_seconds": 0.5552331999642774,
+        "best_architecture_id": null,
+        "best_final_h9_score": null
+      },
+      "exhaustive_valid_count": 90,
+      "exhaustive_best_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+      "best_path_first_loss": "OST_PROTECTION",
+      "exhaustive_best_selected": {
+        "mdt_drive": {
+          "drive_id": "DRV_000085",
+          "drive_name": "KFL61HUL800G",
+          "manufacturer": "Kioxia",
+          "series": "FL6",
+          "media_type": "SSD",
+          "catalog_id": "6a597080171bf88d48fd3110",
+          "model_number": "KFL61HUL800G"
+        },
+        "ost_drive": {
+          "drive_id": "DRV_000137",
+          "drive_name": "SBFPF2BV0P12001",
+          "manufacturer": "Solidigm",
+          "series": "D5-P5336",
+          "media_type": "SSD",
+          "catalog_id": "6a5970807a075c726455e56b",
+          "model_number": "SBFPF2BV0P12001"
+        },
+        "mdt_protection": {
+          "role": "MDT",
+          "drive_id": "DRV_000085",
+          "protection_profile_id": "PROT_RAID6_12",
+          "raid_level": "RAID6",
+          "raw_minimum_drive_count": 1,
+          "group_count": 1,
+          "group_size": 12,
+          "data_drives_per_group": 10,
+          "parity_drives_per_group": 2,
+          "mirror_copies": 1,
+          "physical_drive_count": 12,
+          "counts_basis": {
+            "lower_bound": 1,
+            "capacity": 1,
+            "read_iops": 1,
+            "write_iops": 1
+          },
+          "per_drive": {
+            "capacity_tib": 0.727596,
+            "read_iops": 1480000.0,
+            "write_iops": 360000.0
+          },
+          "provided": {
+            "usable_capacity_tib": 7.27596,
+            "read_iops": 16339200.0,
+            "write_iops": 2376000.0
+          },
+          "requirements": {
+            "usable_capacity_tib": 0.01901783,
+            "read_iops": 453848.0,
+            "write_iops": 113462.0
+          },
+          "satisfied": {
+            "capacity": true,
+            "read_iops": true,
+            "write_iops": true
+          },
+          "fault_tolerance_drives_per_group": 2,
+          "per_drive_cost_usd": 730.0,
+          "per_drive_power_w": 14.0,
+          "protected_drive_cost_usd": 8760.0,
+          "protected_drive_power_w": 168.0
+        },
+        "ost_protection": {
+          "role": "OST",
+          "drive_id": "DRV_000137",
+          "protection_profile_id": "PROT_RAID6_12",
+          "raid_level": "RAID6",
+          "raw_minimum_drive_count": 504,
+          "group_count": 51,
+          "group_size": 12,
+          "data_drives_per_group": 10,
+          "parity_drives_per_group": 2,
+          "mirror_copies": 1,
+          "physical_drive_count": 612,
+          "counts_basis": {
+            "lower_bound": 42,
+            "capacity": 51,
+            "read_bandwidth": 1,
+            "write_bandwidth": 1,
+            "total_bandwidth": 1
+          },
+          "per_drive": {
+            "capacity_tib": 111.758709,
+            "read_bandwidth_gb_s": 7.0,
+            "write_bandwidth_gb_s": 3.0
+          },
+          "provided": {
+            "usable_capacity_tib": 56996.94159,
+            "read_bandwidth_gb_s": 3941.28,
+            "write_bandwidth_gb_s": 1009.8000000000001,
+            "total_bandwidth_gb_s": 4951.08
+          },
+          "requirements": {
+            "usable_capacity_tib": 56238.75,
+            "read_bandwidth_gb_s": 40.0,
+            "write_bandwidth_gb_s": 10.0,
+            "total_bandwidth_gb_s": 50.0
+          },
+          "satisfied": {
+            "capacity": true,
+            "read_bandwidth": true,
+            "write_bandwidth": true,
+            "total_bandwidth": true
+          },
+          "fault_tolerance_drives_per_group": 2,
+          "per_drive_cost_usd": 7955.0,
+          "per_drive_power_w": 24.0,
+          "protected_drive_cost_usd": 4868460.0,
+          "protected_drive_power_w": 14688.0
+        },
+        "mdt_hardware_path": {
+          "compatible": true,
+          "role": "MDT",
+          "attachment_mode": "DIRECT",
+          "drive_id": "DRV_000085",
+          "protection_profile_id": "PROT_RAID6_12",
+          "server_id": "SRV_DUALROLE_01",
+          "controller_id": "CTRL_NVME_G4X16_01",
+          "enclosure_id": null,
+          "network_id": "NET_ETH100_01",
+          "ha_profile_id": "HA_NONE",
+          "minimum_resources": {
+            "physical_drive_count": 12,
+            "server_count": 1,
+            "controller_count": 2,
+            "enclosure_count": 0,
+            "network_adapter_count": 1
+          },
+          "bandwidth": {
+            "required_gb_s": 0.0,
+            "controller_total_gb_s": 63.0,
+            "network_total_gb_s": 22.5
+          },
+          "component_cost_lower_bound_usd": 11250.0,
+          "component_power_lower_bound_w": 778.0,
+          "violations": []
+        },
+        "ost_hardware_path": {
+          "compatible": true,
+          "role": "OST",
+          "attachment_mode": "DIRECT",
+          "drive_id": "DRV_000137",
+          "protection_profile_id": "PROT_RAID6_12",
+          "server_id": "SRV_DUALROLE_01",
+          "controller_id": "CTRL_NVME_G4X16_01",
+          "enclosure_id": null,
+          "network_id": "NET_ETH100_01",
+          "ha_profile_id": "HA_NONE",
+          "minimum_resources": {
+            "physical_drive_count": 612,
+            "server_count": 20,
+            "controller_count": 77,
+            "enclosure_count": 0,
+            "network_adapter_count": 20
+          },
+          "bandwidth": {
+            "required_gb_s": 50.0,
+            "controller_total_gb_s": 2425.5,
+            "network_total_gb_s": 450.0
+          },
+          "component_cost_lower_bound_usd": 276800.0,
+          "component_power_lower_bound_w": 17595.0,
+          "violations": []
+        }
+      }
+    },
+    {
+      "beam_width": 256,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "levels": [
+        {
+          "search_stage": "MDT_DRIVE",
+          "depth": 1,
+          "branches_created": 5,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 5,
+          "best_retained_score": 0.6459684052051893,
+          "worst_retained_score": 0.44595520493428426,
+          "viable_generated": 5,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 5,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 0,
+            "mdt_hardware_paths": 0,
+            "distinct_costs": 5,
+            "distinct_powers": 4,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 2,
+            "score": 0.5209596548830706
+          }
+        },
+        {
+          "search_stage": "MDT_PROTECTION",
+          "depth": 2,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.9034696397178292,
+          "worst_retained_score": 0.6475125455858277,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 30,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 0,
+            "distinct_costs": 25,
+            "distinct_powers": 20,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 7,
+            "score": 0.7786409634469199
+          }
+        },
+        {
+          "search_stage": "MDT_HARDWARE",
+          "depth": 3,
+          "branches_created": 30,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 30,
+          "best_retained_score": 0.8079783499694638,
+          "worst_retained_score": 0.575605490571233,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 30,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "distinct_costs": 25,
+            "distinct_powers": 20,
+            "cost_deciles_of_limit": [
+              0
+            ],
+            "power_deciles_of_limit": [
+              0
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 7,
+            "score": 0.6831501492856288
+          }
+        },
+        {
+          "search_stage": "OST_DRIVE",
+          "depth": 4,
+          "branches_created": 150,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "pruning_reason_counts": {},
+          "retained": 150,
+          "best_retained_score": 0.7434556820250345,
+          "worst_retained_score": 0.49032555803968925,
+          "viable_generated": 30,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 30,
+          "reachable_valid_architectures": 90,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "distinct_costs": 124,
+            "distinct_powers": 100,
+            "cost_deciles_of_limit": [
+              2,
+              4
+            ],
+            "power_deciles_of_limit": [
+              1,
+              2
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "KEPT",
+            "rank_before_width": 87,
+            "score": 0.5605307930504818
+          }
+        },
+        {
+          "search_stage": "OST_PROTECTION",
+          "depth": 5,
+          "branches_created": 900,
+          "hard_pruned": 0,
+          "width_pruned": 644,
+          "pruning_reason_counts": {
+            "beam_width_limit": 644
+          },
+          "retained": 256,
+          "best_retained_score": 0.7543418728566003,
+          "worst_retained_score": 0.6048576109522694,
+          "viable_generated": 90,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 76,
+          "viable_retained": 14,
+          "reachable_valid_architectures": 14,
+          "diversity": {
+            "mdt_drives": 5,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 10,
+            "distinct_costs": 175,
+            "distinct_powers": 159,
+            "cost_deciles_of_limit": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "power_deciles_of_limit": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "WIDTH_PRUNED",
+            "rank_before_width": 416,
+            "score": 0.5699833575099614
+          }
+        },
+        {
+          "search_stage": "OST_HARDWARE",
+          "depth": 6,
+          "branches_created": 256,
+          "hard_pruned": 242,
+          "width_pruned": 0,
+          "pruning_reason_counts": {
+            "budget_lower_bound_exceeded": 54,
+            "power_lower_bound_exceeded": 242
+          },
+          "retained": 14,
+          "best_retained_score": 0.5793780717869224,
+          "worst_retained_score": 0.5604047310649332,
+          "viable_generated": 14,
+          "viable_hard_pruned": 0,
+          "viable_width_pruned": 0,
+          "viable_retained": 14,
+          "reachable_valid_architectures": 14,
+          "diversity": {
+            "mdt_drives": 1,
+            "mdt_protections": 6,
+            "mdt_hardware_paths": 5,
+            "distinct_costs": 12,
+            "distinct_powers": 12,
+            "cost_deciles_of_limit": [
+              6
+            ],
+            "power_deciles_of_limit": [
+              2,
+              3
+            ]
+          },
+          "exhaustive_best_path": {
+            "status": "PARENT_ALREADY_LOST",
+            "rank_before_width": null,
+            "score": null
+          }
+        },
+        {
+          "search_stage": "COMPLETE",
+          "branches_created": 14,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "retained": 14,
+          "viable_retained": 14,
+          "best_retained_score": 0.5793780717869224,
+          "worst_retained_score": 0.5604047310649332,
+          "pruning_reason_counts": {}
+        },
+        {
+          "search_stage": "H10",
+          "branches_created": 14,
+          "hard_pruned": 0,
+          "width_pruned": 0,
+          "retained": 14,
+          "viable_retained": 14,
+          "best_retained_score": 0.5793780717869224,
+          "worst_retained_score": 0.5604047310649332,
+          "pruning_reason_counts": {}
+        }
+      ],
+      "lookahead_trace": [],
+      "summary": {
+        "branches_created": 1371,
+        "branches_explored": 1371,
+        "branches_pruned": 886,
+        "hard_pruned": 242,
+        "width_pruned": 644,
+        "pruning_reason_counts": {
+          "beam_width_limit": 644,
+          "budget_lower_bound_exceeded": 54,
+          "power_lower_bound_exceeded": 242
+        },
+        "max_active_states": 256,
+        "max_selection_buffer": 257,
+        "h5_calls": 60,
+        "h6_calls": 57,
+        "complete_architectures_produced": 14,
+        "h10_calls": 14,
+        "valid_architecture_count": 14,
+        "search_seconds": 1.1382160000503063,
+        "best_architecture_id": "ARCH_REQ_000003_82944342addcd044",
+        "best_final_h9_score": 0.8217083572003767
+      },
+      "exhaustive_valid_count": 90,
+      "exhaustive_best_id": "ARCH_REQ_000003_d6d34b86f177b1cd",
+      "best_path_first_loss": "OST_PROTECTION",
+      "exhaustive_best_selected": {
+        "mdt_drive": {
+          "drive_id": "DRV_000085",
+          "drive_name": "KFL61HUL800G",
+          "manufacturer": "Kioxia",
+          "series": "FL6",
+          "media_type": "SSD",
+          "catalog_id": "6a597080171bf88d48fd3110",
+          "model_number": "KFL61HUL800G"
+        },
+        "ost_drive": {
+          "drive_id": "DRV_000137",
+          "drive_name": "SBFPF2BV0P12001",
+          "manufacturer": "Solidigm",
+          "series": "D5-P5336",
+          "media_type": "SSD",
+          "catalog_id": "6a5970807a075c726455e56b",
+          "model_number": "SBFPF2BV0P12001"
+        },
+        "mdt_protection": {
+          "role": "MDT",
+          "drive_id": "DRV_000085",
+          "protection_profile_id": "PROT_RAID6_12",
+          "raid_level": "RAID6",
+          "raw_minimum_drive_count": 1,
+          "group_count": 1,
+          "group_size": 12,
+          "data_drives_per_group": 10,
+          "parity_drives_per_group": 2,
+          "mirror_copies": 1,
+          "physical_drive_count": 12,
+          "counts_basis": {
+            "lower_bound": 1,
+            "capacity": 1,
+            "read_iops": 1,
+            "write_iops": 1
+          },
+          "per_drive": {
+            "capacity_tib": 0.727596,
+            "read_iops": 1480000.0,
+            "write_iops": 360000.0
+          },
+          "provided": {
+            "usable_capacity_tib": 7.27596,
+            "read_iops": 16339200.0,
+            "write_iops": 2376000.0
+          },
+          "requirements": {
+            "usable_capacity_tib": 0.01901783,
+            "read_iops": 453848.0,
+            "write_iops": 113462.0
+          },
+          "satisfied": {
+            "capacity": true,
+            "read_iops": true,
+            "write_iops": true
+          },
+          "fault_tolerance_drives_per_group": 2,
+          "per_drive_cost_usd": 730.0,
+          "per_drive_power_w": 14.0,
+          "protected_drive_cost_usd": 8760.0,
+          "protected_drive_power_w": 168.0
+        },
+        "ost_protection": {
+          "role": "OST",
+          "drive_id": "DRV_000137",
+          "protection_profile_id": "PROT_RAID6_12",
+          "raid_level": "RAID6",
+          "raw_minimum_drive_count": 504,
+          "group_count": 51,
+          "group_size": 12,
+          "data_drives_per_group": 10,
+          "parity_drives_per_group": 2,
+          "mirror_copies": 1,
+          "physical_drive_count": 612,
+          "counts_basis": {
+            "lower_bound": 42,
+            "capacity": 51,
+            "read_bandwidth": 1,
+            "write_bandwidth": 1,
+            "total_bandwidth": 1
+          },
+          "per_drive": {
+            "capacity_tib": 111.758709,
+            "read_bandwidth_gb_s": 7.0,
+            "write_bandwidth_gb_s": 3.0
+          },
+          "provided": {
+            "usable_capacity_tib": 56996.94159,
+            "read_bandwidth_gb_s": 3941.28,
+            "write_bandwidth_gb_s": 1009.8000000000001,
+            "total_bandwidth_gb_s": 4951.08
+          },
+          "requirements": {
+            "usable_capacity_tib": 56238.75,
+            "read_bandwidth_gb_s": 40.0,
+            "write_bandwidth_gb_s": 10.0,
+            "total_bandwidth_gb_s": 50.0
+          },
+          "satisfied": {
+            "capacity": true,
+            "read_bandwidth": true,
+            "write_bandwidth": true,
+            "total_bandwidth": true
+          },
+          "fault_tolerance_drives_per_group": 2,
+          "per_drive_cost_usd": 7955.0,
+          "per_drive_power_w": 24.0,
+          "protected_drive_cost_usd": 4868460.0,
+          "protected_drive_power_w": 14688.0
+        },
+        "mdt_hardware_path": {
+          "compatible": true,
+          "role": "MDT",
+          "attachment_mode": "DIRECT",
+          "drive_id": "DRV_000085",
+          "protection_profile_id": "PROT_RAID6_12",
+          "server_id": "SRV_DUALROLE_01",
+          "controller_id": "CTRL_NVME_G4X16_01",
+          "enclosure_id": null,
+          "network_id": "NET_ETH100_01",
+          "ha_profile_id": "HA_NONE",
+          "minimum_resources": {
+            "physical_drive_count": 12,
+            "server_count": 1,
+            "controller_count": 2,
+            "enclosure_count": 0,
+            "network_adapter_count": 1
+          },
+          "bandwidth": {
+            "required_gb_s": 0.0,
+            "controller_total_gb_s": 63.0,
+            "network_total_gb_s": 22.5
+          },
+          "component_cost_lower_bound_usd": 11250.0,
+          "component_power_lower_bound_w": 778.0,
+          "violations": []
+        },
+        "ost_hardware_path": {
+          "compatible": true,
+          "role": "OST",
+          "attachment_mode": "DIRECT",
+          "drive_id": "DRV_000137",
+          "protection_profile_id": "PROT_RAID6_12",
+          "server_id": "SRV_DUALROLE_01",
+          "controller_id": "CTRL_NVME_G4X16_01",
+          "enclosure_id": null,
+          "network_id": "NET_ETH100_01",
+          "ha_profile_id": "HA_NONE",
+          "minimum_resources": {
+            "physical_drive_count": 612,
+            "server_count": 20,
+            "controller_count": 77,
+            "enclosure_count": 0,
+            "network_adapter_count": 20
+          },
+          "bandwidth": {
+            "required_gb_s": 50.0,
+            "controller_total_gb_s": 2425.5,
+            "network_total_gb_s": 450.0
+          },
+          "component_cost_lower_bound_usd": 276800.0,
+          "component_power_lower_bound_w": 17595.0,
+          "violations": []
+        }
+      }
+    }
+  ]
+}

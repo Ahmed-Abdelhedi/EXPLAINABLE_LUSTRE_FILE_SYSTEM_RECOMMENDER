@@ -1,0 +1,2941 @@
+{
+  "no_solution": [
+    {
+      "case_id": "REQ_000220",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.05240914999740198,
+      "branches_generated": 1140,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 247,
+        "no_compatible_completion": 50,
+        "power_lower_bound_exceeded": 240
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 0
+      },
+      "no_solution_classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+    },
+    {
+      "case_id": "REQ_000221",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.04104780004126951,
+      "branches_generated": 1267,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 96,
+        "no_compatible_completion": 50,
+        "power_lower_bound_exceeded": 282
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 0
+      },
+      "no_solution_classification": "JOINT_BUDGET_POWER_CONFLICT"
+    },
+    {
+      "case_id": "REQ_000323",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.04698944999836385,
+      "branches_generated": 1058,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 28,
+        "h6_no_compatible_path": 8,
+        "no_compatible_completion": 50,
+        "power_lower_bound_exceeded": 220
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 0
+      },
+      "no_solution_classification": "POWER_LOWER_BOUND_EXCEEDS"
+    },
+    {
+      "case_id": "REQ_000391",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.03208615002222359,
+      "branches_generated": 1194,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 300,
+        "no_compatible_completion": 50,
+        "power_lower_bound_exceeded": 150
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 0
+      },
+      "no_solution_classification": "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED"
+    },
+    {
+      "case_id": "REQ_000637",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.035140300053171813,
+      "branches_generated": 1301,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 275,
+        "no_compatible_completion": 50,
+        "power_lower_bound_exceeded": 276
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 0
+      },
+      "no_solution_classification": "BUDGET_LOWER_BOUND_EXCEEDS"
+    },
+    {
+      "case_id": "REQ_000696",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.043263699975796044,
+      "branches_generated": 1243,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 73,
+        "no_compatible_completion": 50,
+        "power_lower_bound_exceeded": 288
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 0
+      },
+      "no_solution_classification": "JOINT_BUDGET_POWER_CONFLICT"
+    },
+    {
+      "case_id": "REQ_001042",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.025840949965640903,
+      "branches_generated": 741,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 44,
+        "no_compatible_completion": 50
+      },
+      "lookahead_role_options": {
+        "mdt": 286,
+        "ost": 0
+      },
+      "no_solution_classification": "BUDGET_LOWER_BOUND_EXCEEDS"
+    },
+    {
+      "case_id": "REQ_001078",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.03758359997300431,
+      "branches_generated": 1184,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 36,
+        "no_compatible_completion": 50,
+        "power_lower_bound_exceeded": 270
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 0
+      },
+      "no_solution_classification": "POWER_LOWER_BOUND_EXCEEDS"
+    },
+    {
+      "case_id": "REQ_000267",
+      "requested_top_k": 20,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.015080699988175184,
+      "branches_generated": 478,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 108,
+        "completion_joint_budget_power_conflict": 20,
+        "power_lower_bound_exceeded": 41
+      },
+      "lookahead_role_options": {
+        "mdt": 120,
+        "ost": 2
+      },
+      "no_solution_classification": "JOINT_BUDGET_POWER_CONFLICT"
+    },
+    {
+      "case_id": "REQ_000366",
+      "requested_top_k": 10,
+      "beam_width": 32,
+      "status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "runtime_total": 0.007583200000226498,
+      "branches_generated": 264,
+      "complete_architectures": 0,
+      "h10_calls": 0,
+      "h10_valid_count": 0,
+      "selected_architecture_id": null,
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 33,
+        "no_compatible_completion": 10,
+        "power_lower_bound_exceeded": 54
+      },
+      "lookahead_role_options": {
+        "mdt": 60,
+        "ost": 0
+      },
+      "no_solution_classification": "POWER_LOWER_BOUND_EXCEEDS"
+    }
+  ],
+  "width_sensitive": [
+    {
+      "case_id": "REQ_000034",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": false,
+      "quality_counterexamples": [
+        {
+          "lower_b": 1,
+          "higher_b": 16,
+          "lower_quality": 0.8960006486500196,
+          "higher_quality": 0.8864218781373774
+        },
+        {
+          "lower_b": 4,
+          "higher_b": 16,
+          "lower_quality": 0.8960006486500196,
+          "higher_quality": 0.8864218781373774
+        },
+        {
+          "lower_b": 8,
+          "higher_b": 16,
+          "lower_quality": 0.8960006486500196,
+          "higher_quality": 0.8864218781373774
+        }
+      ],
+      "architecture_changes": 2,
+      "distinct_selected_architectures": 3,
+      "relative_quality_range": 0.08286569165955593,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000034_3712826247378708",
+          "relative_quality": 0.8960006486500196,
+          "common_rank": 122
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000034_3712826247378708",
+          "relative_quality": 0.8960006486500196,
+          "common_rank": 122
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000034_3712826247378708",
+          "relative_quality": 0.8960006486500196,
+          "common_rank": 122
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000034_4643d09105b9b103",
+          "relative_quality": 0.8864218781373774,
+          "common_rank": 150
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000034_39e769e9d57904d6",
+          "relative_quality": 0.9692875697969333,
+          "common_rank": 5
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000593",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": true,
+      "quality_counterexamples": [],
+      "architecture_changes": 2,
+      "distinct_selected_architectures": 3,
+      "relative_quality_range": 0.0706857176232436,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000593_1fbbe5100948375c",
+          "relative_quality": 0.9293142823767564,
+          "common_rank": 90
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000593_1fbbe5100948375c",
+          "relative_quality": 0.9293142823767564,
+          "common_rank": 90
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000593_1fbbe5100948375c",
+          "relative_quality": 0.9293142823767564,
+          "common_rank": 90
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000593_4763a66b9e6d6ede",
+          "relative_quality": 0.958984501854353,
+          "common_rank": 33
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000593_f225c0d20ad8b8e9",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000957",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": false,
+      "quality_counterexamples": [
+        {
+          "lower_b": 1,
+          "higher_b": 4,
+          "lower_quality": 0.9372325879038146,
+          "higher_quality": 0.9372197089856085
+        }
+      ],
+      "architecture_changes": 2,
+      "distinct_selected_architectures": 3,
+      "relative_quality_range": 0.06251179981073618,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000957_58e3d80055a6dfda",
+          "relative_quality": 0.9372325879038146,
+          "common_rank": 17
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000957_b5bc4dfece71b826",
+          "relative_quality": 0.9372197089856085,
+          "common_rank": 18
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000957_e4c3f462e0d8e4dc",
+          "relative_quality": 0.9997315087963446,
+          "common_rank": 3
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000957_e4c3f462e0d8e4dc",
+          "relative_quality": 0.9997315087963446,
+          "common_rank": 3
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000957_e4c3f462e0d8e4dc",
+          "relative_quality": 0.9997315087963446,
+          "common_rank": 3
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000794",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": true,
+      "quality_counterexamples": [],
+      "architecture_changes": 2,
+      "distinct_selected_architectures": 3,
+      "relative_quality_range": 0.06193071202637268,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000794_3c6a01081244d6a1",
+          "relative_quality": 0.8142958377766908,
+          "common_rank": 500
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000794_ab3e17c802ebba7c",
+          "relative_quality": 0.8282675661600597,
+          "common_rank": 441
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000794_f89110fb09396874",
+          "relative_quality": 0.8762265498030635,
+          "common_rank": 248
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000794_f89110fb09396874",
+          "relative_quality": 0.8762265498030635,
+          "common_rank": 248
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000794_f89110fb09396874",
+          "relative_quality": 0.8762265498030635,
+          "common_rank": 248
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000407",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": false,
+      "quality_counterexamples": [
+        {
+          "lower_b": 1,
+          "higher_b": 32,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9518635861692486
+        },
+        {
+          "lower_b": 4,
+          "higher_b": 32,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9518635861692486
+        },
+        {
+          "lower_b": 8,
+          "higher_b": 32,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9518635861692486
+        },
+        {
+          "lower_b": 16,
+          "higher_b": 32,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9518635861692486
+        }
+      ],
+      "architecture_changes": 1,
+      "distinct_selected_architectures": 2,
+      "relative_quality_range": 0.0481364138307514,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000407_1081a619ab0946a0",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000407_1081a619ab0946a0",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000407_1081a619ab0946a0",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000407_1081a619ab0946a0",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000407_0e4e905edbc53fd5",
+          "relative_quality": 0.9518635861692486,
+          "common_rank": 26
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000007",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": true,
+      "quality_counterexamples": [],
+      "architecture_changes": 1,
+      "distinct_selected_architectures": 2,
+      "relative_quality_range": 0.041153576105722345,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000007_d1884bc0618d9f3e",
+          "relative_quality": 0.941382362193086,
+          "common_rank": 105
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000007_d1884bc0618d9f3e",
+          "relative_quality": 0.941382362193086,
+          "common_rank": 105
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000007_e111b18732171ff5",
+          "relative_quality": 0.9825359382988084,
+          "common_rank": 16
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000007_e111b18732171ff5",
+          "relative_quality": 0.9825359382988084,
+          "common_rank": 16
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000007_e111b18732171ff5",
+          "relative_quality": 0.9825359382988084,
+          "common_rank": 16
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000392",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": false,
+      "quality_counterexamples": [
+        {
+          "lower_b": 1,
+          "higher_b": 4,
+          "lower_quality": 0.9768946216150831,
+          "higher_quality": 0.9766787919510895
+        },
+        {
+          "lower_b": 1,
+          "higher_b": 8,
+          "lower_quality": 0.9768946216150831,
+          "higher_quality": 0.9766787919510895
+        },
+        {
+          "lower_b": 1,
+          "higher_b": 32,
+          "lower_quality": 0.9768946216150831,
+          "higher_quality": 0.9601345120682311
+        },
+        {
+          "lower_b": 4,
+          "higher_b": 32,
+          "lower_quality": 0.9766787919510895,
+          "higher_quality": 0.9601345120682311
+        },
+        {
+          "lower_b": 8,
+          "higher_b": 32,
+          "lower_quality": 0.9766787919510895,
+          "higher_quality": 0.9601345120682311
+        },
+        {
+          "lower_b": 16,
+          "higher_b": 32,
+          "lower_quality": 0.9995456411845273,
+          "higher_quality": 0.9601345120682311
+        }
+      ],
+      "architecture_changes": 3,
+      "distinct_selected_architectures": 4,
+      "relative_quality_range": 0.039411129116296184,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000392_53b58aa24a5d4038",
+          "relative_quality": 0.9768946216150831,
+          "common_rank": 5
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000392_3d46bfe2ff599b54",
+          "relative_quality": 0.9766787919510895,
+          "common_rank": 6
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000392_3d46bfe2ff599b54",
+          "relative_quality": 0.9766787919510895,
+          "common_rank": 6
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000392_f0ba363bd6fa55d2",
+          "relative_quality": 0.9995456411845273,
+          "common_rank": 2
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000392_380a719c400e0fab",
+          "relative_quality": 0.9601345120682311,
+          "common_rank": 22
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000738",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": false,
+      "quality_counterexamples": [
+        {
+          "lower_b": 8,
+          "higher_b": 16,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9998998740548101
+        },
+        {
+          "lower_b": 8,
+          "higher_b": 32,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9998998740548101
+        }
+      ],
+      "architecture_changes": 3,
+      "distinct_selected_architectures": 4,
+      "relative_quality_range": 0.02281504721799421,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000738_733ef05ec94b1be8",
+          "relative_quality": 0.9771849527820058,
+          "common_rank": 6
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000738_6881c0a013d233d1",
+          "relative_quality": 0.9774859373709768,
+          "common_rank": 5
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000738_8c662169dec980ed",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000738_2e980e1d58f525ab",
+          "relative_quality": 0.9998998740548101,
+          "common_rank": 2
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000738_2e980e1d58f525ab",
+          "relative_quality": 0.9998998740548101,
+          "common_rank": 2
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000373",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": false,
+      "quality_counterexamples": [
+        {
+          "lower_b": 1,
+          "higher_b": 4,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9998923363474784
+        },
+        {
+          "lower_b": 1,
+          "higher_b": 8,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9998923363474784
+        },
+        {
+          "lower_b": 1,
+          "higher_b": 16,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9998923363474784
+        },
+        {
+          "lower_b": 1,
+          "higher_b": 32,
+          "lower_quality": 1.0,
+          "higher_quality": 0.9773199767824123
+        },
+        {
+          "lower_b": 4,
+          "higher_b": 32,
+          "lower_quality": 0.9998923363474784,
+          "higher_quality": 0.9773199767824123
+        },
+        {
+          "lower_b": 8,
+          "higher_b": 32,
+          "lower_quality": 0.9998923363474784,
+          "higher_quality": 0.9773199767824123
+        },
+        {
+          "lower_b": 16,
+          "higher_b": 32,
+          "lower_quality": 0.9998923363474784,
+          "higher_quality": 0.9773199767824123
+        }
+      ],
+      "architecture_changes": 2,
+      "distinct_selected_architectures": 3,
+      "relative_quality_range": 0.022680023217587664,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000373_2bbb7c75ed3ce337",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000373_b02374c0ab50f995",
+          "relative_quality": 0.9998923363474784,
+          "common_rank": 4
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000373_b02374c0ab50f995",
+          "relative_quality": 0.9998923363474784,
+          "common_rank": 4
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000373_b02374c0ab50f995",
+          "relative_quality": 0.9998923363474784,
+          "common_rank": 4
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000373_37a143ce2f9bc3f7",
+          "relative_quality": 0.9773199767824123,
+          "common_rank": 19
+        }
+      ]
+    },
+    {
+      "case_id": "REQ_000778",
+      "k": 5,
+      "validity_monotonicity": true,
+      "validity_counterexamples": [],
+      "selected_quality_monotonicity": false,
+      "quality_counterexamples": [
+        {
+          "lower_b": 1,
+          "higher_b": 4,
+          "lower_quality": 0.9998611646857328,
+          "higher_quality": 0.9780971516323723
+        },
+        {
+          "lower_b": 1,
+          "higher_b": 8,
+          "lower_quality": 0.9998611646857328,
+          "higher_quality": 0.9780971516323723
+        }
+      ],
+      "architecture_changes": 2,
+      "distinct_selected_architectures": 3,
+      "relative_quality_range": 0.02190284836762768,
+      "widths": [
+        {
+          "b": 1,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000778_65d310b6bbe57480",
+          "relative_quality": 0.9998611646857328,
+          "common_rank": 2
+        },
+        {
+          "b": 4,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000778_e4fe4304bae7f6a0",
+          "relative_quality": 0.9780971516323723,
+          "common_rank": 5
+        },
+        {
+          "b": 8,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000778_e4fe4304bae7f6a0",
+          "relative_quality": 0.9780971516323723,
+          "common_rank": 5
+        },
+        {
+          "b": 16,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000778_ffa741647bd7841f",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        },
+        {
+          "b": 32,
+          "valid": true,
+          "architecture_id": "ARCH_REQ_000778_ffa741647bd7841f",
+          "relative_quality": 1.0,
+          "common_rank": 1
+        }
+      ]
+    }
+  ],
+  "high_search_regret": [
+    {
+      "case_id": "REQ_000794",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.008840600028634071,
+      "branches_generated": 154,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000794_3c6a01081244d6a1",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 900,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6797053292488553,
+        "exhaustive_best_h9_score": 0.8347154654562473,
+        "common_score_regret": 0.155010136207392,
+        "relative_quality": 0.8142958377766908,
+        "exhaustive_valid_rank": 500,
+        "exhaustive_pool_rank": 500,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000794_3dc15a0d15cbaed7",
+        "beam_architecture_id": "ARCH_REQ_000794_3c6a01081244d6a1",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.0011111111111111111,
+        "retained_best_in_common_pool": "ARCH_REQ_000794_3c6a01081244d6a1",
+        "search_common_score_regret": 0.155010136207392,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 120540.0,
+            "maximum": 166910.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 5296.0,
+            "maximum": 6847.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 162000.0,
+            "maximum": 162000.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 5636.0,
+            "maximum": 5636.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 500,
+        "selected_architecture_common_rank": 500,
+        "total_common_score_regret": 0.155010136207392
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 18
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 30
+      }
+    },
+    {
+      "case_id": "REQ_000034",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.008114200027193874,
+      "branches_generated": 154,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000034_3712826247378708",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 900,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6379111997699671,
+        "exhaustive_best_h9_score": 0.7119539486172147,
+        "common_score_regret": 0.0740427488472476,
+        "relative_quality": 0.8960006486500196,
+        "exhaustive_valid_rank": 122,
+        "exhaustive_pool_rank": 122,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000034_a9b20aa5c33596f3",
+        "beam_architecture_id": "ARCH_REQ_000034_3712826247378708",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.0011111111111111111,
+        "retained_best_in_common_pool": "ARCH_REQ_000034_3712826247378708",
+        "search_common_score_regret": 0.0740427488472476,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 61780.0,
+            "maximum": 195050.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 1913.0,
+            "maximum": 3686.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 163000.0,
+            "maximum": 163000.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 2990.0,
+            "maximum": 2990.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 122,
+        "selected_architecture_common_rank": 122,
+        "total_common_score_regret": 0.0740427488472476
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 18
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 30
+      }
+    },
+    {
+      "case_id": "REQ_000593",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.009445749979931861,
+      "branches_generated": 154,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000593_1fbbe5100948375c",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 806,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8485591788662573,
+        "exhaustive_best_h9_score": 0.9131024831513782,
+        "common_score_regret": 0.0645433042851209,
+        "relative_quality": 0.9293142823767564,
+        "exhaustive_valid_rank": 90,
+        "exhaustive_pool_rank": 90,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000593_f225c0d20ad8b8e9",
+        "beam_architecture_id": "ARCH_REQ_000593_1fbbe5100948375c",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.0012406947890818859,
+        "retained_best_in_common_pool": "ARCH_REQ_000593_1fbbe5100948375c",
+        "search_common_score_regret": 0.0645433042851209,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 132770.0,
+            "maximum": 242830.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 5377.0,
+            "maximum": 13779.6,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 165850.0,
+            "maximum": 165850.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 5465.0,
+            "maximum": 5465.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 90,
+        "selected_architecture_common_rank": 90,
+        "total_common_score_regret": 0.0645433042851209
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 18
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 30
+      }
+    },
+    {
+      "case_id": "REQ_000007",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.022491250012535602,
+      "branches_generated": 153,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000007_d1884bc0618d9f3e",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 265,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7207545542411795,
+        "exhaustive_best_h9_score": 0.7656342238684798,
+        "common_score_regret": 0.04487966962730028,
+        "relative_quality": 0.941382362193086,
+        "exhaustive_valid_rank": 105,
+        "exhaustive_pool_rank": 193,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000007_936d42c13a1ed70c",
+        "beam_architecture_id": "ARCH_REQ_000007_d1884bc0618d9f3e",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.0037735849056603774,
+        "retained_best_in_common_pool": "ARCH_REQ_000007_d1884bc0618d9f3e",
+        "search_common_score_regret": 0.04487966962730028,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 99910.0,
+            "maximum": 241620.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 5054.0,
+            "maximum": 8086.8,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 182810.0,
+            "maximum": 182810.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 5478.0,
+            "maximum": 5478.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 105,
+        "selected_architecture_common_rank": 105,
+        "total_common_score_regret": 0.04487966962730028
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 12,
+        "budget_lower_bound_exceeded": 1,
+        "completion_power_lower_bound_exceeded": 4,
+        "h6_no_compatible_path": 11,
+        "no_compatible_completion": 2
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 18
+      }
+    },
+    {
+      "case_id": "REQ_000957",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.014674299978651106,
+      "branches_generated": 154,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000957_58e3d80055a6dfda",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 150,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6649651301640607,
+        "exhaustive_best_h9_score": 0.7094985158927317,
+        "common_score_regret": 0.04453338572867105,
+        "relative_quality": 0.9372325879038146,
+        "exhaustive_valid_rank": 17,
+        "exhaustive_pool_rank": 33,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000957_6461ed5312ba4f28",
+        "beam_architecture_id": "ARCH_REQ_000957_58e3d80055a6dfda",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.006666666666666667,
+        "retained_best_in_common_pool": "ARCH_REQ_000957_58e3d80055a6dfda",
+        "search_common_score_regret": 0.04453338572867105,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 2131440.0,
+            "maximum": 4285370.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 103037.0,
+            "maximum": 251194.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 2144280.0,
+            "maximum": 2144280.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 103310.0,
+            "maximum": 103310.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 17,
+        "selected_architecture_common_rank": 17,
+        "total_common_score_regret": 0.04453338572867105
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 12,
+        "h6_no_compatible_path": 6,
+        "no_compatible_completion": 6,
+        "power_lower_bound_exceeded": 19
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 5
+      }
+    },
+    {
+      "case_id": "REQ_001079",
+      "requested_top_k": 5,
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.021031900017987937,
+      "branches_generated": 208,
+      "complete_architectures": 4,
+      "h10_calls": 4,
+      "h10_valid_count": 4,
+      "selected_architecture_id": "ARCH_REQ_001079_6f559811c2034f0d",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 630,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8660481167452838,
+        "exhaustive_best_h9_score": 0.8963928215107214,
+        "common_score_regret": 0.030344704765437602,
+        "relative_quality": 0.9661479832978842,
+        "exhaustive_valid_rank": 42,
+        "exhaustive_pool_rank": 42,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_001079_52946dde9f232da6",
+        "beam_architecture_id": "ARCH_REQ_001079_6f559811c2034f0d",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 4,
+        "exhaustive_valid_recall": 0.006349206349206349,
+        "retained_best_in_common_pool": "ARCH_REQ_001079_6f559811c2034f0d",
+        "search_common_score_regret": 0.030344704765437602,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 3885020.0,
+            "maximum": 7097340.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 137606.0,
+            "maximum": 328350.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 4016560.0,
+            "maximum": 4182740.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 152604.0,
+            "maximum": 157685.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 42,
+        "selected_architecture_common_rank": 42,
+        "total_common_score_regret": 0.030344704765437602
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 53,
+        "budget_lower_bound_exceeded": 3,
+        "h6_no_compatible_path": 3,
+        "no_compatible_completion": 4,
+        "power_lower_bound_exceeded": 3
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 21
+      }
+    },
+    {
+      "case_id": "REQ_000208",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.008701799961272627,
+      "branches_generated": 154,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000208_4c63c10829d34501",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 900,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7705793996919176,
+        "exhaustive_best_h9_score": 0.8002039898714964,
+        "common_score_regret": 0.029624590179578858,
+        "relative_quality": 0.9629787022377428,
+        "exhaustive_valid_rank": 112,
+        "exhaustive_pool_rank": 112,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000208_3291e8c8b599d953",
+        "beam_architecture_id": "ARCH_REQ_000208_4c63c10829d34501",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.0011111111111111111,
+        "retained_best_in_common_pool": "ARCH_REQ_000208_4c63c10829d34501",
+        "search_common_score_regret": 0.029624590179578858,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 240840.0,
+            "maximum": 386550.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 9397.2,
+            "maximum": 20350.8,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 259110.0,
+            "maximum": 259110.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 13718.0,
+            "maximum": 13718.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 112,
+        "selected_architecture_common_rank": 112,
+        "total_common_score_regret": 0.029624590179578858
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 18
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 30
+      }
+    },
+    {
+      "case_id": "REQ_000914",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.013818849984090775,
+      "branches_generated": 154,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000914_31006752002ff696",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 450,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8709787790033608,
+        "exhaustive_best_h9_score": 0.8991110450510738,
+        "common_score_regret": 0.028132266047712906,
+        "relative_quality": 0.968711021622346,
+        "exhaustive_valid_rank": 20,
+        "exhaustive_pool_rank": 20,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000914_3f0f13b65a90b63d",
+        "beam_architecture_id": "ARCH_REQ_000914_31006752002ff696",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.0022222222222222222,
+        "retained_best_in_common_pool": "ARCH_REQ_000914_31006752002ff696",
+        "search_common_score_regret": 0.028132266047712906,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 938410.0,
+            "maximum": 1704920.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 48525.6,
+            "maximum": 97978.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 1020640.0,
+            "maximum": 1020640.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 58428.0,
+            "maximum": 58428.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 20,
+        "selected_architecture_common_rank": 20,
+        "total_common_score_regret": 0.028132266047712906
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 14,
+        "completion_power_lower_bound_exceeded": 3,
+        "h6_no_compatible_path": 6,
+        "no_compatible_completion": 1,
+        "power_lower_bound_exceeded": 4
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 20
+      }
+    },
+    {
+      "case_id": "REQ_000432",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.01334050000878051,
+      "branches_generated": 154,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000432_4ffb7911cbcfc25b",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 900,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7933287007653985,
+        "exhaustive_best_h9_score": 0.8137014730735272,
+        "common_score_regret": 0.020372772308128728,
+        "relative_quality": 0.9749628420467567,
+        "exhaustive_valid_rank": 93,
+        "exhaustive_pool_rank": 93,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000432_dd6bea619935c78b",
+        "beam_architecture_id": "ARCH_REQ_000432_4ffb7911cbcfc25b",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.0011111111111111111,
+        "retained_best_in_common_pool": "ARCH_REQ_000432_4ffb7911cbcfc25b",
+        "search_common_score_regret": 0.020372772308128728,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 546950.0,
+            "maximum": 1709930.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 11688.0,
+            "maximum": 34058.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 1090800.0,
+            "maximum": 1090800.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 11796.0,
+            "maximum": 11796.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 93,
+        "selected_architecture_common_rank": 93,
+        "total_common_score_regret": 0.020372772308128728
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 18
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 30
+      }
+    },
+    {
+      "case_id": "REQ_000386",
+      "requested_top_k": 5,
+      "beam_width": 1,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.008640349959023297,
+      "branches_generated": 154,
+      "complete_architectures": 1,
+      "h10_calls": 1,
+      "h10_valid_count": 1,
+      "selected_architecture_id": "ARCH_REQ_000386_825520c80f841a83",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 720,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8398510254036677,
+        "exhaustive_best_h9_score": 0.8592807245858278,
+        "common_score_regret": 0.019429699182160087,
+        "relative_quality": 0.9773884149542338,
+        "exhaustive_valid_rank": 21,
+        "exhaustive_pool_rank": 21,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000386_57a0878296ef24d6",
+        "beam_architecture_id": "ARCH_REQ_000386_825520c80f841a83",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 1,
+        "exhaustive_valid_recall": 0.001388888888888889,
+        "retained_best_in_common_pool": "ARCH_REQ_000386_825520c80f841a83",
+        "search_common_score_regret": 0.019429699182160087,
+        "pool_normalization_common_score_regret": 0.0,
+        "local_h9_changed_retained_winner": false,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 2380810.0,
+            "maximum": 7687700.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 39062.0,
+            "maximum": 146508.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 4703000.0,
+            "maximum": 4703000.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 39286.0,
+            "maximum": 39286.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 21,
+        "selected_architecture_common_rank": 21,
+        "total_common_score_regret": 0.019429699182160087
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 18,
+        "power_lower_bound_exceeded": 6
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 24
+      }
+    }
+  ],
+  "high_normalization_regret": [
+    {
+      "case_id": "REQ_000957",
+      "requested_top_k": 5,
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.021294799982570112,
+      "branches_generated": 211,
+      "complete_architectures": 4,
+      "h10_calls": 4,
+      "h10_valid_count": 4,
+      "selected_architecture_id": "ARCH_REQ_000957_b5bc4dfece71b826",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 150,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6649559925907071,
+        "exhaustive_best_h9_score": 0.7094985158927317,
+        "common_score_regret": 0.04454252330202457,
+        "relative_quality": 0.9372197089856085,
+        "exhaustive_valid_rank": 18,
+        "exhaustive_pool_rank": 34,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000957_6461ed5312ba4f28",
+        "beam_architecture_id": "ARCH_REQ_000957_b5bc4dfece71b826",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 4,
+        "exhaustive_valid_recall": 0.02666666666666667,
+        "retained_best_in_common_pool": "ARCH_REQ_000957_6461ed5312ba4f28",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.04454252330202457,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 2131440.0,
+            "maximum": 4285370.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 103037.0,
+            "maximum": 251194.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 2140440.0,
+            "maximum": 2144280.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 103232.0,
+            "maximum": 103310.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 1,
+        "selected_architecture_common_rank": 18,
+        "total_common_score_regret": 0.04454252330202457
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 33,
+        "h6_no_compatible_path": 6,
+        "no_compatible_completion": 24,
+        "power_lower_bound_exceeded": 19
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 5
+      }
+    },
+    {
+      "case_id": "REQ_000407",
+      "requested_top_k": 5,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.07487725000828505,
+      "branches_generated": 554,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000407_0e4e905edbc53fd5",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 60,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7920642873201621,
+        "exhaustive_best_h9_score": 0.8321195377457449,
+        "common_score_regret": 0.04005525042558278,
+        "relative_quality": 0.9518635861692486,
+        "exhaustive_valid_rank": 26,
+        "exhaustive_pool_rank": 26,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000407_1081a619ab0946a0",
+        "beam_architecture_id": "ARCH_REQ_000407_0e4e905edbc53fd5",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 32,
+        "exhaustive_valid_recall": 0.5333333333333333,
+        "retained_best_in_common_pool": "ARCH_REQ_000407_1081a619ab0946a0",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.04005525042558278,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 4334350.0,
+            "maximum": 8059070.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 30241.0,
+            "maximum": 409980.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 4753690.0,
+            "maximum": 4906160.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 30279.0,
+            "maximum": 31723.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 1,
+        "selected_architecture_common_rank": 26,
+        "total_common_score_regret": 0.04005525042558278
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 28,
+        "budget_lower_bound_exceeded": 108,
+        "no_compatible_completion": 150,
+        "power_lower_bound_exceeded": 24
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 2
+      }
+    },
+    {
+      "case_id": "REQ_000392",
+      "requested_top_k": 5,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.09822205000091344,
+      "branches_generated": 557,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000392_380a719c400e0fab",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 180,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.7813268061513742,
+        "exhaustive_best_h9_score": 0.8137680672141592,
+        "common_score_regret": 0.032441261062785,
+        "relative_quality": 0.9601345120682311,
+        "exhaustive_valid_rank": 22,
+        "exhaustive_pool_rank": 22,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000392_59c58bfd84db8b19",
+        "beam_architecture_id": "ARCH_REQ_000392_380a719c400e0fab",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 32,
+        "exhaustive_valid_recall": 0.17777777777777778,
+        "retained_best_in_common_pool": "ARCH_REQ_000392_59c58bfd84db8b19",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.032441261062785,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 3796240.0,
+            "maximum": 7758940.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 26226.0,
+            "maximum": 432404.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 3974810.0,
+            "maximum": 4079590.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 26256.0,
+            "maximum": 26844.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 1,
+        "selected_architecture_common_rank": 22,
+        "total_common_score_regret": 0.032441261062785
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 148,
+        "budget_lower_bound_exceeded": 3,
+        "no_compatible_completion": 120,
+        "power_lower_bound_exceeded": 24
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 6
+      }
+    },
+    {
+      "case_id": "REQ_000034",
+      "requested_top_k": 5,
+      "beam_width": 16,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.058500599989201874,
+      "branches_generated": 373,
+      "complete_architectures": 16,
+      "h10_calls": 16,
+      "h10_valid_count": 16,
+      "selected_architecture_id": "ARCH_REQ_000034_4643d09105b9b103",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 900,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.6310915562805933,
+        "exhaustive_best_h9_score": 0.7119539486172147,
+        "common_score_regret": 0.0808623923366214,
+        "relative_quality": 0.8864218781373774,
+        "exhaustive_valid_rank": 150,
+        "exhaustive_pool_rank": 150,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000034_a9b20aa5c33596f3",
+        "beam_architecture_id": "ARCH_REQ_000034_4643d09105b9b103",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 16,
+        "exhaustive_valid_recall": 0.017777777777777778,
+        "retained_best_in_common_pool": "ARCH_REQ_000034_3b5bbda4ea47b330",
+        "search_common_score_regret": 0.05217691289254367,
+        "pool_normalization_common_score_regret": 0.028685479444077733,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 61780.0,
+            "maximum": 195050.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 1913.0,
+            "maximum": 3686.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 161600.0,
+            "maximum": 169990.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 2950.0,
+            "maximum": 3126.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 52,
+        "selected_architecture_common_rank": 150,
+        "total_common_score_regret": 0.0808623923366214
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 158
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 30
+      }
+    },
+    {
+      "case_id": "REQ_000593",
+      "requested_top_k": 5,
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.020332799991592765,
+      "branches_generated": 211,
+      "complete_architectures": 4,
+      "h10_calls": 4,
+      "h10_valid_count": 4,
+      "selected_architecture_id": "ARCH_REQ_000593_1fbbe5100948375c",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 806,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8485591788662573,
+        "exhaustive_best_h9_score": 0.9131024831513782,
+        "common_score_regret": 0.0645433042851209,
+        "relative_quality": 0.9293142823767564,
+        "exhaustive_valid_rank": 90,
+        "exhaustive_pool_rank": 90,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000593_f225c0d20ad8b8e9",
+        "beam_architecture_id": "ARCH_REQ_000593_1fbbe5100948375c",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 4,
+        "exhaustive_valid_recall": 0.004962779156327543,
+        "retained_best_in_common_pool": "ARCH_REQ_000593_4763a66b9e6d6ede",
+        "search_common_score_regret": 0.03745135320448101,
+        "pool_normalization_common_score_regret": 0.027091951080639887,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 132770.0,
+            "maximum": 242830.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 5377.0,
+            "maximum": 13779.6,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 165850.0,
+            "maximum": 166890.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 5465.0,
+            "maximum": 5487.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 33,
+        "selected_architecture_common_rank": 90,
+        "total_common_score_regret": 0.0645433042851209
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 57
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 30
+      }
+    },
+    {
+      "case_id": "REQ_000778",
+      "requested_top_k": 5,
+      "beam_width": 4,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.0137255999725312,
+      "branches_generated": 208,
+      "complete_architectures": 4,
+      "h10_calls": 4,
+      "h10_valid_count": 4,
+      "selected_architecture_id": "ARCH_REQ_000778_e4fe4304bae7f6a0",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 90,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8845112092789164,
+        "exhaustive_best_h9_score": 0.9043183571312238,
+        "common_score_regret": 0.019807147852307416,
+        "relative_quality": 0.9780971516323723,
+        "exhaustive_valid_rank": 5,
+        "exhaustive_pool_rank": 5,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000778_ffa741647bd7841f",
+        "beam_architecture_id": "ARCH_REQ_000778_e4fe4304bae7f6a0",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 4,
+        "exhaustive_valid_recall": 0.044444444444444446,
+        "retained_best_in_common_pool": "ARCH_REQ_000778_ffa741647bd7841f",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.019807147852307416,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 776970.0,
+            "maximum": 2407220.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 14768.0,
+            "maximum": 48366.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 1502490.0,
+            "maximum": 1506800.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 14876.0,
+            "maximum": 14914.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 1,
+        "selected_architecture_common_rank": 5,
+        "total_common_score_regret": 0.019807147852307416
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 29,
+        "budget_lower_bound_exceeded": 16,
+        "completion_power_lower_bound_exceeded": 4,
+        "no_compatible_completion": 12,
+        "power_lower_bound_exceeded": 20
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 6
+      }
+    },
+    {
+      "case_id": "REQ_000744",
+      "requested_top_k": 5,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.0703847500262782,
+      "branches_generated": 542,
+      "complete_architectures": 30,
+      "h10_calls": 30,
+      "h10_valid_count": 30,
+      "selected_architecture_id": "ARCH_REQ_000744_dfba05067ae85601",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 30,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.913454985987427,
+        "exhaustive_best_h9_score": 0.9327972534660252,
+        "common_score_regret": 0.01934226747859813,
+        "relative_quality": 0.9792642319574512,
+        "exhaustive_valid_rank": 26,
+        "exhaustive_pool_rank": 61,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000744_79e133a322b68ab0",
+        "beam_architecture_id": "ARCH_REQ_000744_dfba05067ae85601",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 30,
+        "exhaustive_valid_recall": 1.0,
+        "retained_best_in_common_pool": "ARCH_REQ_000744_79e133a322b68ab0",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.01934226747859813,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 10905910.0,
+            "maximum": 21588610.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 74555.0,
+            "maximum": 1214970.8,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 11905240.0,
+            "maximum": 11921840.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 74555.0,
+            "maximum": 74875.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 1,
+        "selected_architecture_common_rank": 26,
+        "total_common_score_regret": 0.01934226747859813
+      },
+      "pruning_reason_counts": {
+        "budget_lower_bound_exceeded": 139,
+        "h6_no_compatible_path": 1,
+        "no_compatible_completion": 150,
+        "power_lower_bound_exceeded": 18
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 1
+      }
+    },
+    {
+      "case_id": "REQ_000373",
+      "requested_top_k": 5,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.0876962500042282,
+      "branches_generated": 542,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000373_37a143ce2f9bc3f7",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 90,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8269597126315942,
+        "exhaustive_best_h9_score": 0.846150423891014,
+        "common_score_regret": 0.019190711259419846,
+        "relative_quality": 0.9773199767824123,
+        "exhaustive_valid_rank": 19,
+        "exhaustive_pool_rank": 19,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000373_2bbb7c75ed3ce337",
+        "beam_architecture_id": "ARCH_REQ_000373_37a143ce2f9bc3f7",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 32,
+        "exhaustive_valid_recall": 0.35555555555555557,
+        "retained_best_in_common_pool": "ARCH_REQ_000373_2bbb7c75ed3ce337",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.019190711259419846,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 1304230.0,
+            "maximum": 2624970.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 9041.0,
+            "maximum": 154276.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 1325460.0,
+            "maximum": 1454970.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 9063.0,
+            "maximum": 10328.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 1,
+        "selected_architecture_common_rank": 19,
+        "total_common_score_regret": 0.019190711259419846
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 58,
+        "budget_lower_bound_exceeded": 105,
+        "h6_no_compatible_path": 3,
+        "no_compatible_completion": 120,
+        "power_lower_bound_exceeded": 12
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      }
+    },
+    {
+      "case_id": "REQ_000386",
+      "requested_top_k": 5,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.12724389997310936,
+      "branches_generated": 569,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000386_712276346ffe53fa",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 720,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8309877820762549,
+        "exhaustive_best_h9_score": 0.8592807245858278,
+        "common_score_regret": 0.028292942509572927,
+        "relative_quality": 0.9670736911697745,
+        "exhaustive_valid_rank": 54,
+        "exhaustive_pool_rank": 54,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_000386_57a0878296ef24d6",
+        "beam_architecture_id": "ARCH_REQ_000386_712276346ffe53fa",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": false,
+        "retained_exhaustive_valid_count": 32,
+        "exhaustive_valid_recall": 0.044444444444444446,
+        "retained_best_in_common_pool": "ARCH_REQ_000386_d141b70fa46f871b",
+        "search_common_score_regret": 0.009213217839642684,
+        "pool_normalization_common_score_regret": 0.019079724669930243,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 2380810.0,
+            "maximum": 7687700.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 39062.0,
+            "maximum": 146508.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 4695580.0,
+            "maximum": 4876760.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 39092.0,
+            "maximum": 40716.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 3,
+        "selected_architecture_common_rank": 54,
+        "total_common_score_regret": 0.028292942509572927
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 278,
+        "power_lower_bound_exceeded": 6
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 24
+      }
+    },
+    {
+      "case_id": "REQ_001068",
+      "requested_top_k": 5,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.0798810999840498,
+      "branches_generated": 554,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_001068_cb8e40215ec77d4e",
+      "exhaustive_status": "COMPLETE",
+      "exhaustive_valid_count": 90,
+      "quality": {
+        "status": "COMPARED_IN_COMMON_POOL",
+        "common_h9_score": 0.8354010749709564,
+        "exhaustive_best_h9_score": 0.8538375526716238,
+        "common_score_regret": 0.018436477700667364,
+        "relative_quality": 0.9784075113082338,
+        "exhaustive_valid_rank": 26,
+        "exhaustive_pool_rank": 26,
+        "best_id_matched": false,
+        "did_beam_find_exhaustive_best": false,
+        "exhaustive_best_architecture_id": "ARCH_REQ_001068_50c2914e8567e9be",
+        "beam_architecture_id": "ARCH_REQ_001068_cb8e40215ec77d4e",
+        "best_score_matched": false,
+        "exhaustive_best_survived_search": true,
+        "retained_exhaustive_valid_count": 32,
+        "exhaustive_valid_recall": 0.35555555555555557,
+        "retained_best_in_common_pool": "ARCH_REQ_001068_50c2914e8567e9be",
+        "search_common_score_regret": 0.0,
+        "pool_normalization_common_score_regret": 0.018436477700667364,
+        "local_h9_changed_retained_winner": true,
+        "exhaustive_normalization": {
+          "cost": {
+            "minimum": 1335820.0,
+            "maximum": 2680100.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 10506.0,
+            "maximum": 142644.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "local_normalization": {
+          "cost": {
+            "minimum": 1530640.0,
+            "maximum": 1538470.0,
+            "higher_score_means": "lower_cost"
+          },
+          "power": {
+            "minimum": 10510.0,
+            "maximum": 10707.0,
+            "higher_score_means": "lower_power"
+          },
+          "fault_tolerance": 2.0
+        },
+        "best_surviving_architecture_common_rank": 1,
+        "selected_architecture_common_rank": 26,
+        "total_common_score_regret": 0.018436477700667364
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 58,
+        "budget_lower_bound_exceeded": 105,
+        "no_compatible_completion": 120,
+        "power_lower_bound_exceeded": 24
+      },
+      "lookahead_role_options": {
+        "mdt": 30,
+        "ost": 3
+      }
+    }
+  ],
+  "slow": [
+    {
+      "case_id": "REQ_000015",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.47049754997715354,
+      "branches_generated": 3368,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000015_c98314f01c5d01a1",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1682,
+        "budget_lower_bound_exceeded": 37,
+        "h6_no_compatible_path": 18,
+        "no_compatible_completion": 224,
+        "power_lower_bound_exceeded": 16
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 239
+      }
+    },
+    {
+      "case_id": "REQ_000751",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.44579110003542155,
+      "branches_generated": 3390,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000751_49002bb31aa6f351",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1842,
+        "budget_lower_bound_exceeded": 20,
+        "h6_no_compatible_path": 1,
+        "no_compatible_completion": 64,
+        "power_lower_bound_exceeded": 6
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 276
+      }
+    },
+    {
+      "case_id": "REQ_000338",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4443754499661736,
+      "branches_generated": 3390,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000338_63e09bbc1c66d7fd",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1842,
+        "budget_lower_bound_exceeded": 40,
+        "h6_no_compatible_path": 4,
+        "no_compatible_completion": 32,
+        "power_lower_bound_exceeded": 21
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 267
+      }
+    },
+    {
+      "case_id": "REQ_001079",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4409241499961354,
+      "branches_generated": 3364,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_001079_9ff65d07d7934bff",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1808,
+        "budget_lower_bound_exceeded": 6,
+        "h6_no_compatible_path": 15,
+        "no_compatible_completion": 96,
+        "power_lower_bound_exceeded": 27
+      },
+      "lookahead_role_options": {
+        "mdt": 288,
+        "ost": 252
+      }
+    },
+    {
+      "case_id": "REQ_000034",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4407398500479758,
+      "branches_generated": 3392,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000034_6c0a69b2809f11fa",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1746,
+        "budget_lower_bound_exceeded": 9,
+        "h6_no_compatible_path": 12,
+        "no_compatible_completion": 160,
+        "power_lower_bound_exceeded": 12
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 270
+      }
+    },
+    {
+      "case_id": "REQ_000208",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.43796084995847195,
+      "branches_generated": 3388,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000208_7c9f65e627119581",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1810,
+        "budget_lower_bound_exceeded": 15,
+        "completion_power_lower_bound_exceeded": 32,
+        "h6_no_compatible_path": 3,
+        "no_compatible_completion": 64,
+        "power_lower_bound_exceeded": 11
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 274
+      }
+    },
+    {
+      "case_id": "REQ_001104",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4363572499714792,
+      "branches_generated": 3395,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_001104_381b50f8e0534852",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1842,
+        "budget_lower_bound_exceeded": 3,
+        "h6_no_compatible_path": 12,
+        "no_compatible_completion": 64
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 285
+      }
+    },
+    {
+      "case_id": "REQ_000432",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.43348715000320226,
+      "branches_generated": 3392,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000432_d9466707ab235c79",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1752,
+        "budget_lower_bound_exceeded": 38,
+        "completion_power_lower_bound_exceeded": 26,
+        "h6_no_compatible_path": 18,
+        "no_compatible_completion": 96,
+        "power_lower_bound_exceeded": 42
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 234
+      }
+    },
+    {
+      "case_id": "REQ_000886",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.43236854998394847,
+      "branches_generated": 3392,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000886_199893bc792804fc",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1842,
+        "budget_lower_bound_exceeded": 6,
+        "h6_no_compatible_path": 6,
+        "no_compatible_completion": 64
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 288
+      }
+    },
+    {
+      "case_id": "REQ_000593",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4249611499835737,
+      "branches_generated": 3391,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000593_e34e032bd1f256b9",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1650,
+        "budget_lower_bound_exceeded": 39,
+        "h6_no_compatible_path": 23,
+        "no_compatible_completion": 256,
+        "power_lower_bound_exceeded": 21
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 229
+      }
+    }
+  ],
+  "high_branches": [
+    {
+      "case_id": "REQ_000914",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4215858999523334,
+      "branches_generated": 3398,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000914_599690772aa1a959",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1682,
+        "budget_lower_bound_exceeded": 3,
+        "h6_no_compatible_path": 18,
+        "no_compatible_completion": 224,
+        "power_lower_bound_exceeded": 37
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 245
+      }
+    },
+    {
+      "case_id": "REQ_000665",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.18592655000975356,
+      "branches_generated": 3395,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000665_0cce253340c64ed4",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 370,
+        "budget_lower_bound_exceeded": 60,
+        "h6_no_compatible_path": 9,
+        "no_compatible_completion": 1536,
+        "power_lower_bound_exceeded": 276
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 9
+      }
+    },
+    {
+      "case_id": "REQ_000738",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.30127485003322363,
+      "branches_generated": 3395,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000738_8597baafcb849385",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1017,
+        "budget_lower_bound_exceeded": 3,
+        "completion_power_lower_bound_exceeded": 25,
+        "h6_no_compatible_path": 18,
+        "no_compatible_completion": 864,
+        "power_lower_bound_exceeded": 215
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 64
+      }
+    },
+    {
+      "case_id": "REQ_001104",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4363572499714792,
+      "branches_generated": 3395,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_001104_381b50f8e0534852",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1842,
+        "budget_lower_bound_exceeded": 3,
+        "h6_no_compatible_path": 12,
+        "no_compatible_completion": 64
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 285
+      }
+    },
+    {
+      "case_id": "REQ_000007",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.20857864996651188,
+      "branches_generated": 3394,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000007_060978b7500d4e3e",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 336,
+        "budget_lower_bound_exceeded": 12,
+        "completion_power_lower_bound_exceeded": 1250,
+        "h6_no_compatible_path": 23,
+        "no_compatible_completion": 320,
+        "power_lower_bound_exceeded": 62
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 211
+      }
+    },
+    {
+      "case_id": "REQ_000034",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4407398500479758,
+      "branches_generated": 3392,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000034_6c0a69b2809f11fa",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1746,
+        "budget_lower_bound_exceeded": 9,
+        "h6_no_compatible_path": 12,
+        "no_compatible_completion": 160,
+        "power_lower_bound_exceeded": 12
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 270
+      }
+    },
+    {
+      "case_id": "REQ_000432",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.43348715000320226,
+      "branches_generated": 3392,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000432_d9466707ab235c79",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1752,
+        "budget_lower_bound_exceeded": 38,
+        "completion_power_lower_bound_exceeded": 26,
+        "h6_no_compatible_path": 18,
+        "no_compatible_completion": 96,
+        "power_lower_bound_exceeded": 42
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 234
+      }
+    },
+    {
+      "case_id": "REQ_000794",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.4202829499845393,
+      "branches_generated": 3392,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000794_bb51c34833085717",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1810,
+        "budget_lower_bound_exceeded": 6,
+        "no_compatible_completion": 96,
+        "power_lower_bound_exceeded": 12
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 282
+      }
+    },
+    {
+      "case_id": "REQ_000857",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.22229014994809404,
+      "branches_generated": 3392,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000857_ed6cb0a7daed36dd",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 626,
+        "budget_lower_bound_exceeded": 16,
+        "h6_no_compatible_path": 6,
+        "no_compatible_completion": 1279,
+        "power_lower_bound_exceeded": 258
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 30
+      }
+    },
+    {
+      "case_id": "REQ_000886",
+      "requested_top_k": 50,
+      "beam_width": 32,
+      "status": "VALID_ARCHITECTURE_FOUND",
+      "runtime_total": 0.43236854998394847,
+      "branches_generated": 3392,
+      "complete_architectures": 32,
+      "h10_calls": 32,
+      "h10_valid_count": 32,
+      "selected_architecture_id": "ARCH_REQ_000886_199893bc792804fc",
+      "exhaustive_status": "SKIPPED_DOMAIN_TOO_LARGE",
+      "exhaustive_valid_count": null,
+      "quality": {
+        "status": "NO_EXHAUSTIVE_REFERENCE"
+      },
+      "pruning_reason_counts": {
+        "beam_width_limit": 1842,
+        "budget_lower_bound_exceeded": 6,
+        "h6_no_compatible_path": 6,
+        "no_compatible_completion": 64
+      },
+      "lookahead_role_options": {
+        "mdt": 300,
+        "ost": 288
+      }
+    }
+  ]
+}

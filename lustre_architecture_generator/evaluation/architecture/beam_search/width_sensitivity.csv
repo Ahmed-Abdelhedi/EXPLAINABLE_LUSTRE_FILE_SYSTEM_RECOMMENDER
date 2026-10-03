@@ -1,0 +1,5 @@
+requested_top_k,beam_width,cases,errors,feasible_solution_rate,mean_runtime_seconds,total_branches_explored,total_branches_pruned,total_hard_pruned,total_width_pruned,total_h10_calls,total_valid_architecture_count,total_complete_architectures_produced,quality_comparisons,mean_relative_quality,mean_common_score_regret,best_id_matches,best_score_matches,mean_speedup
+5,64,1,0,0.0,0.1388984000077471,663,470,64,406,0,0,0,0,,,0,0,10.138463797951847
+5,128,1,0,0.0,0.34756525000557303,1111,790,128,662,0,0,0,0,,,0,0,4.051660515685612
+5,256,1,0,1.0,0.5959567500394769,1371,886,242,644,14,14,14,1,0.9755612714652853,0.020316857900027463,0,0,2.3629506671057867
+5,1024,1,0,1.0,1.1910992999910377,2015,810,810,0,90,90,90,1,0.9998526497089858,0.00012249798183283644,0,0,1.182282954983329

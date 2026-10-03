@@ -1,0 +1,715 @@
+{
+  "review_date": "2026-10-03",
+  "evidence_captured_utc": "2026-10-03T08:36:07.273499+00:00",
+  "recommendation": "BEAM V2.1 ACCEPTED WITH VALIDATION LIMITATIONS",
+  "engine_unchanged_during_review": true,
+  "provenance": {
+    "engine_sha256": "fd832a3eb473c724297c36e25139adaffcc168e5c994c0afc6fd398627c598e4",
+    "v2_sha256": "0e583802bb9ac9c265c07a95ef8e2daf31ef90ef8fe43e7077459659bc09cd28",
+    "diff_matches_current_engine": true,
+    "frozen_sources_verified": 42,
+    "phase_input_hashes_verified": true,
+    "root_after_metrics_identical": true,
+    "pilot_reused_rows_verified": 60,
+    "pilot_runner_sha256": "e1001c89c84ef3e91a8dbbbcac0e7340ba97dc14ba333207c8870c6429d3d6ab",
+    "before_after_csv_verified": true,
+    "config": {
+      "ks": [
+        5,
+        10,
+        20,
+        50
+      ],
+      "widths": [
+        1,
+        4,
+        8,
+        16,
+        32
+      ],
+      "repeats": 2,
+      "max_paths_per_variant": 1,
+      "exhaustive_max_pairs": 2000
+    },
+    "phase_versions": {
+      "before": "2.0",
+      "after": "2.1"
+    },
+    "campaign_date": "2026-10-03",
+    "before_wall_seconds": 1410.1812372000422,
+    "after_wall_seconds": 318.42733430000953,
+    "review_script_sha256": "bd7a446756278255b032f13d78dc0d8f6f32b907a2c33673bf8cbe5aecf31c89",
+    "diff_context_lines": 0
+  },
+  "recovered_configurations": [
+    {
+      "case_id": "REQ_000267",
+      "k": 50,
+      "b": 1,
+      "v2_status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "v21_status": "VALID_ARCHITECTURE_FOUND",
+      "architecture_id": "ARCH_REQ_000267_58bcdfb030a4cdc7",
+      "independent_h10_decision": "VALID",
+      "joint_prunes": 46,
+      "renamed_case_same_physical_selection": true
+    },
+    {
+      "case_id": "REQ_000267",
+      "k": 50,
+      "b": 4,
+      "v2_status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "v21_status": "VALID_ARCHITECTURE_FOUND",
+      "architecture_id": "ARCH_REQ_000267_a6112e674e5ff569",
+      "independent_h10_decision": "VALID",
+      "joint_prunes": 46,
+      "renamed_case_same_physical_selection": true
+    },
+    {
+      "case_id": "REQ_000267",
+      "k": 50,
+      "b": 8,
+      "v2_status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "v21_status": "VALID_ARCHITECTURE_FOUND",
+      "architecture_id": "ARCH_REQ_000267_d3f13aa7530a6815",
+      "independent_h10_decision": "VALID",
+      "joint_prunes": 46,
+      "renamed_case_same_physical_selection": true
+    },
+    {
+      "case_id": "REQ_000267",
+      "k": 50,
+      "b": 16,
+      "v2_status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "v21_status": "VALID_ARCHITECTURE_FOUND",
+      "architecture_id": "ARCH_REQ_000267_88c4cb8b7cead7c8",
+      "independent_h10_decision": "VALID",
+      "joint_prunes": 46,
+      "renamed_case_same_physical_selection": true
+    },
+    {
+      "case_id": "REQ_000267",
+      "k": 50,
+      "b": 32,
+      "v2_status": "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+      "v21_status": "VALID_ARCHITECTURE_FOUND",
+      "architecture_id": "ARCH_REQ_000267_88c4cb8b7cead7c8",
+      "independent_h10_decision": "VALID",
+      "joint_prunes": 46,
+      "renamed_case_same_physical_selection": true
+    }
+  ],
+  "feasibility": {
+    "configurations": 1000,
+    "valid": 785,
+    "known_feasible_domains_all_evidence": 157,
+    "known_globally_infeasible": 0,
+    "known_locally_infeasible": 215,
+    "known_feasible_missed": 0,
+    "unknown_feasibility_after_scalar_audit": 0,
+    "unknown_feasibility_from_full_quality_exhaustive_alone": 140,
+    "full_quality_exhaustive_skipped_configurations": 745,
+    "skipped_quality_but_valid": 605,
+    "local_infeasible_with_full_exhaustive": 75,
+    "scalar_audited_domains": 43,
+    "scalar_classifications": {
+      "BUDGET_AND_POWER_LOWER_BOUNDS_EXCEED": 11,
+      "POWER_LOWER_BOUND_EXCEEDS": 16,
+      "JOINT_BUDGET_POWER_CONFLICT": 10,
+      "BUDGET_LOWER_BOUND_EXCEEDS": 6
+    }
+  },
+  "exhaustive": {
+    "domains": 200,
+    "fully_evaluated": 51,
+    "quality_skipped": 149,
+    "feasible_domains_exhaustively_known": 36,
+    "beam_recovered_feasible_domains": 36,
+    "beam_missed_feasible_domains": 0,
+    "feasible_configurations_recovered": 180,
+    "no_valid_reference_domains": 15,
+    "fully_evaluated_by_k": {
+      "5": 50,
+      "10": 1
+    },
+    "architectures_fully_evaluated": 42840
+  },
+  "quality": {
+    "quality_comparisons": 180,
+    "mean_relative_quality": 0.982148422072597,
+    "min_relative_quality": 0.8142958377766908,
+    "mean_search_regret": 0.010925760807154445,
+    "mean_normalization_regret": 0.003824268361532696,
+    "best_survived": 97,
+    "best_chosen": 36,
+    "quality_monotone_groups": 9,
+    "quality_comparable_groups": 36,
+    "loss_distribution": {
+      "search_only": {
+        "count": 63,
+        "fraction": 0.35
+      },
+      "normalization_only": {
+        "count": 61,
+        "fraction": 0.3388888888888889
+      },
+      "both": {
+        "count": 20,
+        "fraction": 0.1111111111111111
+      },
+      "no_measurable_loss": {
+        "count": 36,
+        "fraction": 0.2
+      }
+    }
+  },
+  "performance_comparable": {
+    "configurations": 180,
+    "materialization_reduction_min": 0.9407407407407408,
+    "materialization_reduction_mean": 0.9846712962962964,
+    "speedup_min": 6.320849283599424,
+    "speedup_median": 41.14341738237857,
+    "speedup_max": 224.29234072146798
+  },
+  "tests": {
+    "dedicated": {
+      "command": ".\\venv\\Scripts\\python.exe -m pytest lustre_architecture_generator/tests/test_beam_search.py lustre_architecture_generator/tests/test_beam_search_benchmark.py lustre_architecture_generator/tests/test_beam_search_v2.py lustre_architecture_generator/tests/test_beam_search_extended_benchmark.py lustre_architecture_generator/tests/test_beam_search_joint_resources.py -q -p no:cacheprovider --basetemp C:/Users/LENOVO/AppData/Local/Temp/beam_v21_release_20261003_dedicated_r1",
+      "exit_code": 0,
+      "result": "76 passed in 2.75s",
+      "stdout": "........................................................................ [ 94%]\n....                                                                     [100%]\n76 passed in 2.75s\n",
+      "stderr": ""
+    },
+    "architecture": {
+      "command": ".\\venv\\Scripts\\python.exe -m pytest lustre_architecture_generator/tests -q -p no:cacheprovider --basetemp C:/Users/LENOVO/AppData/Local/Temp/beam_v21_release_20261003_architecture_r1",
+      "exit_code": 0,
+      "result": "303 passed in 13.81s",
+      "stdout": "........................................................................ [ 23%]\n........................................................................ [ 47%]\n........................................................................ [ 71%]\n........................................................................ [ 95%]\n...............                                                          [100%]\n303 passed in 13.81s\n",
+      "stderr": ""
+    },
+    "global": {
+      "command": ".\\venv\\Scripts\\python.exe -m pytest -q -p no:cacheprovider --basetemp C:/Users/LENOVO/AppData/Local/Temp/beam_v21_release_20261003_global_r1",
+      "exit_code": 0,
+      "result": "509 passed in 48.46s",
+      "stdout": "........................................................................ [ 14%]\n........................................................................ [ 28%]\n........................................................................ [ 42%]\n........................................................................ [ 56%]\n........................................................................ [ 70%]\n........................................................................ [ 84%]\n........................................................................ [ 99%]\n.....                                                                    [100%]\n509 passed in 48.46s\n",
+      "stderr": ""
+    }
+  },
+  "preserved_historical_and_source_files": [
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/aggregates.csv",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/campaign_runner_snapshot.py",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/checkpoint.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.csv",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.md",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/frozen_sources_initial.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/initial_git_status.txt",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/initial_verification.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/no_solution_audit.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/no_solution_audit.md",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/official_ranker_manifest.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/problem_cases.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/problem_cases.md",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/sample_manifest.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/width_sensitivity.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/aggregates.csv",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/beam_search_v2_reference.py",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/campaign_runner_snapshot.py",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/diagnostic_joint.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/diagnostic_joint.md",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.csv",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.md",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/joint_feasible_drive_ranks.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/no_solution_audit.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/no_solution_audit.md",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/problem_cases.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/problem_cases.md",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/reproduction_tests.txt",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/unit_tests.txt",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/width_sensitivity.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/checkpoint.json",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/runner_source.py",
+    "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/sample_manifest.json",
+    "lustre_architecture_generator/src/full_architecture/beam_search.py",
+    "lustre_architecture_generator/src/full_architecture/__init__.py",
+    "lustre_architecture_generator/tests/test_beam_search.py",
+    "lustre_architecture_generator/tests/test_beam_search_benchmark.py",
+    "lustre_architecture_generator/tests/test_beam_search_extended_benchmark.py",
+    "lustre_architecture_generator/tests/test_beam_search_joint_resources.py",
+    "lustre_architecture_generator/tests/test_beam_search_v2.py",
+    "lustre_architecture_generator/tests/fixtures/beam_joint_resource_conflict.json"
+  ],
+  "commit_files": {
+    "Production code": [
+      "lustre_architecture_generator/src/full_architecture/__init__.py",
+      "lustre_architecture_generator/src/full_architecture/beam_search.py"
+    ],
+    "Tests": [
+      "lustre_architecture_generator/tests/fixtures/beam_joint_resource_conflict.json",
+      "lustre_architecture_generator/tests/test_beam_search.py",
+      "lustre_architecture_generator/tests/test_beam_search_benchmark.py",
+      "lustre_architecture_generator/tests/test_beam_search_extended_benchmark.py",
+      "lustre_architecture_generator/tests/test_beam_search_joint_resources.py",
+      "lustre_architecture_generator/tests/test_beam_search_v2.py"
+    ],
+    "Documentation": [
+      "lustre_architecture_generator/docs/beam_search.md",
+      "lustre_architecture_generator/docs/beam_search_v2.md",
+      "lustre_architecture_generator/docs/beam_search_v2_extended.md",
+      "README.md"
+    ],
+    "Evaluation scripts": [
+      "lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v1_reference.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/benchmark_beam_search.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/diagnose_beam_search.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/audit_no_solution.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/beam_search_v2_reference.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/campaign_runner_snapshot.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/campaign_runner_snapshot.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/check_artifacts.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/check_interleaved_runtime.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/combine_before_after.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/runner_source.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/review_v21.py",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/run_extended_benchmark.py"
+    ],
+    "Benchmark artifacts worth tracking": [
+      "lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_benchmark.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_benchmark.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_benchmark.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v2_benchmark.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v2_benchmark.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v2_benchmark.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v2_benchmark_before_after.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/diagnostic_v1.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/diagnostic_v1.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/diagnostic_v2.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/diagnostic_v2.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/aggregates.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/artifact_validation.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_after.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/aggregates.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/diagnostic_joint.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/diagnostic_joint.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/joint_feasible_drive_ranks.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/no_solution_audit.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/no_solution_audit.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/reproduction_tests.txt",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/engine_change.diff",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/extended_benchmark.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/extended_benchmark.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/frozen_sources_initial.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/interleaved_runtime.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/no_solution_audit.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/no_solution_audit.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/official_ranker_manifest.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/problem_cases.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/problem_cases.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/sample_manifest.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/width_sensitivity.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity.md",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity_v2.csv",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity_v2.json",
+      "lustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity_v2.md"
+    ]
+  },
+  "local_only_files": [
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/initial_git_status_v2.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/aggregates.csv",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/campaign_runner_snapshot.py",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/checkpoint.json",
+      "reason": "Checkpoint reproductible, volumineux et/ou non final"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.csv",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.json",
+      "reason": "JSON dÃ©taillÃ© > 7 MiB reproductible ; garder en archive externe avec SHA256"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.md",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/frozen_sources_initial.json",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/initial_git_status.txt",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/initial_verification.json",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/no_solution_audit.json",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/no_solution_audit.md",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/official_ranker_manifest.json",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/problem_cases.json",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/problem_cases.md",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/sample_manifest.json",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/width_sensitivity.json",
+      "reason": "Copie brute AFTER conservÃ©e ; doublon des exports finaux utiles"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.json",
+      "reason": "JSON dÃ©taillÃ© > 7 MiB reproductible ; garder en archive externe avec SHA256"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/problem_cases.json",
+      "reason": "Export intermÃ©diaire BEFORE reproductible ou log local"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/problem_cases.md",
+      "reason": "Export intermÃ©diaire BEFORE reproductible ou log local"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/unit_tests.txt",
+      "reason": "Export intermÃ©diaire BEFORE reproductible ou log local"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/width_sensitivity.json",
+      "reason": "Export intermÃ©diaire BEFORE reproductible ou log local"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/checkpoint.json",
+      "reason": "Checkpoint reproductible, volumineux et/ou non final"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/extended_benchmark.json",
+      "reason": "JSON dÃ©taillÃ© > 7 MiB reproductible ; garder en archive externe avec SHA256"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/final_global_tests.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/final_unit_tests.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/git_diff_check.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/git_diff_stat.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/git_status.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/initial_git_status.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/initial_verification.json",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/joint_fix_unit_tests.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/checkpoint.json",
+      "reason": "Pilote partiel reproductible, hors campagne finale ; conserver sur disque"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/sample_manifest.json",
+      "reason": "Pilote partiel reproductible, hors campagne finale ; conserver sur disque"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_architecture_tests.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_dedicated_tests.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_git_diff_check.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_git_diff_stat.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_git_status.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_global_tests.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review_initial.json",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_tests.json",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_untracked.txt",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    },
+    {
+      "path": "lustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/verification.json",
+      "reason": "Ã‰tat de travail, chemins locaux ou log duplicable ; rÃ©sumÃ© final versionnable"
+    }
+  ],
+  "git": {
+    "status": {
+      "command": "git status --short",
+      "exit_code": 0,
+      "stdout": " M README.md\n D lustre_architecture_generator/artifacts/rankers/mdt/mdt_ranker.cbm\n D lustre_architecture_generator/artifacts/rankers/mdt/mdt_ranker_metadata.json\n D lustre_architecture_generator/artifacts/rankers/ost/ost_ranker.cbm\n D lustre_architecture_generator/artifacts/rankers/ost/ost_ranker_metadata.json\n M lustre_architecture_generator/src/full_architecture/__init__.py\n D requirement_extractor/__init__.py\n D requirement_extractor/ai_plausibility_agent.py\n D requirement_extractor/calculation_engine.py\n D requirement_extractor/clarification_agent.py\n D requirement_extractor/closed_vocabulary_mapper.py\n D requirement_extractor/field_defs.py\n D requirement_extractor/hybrid_extractor.py\n D requirement_extractor/llm_fallback_extractor.py\n D requirement_extractor/main.py\n D requirement_extractor/models.py\n D requirement_extractor/quick_test.py\n D requirement_extractor/requirement_chatbot.py\n D requirement_extractor/rule_entity_extractor.py\n D requirement_extractor/state_guard.py\n D requirement_extractor/text_preprocessor.py\n D requirement_extractor/unit_normalizer.py\n D requirement_extractor/validation/__init__.py\n D requirement_extractor/validation/datasets/ai_plausibility_stress_dataset_v1.json\n D requirement_extractor/validation/datasets/end_to_end_stress_dataset_v1.json\n D requirement_extractor/validation/datasets/stress_requests_v1.json\n D requirement_extractor/validation/end_to_end_error_analyzer.py\n D requirement_extractor/validation/end_to_end_metrics.py\n D requirement_extractor/validation/error_analyzer.py\n D requirement_extractor/validation/metrics.py\n D requirement_extractor/validation/plausibility_enrichment_metrics.py\n D requirement_extractor/validation/plausibility_error_analyzer.py\n D requirement_extractor/validation/plausibility_full_agent_error_analyzer.py\n D requirement_extractor/validation/plausibility_full_agent_metrics.py\n D requirement_extractor/validation/plausibility_metrics.py\n D requirement_extractor/validation/reports/ai_plausibility/enrichment/metrics_ai_plausibility_enrichment.json\n D requirement_extractor/validation/reports/ai_plausibility/enrichment/results_ai_plausibility_enrichment.json\n D requirement_extractor/validation/reports/ai_plausibility/errors_ai_plausibility.json\n D requirement_extractor/validation/reports/ai_plausibility/full_agent/errors_ai_plausibility_full_agent.json\n D requirement_extractor/validation/reports/ai_plausibility/full_agent/metrics_ai_plausibility_full_agent.json\n D requirement_extractor/validation/reports/ai_plausibility/full_agent/results_ai_plausibility_full_agent.json\n D requirement_extractor/validation/reports/ai_plausibility/metrics_ai_plausibility.json\n D requirement_extractor/validation/reports/ai_plausibility/results_ai_plausibility.json\n D requirement_extractor/validation/reports/deterministic/errors_deterministic.json\n D requirement_extractor/validation/reports/deterministic/metrics_deterministic.json\n D requirement_extractor/validation/reports/deterministic/results_deterministic.json\n D requirement_extractor/validation/reports/end_to_end/errors_end_to_end_v1.json\n D requirement_extractor/validation/reports/end_to_end/metrics_end_to_end_v1.json\n D requirement_extractor/validation/reports/end_to_end/results_end_to_end_v1.json\n D requirement_extractor/validation/reports/hybrid/errors_hybrid.json\n D requirement_extractor/validation/reports/hybrid/metrics_hybrid.json\n D requirement_extractor/validation/reports/hybrid/results_hybrid.json\n D requirement_extractor/validation/reports/llm_fallback/errors_llm_fallback.json\n D requirement_extractor/validation/reports/llm_fallback/metrics_llm_fallback.json\n D requirement_extractor/validation/reports/llm_fallback/results_llm_fallback.json\n D requirement_extractor/validation/run_ai_plausibility_enrichment_validation.py\n D requirement_extractor/validation/run_ai_plausibility_full_agent_validation.py\n D requirement_extractor/validation/run_ai_plausibility_validation.py\n D requirement_extractor/validation/run_end_to_end_validation.py\n D requirement_extractor/validation/run_validation.py\n D requirement_extractor/validation/validate_end_to_end_dataset.py\n?? lustre_architecture_generator/docs/beam_search.md\n?? lustre_architecture_generator/docs/beam_search_v2.md\n?? lustre_architecture_generator/docs/beam_search_v2_extended.md\n?? lustre_architecture_generator/evaluation/architecture/beam_search/\n?? lustre_architecture_generator/src/full_architecture/beam_search.py\n?? lustre_architecture_generator/tests/fixtures/\n?? lustre_architecture_generator/tests/test_beam_search.py\n?? lustre_architecture_generator/tests/test_beam_search_benchmark.py\n?? lustre_architecture_generator/tests/test_beam_search_extended_benchmark.py\n?? lustre_architecture_generator/tests/test_beam_search_joint_resources.py\n?? lustre_architecture_generator/tests/test_beam_search_v2.py\n",
+      "stderr": ""
+    },
+    "stat": {
+      "command": "git diff --stat",
+      "exit_code": 0,
+      "stdout": " README.md                                          |   147 +-\n .../artifacts/rankers/mdt/mdt_ranker.cbm           |   Bin 7610744 -> 0 bytes\n .../artifacts/rankers/mdt/mdt_ranker_metadata.json |   136 -\n .../artifacts/rankers/ost/ost_ranker.cbm           |   Bin 7627712 -> 0 bytes\n .../artifacts/rankers/ost/ost_ranker_metadata.json |   145 -\n .../src/full_architecture/__init__.py              |    16 +\n requirement_extractor/__init__.py                  |     1 -\n requirement_extractor/ai_plausibility_agent.py     |  1742 -\n requirement_extractor/calculation_engine.py        |    65 -\n requirement_extractor/clarification_agent.py       |   338 -\n requirement_extractor/closed_vocabulary_mapper.py  |   337 -\n requirement_extractor/field_defs.py                |    93 -\n requirement_extractor/hybrid_extractor.py          |   305 -\n requirement_extractor/llm_fallback_extractor.py    |   542 -\n requirement_extractor/main.py                      |   119 -\n requirement_extractor/models.py                    |   197 -\n requirement_extractor/quick_test.py                |    47 -\n requirement_extractor/requirement_chatbot.py       |  1347 -\n requirement_extractor/rule_entity_extractor.py     |  1076 -\n requirement_extractor/state_guard.py               |   709 -\n requirement_extractor/text_preprocessor.py         |   232 -\n requirement_extractor/unit_normalizer.py           |   218 -\n requirement_extractor/validation/__init__.py       |     1 -\n .../ai_plausibility_stress_dataset_v1.json         |  7699 ----\n .../datasets/end_to_end_stress_dataset_v1.json     |  1216 -\n .../validation/datasets/stress_requests_v1.json    |  8331 ----\n .../validation/end_to_end_error_analyzer.py        |   573 -\n .../validation/end_to_end_metrics.py               |   935 -\n requirement_extractor/validation/error_analyzer.py |   594 -\n requirement_extractor/validation/metrics.py        |   829 -\n .../validation/plausibility_enrichment_metrics.py  |  1767 -\n .../validation/plausibility_error_analyzer.py      |   590 -\n .../plausibility_full_agent_error_analyzer.py      |   791 -\n .../validation/plausibility_full_agent_metrics.py  |  1756 -\n .../validation/plausibility_metrics.py             |  1500 -\n .../metrics_ai_plausibility_enrichment.json        |  1954 -\n .../results_ai_plausibility_enrichment.json        |  8542 ----\n .../ai_plausibility/errors_ai_plausibility.json    |    17 -\n .../errors_ai_plausibility_full_agent.json         |    17 -\n .../metrics_ai_plausibility_full_agent.json        |   670 -\n .../results_ai_plausibility_full_agent.json        | 14361 -------\n .../ai_plausibility/metrics_ai_plausibility.json   |   616 -\n .../ai_plausibility/results_ai_plausibility.json   | 14434 -------\n .../deterministic/errors_deterministic.json        |  6080 ---\n .../deterministic/metrics_deterministic.json       |   393 -\n .../deterministic/results_deterministic.json       | 38567 ------------------\n .../reports/end_to_end/errors_end_to_end_v1.json   |   263 -\n .../reports/end_to_end/metrics_end_to_end_v1.json  |  1076 -\n .../reports/end_to_end/results_end_to_end_v1.json  |  6505 ---\n .../validation/reports/hybrid/errors_hybrid.json   | 10254 -----\n .../validation/reports/hybrid/metrics_hybrid.json  |   393 -\n .../validation/reports/hybrid/results_hybrid.json  | 40336 -------------------\n .../reports/llm_fallback/errors_llm_fallback.json  |  3848 --\n .../reports/llm_fallback/metrics_llm_fallback.json |   393 -\n .../reports/llm_fallback/results_llm_fallback.json | 38776 ------------------\n .../run_ai_plausibility_enrichment_validation.py   |  1514 -\n .../run_ai_plausibility_full_agent_validation.py   |  1257 -\n .../validation/run_ai_plausibility_validation.py   |   839 -\n .../validation/run_end_to_end_validation.py        |  2310 --\n requirement_extractor/validation/run_validation.py |   459 -\n .../validation/validate_end_to_end_dataset.py      |    47 -\n 61 files changed, 114 insertions(+), 228201 deletions(-)\n",
+      "stderr": "warning: in the working copy of 'lustre_architecture_generator/src/full_architecture/__init__.py', LF will be replaced by CRLF the next time Git touches it\n"
+    },
+    "check": {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "warning: in the working copy of 'lustre_architecture_generator/src/full_architecture/__init__.py', LF will be replaced by CRLF the next time Git touches it\n"
+    },
+    "untracked": {
+      "command": "git ls-files --others --exclude-standard",
+      "exit_code": 0,
+      "stdout": "lustre_architecture_generator/docs/beam_search.md\nlustre_architecture_generator/docs/beam_search_v2.md\nlustre_architecture_generator/docs/beam_search_v2_extended.md\nlustre_architecture_generator/evaluation/architecture/beam_search/beam_search_benchmark.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/beam_search_benchmark.json\nlustre_architecture_generator/evaluation/architecture/beam_search/beam_search_benchmark.md\nlustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v1_reference.py\nlustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v2_benchmark.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v2_benchmark.json\nlustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v2_benchmark.md\nlustre_architecture_generator/evaluation/architecture/beam_search/beam_search_v2_benchmark_before_after.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/benchmark_beam_search.py\nlustre_architecture_generator/evaluation/architecture/beam_search/diagnose_beam_search.py\nlustre_architecture_generator/evaluation/architecture/beam_search/diagnostic_v1.json\nlustre_architecture_generator/evaluation/architecture/beam_search/diagnostic_v1.md\nlustre_architecture_generator/evaluation/architecture/beam_search/diagnostic_v2.json\nlustre_architecture_generator/evaluation/architecture/beam_search/diagnostic_v2.md\nlustre_architecture_generator/evaluation/architecture/beam_search/initial_git_status_v2.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/aggregates.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/campaign_runner_snapshot.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/checkpoint.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/extended_benchmark.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/frozen_sources_initial.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/initial_git_status.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/initial_verification.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/no_solution_audit.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/no_solution_audit.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/official_ranker_manifest.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/problem_cases.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/problem_cases.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/sample_manifest.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/after_joint_fix/width_sensitivity.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/aggregates.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/artifact_validation.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/audit_no_solution.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_after.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/aggregates.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/beam_search_v2_reference.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/campaign_runner_snapshot.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/diagnostic_joint.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/diagnostic_joint.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/extended_benchmark.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/joint_feasible_drive_ranks.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/no_solution_audit.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/no_solution_audit.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/problem_cases.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/problem_cases.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/reproduction_tests.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/unit_tests.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/before_joint_fix/width_sensitivity.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/campaign_runner_snapshot.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/check_artifacts.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/check_interleaved_runtime.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/checkpoint.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/combine_before_after.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/engine_change.diff\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/extended_benchmark.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/extended_benchmark.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/extended_benchmark.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/final_global_tests.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/final_unit_tests.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/frozen_sources_initial.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/git_diff_check.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/git_diff_stat.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/git_status.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/initial_git_status.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/initial_verification.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/interleaved_runtime.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/joint_fix_unit_tests.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/no_solution_audit.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/no_solution_audit.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/official_ranker_manifest.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/checkpoint.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/runner_source.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/pilot_100/sample_manifest.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/problem_cases.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/problem_cases.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_architecture_tests.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_dedicated_tests.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_git_diff_check.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_git_diff_stat.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_git_status.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_global_tests.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review.md\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_review_initial.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_tests.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/release_untracked.txt\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/review_v21.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/run_extended_benchmark.py\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/sample_manifest.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/verification.json\nlustre_architecture_generator/evaluation/architecture/beam_search/v2_extended/width_sensitivity.json\nlustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity.json\nlustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity.md\nlustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity_v2.csv\nlustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity_v2.json\nlustre_architecture_generator/evaluation/architecture/beam_search/width_sensitivity_v2.md\nlustre_architecture_generator/src/full_architecture/beam_search.py\nlustre_architecture_generator/tests/fixtures/beam_joint_resource_conflict.json\nlustre_architecture_generator/tests/test_beam_search.py\nlustre_architecture_generator/tests/test_beam_search_benchmark.py\nlustre_architecture_generator/tests/test_beam_search_extended_benchmark.py\nlustre_architecture_generator/tests/test_beam_search_joint_resources.py\nlustre_architecture_generator/tests/test_beam_search_v2.py\n",
+      "stderr": ""
+    }
+  },
+  "preexisting_unrelated_deletions_preserved": 59,
+  "benchmark_artifact_sha256": {
+    "beam_search_benchmark.csv": {
+      "bytes": 3286,
+      "sha256": "d97d171cc07979728d9458bbb59b5cf8d1c1942a2f022f4f9f5dbcc9ff2eac1f"
+    },
+    "beam_search_benchmark.json": {
+      "bytes": 174303,
+      "sha256": "cac0507a7021de78a4431fe9f0d65adf7e8af1565aae13543eda8c44448265b0"
+    },
+    "beam_search_v2_benchmark.csv": {
+      "bytes": 1494,
+      "sha256": "9c299459bbc63be07d31666fcc8902f64170c7b1d9879b26e2a2865a169eb960"
+    },
+    "beam_search_v2_benchmark.json": {
+      "bytes": 336844,
+      "sha256": "f6d87a39cc5c0b91a6061095ddfa6a45dab2ef8dc1aabf5030e3435d4e2d8638"
+    },
+    "beam_search_v2_benchmark_before_after.csv": {
+      "bytes": 5398,
+      "sha256": "b56f4aef68b9efc221a2746999ba117551b987f8d81a25b5f93d660fcab0d3a7"
+    },
+    "diagnostic_v1.json": {
+      "bytes": 42550,
+      "sha256": "e54012152eefdfced59ac045bea6c98ea37ee6c893e15d460c3ee9b3bfd0dae2"
+    },
+    "diagnostic_v2.json": {
+      "bytes": 59936,
+      "sha256": "dab808f3e7f0cf16f092cf87ed61be444d0216ccf6910e865b6ba4e9e8d80280"
+    },
+    "width_sensitivity.csv": {
+      "bytes": 783,
+      "sha256": "e7b68497bf60248488cb75df040c15301e95ec122b63807bf23615cce15032aa"
+    },
+    "width_sensitivity.json": {
+      "bytes": 61531,
+      "sha256": "81f39775f79190458bbc93806c5b099135d17d8cf00e33020956eccf811df1c2"
+    },
+    "width_sensitivity_v2.csv": {
+      "bytes": 1302,
+      "sha256": "8d9c5a043ac72896973a60f0b254989115ebf547dd809c79ec75887b8cc0fd5b"
+    },
+    "width_sensitivity_v2.json": {
+      "bytes": 132642,
+      "sha256": "0dc8a954cd8ad1960ab6f86cf67d41ad25c210e5b280cbc9ac8e233ada6e9613"
+    },
+    "v2_extended/aggregates.csv": {
+      "bytes": 3741,
+      "sha256": "d168dd0d961750502ebb96991f9296451b200ab2e4378d384ba01206e59edce1"
+    },
+    "v2_extended/artifact_validation.json": {
+      "bytes": 731,
+      "sha256": "a9341383d28f7afc1b73f917daabe5987c24abcc06db902452b7e928d2445bdd"
+    },
+    "v2_extended/before_after.csv": {
+      "bytes": 230917,
+      "sha256": "8f705f3067d69e86b216043b0a0dfcdd70620c728f6edbc1d31cbce2489f34df"
+    },
+    "v2_extended/checkpoint.json": {
+      "bytes": 7249763,
+      "sha256": "ad79344195f4af9b0a730c9e221f51c347303c6f361bc3ca5c9670a0cd5c076a"
+    },
+    "v2_extended/engine_change.diff": {
+      "bytes": 3708,
+      "sha256": "e0ef5a36f6931059fbb106aad15c2a1ab61967b634904a2488210496aab6dbc1"
+    },
+    "v2_extended/extended_benchmark.csv": {
+      "bytes": 690784,
+      "sha256": "50336ff37032f668033a96243a754b9d75b78a87de355ab7c4466b19c2bf9e8c"
+    },
+    "v2_extended/extended_benchmark.json": {
+      "bytes": 8986012,
+      "sha256": "16eb241fd56322d29a6d15e76ce08d291113743582a8e3c9c17da3dda1a19e01"
+    },
+    "v2_extended/frozen_sources_initial.json": {
+      "bytes": 6493,
+      "sha256": "35d16e840ece9211dd40f436712796f278a020358504ae73dd9ce9afb6793f95"
+    },
+    "v2_extended/interleaved_runtime.json": {
+      "bytes": 24883,
+      "sha256": "3a3bcba06ded6ab0b5341cb8fc36acecbf9b616b2ee4e48c8ce660f5afa6c13a"
+    },
+    "v2_extended/no_solution_audit.json": {
+      "bytes": 80852,
+      "sha256": "1d4fd47729eaaed350d63942b7fe387c342766b0600e4dc0d395d990a3683984"
+    },
+    "v2_extended/official_ranker_manifest.json": {
+      "bytes": 810,
+      "sha256": "f2fbd03d7d2a61d9c93bb8696e1b2ae02687e987c21b0210b0521fd1fd745137"
+    },
+    "v2_extended/problem_cases.json": {
+      "bytes": 98769,
+      "sha256": "85d5f89aa09e3a1e3a140508faa36dd9bc17b1a87811fe679d455d43151323cc"
+    },
+    "v2_extended/sample_manifest.json": {
+      "bytes": 16575,
+      "sha256": "e53ce18e953eabf3949987fb60041a9f4fb774af7789457192a94c23a936783a"
+    },
+    "v2_extended/width_sensitivity.json": {
+      "bytes": 273059,
+      "sha256": "24a32aadc911910842fe3e0d827487e386bd3cbbd1a46aaa7bc56fe917662408"
+    },
+    "v2_extended/after_joint_fix/aggregates.csv": {
+      "bytes": 3741,
+      "sha256": "d168dd0d961750502ebb96991f9296451b200ab2e4378d384ba01206e59edce1"
+    },
+    "v2_extended/after_joint_fix/checkpoint.json": {
+      "bytes": 7362884,
+      "sha256": "3cdd26da6f58a7ede3e887b15da757cdb8f7986ff973da21bfe510ee033c5570"
+    },
+    "v2_extended/after_joint_fix/extended_benchmark.csv": {
+      "bytes": 683647,
+      "sha256": "e83ea25968b77db438e5a5baad4d6349383a00a5d4c368180daae59dde6c76f4"
+    },
+    "v2_extended/after_joint_fix/extended_benchmark.json": {
+      "bytes": 7777123,
+      "sha256": "8fab6283a9901f4f2def9cd38c0f916e2f30e61e419388ff7eec19d9117d60f0"
+    },
+    "v2_extended/after_joint_fix/frozen_sources_initial.json": {
+      "bytes": 6493,
+      "sha256": "35d16e840ece9211dd40f436712796f278a020358504ae73dd9ce9afb6793f95"
+    },
+    "v2_extended/after_joint_fix/no_solution_audit.json": {
+      "bytes": 80852,
+      "sha256": "1d4fd47729eaaed350d63942b7fe387c342766b0600e4dc0d395d990a3683984"
+    },
+    "v2_extended/after_joint_fix/official_ranker_manifest.json": {
+      "bytes": 810,
+      "sha256": "f2fbd03d7d2a61d9c93bb8696e1b2ae02687e987c21b0210b0521fd1fd745137"
+    },
+    "v2_extended/after_joint_fix/problem_cases.json": {
+      "bytes": 98079,
+      "sha256": "b03f5ed9186daba42f3dccc5b2287b5bfd0f8f9a1c0d46a9ec6df430e1b9be9d"
+    },
+    "v2_extended/after_joint_fix/sample_manifest.json": {
+      "bytes": 16575,
+      "sha256": "e53ce18e953eabf3949987fb60041a9f4fb774af7789457192a94c23a936783a"
+    },
+    "v2_extended/after_joint_fix/width_sensitivity.json": {
+      "bytes": 273059,
+      "sha256": "24a32aadc911910842fe3e0d827487e386bd3cbbd1a46aaa7bc56fe917662408"
+    },
+    "v2_extended/before_joint_fix/aggregates.csv": {
+      "bytes": 3688,
+      "sha256": "244b3160ca256fccb23c8c7e30dd19af39a9f24c4c687b04cbf9497163b69cc8"
+    },
+    "v2_extended/before_joint_fix/diagnostic_joint.json": {
+      "bytes": 13304,
+      "sha256": "8be9320439010157a917321aac5296efc89cf143f3d439f8a9a0d1324fe9260b"
+    },
+    "v2_extended/before_joint_fix/extended_benchmark.csv": {
+      "bytes": 676798,
+      "sha256": "85fb4c95e580b8629bd7cb260606c8658f61a08e6582e01426ba672182fe44ff"
+    },
+    "v2_extended/before_joint_fix/extended_benchmark.json": {
+      "bytes": 7663340,
+      "sha256": "6f3602c32cbcbd7e265f8804d8528366de55296996e4067ae9e279b0bbaf9113"
+    },
+    "v2_extended/before_joint_fix/joint_feasible_drive_ranks.json": {
+      "bytes": 493,
+      "sha256": "f5028f3a69bcfeaf1410a08adfa51b133c97fed68bc5799282dc7ec26b54f9f1"
+    },
+    "v2_extended/before_joint_fix/no_solution_audit.json": {
+      "bytes": 82761,
+      "sha256": "2d62447219050b2c2418c19b2cf3928a5d141ae83c1fc9eac706beef50db0e44"
+    },
+    "v2_extended/before_joint_fix/problem_cases.json": {
+      "bytes": 98175,
+      "sha256": "f5b3067cc0abe8dfd7e6928edce36a21eaacfeedcfa8073469a6d5568a15bea6"
+    },
+    "v2_extended/before_joint_fix/width_sensitivity.json": {
+      "bytes": 272914,
+      "sha256": "6d726e8fcd74fc054b46e5038ae8d690167d5b4ef738259be2484bd8f86c7035"
+    },
+    "v2_extended/pilot_100/checkpoint.json": {
+      "bytes": 1091503,
+      "sha256": "59f00c3ff2939903d80d810dc6d7da65d9ae579659dc199b8504858b3797e5b5"
+    },
+    "v2_extended/pilot_100/sample_manifest.json": {
+      "bytes": 29317,
+      "sha256": "b246d7ffea1b9b7b14566d7bfc5d9084cd6d227561717125af8d009b673210f8"
+    }
+  },
+  "commit_preparation": {
+    "diff_format": "git diff --no-index --unified=0",
+    "reason": "Avoid structural blank-context whitespace in the tracked patch artifact; same 47 additions and 4 removals.",
+    "patch_application_check": "PASS with git apply --check --unidiff-zero on an external LF-normalized V2 copy",
+    "engine_unchanged": true,
+    "initial_diff_sha256": "025e7fd8271ebcbe5578a0315c1f4c62019ea25ef3c9b1d27c914feeff46a1a3"
+  }
+}

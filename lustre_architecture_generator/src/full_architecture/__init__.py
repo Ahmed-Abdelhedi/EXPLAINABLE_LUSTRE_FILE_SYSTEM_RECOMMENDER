@@ -1,5 +1,14 @@
 """Couche de construction de l'architecture physique Lustre."""
 
+from .beam_search import (
+    BEAM_HEURISTIC_POLICY_ID,
+    BEAM_SCHEMA_VERSION,
+    NO_VALID_ARCHITECTURE,
+    BeamSearchError,
+    BeamState,
+    beam_heuristic,
+    beam_search_architectures,
+)
 from .architecture_scoring import (
     SCORING_POLICY_ID,
     SCORING_SCHEMA_VERSION,
@@ -132,6 +141,13 @@ from .runtime_adapter import (
 )
 
 __all__ = [
+    "BEAM_HEURISTIC_POLICY_ID",
+    "BEAM_SCHEMA_VERSION",
+    "NO_VALID_ARCHITECTURE",
+    "BeamSearchError",
+    "BeamState",
+    "beam_heuristic",
+    "beam_search_architectures",
     "unresolved_case_ids_from_h10c",
     "normalize_top_k_values",
     "analyze_case_topk_coverage",
