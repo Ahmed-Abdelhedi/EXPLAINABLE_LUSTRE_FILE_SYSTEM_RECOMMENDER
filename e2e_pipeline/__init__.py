@@ -4,6 +4,7 @@ from .end_to_end_pipeline import (
     DEFAULT_E2E_OUTPUT,
     E2EPipelineError,
     PipelineLimits,
+    SearchOptions,
     run_e2e,
     run_e2e_from_file,
 )
@@ -16,6 +17,7 @@ __all__ = [
     "DEFAULT_E2E_OUTPUT",
     "E2EPipelineError",
     "PipelineLimits",
+    "SearchOptions",
     "RequirementToSizingAdapterError",
     "adapt_requirement_to_sizing_case",
     "run_e2e",

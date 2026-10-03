@@ -9,6 +9,7 @@ from pathlib import Path
 from e2e_pipeline.end_to_end_pipeline import (
     DEFAULT_E2E_OUTPUT,
     PipelineLimits,
+    SearchOptions,
     run_e2e_from_file,
 )
 from requirement_state.production_main import (
@@ -67,9 +68,26 @@ def parse_args() -> argparse.Namespace:
         help="Final E2E result JSON path.",
     )
     parser.add_argument("--top-k", type=int, default=10)
-    parser.add_argument("--max-paths-per-variant", type=int, default=2)
-    parser.add_argument("--max-role-options", type=int, default=4)
-    parser.add_argument("--max-architectures", type=int, default=16)
+    parser.add_argument(
+        "--search-strategy", choices=["beam", "exhaustive"], default="beam",
+        help="Architecture search: Beam V2.1 by default, or exhaustive H8 reference.",
+    )
+    parser.add_argument(
+        "--beam-width", type=int, default=8,
+        help="Positive retained branch width used by Beam search.",
+    )
+    parser.add_argument(
+        "--max-paths-per-variant", type=int, default=2,
+        help="Maximum H6 paths per protection variant, shared by both strategies.",
+    )
+    parser.add_argument(
+        "--max-role-options", type=int, default=4,
+        help="Role-option cap used by exhaustive H8 search.",
+    )
+    parser.add_argument(
+        "--max-architectures", type=int, default=16,
+        help="Complete-architecture cap used by exhaustive H8 search.",
+    )
 
     return parser.parse_args()
 
@@ -82,6 +100,10 @@ def main() -> int:
         max_paths_per_variant=args.max_paths_per_variant,
         max_role_options_per_role=args.max_role_options,
         max_architectures=args.max_architectures,
+    )
+    search_options = SearchOptions(
+        strategy=args.search_strategy,
+        beam_width=args.beam_width,
     )
 
     requirement_path = Path(args.output)
@@ -115,13 +137,18 @@ def main() -> int:
     print()
     print("=" * 76)
     print("LUSTRE END-TO-END DOWNSTREAM")
-    print("Requirement -> S10 -> Ranking -> H8 -> H9 -> H10")
+    search_step = "Beam V2.1" if search_options.strategy == "beam" else "H8"
+    print(f"Requirement -> S10 -> Ranking -> {search_step} -> H9 -> H10")
+    print(f"[SEARCH STRATEGY] {search_options.strategy}")
+    if search_options.strategy == "beam":
+        print(f"[BEAM WIDTH] {search_options.beam_width}")
     print("=" * 76)
 
     result = run_e2e_from_file(
         requirement_path,
         output_path=Path(args.e2e_output),
         limits=limits,
+        search_options=search_options,
     )
 
     print(f"[E2E STATUS] {result['status']}")

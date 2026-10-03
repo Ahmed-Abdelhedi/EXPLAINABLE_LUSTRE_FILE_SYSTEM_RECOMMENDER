@@ -1,4 +1,4 @@
-"""Online Requirement -> S10 -> Ranking -> H8/H9/H10 orchestration.
+"""Online Requirement -> S10 -> Ranking -> Beam or H8 -> H9/H10 orchestration.
 
 This module only wires already-frozen business components together.  It does
 not duplicate sizing formulas, LightGBM logic, protection arithmetic,
@@ -22,7 +22,7 @@ from .requirement_to_sizing_adapter import (
 )
 
 
-PIPELINE_VERSION = "1.0"
+PIPELINE_VERSION = "1.1"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_E2E_OUTPUT = PROJECT_ROOT / "output" / "final_e2e_result.json"
 
@@ -33,7 +33,7 @@ class E2EPipelineError(RuntimeError):
 
 @dataclass(frozen=True)
 class PipelineLimits:
-    """Validated H8 evaluation limits used before Beam Search exists."""
+    """Shared Top-K/path limits and exhaustive H8 generation caps."""
 
     top_k: int = 10
     max_paths_per_variant: int = 2
@@ -46,6 +46,24 @@ class PipelineLimits:
                 raise ValueError(f"{field_name} doit être un entier > 0.")
 
 
+@dataclass(frozen=True)
+class SearchOptions:
+    """Architecture search strategy, separate from physical/exploration caps."""
+
+    strategy: str = "beam"
+    beam_width: int = 8
+
+    def __post_init__(self) -> None:
+        if self.strategy not in ("beam", "exhaustive"):
+            raise ValueError("strategy doit être 'beam' ou 'exhaustive'.")
+        if (
+            isinstance(self.beam_width, bool)
+            or not isinstance(self.beam_width, int)
+            or self.beam_width <= 0
+        ):
+            raise ValueError("beam_width doit être un entier > 0.")
+
+
 class RuntimeBackend(Protocol):
     def load_and_validate_config(self, project_root: Path) -> dict[str, Any]: ...
     def analyze_workload(self, case: dict[str, Any], config: dict[str, Any]) -> dict[str, Any]: ...
@@ -54,6 +72,7 @@ class RuntimeBackend(Protocol):
     def load_drive_catalog(self, project_root: Path) -> list[dict[str, Any]]: ...
     def build_handoff(self, architecture: dict[str, Any], catalog: list[dict[str, Any]], top_k: int) -> dict[str, Any]: ...
     def load_hardware_catalog(self) -> dict[str, Any]: ...
+    def run_beam_search(self, handoff: dict[str, Any], hardware_catalog: dict[str, Any], limits: PipelineLimits, search_options: SearchOptions) -> dict[str, Any]: ...
     def generate_architectures(self, handoff: dict[str, Any], hardware_catalog: dict[str, Any], limits: PipelineLimits) -> dict[str, Any]: ...
     def score_architectures(self, generated: dict[str, Any], handoff: dict[str, Any]) -> dict[str, Any]: ...
     def validate_architectures(self, generated: dict[str, Any], handoff: dict[str, Any], hardware_catalog: dict[str, Any]) -> dict[str, Any]: ...
@@ -95,6 +114,7 @@ class FrozenRuntimeBackend:
         self.h10_module = importlib.import_module(
             "full_architecture.full_architecture_validator"
         )
+        self.beam_module = importlib.import_module("full_architecture.beam_search")
 
     @staticmethod
     def _load_json(path: Path) -> Any:
@@ -173,6 +193,20 @@ class FrozenRuntimeBackend:
     def load_hardware_catalog(self) -> dict[str, Any]:
         return self.catalog_loader_module.load_reference_catalog()
 
+    def run_beam_search(
+        self,
+        handoff: dict[str, Any],
+        hardware_catalog: dict[str, Any],
+        limits: PipelineLimits,
+        search_options: SearchOptions,
+    ) -> dict[str, Any]:
+        return self.beam_module.beam_search_architectures(
+            handoff=handoff,
+            hardware_catalog=hardware_catalog,
+            beam_width=search_options.beam_width,
+            max_paths_per_variant=limits.max_paths_per_variant,
+        )
+
     def generate_architectures(
         self,
         handoff: dict[str, Any],
@@ -245,6 +279,7 @@ def _base_result(
     *,
     requirement: dict[str, Any],
     limits: PipelineLimits,
+    search_options: SearchOptions,
 ) -> dict[str, Any]:
     return {
         "schema_version": "1.0",
@@ -263,6 +298,7 @@ def _base_result(
             "h10_is_final_validity_authority": True,
             "frozen_business_logic_reimplemented_here": False,
             "limits": asdict(limits),
+            "search_options": asdict(search_options),
         },
     }
 
@@ -300,6 +336,48 @@ def _candidate_space_from_handoff(handoff: dict[str, Any]) -> dict[str, Any]:
             handoff.get("contract_invariants")
         ),
     }
+
+
+def _normalize_beam_best(beam_best: dict[str, Any]) -> dict[str, Any]:
+    """Adapt the already-scored/validated Beam record to the public E2E shape."""
+    decision = beam_best["h10"]
+    if decision.get("valid") is not True or decision.get("decision") != "VALID":
+        raise E2EPipelineError("La recommandation Beam doit être H10 VALID.")
+    architecture_id = beam_best["architecture_id"]
+    if (
+        decision.get("architecture_id") != architecture_id
+        or beam_best["h9"].get("architecture_id") != architecture_id
+    ):
+        raise E2EPipelineError("Les identités Beam, H9 et H10 doivent correspondre.")
+
+    return {
+        "architecture_id": architecture_id,
+        "score": copy.deepcopy(beam_best["h9"]),
+        "validation": copy.deepcopy(decision),
+        "architecture": {
+            "architecture_id": architecture_id,
+            "case_id": beam_best["case_id"],
+            "state": copy.deepcopy(beam_best["state"]),
+            "search_provenance": copy.deepcopy(beam_best["search_provenance"]),
+        },
+    }
+
+
+def _finish_success(
+    result: dict[str, Any],
+    *,
+    best: dict[str, Any],
+    output_path: Path,
+    started: float,
+) -> dict[str, Any]:
+    result["status"] = "SUCCESS"
+    result["message"] = (
+        "Architecture complète sélectionnée parmi les architectures H10 valides."
+    )
+    result["best_architecture"] = best
+    result["trace"]["elapsed_seconds"] = round(time.perf_counter() - started, 6)
+    result["trace"]["output_path"] = str(_save_json(output_path, result))
+    return result
 
 
 def _select_best_valid(
@@ -348,15 +426,18 @@ def run_e2e(
     project_root: Path = PROJECT_ROOT,
     backend: RuntimeBackend | None = None,
     limits: PipelineLimits | None = None,
+    search_options: SearchOptions | None = None,
 ) -> dict[str, Any]:
     """Run one canonical Requirement through the frozen online downstream."""
 
     started = time.perf_counter()
     resolved_limits = limits or PipelineLimits()
+    resolved_search = search_options or SearchOptions()
     root = Path(project_root).resolve()
     result = _base_result(
         requirement=requirement,
         limits=resolved_limits,
+        search_options=resolved_search,
     )
 
     try:
@@ -415,6 +496,73 @@ def run_e2e(
 
     result["candidate_space"] = _candidate_space_from_handoff(handoff)
 
+    if resolved_search.strategy == "beam":
+        search = {
+            "strategy": "beam",
+            "beam_search_applied": False,
+            "beam_width": resolved_search.beam_width,
+            "requested_top_k": handoff.get("requested_top_k"),
+            "actual_top_k": copy.deepcopy(handoff.get("actual_top_k")),
+            "max_paths_per_variant": resolved_limits.max_paths_per_variant,
+            "beam_status": None,
+            "global_infeasibility_claimed": False,
+            "selection_rule": (
+                "highest H9-scored architecture among those independently "
+                "confirmed VALID by H10 within the Beam search domain"
+            ),
+        }
+        result["architecture_search"] = search
+        try:
+            hardware_catalog = runtime.load_hardware_catalog()
+            result["trace"]["beam_search_applied"] = True
+            search["beam_search_applied"] = True
+            beam_result = runtime.run_beam_search(
+                handoff, hardware_catalog, resolved_limits, resolved_search,
+            )
+            search["beam_status"] = beam_result["status"]
+            for field in ("summary", "heuristic_policy", "search_trace", "lookahead_trace"):
+                search[field] = copy.deepcopy(beam_result[field])
+            if beam_result["status"] not in (
+                "VALID_ARCHITECTURE_FOUND",
+                "NO_VALID_ARCHITECTURE_FOUND_WITHIN_SEARCH_DOMAIN",
+            ):
+                raise E2EPipelineError(f"Statut Beam inattendu: {beam_result['status']}")
+            beam_best = beam_result["best_validated_architecture"]
+            best = (
+                _normalize_beam_best(beam_best)
+                if beam_best is not None
+                and beam_result["status"] == "VALID_ARCHITECTURE_FOUND"
+                else None
+            )
+        except Exception as error:
+            return _finish_failure(
+                result,
+                status="PIPELINE_ERROR",
+                stage="BEAM_SEARCH",
+                message=f"{type(error).__name__}: {error}",
+                output_path=Path(output_path),
+                started=started,
+            )
+
+        if best is None:
+            return _finish_failure(
+                result,
+                status="NO_VALID_ARCHITECTURE_WITHIN_SEARCH_DOMAIN",
+                stage="BEAM_SEARCH",
+                message=(
+                    "Aucune architecture H10 VALID trouvée dans le domaine Beam "
+                    f"courant (Top-K limité à {resolved_limits.top_k}, "
+                    f"beam_width={resolved_search.beam_width}, "
+                    f"max_paths_per_variant={resolved_limits.max_paths_per_variant}). "
+                    "Ce résultat ne constitue pas une preuve d'infaisabilité globale."
+                ),
+                output_path=Path(output_path),
+                started=started,
+            )
+        return _finish_success(
+            result, best=best, output_path=Path(output_path), started=started,
+        )
+
     try:
         hardware_catalog = runtime.load_hardware_catalog()
         generated = runtime.generate_architectures(
@@ -450,6 +598,7 @@ def run_e2e(
         )
 
     result["architecture_search"] = {
+        "strategy": "exhaustive",
         "h8_summary": copy.deepcopy(generated.get("summary", {})),
         "h9_summary": copy.deepcopy(scored.get("summary", {})),
         "h10_summary": copy.deepcopy(validated.get("summary", {})),
@@ -480,19 +629,9 @@ def run_e2e(
             started=started,
         )
 
-    result["status"] = "SUCCESS"
-    result["message"] = (
-        "Architecture complète sélectionnée parmi les architectures H10 valides."
+    return _finish_success(
+        result, best=best, output_path=Path(output_path), started=started,
     )
-    result["best_architecture"] = best
-    result["trace"]["elapsed_seconds"] = round(
-        time.perf_counter() - started,
-        6,
-    )
-    result["trace"]["output_path"] = str(
-        _save_json(Path(output_path), result)
-    )
-    return result
 
 
 def run_e2e_from_file(
@@ -501,6 +640,7 @@ def run_e2e_from_file(
     output_path: Path = DEFAULT_E2E_OUTPUT,
     project_root: Path = PROJECT_ROOT,
     limits: PipelineLimits | None = None,
+    search_options: SearchOptions | None = None,
 ) -> dict[str, Any]:
     path = Path(requirement_path)
     if not path.exists():
@@ -519,4 +659,5 @@ def run_e2e_from_file(
         output_path=Path(output_path),
         project_root=Path(project_root),
         limits=limits,
+        search_options=search_options,
     )

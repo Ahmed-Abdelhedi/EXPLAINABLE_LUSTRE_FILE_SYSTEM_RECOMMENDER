@@ -34,7 +34,7 @@ Le projet transforme une demande utilisateur exprimée en langage naturel en un 
 | H9 Architecture Scoring | ✅ Validé | score soft indépendant des contraintes dures |
 | H10 Full Architecture Validator | ✅ Validé | validation déterministe indépendante du score |
 | Feasibility coverage | ✅ Évaluée | 1090/1200 cas confirmés faisables après H10-C à K=10 |
-| Beam Search | ✅ Implémenté et testé | exploration limitée des candidats Top-K MDT/OST ; H9 final et confirmation H10 |
+| Beam Search | ✅ Implémenté et testé | V2.1 intégré au pipeline online ; stratégie Beam par défaut ; H10 final |
 
 Beam Search **V2.1**, revu le **3 octobre 2026** : **ACCEPTED WITH VALIDATION LIMITATIONS**.
 La validation étendue couvre 50 cas synthétiques et 1 000 configurations
@@ -88,7 +88,7 @@ flowchart TD
     L1 --> K1[Top-K MDT]
     L2 --> K2[Top-K OST]
 
-    K1 --> SEARCH[H8 exhaustif ou Beam Search]
+    K1 --> SEARCH[Beam V2.1 par défaut ou H8 de référence]
     K2 --> SEARCH
     SEARCH --> H5[H5 Protection arithmetic]
 
@@ -156,19 +156,24 @@ filtering
    ↓
 ranking
    ↓
-architecture generation / validation
+Beam Search V2.1 par défaut
+   ↓
+H9 scoring
+   ↓
+H10 validation
 ```
 
-Le point d’entrée actuel pour la partie online Requirement est :
+Le point d’entrée du pipeline online Requirement → Lustre est :
 
 ```powershell
 python main.py --device cpu
 ```
 
-Le fichier produit est :
+Les fichiers produits sont :
 
 ```text
 output/final_requirement.json
+output/final_e2e_result.json
 ```
 
 ---
@@ -785,7 +790,14 @@ Le launcher :
 7. lance BWM ;
 8. lance la validation finale ;
 9. revient vers l’utilisateur si la validation trouve une contradiction ;
-10. écrit le JSON final.
+10. écrit le JSON Requirement final ;
+11. lance S10, le filtrage/ranking MDT/OST, Beam V2.1, puis le scoring H9 et la validation H10.
+
+Le downstream utilise **Beam par défaut** et ne consomme que le Requirement
+nouvellement finalisé pendant la session. `--requirement-only` conserve le
+mode conversation seul ; `--search-strategy exhaustive` active le chemin H8
+de référence. Les règles de retour process restent inchangées : une absence
+de solution est un résultat normal, une `PIPELINE_ERROR` retourne le code 4.
 
 Exemple de correction automatique de flux :
 
@@ -1632,6 +1644,11 @@ La couche [Beam Search](lustre_architecture_generator/docs/beam_search.md)
 part des candidats **Top-K MDT/OST** et réduit l’espace de recherche avant la
 matérialisation de toutes les architectures complètes.
 
+**Beam Search V2.1 est maintenant intégré au pipeline online et constitue la
+stratégie production par défaut.** H8 reste disponible explicitement avec
+`--search-strategy exhaustive`. Cette intégration ne modifie pas l’algorithme
+Beam V2.1 déjà validé ; le moteur exécute H9/H10 une seule fois sur ses survivants.
+
 H5 reste responsable des protections, H6 de la compatibilité hardware et H7
 de l’état physique. H8 reste la référence exhaustive, H9 le scoring final et
 H10 l’autorité finale de validation physique. H5–H10 et le ranking restent
@@ -1669,6 +1686,21 @@ result = beam_search_architectures(
 )
 selected = result["best_validated_architecture"]
 ```
+
+### Utilisation production
+
+```powershell
+python main.py --device cpu
+python main.py --device cpu --search-strategy beam --beam-width 8
+python main.py --device cpu --search-strategy exhaustive
+```
+
+`--top-k` et `--max-paths-per-variant` sont partagés. `--beam-width` règle la
+largeur Beam ; `--max-role-options` et `--max-architectures` plafonnent le mode
+exhaustif. Le JSON E2E conserve `best_architecture` et expose la stratégie,
+les traces Beam et `global_infeasibility_claimed=False`. Sans solution Beam,
+le statut E2E est `NO_VALID_ARCHITECTURE_WITHIN_SEARCH_DOMAIN` ; il ne prouve
+aucune infaisabilité globale. [Contrat et configuration E2E](e2e_pipeline/README.md).
 
 ### Évolution V1 → V2 → V2.1
 
@@ -1904,6 +1936,17 @@ Depuis la racine `version2/` :
 python main.py --device cpu
 ```
 
+Cette commande utilise Beam V2.1 avec **B=8**. Pour choisir explicitement la
+stratégie ou ajuster sa largeur :
+
+```powershell
+python main.py --device cpu --search-strategy beam --beam-width 8
+python main.py --device cpu --search-strategy exhaustive
+```
+
+La recommandation finale est écrite dans `output/final_e2e_result.json` et
+doit être **H10 VALID**, quelle que soit la stratégie.
+
 Exemple :
 
 ```text
@@ -1942,6 +1985,19 @@ Pour quitter :
 ---
 
 # 31. Tests de non-régression actuels
+
+Validation de l’intégration production E2E, le 3 octobre 2026 :
+**48 tests E2E/CLI, 76 tests Beam, 303 tests architecture/sizing/ranking et
+549 tests globaux PASS**. Les suites Beam et architecture sont incluses dans
+la suite globale. L’algorithme Beam et les couches frozen restent inchangés.
+
+```powershell
+python -m pytest e2e_pipeline/tests -q
+python -m pytest lustre_architecture_generator/tests -q
+python -m pytest -q
+```
+
+La référence suivante décrit la validation du moteur avant son intégration E2E.
 
 Vérification finale Beam Search V2.1, le 3 octobre 2026 :
 **76 tests dédiés, 303 tests architecture/sizing/ranking et 509 tests globaux PASS**.
@@ -2176,8 +2232,10 @@ Pour une démonstration courte devant l’encadrant :
 9. afficher final_requirement.json
 10. montrer le sizing formula spec
 11. montrer les rankers officiels
-12. montrer H8 full architecture generation
-13. montrer H10 validation
+12. montrer Beam Search V2.1 et ses branches/survivants COMPLETE
+13. montrer le scoring final H9
+14. montrer la confirmation H10 VALID
+15. afficher final_e2e_result.json et architecture_search.strategy
 ```
 
 Commandes de départ :
@@ -2247,9 +2305,11 @@ Les **rankers MDT/OST LightGBM** sont officiels et intégrés avec filtrage dét
 
 La couche **H5–H10** sait construire et valider des architectures physiques complètes indépendamment du Beam Search.
 
-Le **Beam Search est implémenté pour optimiser l’exploration**, avec une
+Le **Beam Search V2.1 est intégré au pipeline production et utilisé par défaut
+pour optimiser l’exploration**, avec une
 heuristique partielle séparée de H9, des raisons de pruning comptabilisées et
-H10 comme autorité finale. La validation étendue V2.1
+H10 comme autorité finale. H8 reste accessible avec `--search-strategy exhaustive`.
+L’algorithme Beam est inchangé dans cette intégration. La validation étendue V2.1
 mesure séparément la qualité, la faisabilité et les limites de couverture.
 
 ---
