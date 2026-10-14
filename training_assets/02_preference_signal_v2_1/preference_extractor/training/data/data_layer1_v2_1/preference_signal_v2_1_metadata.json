@@ -1,0 +1,101 @@
+{
+  "task": "binary preference-signal detection",
+  "version": "v2.1",
+  "seed": 20260864,
+  "motivation": {
+    "observed_v2_validation_false_negatives": 72,
+    "all_false_negatives_family": "hard_long_context_final_choice",
+    "false_negatives_by_language": {
+      "en": 48,
+      "mixed": 24,
+      "fr": 0
+    },
+    "design_decision": "target EN and mixed long-context final-choice semantics with matched hard negatives"
+  },
+  "targeted_design": {
+    "positive_family": "v21_long_context_final_choice",
+    "negative_families": [
+      "v21_long_context_rejected_choice",
+      "v21_long_context_third_party_choice",
+      "v21_long_context_capability_choice",
+      "v21_long_context_no_preference"
+    ],
+    "train_size": 2400,
+    "val_size": 600,
+    "train_label_counts": {
+      "1": 1200,
+      "0": 1200
+    },
+    "val_label_counts": {
+      "1": 300,
+      "0": 300
+    },
+    "train_language_counts": {
+      "en": 1600,
+      "mixed": 800
+    },
+    "val_language_counts": {
+      "en": 400,
+      "mixed": 200
+    },
+    "template_family_isolation": true,
+    "known_72_validation_fn_copied_to_training": false
+  },
+  "targeted_train_size": 2400,
+  "targeted_val_size": 600,
+  "targeted_train_label_counts": {
+    "0": 1200,
+    "1": 1200
+  },
+  "targeted_val_label_counts": {
+    "0": 300,
+    "1": 300
+  },
+  "targeted_train_language_counts": {
+    "en": 1600,
+    "mixed": 800
+  },
+  "targeted_val_language_counts": {
+    "en": 400,
+    "mixed": 200
+  },
+  "targeted_train_val_text_overlap": 0,
+  "targeted_train_val_template_family_overlap": 0,
+  "targeted_train_val_template_id_overlap": 0,
+  "mode": "full",
+  "combined_sizes": {
+    "train_v2_1": 28400,
+    "val_v2_1": 5800,
+    "regression_val_v2": 5200,
+    "regression_holdout_v2": 1200,
+    "legacy_test_v1": 4000
+  },
+  "combined_label_counts": {
+    "train_v2_1": {
+      "1": 14200,
+      "0": 14200
+    },
+    "val_v2_1": {
+      "0": 2900,
+      "1": 2900
+    }
+  },
+  "exact_text_overlap_checks": {
+    "targeted_train_vs_v2_train": 0,
+    "targeted_val_vs_v2_train": 0,
+    "targeted_train_vs_v2_val": 0,
+    "targeted_val_vs_v2_val": 0,
+    "targeted_train_vs_v2_old_holdout_regression": 0,
+    "targeted_val_vs_v2_old_holdout_regression": 0,
+    "targeted_train_vs_known_500_regression": 0,
+    "targeted_val_vs_known_500_regression": 0
+  },
+  "combined_train_val_text_overlap": 0,
+  "combined_train_val_group_overlap": 0,
+  "protocol": {
+    "old_v2_validation": "development/regression only; it has been inspected",
+    "old_v2_holdout": "regression only; it has been inspected",
+    "known_500": "regression only; never merged into training",
+    "fresh_final_holdout_v3": "still untouched; do not generate/evaluate until V2.1 checkpoint and final threshold are frozen"
+  }
+}

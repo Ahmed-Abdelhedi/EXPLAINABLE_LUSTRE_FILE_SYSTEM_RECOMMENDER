@@ -1,0 +1,307 @@
+{
+  "status": "PASS",
+  "splits": {
+    "train": {
+      "rows": 40000,
+      "language": {
+        "fr": 16000,
+        "mixed": 8000,
+        "en": 16000
+      },
+      "ha_label": {
+        "HA_NOT_REQUIRED": 10000,
+        "HA_MENTION_NO_COMMITMENT": 10000,
+        "HA_NO_EVIDENCE": 10000,
+        "HA_REQUIRED": 10000
+      },
+      "access_label": {
+        "SEQUENTIAL": 10000,
+        "MIXED": 10000,
+        "NO_SUPPORTED_ACCESS_CLASS": 10000,
+        "RANDOM": 10000
+      },
+      "joint_combinations": 16,
+      "rows_per_joint_combination": 2500,
+      "difficulty": {
+        "hard": 9257,
+        "stress": 26828,
+        "medium": 3439,
+        "easy": 476
+      },
+      "noise_profile": {
+        "clean": 21623,
+        "lowercase": 4056,
+        "spacing": 3199,
+        "punctuation_light": 3186,
+        "chatty": 4019,
+        "typo_one": 3917
+      },
+      "stress_tag_top20": {
+        "multi_constraint": 25120,
+        "ha_negative_semantics": 20000,
+        "noisy_language": 18377,
+        "mixed": 10968,
+        "access_hard_negative": 10000,
+        "code_switch": 8000,
+        "correction": 7494,
+        "parallel": 3860,
+        "client": 2655,
+        "optional": 2431,
+        "downtime": 2402,
+        "dominant": 2191,
+        "mention": 2000,
+        "historical": 1490,
+        "failure": 1360,
+        "throughput": 1134,
+        "latency": 1104,
+        "offset": 1067,
+        "scattered": 1066,
+        "streaming": 1031
+      },
+      "ha_family_count": 31,
+      "access_family_count": 34,
+      "text_words": {
+        "min": 10,
+        "mean": 26.88,
+        "median": 27.0,
+        "p95": 38,
+        "max": 53
+      }
+    },
+    "validation": {
+      "rows": 6000,
+      "language": {
+        "fr": 2400,
+        "mixed": 1200,
+        "en": 2400
+      },
+      "ha_label": {
+        "HA_NO_EVIDENCE": 1500,
+        "HA_MENTION_NO_COMMITMENT": 1500,
+        "HA_REQUIRED": 1500,
+        "HA_NOT_REQUIRED": 1500
+      },
+      "access_label": {
+        "MIXED": 1500,
+        "NO_SUPPORTED_ACCESS_CLASS": 1500,
+        "SEQUENTIAL": 1500,
+        "RANDOM": 1500
+      },
+      "joint_combinations": 16,
+      "rows_per_joint_combination": 375,
+      "difficulty": {
+        "stress": 3973,
+        "hard": 1406,
+        "medium": 541,
+        "easy": 80
+      },
+      "noise_profile": {
+        "clean": 3300,
+        "lowercase": 554,
+        "typo_one": 564,
+        "punctuation_light": 526,
+        "chatty": 578,
+        "spacing": 478
+      },
+      "stress_tag_top20": {
+        "multi_constraint": 3716,
+        "ha_negative_semantics": 3000,
+        "noisy_language": 2700,
+        "mixed": 1633,
+        "access_hard_negative": 1500,
+        "code_switch": 1200,
+        "correction": 1111,
+        "parallel": 572,
+        "client": 389,
+        "optional": 375,
+        "downtime": 370,
+        "dominant": 301,
+        "mention": 300,
+        "cross_split_surface_hardening": 286,
+        "historical": 202,
+        "failure": 193,
+        "offset": 180,
+        "throughput": 170,
+        "latency": 164,
+        "streaming": 158
+      },
+      "ha_family_count": 31,
+      "access_family_count": 34,
+      "text_words": {
+        "min": 11,
+        "mean": 27.23,
+        "median": 27.0,
+        "p95": 38,
+        "max": 50
+      }
+    },
+    "test": {
+      "rows": 6000,
+      "language": {
+        "en": 2400,
+        "fr": 2400,
+        "mixed": 1200
+      },
+      "ha_label": {
+        "HA_REQUIRED": 1500,
+        "HA_NOT_REQUIRED": 1500,
+        "HA_NO_EVIDENCE": 1500,
+        "HA_MENTION_NO_COMMITMENT": 1500
+      },
+      "access_label": {
+        "RANDOM": 1500,
+        "NO_SUPPORTED_ACCESS_CLASS": 1500,
+        "SEQUENTIAL": 1500,
+        "MIXED": 1500
+      },
+      "joint_combinations": 16,
+      "rows_per_joint_combination": 375,
+      "difficulty": {
+        "stress": 4013,
+        "hard": 1377,
+        "medium": 545,
+        "easy": 65
+      },
+      "noise_profile": {
+        "typo_one": 549,
+        "clean": 3246,
+        "chatty": 648,
+        "lowercase": 574,
+        "spacing": 491,
+        "punctuation_light": 492
+      },
+      "stress_tag_top20": {
+        "multi_constraint": 3774,
+        "ha_negative_semantics": 3000,
+        "noisy_language": 2754,
+        "mixed": 1644,
+        "access_hard_negative": 1500,
+        "code_switch": 1200,
+        "correction": 1123,
+        "parallel": 535,
+        "client": 393,
+        "optional": 359,
+        "downtime": 345,
+        "dominant": 332,
+        "mention": 300,
+        "cross_split_surface_hardening": 293,
+        "historical": 227,
+        "failure": 210,
+        "throughput": 178,
+        "offset": 174,
+        "scattered": 174,
+        "streaming": 167
+      },
+      "ha_family_count": 31,
+      "access_family_count": 34,
+      "text_words": {
+        "min": 10,
+        "mean": 27.27,
+        "median": 27.0,
+        "p95": 38,
+        "max": 56
+      }
+    },
+    "final_holdout": {
+      "rows": 4000,
+      "language": {
+        "en": 1600,
+        "fr": 1600,
+        "mixed": 800
+      },
+      "ha_label": {
+        "HA_REQUIRED": 1000,
+        "HA_NO_EVIDENCE": 1000,
+        "HA_MENTION_NO_COMMITMENT": 1000,
+        "HA_NOT_REQUIRED": 1000
+      },
+      "access_label": {
+        "SEQUENTIAL": 1000,
+        "NO_SUPPORTED_ACCESS_CLASS": 1000,
+        "RANDOM": 1000,
+        "MIXED": 1000
+      },
+      "joint_combinations": 16,
+      "rows_per_joint_combination": 250,
+      "difficulty": {
+        "easy": 56,
+        "medium": 342,
+        "stress": 2696,
+        "hard": 906
+      },
+      "noise_profile": {
+        "clean": 2204,
+        "lowercase": 408,
+        "punctuation_light": 297,
+        "chatty": 395,
+        "typo_one": 389,
+        "spacing": 307
+      },
+      "stress_tag_top20": {
+        "multi_constraint": 2459,
+        "ha_negative_semantics": 2000,
+        "noisy_language": 1796,
+        "mixed": 1123,
+        "access_hard_negative": 1000,
+        "code_switch": 800,
+        "correction": 758,
+        "parallel": 409,
+        "client": 276,
+        "downtime": 267,
+        "optional": 238,
+        "cross_split_surface_hardening": 238,
+        "dominant": 203,
+        "mention": 200,
+        "historical": 144,
+        "failure": 136,
+        "scattered": 117,
+        "streaming": 116,
+        "throughput": 108,
+        "latency": 104
+      },
+      "ha_family_count": 31,
+      "access_family_count": 34,
+      "text_words": {
+        "min": 12,
+        "mean": 27.41,
+        "median": 27.0,
+        "p95": 38,
+        "max": 53
+      }
+    }
+  },
+  "cross_split": {
+    "train__validation": {
+      "exact_text_overlap": 0,
+      "masked_number_skeleton_overlap": 0
+    },
+    "train__test": {
+      "exact_text_overlap": 0,
+      "masked_number_skeleton_overlap": 0
+    },
+    "train__final_holdout": {
+      "exact_text_overlap": 0,
+      "masked_number_skeleton_overlap": 0
+    },
+    "validation__test": {
+      "exact_text_overlap": 0,
+      "masked_number_skeleton_overlap": 0
+    },
+    "validation__final_holdout": {
+      "exact_text_overlap": 0,
+      "masked_number_skeleton_overlap": 0
+    },
+    "test__final_holdout": {
+      "exact_text_overlap": 0,
+      "masked_number_skeleton_overlap": 0
+    }
+  },
+  "semantic_safety_audit": {
+    "HA_NO_EVIDENCE_rows_with_HA_or_failure_cue": 0,
+    "NO_SUPPORTED_ACCESS_CLASS_rows_with_order_class_cue": 0,
+    "ha_examples": [],
+    "access_examples": []
+  },
+  "error_count": 0,
+  "errors": []
+}

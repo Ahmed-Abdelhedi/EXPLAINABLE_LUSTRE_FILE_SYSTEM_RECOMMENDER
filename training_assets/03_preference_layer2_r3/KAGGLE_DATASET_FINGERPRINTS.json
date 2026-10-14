@@ -1,0 +1,29 @@
+{
+  "dataset_version": "2026-08-24-r3-kaggle-fresh",
+  "files": {
+    "train": {
+      "filename": "preference_layer2_r3_train.jsonl",
+      "sha256": "cd8bab6da02891ae76af40f268ca674626a6a931a9d8d9e4d0fd26d7c8aa840b",
+      "bytes": 62971469,
+      "rows": 48000
+    },
+    "validation": {
+      "filename": "preference_layer2_r3_validation.jsonl",
+      "sha256": "81b70cd8510fe3ba9657979283344aa37cbcfebc68d16bde15ead60f44d5da0a",
+      "bytes": 8085457,
+      "rows": 6000
+    },
+    "test": {
+      "filename": "preference_layer2_r3_test.jsonl",
+      "sha256": "bfe49319df7ca531a7db5df3045697e3e564c2561bec00996a39c5326be67142",
+      "bytes": 7890212,
+      "rows": 6000
+    },
+    "final_holdout": {
+      "filename": "preference_layer2_r3_final_holdout.jsonl",
+      "sha256": "9a5834803decb0d4d234a2fec2f9d905563a96765f713c88fd55834b2918ce5a",
+      "bytes": 5546318,
+      "rows": 4000
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "dataset_name": "categorical_boolean_semantic_final_v1_20260826",
+  "status": "FINAL_DATASET_QA_PASS",
+  "provenance": "controlled_synthetic_semantic_dataset",
+  "purpose": "single heavy multitask XLM-R training for ha_required and access_type",
+  "total_rows": 56000,
+  "splits": {
+    "train": 40000,
+    "validation": 6000,
+    "test": 6000,
+    "final_holdout": 4000
+  },
+  "language_distribution_each_split": {
+    "en": 0.4,
+    "fr": 0.4,
+    "mixed": 0.2
+  },
+  "ha_labels": [
+    "HA_REQUIRED",
+    "HA_NOT_REQUIRED",
+    "HA_MENTION_NO_COMMITMENT",
+    "HA_NO_EVIDENCE"
+  ],
+  "access_labels": [
+    "SEQUENTIAL",
+    "RANDOM",
+    "MIXED",
+    "NO_SUPPORTED_ACCESS_CLASS"
+  ],
+  "joint_label_matrix": "perfectly balanced 4x4 in every split",
+  "stress_design": {
+    "controlled_noise": [
+      "lowercase",
+      "punctuation_light",
+      "single_typo",
+      "chatty_prefix",
+      "spacing_variation"
+    ],
+    "ha_stress": [
+      "negation",
+      "not_optional_vs_not_required",
+      "downtime_tolerance",
+      "single_node_failure",
+      "historical_mentions",
+      "importance_without_commitment",
+      "corrections",
+      "concessions",
+      "implicit_service_continuity"
+    ],
+    "access_stress": [
+      "parallel_only_trap",
+      "parallel_random",
+      "parallel_sequential",
+      "streaming",
+      "implicit_contiguous_scans",
+      "implicit_unpredictable_offsets",
+      "mixed_phases",
+      "data_vs_metadata",
+      "dominance",
+      "corrections",
+      "throughput_only",
+      "client_count_only",
+      "file_size_only",
+      "latency_only"
+    ],
+    "multi_constraint_examples": true,
+    "code_switch_examples": true
+  },
+  "leakage_contract": {
+    "cross_split_exact_normalized_text_overlap": 0,
+    "cross_split_masked_number_skeleton_overlap": 0,
+    "cross_split_template_id_overlap": 0,
+    "cross_split_structure_fingerprint_overlap": 0
+  },
+  "negative_class_safety_audit": {
+    "HA_NO_EVIDENCE_rows_with_HA_or_failure_cue": 0,
+    "NO_SUPPORTED_ACCESS_CLASS_rows_with_order_class_cue": 0,
+    "ha_examples": [],
+    "access_examples": []
+  },
+  "qa_report": "DATASET_FINAL_QA_REPORT.json",
+  "sha256": {
+    "train": "d99211f8b81d5cba11ee168f3276a49ffc07afba7172c10bb5cbefb56767d1cc",
+    "validation": "06f87922033929b060993c5de0353b9227b43f08a5627a7b596db0ed2a406654",
+    "test": "a9a8ef072666bdba26b45f3bd7c862fcb8338ac80f535c1724b62478e7941a7e",
+    "final_holdout": "44546841333f7134cb249940106ab2e687ab6b6ca109b90d0b6af7ee30fc6c33"
+  },
+  "file_sizes_bytes": {
+    "train": 30195491,
+    "validation": 4636224,
+    "test": 4536029,
+    "final_holdout": 3135059
+  },
+  "important_limitation": "This is a controlled synthetic benchmark/training corpus. QA guarantees structural and labeling contracts implemented here, not universal real-world perfection."
+}

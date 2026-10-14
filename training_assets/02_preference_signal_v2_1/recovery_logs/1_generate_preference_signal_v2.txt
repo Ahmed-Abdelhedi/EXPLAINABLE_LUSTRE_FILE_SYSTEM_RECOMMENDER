@@ -1,0 +1,71 @@
+{
+  "task": "binary preference-signal detection",
+  "version": "v2",
+  "seed": 20260823,
+  "hard_families": [
+    "hard_conditional_choice",
+    "hard_question_tradeoff",
+    "hard_long_context_final_choice",
+    "hard_ranked_telegraphic",
+    "hard_counterfactual_tradeoff",
+    "hard_third_party_rejected",
+    "hard_negated_report",
+    "hard_system_capability",
+    "hard_rejected_draft",
+    "hard_lexical_priority_trap"
+  ],
+  "hard_split_sizes": {
+    "train": 6000,
+    "val": 1200,
+    "independent_holdout": 1200
+  },
+  "hard_per_family": {
+    "train": 600,
+    "val": 120,
+    "holdout": 120
+  },
+  "language_ratios": {
+    "en": 0.4,
+    "fr": 0.4,
+    "mixed": 0.2
+  },
+  "template_family_isolation": true,
+  "known_500_stress_exact_text_overlap": {
+    "hard_train": 0,
+    "hard_val": 0,
+    "independent_holdout": 0
+  },
+  "protocol": {
+    "known_500_case_benchmark": "regression only; never merged into training",
+    "independent_holdout": "template families disjoint from hard train and hard validation; do not inspect before checkpoint and threshold freeze"
+  },
+  "combined_sizes": {
+    "train_v2": 26000,
+    "val_v2": 5200,
+    "independent_holdout_v2": 1200,
+    "legacy_test_v1_4000": 4000
+  },
+  "combined_label_counts": {
+    "train_v2": {
+      "PREFERENCE_SIGNAL": 13000,
+      "NO_PREFERENCE_SIGNAL": 13000
+    },
+    "val_v2": {
+      "NO_PREFERENCE_SIGNAL": 2600,
+      "PREFERENCE_SIGNAL": 2600
+    }
+  },
+  "combined_language_counts": {
+    "train_v2": {
+      "en": 10400,
+      "fr": 10400,
+      "mixed": 5200
+    },
+    "val_v2": {
+      "mixed": 1040,
+      "en": 2080,
+      "fr": 2080
+    }
+  }
+}
+

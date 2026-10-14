@@ -1,0 +1,216 @@
+{
+  "train": {
+    "n": 98100,
+    "fields": {
+      "average_file_size_gb": 8175,
+      "max_file_size_gb": 8175,
+      "requested_usable_capacity_tib": 8175,
+      "annual_growth_percent": 8175,
+      "target_read_gbps": 8175,
+      "client_count": 8175,
+      "total_file_count": 8175,
+      "max_budget_usd": 8175,
+      "__UNRESOLVED__": 8175,
+      "read_write_ratio": 8175,
+      "target_write_gbps": 8175,
+      "max_power_w": 8175
+    },
+    "roles": {
+      "average_value": 6995,
+      "maximum_limit": 13466,
+      "current_value": 14892,
+      "growth_rate": 6951,
+      "minimum_limit": 4979,
+      "total_count": 14005,
+      "target": 9309,
+      "unspecified": 17886,
+      "ratio_component": 7015,
+      "expected_value": 2602
+    },
+    "languages": {
+      "fr": 36968,
+      "en": 36776,
+      "mixed": 24356
+    },
+    "dimensions": {
+      "file_size": 16382,
+      "capacity": 10038,
+      "percent": 16356,
+      "throughput": 18161,
+      "unknown": 17636,
+      "money": 9549,
+      "power": 9978
+    },
+    "stress_families": {
+      "unit_surface_variation": 6000,
+      "hpc_hard_negative": 6000,
+      "short_telegraphic": 6000,
+      "quantity_words": 6000,
+      "current_target_collision": 6000,
+      "conversational_human_like": 6000,
+      "punctuation_case_noise": 6000,
+      "complex_role_temporal": 6000,
+      "alternative_pair": 6000,
+      "long_context": 6000,
+      "semantic_anchor_typo": 6000,
+      "noisy_mixed_typos": 6000,
+      "paraphrase_synonym": 6000,
+      "multi_quantity_collision": 6000,
+      "mixed_code_switch": 6000,
+      "preserved_in_v3_train": 2100,
+      "clean_natural": 6000
+    },
+    "unique_original_texts": 89100,
+    "unique_marked_texts": 98100
+  },
+  "val": {
+    "n": 15360,
+    "fields": {
+      "max_file_size_gb": 1280,
+      "max_budget_usd": 1280,
+      "target_read_gbps": 1280,
+      "target_write_gbps": 1280,
+      "annual_growth_percent": 1280,
+      "client_count": 1280,
+      "requested_usable_capacity_tib": 1280,
+      "total_file_count": 1280,
+      "__UNRESOLVED__": 1280,
+      "read_write_ratio": 1280,
+      "max_power_w": 1280,
+      "average_file_size_gb": 1280
+    },
+    "roles": {
+      "maximum_limit": 2105,
+      "current_value": 2373,
+      "target": 1412,
+      "minimum_limit": 788,
+      "growth_rate": 1093,
+      "total_count": 2198,
+      "unspecified": 2778,
+      "ratio_component": 1085,
+      "expected_value": 428,
+      "average_value": 1100
+    },
+    "languages": {
+      "mixed": 3816,
+      "fr": 5776,
+      "en": 5768
+    },
+    "dimensions": {
+      "file_size": 2560,
+      "money": 1479,
+      "throughput": 2838,
+      "percent": 2560,
+      "unknown": 2783,
+      "capacity": 1570,
+      "power": 1570
+    },
+    "stress_families": {
+      "semantic_anchor_typo": 960,
+      "clean_natural": 960,
+      "long_context": 960,
+      "conversational_human_like": 960,
+      "current_target_collision": 960,
+      "unit_surface_variation": 960,
+      "hpc_hard_negative": 960,
+      "short_telegraphic": 960,
+      "punctuation_case_noise": 960,
+      "paraphrase_synonym": 960,
+      "alternative_pair": 960,
+      "quantity_words": 960,
+      "mixed_code_switch": 960,
+      "noisy_mixed_typos": 960,
+      "multi_quantity_collision": 960,
+      "complex_role_temporal": 960
+    },
+    "unique_original_texts": 13920,
+    "unique_marked_texts": 15360
+  },
+  "test": {
+    "n": 15360,
+    "fields": {
+      "total_file_count": 1280,
+      "client_count": 1280,
+      "max_power_w": 1280,
+      "max_file_size_gb": 1280,
+      "requested_usable_capacity_tib": 1280,
+      "average_file_size_gb": 1280,
+      "annual_growth_percent": 1280,
+      "max_budget_usd": 1280,
+      "__UNRESOLVED__": 1280,
+      "read_write_ratio": 1280,
+      "target_write_gbps": 1280,
+      "target_read_gbps": 1280
+    },
+    "roles": {
+      "total_count": 2185,
+      "maximum_limit": 2075,
+      "target": 1410,
+      "unspecified": 2817,
+      "average_value": 1095,
+      "expected_value": 442,
+      "growth_rate": 1081,
+      "ratio_component": 1092,
+      "current_value": 2352,
+      "minimum_limit": 811
+    },
+    "languages": {
+      "mixed": 3820,
+      "en": 5754,
+      "fr": 5786
+    },
+    "dimensions": {
+      "unknown": 2758,
+      "power": 1568,
+      "file_size": 2560,
+      "capacity": 1574,
+      "percent": 2560,
+      "money": 1480,
+      "throughput": 2860
+    },
+    "stress_families": {
+      "paraphrase_synonym": 960,
+      "quantity_words": 960,
+      "punctuation_case_noise": 960,
+      "conversational_human_like": 960,
+      "short_telegraphic": 960,
+      "multi_quantity_collision": 960,
+      "noisy_mixed_typos": 960,
+      "semantic_anchor_typo": 960,
+      "current_target_collision": 960,
+      "unit_surface_variation": 960,
+      "mixed_code_switch": 960,
+      "clean_natural": 960,
+      "alternative_pair": 960,
+      "hpc_hard_negative": 960,
+      "complex_role_temporal": 960,
+      "long_context": 960
+    },
+    "unique_original_texts": 13920,
+    "unique_marked_texts": 15360
+  },
+  "files": {
+    "train": {
+      "name": "semantic_linker_train_v3_combined.jsonl",
+      "sha256": "2e627c89dcefc2fe618e04f0936701656af2161a6c2a404013907a073ae3de8e",
+      "bytes": 92868110
+    },
+    "train_stress": {
+      "name": "semantic_linker_train_v3_stress_only.jsonl",
+      "sha256": "aa4c1630e43a52144e3c71619de90b9272e54e6ab08fde6192d378f2a21d83f5",
+      "bytes": 91130488
+    },
+    "val": {
+      "name": "semantic_linker_val_v3_global_stress.jsonl",
+      "sha256": "4d4ec071efae344474cd7995346e0d36c4be6d7c1034499f3205be43d866f4da",
+      "bytes": 14786623
+    },
+    "test": {
+      "name": "semantic_linker_test_v3_global_stress.jsonl",
+      "sha256": "8179c6a5d98aac8e6fb4c4155636b6c7b38df41c83c9bde3c377d11e50040bad",
+      "bytes": 14888560
+    }
+  },
+  "generator_seed": 20260820,
+  "design_note": "Alternative X-or-Y requirements are represented as TWO positive samples sharing one original_text/group_id, one [Q] target at a time; downstream guards decide which candidate survives."
+}

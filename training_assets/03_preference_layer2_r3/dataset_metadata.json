@@ -1,0 +1,65 @@
+{
+  "dataset_name": "Preference Layer 2 Kaggle Fresh R3",
+  "version": "2026-08-24-r3-kaggle-fresh",
+  "source_semantics": "R2 repaired content, repackaged with unique filenames and hash-first loader",
+  "sizes": {
+    "train": 48000,
+    "validation": 6000,
+    "test": 6000,
+    "final_holdout": 4000
+  },
+  "languages": {
+    "en": 0.4,
+    "fr": 0.4,
+    "mixed": 0.2
+  },
+  "dimensions": [
+    "cost",
+    "power",
+    "performance",
+    "reliability"
+  ],
+  "levels": [
+    "NO_SIGNAL",
+    "VERY_LOW",
+    "LOW",
+    "MEDIUM",
+    "HIGH",
+    "VERY_HIGH"
+  ],
+  "critical_rules": [
+    "NO_SIGNAL != VERY_LOW",
+    "pure comparison => presence=1, intensity_mask=0, relation preserved",
+    "latest/current preference wins over superseded/history"
+  ],
+  "length_safety": {
+    "runaway_padding_removed": true,
+    "max_word_length": 76,
+    "per_split": {
+      "train": {
+        "p50": 23,
+        "p95": 42,
+        "p99": 51,
+        "max": 74
+      },
+      "validation": {
+        "p50": 24,
+        "p95": 43,
+        "p99": 59,
+        "max": 71
+      },
+      "test": {
+        "p50": 25,
+        "p95": 43,
+        "p99": 52,
+        "max": 70
+      },
+      "final_holdout": {
+        "p50": 27,
+        "p95": 46,
+        "p99": 53,
+        "max": 76
+      }
+    }
+  }
+}

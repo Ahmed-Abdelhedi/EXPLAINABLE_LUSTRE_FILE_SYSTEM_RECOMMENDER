@@ -1,0 +1,264 @@
+{
+  "dataset": "preference_signal_layer1_v1",
+  "seed": 20260820,
+  "all_checks_pass": true,
+  "checks_passed": 24,
+  "checks_total": 24,
+  "checks": [
+    {
+      "name": "train_size",
+      "pass": true,
+      "observed": 20000,
+      "expected": 20000
+    },
+    {
+      "name": "train_balanced_labels",
+      "pass": true,
+      "observed": {
+        "PREFERENCE_SIGNAL": 10000,
+        "NO_PREFERENCE_SIGNAL": 10000
+      },
+      "expected": "50/50"
+    },
+    {
+      "name": "train_language_40_40_20",
+      "pass": true,
+      "observed": {
+        "en": 8000,
+        "fr": 8000,
+        "mixed": 4000
+      },
+      "expected": {
+        "en": 8000,
+        "fr": 8000,
+        "mixed": 4000
+      }
+    },
+    {
+      "name": "train_20_families_equal",
+      "pass": true,
+      "observed": {
+        "comparative": 1000,
+        "typo_semantic_positive": 1000,
+        "descriptive_system_fact": 1000,
+        "concept_mention_only": 1000,
+        "tradeoff": 1000,
+        "quantitative_only": 1000,
+        "mixed_requirement_preference": 1000,
+        "negative_preference": 1000,
+        "long_context_negative": 1000,
+        "hpc_hard_negative": 1000,
+        "multi_preference": 1000,
+        "question_without_preference": 1000,
+        "long_context_positive": 1000,
+        "multi_quantity_no_preference": 1000,
+        "typo_semantic_negative": 1000,
+        "positive_explicit": 1000,
+        "historical_observation": 1000,
+        "short_telegraphic": 1000,
+        "out_of_scope": 1000,
+        "positive_implicit": 1000
+      },
+      "expected": "20x1000"
+    },
+    {
+      "name": "train_unique_text",
+      "pass": true,
+      "observed": 20000,
+      "expected": "all unique"
+    },
+    {
+      "name": "train_all_dimensions_covered",
+      "pass": true,
+      "observed": {
+        "reliability": 3496,
+        "performance": 3521,
+        "power": 3513,
+        "cost": 3470
+      },
+      "expected": "all > 0"
+    },
+    {
+      "name": "val_size",
+      "pass": true,
+      "observed": 4000,
+      "expected": 4000
+    },
+    {
+      "name": "val_balanced_labels",
+      "pass": true,
+      "observed": {
+        "NO_PREFERENCE_SIGNAL": 2000,
+        "PREFERENCE_SIGNAL": 2000
+      },
+      "expected": "50/50"
+    },
+    {
+      "name": "val_language_40_40_20",
+      "pass": true,
+      "observed": {
+        "fr": 1600,
+        "en": 1600,
+        "mixed": 800
+      },
+      "expected": {
+        "en": 1600,
+        "fr": 1600,
+        "mixed": 800
+      }
+    },
+    {
+      "name": "val_20_families_equal",
+      "pass": true,
+      "observed": {
+        "typo_semantic_negative": 200,
+        "question_without_preference": 200,
+        "long_context_positive": 200,
+        "multi_quantity_no_preference": 200,
+        "out_of_scope": 200,
+        "multi_preference": 200,
+        "negative_preference": 200,
+        "mixed_requirement_preference": 200,
+        "quantitative_only": 200,
+        "hpc_hard_negative": 200,
+        "long_context_negative": 200,
+        "positive_implicit": 200,
+        "descriptive_system_fact": 200,
+        "concept_mention_only": 200,
+        "historical_observation": 200,
+        "positive_explicit": 200,
+        "typo_semantic_positive": 200,
+        "comparative": 200,
+        "short_telegraphic": 200,
+        "tradeoff": 200
+      },
+      "expected": "20x200"
+    },
+    {
+      "name": "val_unique_text",
+      "pass": true,
+      "observed": 4000,
+      "expected": "all unique"
+    },
+    {
+      "name": "val_all_dimensions_covered",
+      "pass": true,
+      "observed": {
+        "reliability": 695,
+        "power": 720,
+        "cost": 694,
+        "performance": 691
+      },
+      "expected": "all > 0"
+    },
+    {
+      "name": "test_size",
+      "pass": true,
+      "observed": 4000,
+      "expected": 4000
+    },
+    {
+      "name": "test_balanced_labels",
+      "pass": true,
+      "observed": {
+        "PREFERENCE_SIGNAL": 2000,
+        "NO_PREFERENCE_SIGNAL": 2000
+      },
+      "expected": "50/50"
+    },
+    {
+      "name": "test_language_40_40_20",
+      "pass": true,
+      "observed": {
+        "fr": 1600,
+        "mixed": 800,
+        "en": 1600
+      },
+      "expected": {
+        "en": 1600,
+        "fr": 1600,
+        "mixed": 800
+      }
+    },
+    {
+      "name": "test_20_families_equal",
+      "pass": true,
+      "observed": {
+        "long_context_positive": 200,
+        "question_without_preference": 200,
+        "negative_preference": 200,
+        "tradeoff": 200,
+        "typo_semantic_positive": 200,
+        "positive_implicit": 200,
+        "long_context_negative": 200,
+        "out_of_scope": 200,
+        "multi_preference": 200,
+        "multi_quantity_no_preference": 200,
+        "historical_observation": 200,
+        "typo_semantic_negative": 200,
+        "mixed_requirement_preference": 200,
+        "short_telegraphic": 200,
+        "quantitative_only": 200,
+        "concept_mention_only": 200,
+        "positive_explicit": 200,
+        "comparative": 200,
+        "descriptive_system_fact": 200,
+        "hpc_hard_negative": 200
+      },
+      "expected": "20x200"
+    },
+    {
+      "name": "test_unique_text",
+      "pass": true,
+      "observed": 4000,
+      "expected": "all unique"
+    },
+    {
+      "name": "test_all_dimensions_covered",
+      "pass": true,
+      "observed": {
+        "cost": 687,
+        "reliability": 725,
+        "power": 693,
+        "performance": 695
+      },
+      "expected": "all > 0"
+    },
+    {
+      "name": "train_val_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_val_group_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_test_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_test_group_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "val_test_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "val_test_group_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    }
+  ]
+}

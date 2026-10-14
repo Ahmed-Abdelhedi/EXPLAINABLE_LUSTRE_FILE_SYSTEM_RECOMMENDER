@@ -1,0 +1,308 @@
+{
+  "dataset": "preference_signal_layer1_v2_1",
+  "all_checks_pass": true,
+  "checks_passed": 39,
+  "checks_total": 39,
+  "checks": [
+    {
+      "name": "train_v2_1_size",
+      "pass": true,
+      "observed": 28400,
+      "expected": 28400
+    },
+    {
+      "name": "val_v2_1_size",
+      "pass": true,
+      "observed": 5800,
+      "expected": 5800
+    },
+    {
+      "name": "targeted_train_size",
+      "pass": true,
+      "observed": 2400,
+      "expected": 2400
+    },
+    {
+      "name": "targeted_val_size",
+      "pass": true,
+      "observed": 600,
+      "expected": 600
+    },
+    {
+      "name": "regression_val_v2_size",
+      "pass": true,
+      "observed": 5200,
+      "expected": 5200
+    },
+    {
+      "name": "regression_holdout_v2_size",
+      "pass": true,
+      "observed": 1200,
+      "expected": 1200
+    },
+    {
+      "name": "legacy_test_v1_size",
+      "pass": true,
+      "observed": 4000,
+      "expected": 4000
+    },
+    {
+      "name": "known_500_size",
+      "pass": true,
+      "observed": 500,
+      "expected": 500
+    },
+    {
+      "name": "train_v2_1_required_fields",
+      "pass": true,
+      "observed": true,
+      "expected": true
+    },
+    {
+      "name": "train_v2_1_unique_text",
+      "pass": true,
+      "observed": 28400,
+      "expected": 28400
+    },
+    {
+      "name": "train_v2_1_unique_group_id",
+      "pass": true,
+      "observed": 28400,
+      "expected": 28400
+    },
+    {
+      "name": "val_v2_1_required_fields",
+      "pass": true,
+      "observed": true,
+      "expected": true
+    },
+    {
+      "name": "val_v2_1_unique_text",
+      "pass": true,
+      "observed": 5800,
+      "expected": 5800
+    },
+    {
+      "name": "val_v2_1_unique_group_id",
+      "pass": true,
+      "observed": 5800,
+      "expected": 5800
+    },
+    {
+      "name": "targeted_train_required_fields",
+      "pass": true,
+      "observed": true,
+      "expected": true
+    },
+    {
+      "name": "targeted_train_unique_text",
+      "pass": true,
+      "observed": 2400,
+      "expected": 2400
+    },
+    {
+      "name": "targeted_train_unique_group_id",
+      "pass": true,
+      "observed": 2400,
+      "expected": 2400
+    },
+    {
+      "name": "targeted_val_required_fields",
+      "pass": true,
+      "observed": true,
+      "expected": true
+    },
+    {
+      "name": "targeted_val_unique_text",
+      "pass": true,
+      "observed": 600,
+      "expected": 600
+    },
+    {
+      "name": "targeted_val_unique_group_id",
+      "pass": true,
+      "observed": 600,
+      "expected": 600
+    },
+    {
+      "name": "train_v2_1_label_balance",
+      "pass": true,
+      "observed": {
+        "1": 14200,
+        "0": 14200
+      },
+      "expected": {
+        "0": 14200,
+        "1": 14200
+      }
+    },
+    {
+      "name": "val_v2_1_label_balance",
+      "pass": true,
+      "observed": {
+        "0": 2900,
+        "1": 2900
+      },
+      "expected": {
+        "0": 2900,
+        "1": 2900
+      }
+    },
+    {
+      "name": "targeted_train_label_balance",
+      "pass": true,
+      "observed": {
+        "0": 1200,
+        "1": 1200
+      },
+      "expected": {
+        "0": 1200,
+        "1": 1200
+      }
+    },
+    {
+      "name": "targeted_val_label_balance",
+      "pass": true,
+      "observed": {
+        "0": 300,
+        "1": 300
+      },
+      "expected": {
+        "0": 300,
+        "1": 300
+      }
+    },
+    {
+      "name": "targeted_train_language_targeting",
+      "pass": true,
+      "observed": {
+        "en": 1600,
+        "mixed": 800
+      },
+      "expected": {
+        "en": 1600,
+        "mixed": 800
+      }
+    },
+    {
+      "name": "targeted_val_language_targeting",
+      "pass": true,
+      "observed": {
+        "en": 400,
+        "mixed": 200
+      },
+      "expected": {
+        "en": 400,
+        "mixed": 200
+      }
+    },
+    {
+      "name": "targeted_train_family_counts",
+      "pass": true,
+      "observed": {
+        "v21_long_context_no_preference": 300,
+        "v21_long_context_final_choice": 1200,
+        "v21_long_context_rejected_choice": 300,
+        "v21_long_context_capability_choice": 300,
+        "v21_long_context_third_party_choice": 300
+      },
+      "expected": {
+        "v21_long_context_final_choice": 1200,
+        "v21_long_context_rejected_choice": 300,
+        "v21_long_context_third_party_choice": 300,
+        "v21_long_context_capability_choice": 300,
+        "v21_long_context_no_preference": 300
+      }
+    },
+    {
+      "name": "targeted_val_family_counts",
+      "pass": true,
+      "observed": {
+        "v21_long_context_rejected_choice": 75,
+        "v21_long_context_no_preference": 75,
+        "v21_long_context_final_choice": 300,
+        "v21_long_context_third_party_choice": 75,
+        "v21_long_context_capability_choice": 75
+      },
+      "expected": {
+        "v21_long_context_final_choice": 300,
+        "v21_long_context_rejected_choice": 75,
+        "v21_long_context_third_party_choice": 75,
+        "v21_long_context_capability_choice": 75,
+        "v21_long_context_no_preference": 75
+      }
+    },
+    {
+      "name": "combined_train_val_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "combined_train_val_group_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "targeted_train_val_template_family_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "targeted_train_val_template_id_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "targeted_train_regression_val_v2_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "targeted_val_regression_val_v2_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "targeted_train_regression_holdout_v2_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "targeted_val_regression_holdout_v2_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "targeted_train_known_500_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "targeted_val_known_500_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "known_v2_validation_messages_not_copied",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    }
+  ],
+  "protocol": {
+    "old_v2_validation": "development/regression only",
+    "old_v2_holdout": "regression only",
+    "known_500": "regression only",
+    "fresh_final_holdout_v3": "must remain untouched until V2.1 model and final threshold are frozen"
+  }
+}

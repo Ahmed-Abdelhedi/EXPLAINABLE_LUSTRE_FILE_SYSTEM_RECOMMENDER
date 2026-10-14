@@ -1,0 +1,90 @@
+{
+  "generator_files_modified": false,
+  "python_version": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "serialization": "Original JSONL LF line endings restored after running unmodified generators on Windows. JSON records and their order are unchanged.",
+  "qa": {
+    "v2": {
+      "all_checks_pass": true,
+      "checks_passed": 39,
+      "checks_total": 39
+    },
+    "v2_1": {
+      "all_checks_pass": true,
+      "checks_passed": 39,
+      "checks_total": 39
+    }
+  },
+  "archived_v2_hard_data_comparison": {
+    "preference_signal_hard_train_v2.jsonl": {
+      "all_json_records_identical_and_in_same_order": true,
+      "byte_for_byte_identical_to_archived_original": true,
+      "sha256": "af0df8ad076a5baad81426e3e06d3ffc7921537dc3607175d792ff780a614a4b"
+    },
+    "preference_signal_hard_val_v2.jsonl": {
+      "all_json_records_identical_and_in_same_order": true,
+      "byte_for_byte_identical_to_archived_original": true,
+      "sha256": "0d225463ec03718744bbee2d74d8ee8fbb2cfcd647a4775dfa2b3771c30a6916"
+    },
+    "preference_signal_independent_holdout_v2.jsonl": {
+      "all_json_records_identical_and_in_same_order": true,
+      "byte_for_byte_identical_to_archived_original": true,
+      "sha256": "82bcffc99ebead3e0a655f0b390c92caab87346eb1c16ff0ac3d5199e0d0874a"
+    }
+  },
+  "regenerated_v2_1_files": [
+    {
+      "file": "02_preference_signal_v2_1/preference_extractor/training/data/data_layer1_v2_1/preference_signal_legacy_test_v1_4000.jsonl",
+      "rows": 4000,
+      "sha256": "aa0d22be23af1ed487825ee5c05c57041347524c7f938194899033fe095df28c",
+      "provenance": "regenerated_with_original_generator",
+      "identity_to_historical_v2_1_bytes": "not_verifiable_no_historical_hash_found"
+    },
+    {
+      "file": "02_preference_signal_v2_1/preference_extractor/training/data/data_layer1_v2_1/preference_signal_regression_holdout_v2_1200.jsonl",
+      "rows": 1200,
+      "sha256": "82bcffc99ebead3e0a655f0b390c92caab87346eb1c16ff0ac3d5199e0d0874a",
+      "provenance": "regenerated_with_original_generator",
+      "identity_to_historical_v2_1_bytes": "not_verifiable_no_historical_hash_found"
+    },
+    {
+      "file": "02_preference_signal_v2_1/preference_extractor/training/data/data_layer1_v2_1/preference_signal_regression_val_v2_5200.jsonl",
+      "rows": 5200,
+      "sha256": "f28fa387f50cc1118ea153fb66743632e7e25dcd1d459e8b49e272afe04d0cef",
+      "provenance": "regenerated_with_original_generator",
+      "identity_to_historical_v2_1_bytes": "not_verifiable_no_historical_hash_found"
+    },
+    {
+      "file": "02_preference_signal_v2_1/preference_extractor/training/data/data_layer1_v2_1/preference_signal_targeted_train_v2_1.jsonl",
+      "rows": 2400,
+      "sha256": "844df2e76c4e227f8333bdeee91dad28ea1df5383cb14b08a8945fe4c45e6afe",
+      "provenance": "regenerated_with_original_generator",
+      "identity_to_historical_v2_1_bytes": "not_verifiable_no_historical_hash_found"
+    },
+    {
+      "file": "02_preference_signal_v2_1/preference_extractor/training/data/data_layer1_v2_1/preference_signal_targeted_val_v2_1.jsonl",
+      "rows": 600,
+      "sha256": "b68bd10f9567eb25132df70df1cc79b31583985906987c36e44fb3574af2f580",
+      "provenance": "regenerated_with_original_generator",
+      "identity_to_historical_v2_1_bytes": "not_verifiable_no_historical_hash_found"
+    },
+    {
+      "file": "02_preference_signal_v2_1/preference_extractor/training/data/data_layer1_v2_1/preference_signal_train_v2_1.jsonl",
+      "rows": 28400,
+      "sha256": "a1b853307698a32c5fd74bfd35e5dda4ddf844e4328cba1b6520b93232f8a047",
+      "provenance": "regenerated_with_original_generator",
+      "identity_to_historical_v2_1_bytes": "not_verifiable_no_historical_hash_found"
+    },
+    {
+      "file": "02_preference_signal_v2_1/preference_extractor/training/data/data_layer1_v2_1/preference_signal_val_v2_1.jsonl",
+      "rows": 5800,
+      "sha256": "b8a006364886abd1058fd5869ea2fd8a9a3a68d92e6aa46370836f8292e5268b",
+      "provenance": "regenerated_with_original_generator",
+      "identity_to_historical_v2_1_bytes": "not_verifiable_no_historical_hash_found"
+    }
+  ],
+  "limitation": "Original V2.1 train/val JSONL and historical hashes were not found. Reconstruction uses recovered V1 data and original V2/V2.1 generators and seeds. Bit-for-bit identity with historical V2.1 cannot be certified.",
+  "public_original_retrieval_attempt": {
+    "url": "https://www.kaggle.com/api/v1/datasets/download/ahmedabdelhedii/data-layer1-v2-1",
+    "result": "HTTP 403; no authentication attempted"
+  }
+}

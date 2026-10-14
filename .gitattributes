@@ -6,3 +6,7 @@ lustre_architecture_generator/artifacts/rankers/official/mdt/mdt_ranker.txt -tex
 lustre_architecture_generator/artifacts/rankers/official/ost/ost_ranker.txt -text
 categorical_boolean_extractor/artifacts/categorical_boolean_xlmr_v1_FROZEN.zip filter=lfs diff=lfs merge=lfs -text
 preference_layer2_xlmr_v1_FINAL.zip filter=lfs diff=lfs merge=lfs -text
+
+# Recovered training files: preserve bytes for the recorded SHA-256 checksums.
+training_assets/** -text
+training_assets/**/*.jsonl filter=lfs diff=lfs merge=lfs -text

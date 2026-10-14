@@ -1,0 +1,196 @@
+{
+  "status": "PASS",
+  "checks": {
+    "train_unique_sample_ids": {
+      "pass": true,
+      "detail": null
+    },
+    "train_one_quantity_marker": {
+      "pass": true,
+      "detail": null
+    },
+    "train_raw_quantity_matches_marker": {
+      "pass": true,
+      "detail": null
+    },
+    "train_field_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "train_role_compatibility": {
+      "pass": true,
+      "detail": null
+    },
+    "train_dimension_compatibility": {
+      "pass": true,
+      "detail": null
+    },
+    "train_language_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "train_unique_marked_texts": {
+      "pass": true,
+      "detail": {
+        "n": 98100,
+        "unique": 98100
+      }
+    },
+    "train_value_source_unit_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "val_unique_sample_ids": {
+      "pass": true,
+      "detail": null
+    },
+    "val_one_quantity_marker": {
+      "pass": true,
+      "detail": null
+    },
+    "val_raw_quantity_matches_marker": {
+      "pass": true,
+      "detail": null
+    },
+    "val_field_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "val_role_compatibility": {
+      "pass": true,
+      "detail": null
+    },
+    "val_dimension_compatibility": {
+      "pass": true,
+      "detail": null
+    },
+    "val_language_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "val_unique_marked_texts": {
+      "pass": true,
+      "detail": {
+        "n": 15360,
+        "unique": 15360
+      }
+    },
+    "val_value_source_unit_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "test_unique_sample_ids": {
+      "pass": true,
+      "detail": null
+    },
+    "test_one_quantity_marker": {
+      "pass": true,
+      "detail": null
+    },
+    "test_raw_quantity_matches_marker": {
+      "pass": true,
+      "detail": null
+    },
+    "test_field_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "test_role_compatibility": {
+      "pass": true,
+      "detail": null
+    },
+    "test_dimension_compatibility": {
+      "pass": true,
+      "detail": null
+    },
+    "test_language_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "test_unique_marked_texts": {
+      "pass": true,
+      "detail": {
+        "n": 15360,
+        "unique": 15360
+      }
+    },
+    "test_value_source_unit_contract": {
+      "pass": true,
+      "detail": null
+    },
+    "train_role_wording_sanity": {
+      "pass": true,
+      "detail": []
+    },
+    "val_role_wording_sanity": {
+      "pass": true,
+      "detail": []
+    },
+    "test_role_wording_sanity": {
+      "pass": true,
+      "detail": []
+    },
+    "train_generator_grammar_sanity": {
+      "pass": true,
+      "detail": []
+    },
+    "val_generator_grammar_sanity": {
+      "pass": true,
+      "detail": []
+    },
+    "test_generator_grammar_sanity": {
+      "pass": true,
+      "detail": []
+    },
+    "no_marked_text_overlap_train_val": {
+      "pass": true,
+      "detail": 0
+    },
+    "no_group_overlap_train_val": {
+      "pass": true,
+      "detail": 0
+    },
+    "no_marked_text_overlap_train_test": {
+      "pass": true,
+      "detail": 0
+    },
+    "no_group_overlap_train_test": {
+      "pass": true,
+      "detail": 0
+    },
+    "no_marked_text_overlap_val_test": {
+      "pass": true,
+      "detail": 0
+    },
+    "no_group_overlap_val_test": {
+      "pass": true,
+      "detail": 0
+    },
+    "train_alternative_pair_two_extractable_quantities": {
+      "pass": true,
+      "detail": {
+        "groups": 3000,
+        "bad": []
+      }
+    },
+    "val_alternative_pair_two_extractable_quantities": {
+      "pass": true,
+      "detail": {
+        "groups": 480,
+        "bad": []
+      }
+    },
+    "test_alternative_pair_two_extractable_quantities": {
+      "pass": true,
+      "detail": {
+        "groups": 480,
+        "bad": []
+      }
+    },
+    "known_holdout_failures_not_copied_into_new_test": {
+      "pass": true,
+      "detail": null
+    }
+  },
+  "warnings": []
+}

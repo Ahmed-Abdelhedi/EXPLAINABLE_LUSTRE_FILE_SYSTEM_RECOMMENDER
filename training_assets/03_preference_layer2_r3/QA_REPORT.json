@@ -1,0 +1,140 @@
+{
+  "all_checks_pass": true,
+  "stats": {
+    "train": {
+      "n": 48000,
+      "languages": {
+        "fr": 19200,
+        "mixed": 9600,
+        "en": 19200
+      },
+      "layer1_expected": {
+        "1": 46560,
+        "0": 1440
+      },
+      "word_lengths": {
+        "p50": 23,
+        "p95": 42,
+        "p99": 51,
+        "max": 74
+      },
+      "char_lengths": {
+        "p99": 329,
+        "max": 451
+      }
+    },
+    "validation": {
+      "n": 6000,
+      "languages": {
+        "en": 2400,
+        "fr": 2400,
+        "mixed": 1200
+      },
+      "layer1_expected": {
+        "1": 5820,
+        "0": 180
+      },
+      "word_lengths": {
+        "p50": 24,
+        "p95": 43,
+        "p99": 59,
+        "max": 71
+      },
+      "char_lengths": {
+        "p99": 378,
+        "max": 452
+      }
+    },
+    "test": {
+      "n": 6000,
+      "languages": {
+        "mixed": 1200,
+        "fr": 2400,
+        "en": 2400
+      },
+      "layer1_expected": {
+        "1": 5820,
+        "0": 180
+      },
+      "word_lengths": {
+        "p50": 25,
+        "p95": 43,
+        "p99": 52,
+        "max": 70
+      },
+      "char_lengths": {
+        "p99": 332,
+        "max": 446
+      }
+    },
+    "final_holdout": {
+      "n": 4000,
+      "languages": {
+        "mixed": 800,
+        "en": 1600,
+        "fr": 1600
+      },
+      "layer1_expected": {
+        "1": 3880,
+        "0": 120
+      },
+      "word_lengths": {
+        "p50": 27,
+        "p95": 46,
+        "p99": 53,
+        "max": 76
+      },
+      "char_lengths": {
+        "p99": 344,
+        "max": 464
+      }
+    }
+  },
+  "pairwise": {
+    "train__validation": {
+      "exact_text_overlap": 0,
+      "numeric_normalized_structural_overlap": 0,
+      "sample_id_overlap": 0,
+      "template_id_overlap": 0
+    },
+    "train__test": {
+      "exact_text_overlap": 0,
+      "numeric_normalized_structural_overlap": 0,
+      "sample_id_overlap": 0,
+      "template_id_overlap": 0
+    },
+    "train__final_holdout": {
+      "exact_text_overlap": 0,
+      "numeric_normalized_structural_overlap": 0,
+      "sample_id_overlap": 0,
+      "template_id_overlap": 0
+    },
+    "validation__test": {
+      "exact_text_overlap": 0,
+      "numeric_normalized_structural_overlap": 0,
+      "sample_id_overlap": 0,
+      "template_id_overlap": 0
+    },
+    "validation__final_holdout": {
+      "exact_text_overlap": 0,
+      "numeric_normalized_structural_overlap": 0,
+      "sample_id_overlap": 0,
+      "template_id_overlap": 0
+    },
+    "test__final_holdout": {
+      "exact_text_overlap": 0,
+      "numeric_normalized_structural_overlap": 0,
+      "sample_id_overlap": 0,
+      "template_id_overlap": 0
+    }
+  },
+  "critical_checks": {
+    "schema_and_evidence_pass": true,
+    "within_split_exact_text_unique": true,
+    "cross_split_exact_text_overlap_zero": true,
+    "cross_split_structural_overlap_zero": true,
+    "cross_split_sample_id_overlap_zero": true,
+    "cross_split_template_id_overlap_zero": true,
+    "runaway_length_absent": true
+  }
+}

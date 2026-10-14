@@ -1,0 +1,346 @@
+{
+  "dataset": "preference_signal_layer1_v2",
+  "all_checks_pass": true,
+  "checks_passed": 39,
+  "checks_total": 39,
+  "known_500_exact_text_overlap": {
+    "train_v2": 0,
+    "val_v2": 0,
+    "independent_holdout_v2": 0
+  },
+  "checks": [
+    {
+      "name": "train_v2_size",
+      "pass": true,
+      "observed": 26000,
+      "expected": 26000
+    },
+    {
+      "name": "train_v2_required_fields",
+      "pass": true,
+      "observed": true,
+      "expected": true
+    },
+    {
+      "name": "train_v2_unique_sample_id",
+      "pass": true,
+      "observed": 26000,
+      "expected": 26000
+    },
+    {
+      "name": "train_v2_unique_group_id",
+      "pass": true,
+      "observed": 26000,
+      "expected": 26000
+    },
+    {
+      "name": "train_v2_unique_text",
+      "pass": true,
+      "observed": 26000,
+      "expected": 26000
+    },
+    {
+      "name": "train_v2_balanced_labels",
+      "pass": true,
+      "observed": {
+        "1": 13000,
+        "0": 13000
+      },
+      "expected": "50/50"
+    },
+    {
+      "name": "train_v2_language_40_40_20",
+      "pass": true,
+      "observed": {
+        "en": 10400,
+        "fr": 10400,
+        "mixed": 5200
+      },
+      "expected": {
+        "en": 10400,
+        "fr": 10400,
+        "mixed": 5200
+      }
+    },
+    {
+      "name": "train_v2_hard_family_counts",
+      "pass": true,
+      "observed": {
+        "hard_lexical_priority_trap": 600,
+        "hard_rejected_draft": 600,
+        "hard_question_tradeoff": 600,
+        "hard_third_party_rejected": 600,
+        "hard_long_context_final_choice": 600,
+        "hard_ranked_telegraphic": 600,
+        "hard_negated_report": 600,
+        "hard_conditional_choice": 600,
+        "hard_counterfactual_tradeoff": 600,
+        "hard_system_capability": 600
+      },
+      "expected": {
+        "hard_conditional_choice": 600,
+        "hard_question_tradeoff": 600,
+        "hard_long_context_final_choice": 600,
+        "hard_ranked_telegraphic": 600,
+        "hard_counterfactual_tradeoff": 600,
+        "hard_third_party_rejected": 600,
+        "hard_negated_report": 600,
+        "hard_system_capability": 600,
+        "hard_rejected_draft": 600,
+        "hard_lexical_priority_trap": 600
+      }
+    },
+    {
+      "name": "val_v2_size",
+      "pass": true,
+      "observed": 5200,
+      "expected": 5200
+    },
+    {
+      "name": "val_v2_required_fields",
+      "pass": true,
+      "observed": true,
+      "expected": true
+    },
+    {
+      "name": "val_v2_unique_sample_id",
+      "pass": true,
+      "observed": 5200,
+      "expected": 5200
+    },
+    {
+      "name": "val_v2_unique_group_id",
+      "pass": true,
+      "observed": 5200,
+      "expected": 5200
+    },
+    {
+      "name": "val_v2_unique_text",
+      "pass": true,
+      "observed": 5200,
+      "expected": 5200
+    },
+    {
+      "name": "val_v2_balanced_labels",
+      "pass": true,
+      "observed": {
+        "0": 2600,
+        "1": 2600
+      },
+      "expected": "50/50"
+    },
+    {
+      "name": "val_v2_language_40_40_20",
+      "pass": true,
+      "observed": {
+        "mixed": 1040,
+        "en": 2080,
+        "fr": 2080
+      },
+      "expected": {
+        "en": 2080,
+        "fr": 2080,
+        "mixed": 1040
+      }
+    },
+    {
+      "name": "val_v2_hard_family_counts",
+      "pass": true,
+      "observed": {
+        "hard_third_party_rejected": 120,
+        "hard_question_tradeoff": 120,
+        "hard_long_context_final_choice": 120,
+        "hard_counterfactual_tradeoff": 120,
+        "hard_lexical_priority_trap": 120,
+        "hard_ranked_telegraphic": 120,
+        "hard_rejected_draft": 120,
+        "hard_system_capability": 120,
+        "hard_negated_report": 120,
+        "hard_conditional_choice": 120
+      },
+      "expected": {
+        "hard_conditional_choice": 120,
+        "hard_question_tradeoff": 120,
+        "hard_long_context_final_choice": 120,
+        "hard_ranked_telegraphic": 120,
+        "hard_counterfactual_tradeoff": 120,
+        "hard_third_party_rejected": 120,
+        "hard_negated_report": 120,
+        "hard_system_capability": 120,
+        "hard_rejected_draft": 120,
+        "hard_lexical_priority_trap": 120
+      }
+    },
+    {
+      "name": "independent_holdout_v2_size",
+      "pass": true,
+      "observed": 1200,
+      "expected": 1200
+    },
+    {
+      "name": "independent_holdout_v2_required_fields",
+      "pass": true,
+      "observed": true,
+      "expected": true
+    },
+    {
+      "name": "independent_holdout_v2_unique_sample_id",
+      "pass": true,
+      "observed": 1200,
+      "expected": 1200
+    },
+    {
+      "name": "independent_holdout_v2_unique_group_id",
+      "pass": true,
+      "observed": 1200,
+      "expected": 1200
+    },
+    {
+      "name": "independent_holdout_v2_unique_text",
+      "pass": true,
+      "observed": 1200,
+      "expected": 1200
+    },
+    {
+      "name": "independent_holdout_v2_balanced_labels",
+      "pass": true,
+      "observed": {
+        "0": 600,
+        "1": 600
+      },
+      "expected": "50/50"
+    },
+    {
+      "name": "independent_holdout_v2_language_40_40_20",
+      "pass": true,
+      "observed": {
+        "mixed": 240,
+        "fr": 480,
+        "en": 480
+      },
+      "expected": {
+        "en": 480,
+        "fr": 480,
+        "mixed": 240
+      }
+    },
+    {
+      "name": "independent_holdout_v2_hard_family_counts",
+      "pass": true,
+      "observed": {
+        "hard_lexical_priority_trap": 120,
+        "hard_rejected_draft": 120,
+        "hard_third_party_rejected": 120,
+        "hard_system_capability": 120,
+        "hard_conditional_choice": 120,
+        "hard_negated_report": 120,
+        "hard_ranked_telegraphic": 120,
+        "hard_question_tradeoff": 120,
+        "hard_counterfactual_tradeoff": 120,
+        "hard_long_context_final_choice": 120
+      },
+      "expected": {
+        "hard_conditional_choice": 120,
+        "hard_question_tradeoff": 120,
+        "hard_long_context_final_choice": 120,
+        "hard_ranked_telegraphic": 120,
+        "hard_counterfactual_tradeoff": 120,
+        "hard_third_party_rejected": 120,
+        "hard_negated_report": 120,
+        "hard_system_capability": 120,
+        "hard_rejected_draft": 120,
+        "hard_lexical_priority_trap": 120
+      }
+    },
+    {
+      "name": "train_v2_val_v2_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_v2_val_v2_group_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_v2_val_v2_hard_template_family_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_v2_val_v2_hard_template_id_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_v2_independent_holdout_v2_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_v2_independent_holdout_v2_group_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_v2_independent_holdout_v2_hard_template_family_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_v2_independent_holdout_v2_hard_template_id_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "val_v2_independent_holdout_v2_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "val_v2_independent_holdout_v2_group_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "val_v2_independent_holdout_v2_hard_template_family_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "val_v2_independent_holdout_v2_hard_template_id_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "train_v2_known_500_exact_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "val_v2_known_500_exact_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    },
+    {
+      "name": "independent_holdout_v2_known_500_exact_text_overlap_zero",
+      "pass": true,
+      "observed": 0,
+      "expected": 0
+    }
+  ]
+}
